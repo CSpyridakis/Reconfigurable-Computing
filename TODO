@@ -1,0 +1,4 @@
+TODO LIST:
+
+* change write pointer and read pointer --> to signals
+* Why empty signal is asserted in wrong situations
