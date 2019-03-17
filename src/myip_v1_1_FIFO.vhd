@@ -54,10 +54,14 @@ architecture Behavioral of myip_v1_1_FIFO is
 	constant FIFO_DEPTH : integer := 64; 
 	
 	-- Implement FIFO as an array of logic_vectors
-	type FIFO_TYPE is array (0 to (FIFO_DEPTH-1)) of std_logic_vector((FIFO_DATA_WIDTH-1) downto 0);
+	type FIFO_TYPE is array (0 to (FIFO_DEPTH - 1)) of std_logic_vector((FIFO_DATA_WIDTH-1) downto 0);
 	signal FIFO : FIFO_TYPE;
 	
-	
+	-- Write pointer is an integer with strictly acceptable values
+    signal write_pointer : integer range 0 to FIFO_DEPTH-1;
+    -- Read pointer is an integer with strictly acceptable values 
+    signal read_pointer : integer range 0 to FIFO_DEPTH-1;
+    
 	-- Indicators
 	signal full : std_logic;
 	signal empty : std_logic;
@@ -67,28 +71,28 @@ architecture Behavioral of myip_v1_1_FIFO is
 	
 	-- FIFO's valid states for FSM
 	type FIFO_STATES is ( IDLE,        		-- This is the initial/idle state 
-								 READ_FIFO,   		-- Read data from FIFO
+						  READ_FIFO,   		-- Read data from FIFO
 	                      WRITE_FIFO,		-- In this state FIFO pushes data
-								 READ_WRITE_FIFO);-- Read and write in FIFO simultaneously 		 
+						  READ_WRITE_FIFO); -- Read and write in FIFO simultaneously 		 
 	signal  STATE : FIFO_STATES; 
 	
 	
 	-- Use this signal only for DEBUG purposes
 	type DEBUG_STATES is( RESETED,
-								 NOP,
-								 READ_DONE_WRITE_DONE,   		
+						  NOP,
+						  READ_DONE_WRITE_DONE,   		
 	                      READ_DONE_WRITE_FAILED,
-								 READ_FAILED_WRITE_DONE, 
-								 READ_DONE,   		
+						  READ_FAILED_WRITE_DONE, 
+						  READ_DONE,   		
 	                      READ_FAILED,
-								 WRITE_DONE,   		
+						  WRITE_DONE,   		
 	                      WRITE_FAILED); 		 
 	signal ACTION : DEBUG_STATES; 
 	
 begin
 	-- Indicator signals
---	full  <= '1' when (write_pointer + 1 = read_pointer OR (read_pointer = 0 AND write_pointer = FIFO_DEPTH - 1)) else '0';
---	empty <= '1' when (read_pointer = write_pointer) else '0';
+	full  <= '1' when (write_pointer + 1 = read_pointer OR (read_pointer = 0 AND write_pointer = FIFO_DEPTH - 1)) else '0';
+	empty <= '1' when (read_pointer = write_pointer) else '0';
 		
 	-- Actual connections
 	FIFO_FULL     <= full;
@@ -97,32 +101,16 @@ begin
 	
 	-- In this process exists the implementation of FIFO's control logic 
 	process(FIFO_ACLK) 
-		-- Write pointer is an integer with strictly acceptable values
-		variable write_pointer : integer;
-		-- Read pointer is an integer with strictly acceptable values 
-		variable read_pointer : integer;
+
 	begin   
 	  if (rising_edge (FIFO_ACLK)) then
 			-- Synchronous reset (active low) 
 			if (FIFO_ARESETN= '0') then
 				data_out      <= (others => '0');
-				write_pointer := 62;
-				read_pointer  := write_pointer;
+				write_pointer <= 0;
+				read_pointer  <= write_pointer;
 				ACTION <= RESETED;
 			else
-				-- Full check
-				if (write_pointer + 1 = read_pointer OR (read_pointer = 0 AND write_pointer = FIFO_DEPTH - 1)) then 
-					full <= '1';
-				else
-					full <='0';
-				end if;
-				
-				-- Empty Check
-				if (read_pointer = write_pointer) then 
-					empty <= '1';
-				else
-					empty <='0';
-				end if;
 				
 				-- Both read and write actions are asserted at the same cc
 				if (FIFO_WEN = '1' AND FIFO_REN = '1') then 
@@ -133,21 +121,21 @@ begin
 						-- Push Data
 						FIFO(write_pointer) <= FIFO_DATA_IN;
 						-- Increment write position
-						write_pointer := write_pointer + 1;
+						write_pointer <= write_pointer + 1;
 						
 						-- If out of bounds make correction
-						if (write_pointer > FIFO_DEPTH-1) then 
-							write_pointer := 0;
+						if (write_pointer >= FIFO_DEPTH-1) then 
+							write_pointer <= 0;
 						end if;
 						
 						-- Pop Data
 						data_out <= FIFO(read_pointer);
 						-- Increment write position
-						read_pointer := read_pointer + 1;
+						read_pointer <= read_pointer + 1;
 						
 						-- If out of bounds make correction
-						if (read_pointer > FIFO_DEPTH-1) then 
-							read_pointer := 0;
+						if (read_pointer >= FIFO_DEPTH-1) then 
+							read_pointer <= 0;
 						end if;
 						
 						ACTION<=READ_DONE_WRITE_DONE;
@@ -155,11 +143,11 @@ begin
 						-- Push Data
 						FIFO(write_pointer) <= FIFO_DATA_IN;
 						-- Increment write position
-						write_pointer := write_pointer + 1;
+						write_pointer <= write_pointer + 1;
 						
 						-- If out of bounds make correction
-						if (write_pointer > FIFO_DEPTH-1) then 
-							write_pointer := 0;
+						if (write_pointer >= FIFO_DEPTH-1) then 
+							write_pointer <= 0;
 						end if;
 						
 						ACTION<=READ_FAILED_WRITE_DONE;
@@ -167,11 +155,11 @@ begin
 						-- Pop Data
 						data_out <= FIFO(read_pointer);
 						-- Increment write position
-						read_pointer := read_pointer + 1;
+						read_pointer <= read_pointer + 1;
 						
 						-- If out of bounds make correction
-						if (read_pointer > FIFO_DEPTH-1) then 
-							read_pointer := 0;
+						if (read_pointer >= FIFO_DEPTH-1) then 
+							read_pointer <= 0;
 						end if;
 						
 						ACTION<=READ_DONE_WRITE_FAILED;
@@ -186,11 +174,11 @@ begin
 						-- Push Data
 						FIFO(write_pointer) <= FIFO_DATA_IN;
 						-- Increment write position
-						write_pointer := write_pointer + 1;
+						write_pointer <= write_pointer + 1;
 						
 						-- If out of bounds make correction
-						if (write_pointer > FIFO_DEPTH-1) then 
-							write_pointer := 0;
+						if (write_pointer >= FIFO_DEPTH-1) then 
+							write_pointer <= 0;
 						end if;
 						ACTION <= WRITE_DONE;
 					else
@@ -206,11 +194,11 @@ begin
 						-- Pop Data
 						data_out <= FIFO(read_pointer);
 						-- Increment write position
-						read_pointer := read_pointer + 1;
+						read_pointer <= read_pointer + 1;
 						
 						-- If out of bounds make correction
-						if (read_pointer > FIFO_DEPTH-1) then 
-							read_pointer := 0;
+						if (read_pointer >= FIFO_DEPTH-1) then 
+							read_pointer <= 0;
 						end if;
 						 ACTION <= READ_DONE;
 					else
