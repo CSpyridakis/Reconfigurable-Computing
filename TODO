@@ -1,6 +1,6 @@
 TODO LIST:
 
-
+IMPORTANT: FIFO lenght change (at this point is a 63 length FIFO)
 
 DONE:
 * change write pointer and read pointer --> to signals

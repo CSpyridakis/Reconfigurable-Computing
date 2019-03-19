@@ -31,7 +31,7 @@ entity myip_v1_1_S00_AXIS is
 		-- This is the same as the global signal S_AXIS_ACLK
 		FIFO_W_ACLK		: out std_logic;
 		-- Global Reset signal
-		FIFO_ARSTN 		: out std_logic;
+		FIFO_W_ARSTN 		: out std_logic;
 		-- Information about full FIFO's state
 		FIFO_FULL 		: in std_logic;
 		-- Write data in FIFO using this signal
@@ -65,8 +65,8 @@ begin
     DONE <= S_AXIS_TLAST AND (NOT FIFO_FULL);
 	 
 		-- Just wiring
-    FIFO_ACLK    <= S_AXIS_ACLK;
-    FIFO_ARSTN   <= S_AXIS_ARESETN; 
+    FIFO_W_ACLK  <= S_AXIS_ACLK;
+    FIFO_W_ARSTN <= S_AXIS_ARESETN; 
     FIFO_DATA_IN <= S_AXIS_TDATA;
 	
 	-- We are ready to receive data only when we are not busy
@@ -78,8 +78,13 @@ begin
 	-- This is important because according to AXIS4 and AXIS4 Streaming Protocols
 	-- handshake has to be preceded and then on the next cc we receive data
 	process(S_AXIS_ACLK)                                                                           
-    begin                
-    	FIFO_WEN_TMP <= S_AXIS_TVALID and (NOT FIFO_FULL);                                                                               
+		begin     
+			if (S_AXIS_TVALID='1' and (NOT FIFO_FULL)='1') then
+				FIFO_WEN_TMP <='1';
+			else
+				FIFO_WEN_TMP <='0'; 
+			end if;           
+
       if (rising_edge (S_AXIS_ACLK)) then                       
         if(S_AXIS_ARESETN = '0') then                                                              
           FIFO_WEN_TMP <= '0';                                                                                                                               

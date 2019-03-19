@@ -25,7 +25,7 @@ use ieee.numeric_std.all;
 entity myip_v1_1 is
 	generic (
 		-- Parameters of Axi Master Bus Interface M00_AXIS
-		C_M00_AXIS_TDATA_WIDTH	: integer	:= 32
+		C_M00_AXIS_TDATA_WIDTH	: integer	:= 32;
 
 		-- Parameters of Axi Slave Bus Interface S00_AXIS
 		C_S00_AXIS_TDATA_WIDTH	: integer	:= 32
@@ -60,6 +60,7 @@ architecture arch_imp of myip_v1_1 is
 		);
 		port (
 		FIFO_R_ACLK		: out std_logic;
+		FIFO_R_ARSTN 	: out std_logic;
 		FIFO_EMPTY      : in std_logic;
 		FIFO_REN        : out std_logic;
 		FIFO_DATA_OUT	: in std_logic_vector(C_M_AXIS_TDATA_WIDTH-1 downto 0);
@@ -80,7 +81,7 @@ architecture arch_imp of myip_v1_1 is
 		);
 		port (
 		FIFO_W_ACLK		: out std_logic;
-		FIFO_ARSTN 		: out std_logic;
+		FIFO_W_ARSTN 		: out std_logic;
 		FIFO_FULL 		: in std_logic;
 		FIFO_WEN	 	: out std_logic;
 		FIFO_DATA_IN 	: out std_logic_vector(C_S_AXIS_TDATA_WIDTH-1 downto 0);
@@ -115,6 +116,8 @@ architecture arch_imp of myip_v1_1 is
 
 signal FIFO_W_ACLK_TMP 		: std_logic;
 signal FIFO_R_ACLK_TMP 		: std_logic;
+signal FIFO_W_ARSTN_TMP		: std_logic;
+signal FIFO_R_ARSTN_TMP 	: std_logic;
 signal FIFO_ARST_TMP 		: std_logic;
 signal FIFO_FULL_TMP 		: std_logic;
 signal FIFO_EMPTY_TMP 		: std_logic;
@@ -129,10 +132,11 @@ begin
 -- Instantiation of Axi Bus Interface M00_AXIS
 myip_v1_1_M00_AXIS_inst : myip_v1_1_M00_AXIS
 	generic map (
-		C_M_AXIS_TDATA_WIDTH	=> C_M00_AXIS_TDATA_WIDTH,
+		C_M_AXIS_TDATA_WIDTH	=> C_M00_AXIS_TDATA_WIDTH
 	)
 	port map (
 		FIFO_R_ACLK      		=> FIFO_R_ACLK_TMP,
+		FIFO_R_ARSTN			=> FIFO_R_ARSTN_TMP,
 		FIFO_EMPTY      		=> FIFO_EMPTY_TMP,
 		FIFO_REN        		=> FIFO_REN_TMP,
 	    FIFO_DATA_OUT			=> FIFO_DATA_OUT_TMP,
@@ -153,7 +157,7 @@ myip_v1_1_S00_AXIS_inst : myip_v1_1_S00_AXIS
 	)
 	port map (
 		FIFO_W_ACLK       		=> FIFO_W_ACLK_TMP,
-		FIFO_ARSTN      		=> FIFO_ARST_TMP,
+		FIFO_W_ARSTN      		=> FIFO_W_ARSTN_TMP,
 	    FIFO_FULL       		=> FIFO_FULL_TMP,
         FIFO_WEN         		=> FIFO_WEN_TMP,
         FIFO_DATA_IN    		=> FIFO_DATA_IN_TMP,
@@ -167,8 +171,10 @@ myip_v1_1_S00_AXIS_inst : myip_v1_1_S00_AXIS
 		S_AXIS_TVALID			=> s00_axis_tvalid
 	);
 
+FIFO_ARST_TMP <= FIFO_R_ARSTN_TMP OR FIFO_W_ARSTN_TMP;
+
 -- Instantiation of FIFO module
-myip_v1_1_FIFO : myip_v1_1_FIFO
+myip_v1_1_FIFO_inst : myip_v1_1_FIFO
 	generic map(
 			FIFO_DATA_WIDTH	=> 32
 	)

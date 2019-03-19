@@ -30,6 +30,8 @@ entity myip_v1_1_M00_AXIS is
 	port (
 		-- This is the same as the global signal M_AXIS_ACLK
 		FIFO_R_ACLK			: out std_logic;
+		-- Global Reset signal
+		FIFO_R_ARSTN 		: out std_logic;
 		-- Information about empty FIFO's state
 		FIFO_EMPTY      : in std_logic;
 		-- Read from FIFO using this signal
@@ -70,7 +72,8 @@ begin
 	-- DMAe is ready and we have valid data to send
 	FIFO_REN  		<= M_AXIS_TREADY AND (NOT FIFO_EMPTY);
 	FIFO_R_ACLK		<= M_AXIS_ACLK;
-
+	FIFO_R_ARSTN    <= M_AXIS_ARESETN;
+	
 	-- Data that we actually read
 	stream_data_out <= FIFO_DATA_OUT;
 
