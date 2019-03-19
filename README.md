@@ -1,4 +1,3 @@
-# Reconfigurable-Computing
+# Reconfigurable-Computing ![MIT license](https://img.shields.io/github/license/CSpyridakis/Reconfigurable-Computing.svg?style=plastic) ![Size](https://img.shields.io/github/repo-size/CSpyridakis/Reconfigurable-Computing.svg?style=plastic)
 
-testing
-testing 2
+Introduction in Reconfigurable Computing (using reconfigurable Systems-on-Chip rSoC). This project is an educational implementation of a custom IP module which communicates with DMAe using AXIS4 Streaming Protocol.
