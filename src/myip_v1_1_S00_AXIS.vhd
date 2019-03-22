@@ -78,19 +78,19 @@ begin
 	-- This is important because according to AXIS4 and AXIS4 Streaming Protocols
 	-- handshake has to be preceded and then on the next cc we receive data
 	process(S_AXIS_ACLK)                                                                           
-		begin     
-			if (S_AXIS_TVALID='1' and (NOT FIFO_FULL)='1') then
-				FIFO_WEN_TMP <='1';
-			else
-				FIFO_WEN_TMP <='0'; 
-			end if;           
-
+		begin          
       if (rising_edge (S_AXIS_ACLK)) then                       
         if(S_AXIS_ARESETN = '0') then                                                              
           FIFO_WEN_TMP <= '0';                                                                                                                               
-        else                                                                                       
-           FIFO_WEN <= FIFO_WEN_TMP;                                   
-        end if;                                                                                    
+        else
+				--TODO : TEST IT 
+				if (S_AXIS_TVALID='1' and (NOT FIFO_FULL)='1') then
+					FIFO_WEN_TMP <='1';
+				else
+					FIFO_WEN_TMP <='0'; 
+				end if;   		  
+				FIFO_WEN <= FIFO_WEN_TMP;                                   
+        end if;  
       end if;                                                                                      
     end process;   
 end arch_imp;

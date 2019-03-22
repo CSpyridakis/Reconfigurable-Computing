@@ -55,17 +55,17 @@ architecture Behavioral of myip_v1_1_FIFO is
 	constant FIFO_DEPTH : integer := 64; 
 	
 	-- Implement FIFO as an array of logic_vectors
-	type FIFO_TYPE is array (0 to (FIFO_DEPTH - 1)) of std_logic_vector((FIFO_DATA_WIDTH-1) downto 0);
+	type FIFO_TYPE is array (0 to (FIFO_DEPTH)) of std_logic_vector((FIFO_DATA_WIDTH-1) downto 0);
 	signal FIFO : FIFO_TYPE;
 	
 	-- Write pointer is an integer with strictly acceptable values
-	signal write_pointer : integer range 0 to FIFO_DEPTH-1;
+	signal write_pointer : integer range 0 to FIFO_DEPTH + 1;
 	-- Read pointer is an integer with strictly acceptable values 
-	signal read_pointer : integer range 0 to FIFO_DEPTH-1;
+	signal read_pointer : integer range 0 to FIFO_DEPTH + 1;
 	
 	-- This signal represents the initial value of the two pointers 
 	-- (the value they take during reset)  
-	constant BEGIN_POINTER : integer := 0;
+	constant BEGIN_POINTER : integer := 10;
 
 	-- Indicators
 	signal full : std_logic;
@@ -93,7 +93,7 @@ architecture Behavioral of myip_v1_1_FIFO is
 
 begin
 	-- Indicator signals
-	full  <= '1' when (write_pointer + 1 = read_pointer OR (read_pointer = 0 AND write_pointer = FIFO_DEPTH-1)) else '0';
+	full  <= '1' when (write_pointer + 1 = read_pointer OR (read_pointer = 0 AND write_pointer = FIFO_DEPTH)) else '0';
 	empty <= '1' when (read_pointer = write_pointer) else '0';
 		
 	-- Actual connections
@@ -121,7 +121,7 @@ begin
 						-- Increment write position (post increment implementation)
 						write_pointer <= write_pointer + 1;
 						-- If write pointer is out of bounds make correction
-						if (write_pointer >= FIFO_DEPTH-1) then 
+						if (write_pointer >= FIFO_DEPTH) then 
 							write_pointer <= 0;
 						end if;
 						
@@ -159,7 +159,7 @@ begin
 						-- Increment write position
 						read_pointer <= read_pointer + 1;
 						-- If read pointerout of bounds make correction
-						if (read_pointer >= FIFO_DEPTH-1) then 
+						if (read_pointer >= FIFO_DEPTH) then 
 							read_pointer <= 0;
 						end if;
 						

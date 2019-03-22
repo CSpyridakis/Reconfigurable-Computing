@@ -1,0 +1,39 @@
+{signal: [
+  ['Master -> DMAe',
+     ['Inputs',
+      {name: 'aclk',    wave: 'P..|..........', period: 2},
+      {name: 'aresetn', wave: 'x01|..........', period: 2},
+      {name: 'tready',  wave: 'x..|1...0.10..', period: 2},
+     ],
+     ['Outputs',
+      {name: 'tdata',   wave: 'x=.|.5554..5=.', period: 2, data: ["", "w1", "w2", "w2", "", "w4"]},
+      {name: 'tlast',   wave: 'x0.|..........', period: 2},
+      {name: 'tvalid',  wave: 'x0.|1..0.1....', period: 2, node: '....b..d.f.'},
+     ],
+  ],
+  {},
+  ['FIFO -> Master',
+     ['Inputs',
+      {name: 'empty',    wave: 'x1.|0..1.0....', period: 2, node: '....a..c.e'},
+      {name: 'data out', wave: 'x=.|5554..5=..', period: 2, data: ["", "w1", "w2", "w2", "", "w4"]},
+     ],
+     ['Outputs',
+      {name: 'aclk',    wave: 'P..|..........', period: 2},
+      {name: 'arstn',   wave: 'x01|..........', period: 2},
+      {name: 'ren',     wave: 'x0.|1..0..10..', period: 2},
+     ],
+  ],
+],    
+  //Connections 
+  edge: [
+      'a~->b', 'c~->d', 'e~->f',  
+  ],
+  // Headear and Footer   
+  head:{
+     text:'My IP\'s Master module',
+  },
+  foot:{
+     text:'',
+  },
+  config: { skin: 'narrow'},
+}
