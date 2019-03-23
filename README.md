@@ -18,7 +18,7 @@ Block and timing diagrams are able to be changed:
 ## Usage 
 
 ### Enviroment
-This project was developed using [Xilinx Vivado 2017.04](https://www.xilinx.com/support/download/index.html/content/xilinx/en/downloadNav/vivado-design-tools/2017-4.html)
+This project was developed using [Xilinx Vivado 2017.4](https://www.xilinx.com/support/download/index.html/content/xilinx/en/downloadNav/vivado-design-tools/2017-4.html)
 
 ### Import and Run
 
