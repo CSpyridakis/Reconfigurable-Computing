@@ -11,7 +11,7 @@
 -- Tool versions:             Vivado 2017.4
 -- Description:   
 -- 
--- Dependencies:              None
+-- Dependencies:              ieee.numeric_std.all
 -- 
 -- Revision:
 -- Revision                    3 - FIFO -> 32b x 64 available slots
@@ -20,7 +20,8 @@
 --------------------------------------------------------------------------------
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
- 
+use ieee.numeric_std.all;
+
 ENTITY myip_v1_1_TEST IS
 END myip_v1_1_TEST;
  
@@ -116,18 +117,78 @@ BEGIN
 
       wait for m00_axis_aclk_period*10;
 
-		----------------------------------- CC : 
-		m00_axis_aresetn <= '1';
-		m00_axis_tready  <= '0';
+		----------------------------------- CC 1 : Reset 
+      m00_axis_aresetn <= '0';
+      s00_axis_aresetn <= '0';
 		wait for m00_axis_aclk_period*1;
-		
-		----------------------------------- CC : 
-		s00_axis_aresetn <= '1';
+      
+      
+      
+		----------------------------------- CC 3 : Nop x2  
+      s00_axis_aresetn <= '1';
+      m00_axis_aresetn <= '1';
+      --
 		s00_axis_tvalid  <= '0';
-		s00_axis_tdata   <= "00000000000000000000000000000000";
-		s00_axis_tlast   <= '0';
-		wait for s00_axis_aclk_period*1;
-		
+		s00_axis_tdata   <= std_logic_vector(to_unsigned(0,32));
+      s00_axis_tlast   <= '0';
+      --
+      m00_axis_tready  <= '0';
+		wait for s00_axis_aclk_period*2;
+      
+      ----------------------------------- CC 4 : First Handshake  
+		s00_axis_tvalid  <= '1';
+		s00_axis_tdata   <= std_logic_vector(to_unsigned(0,32));
+      s00_axis_tlast   <= '0';
+      --
+      m00_axis_tready  <= '0';
+      wait for s00_axis_aclk_period*1;
+      
+      ----------------------------------- CC 5-10 : First data + Valid data for 5 CCs with first 4 values  
+      s00_axis_tlast   <= '0';
+      --
+      m00_axis_tready  <= '0';
+      for I in 1 to 5 loop
+         s00_axis_tvalid  <= '1';
+         s00_axis_tdata   <= std_logic_vector(to_unsigned(I,32));
+         wait for s00_axis_aclk_period*1;
+      end loop;
+
+      ----------------------------------- CC 11-14 : Last valid value and valid=0   x3 CCs  (Only first time values must be pushed)
+      s00_axis_tvalid  <= '0';
+      s00_axis_tdata   <= std_logic_vector(to_unsigned(6,32));
+      s00_axis_tlast   <= '0';
+      --
+      m00_axis_tready  <= '0';
+      wait for s00_axis_aclk_period*3;
+
+      ----------------------------------- CC 15 : Valid for last time
+      s00_axis_tvalid  <= '1';
+      s00_axis_tdata   <= std_logic_vector(to_unsigned(0,32));
+      s00_axis_tlast   <= '0';
+      --
+      m00_axis_tready  <= '0';
+      wait for s00_axis_aclk_period*1;
+
+      ----------------------------------- CC 16 : Last value
+      s00_axis_tvalid  <= '0';
+      s00_axis_tdata   <= std_logic_vector(to_unsigned(7,32));
+      s00_axis_tlast   <= '1';
+      --
+      m00_axis_tready  <= '0';
+      wait for s00_axis_aclk_period*1;
+
+
+
+      ----------------------------------- CC 6 : Nop  
+      s00_axis_aresetn <= '1';
+      m00_axis_aresetn <= '1';
+      --
+      s00_axis_tvalid  <= '0';
+      s00_axis_tdata   <= std_logic_vector(to_unsigned(0,32));
+      s00_axis_tlast   <= '0';
+      --
+      m00_axis_tready  <= '0';
+      wait for s00_axis_aclk_period;
       wait;
    end process;
 

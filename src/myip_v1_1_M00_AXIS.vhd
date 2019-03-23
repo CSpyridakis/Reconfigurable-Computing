@@ -29,18 +29,18 @@ entity myip_v1_1_M00_AXIS is
 	);
 	port (
 		-- This is the same as the global signal M_AXIS_ACLK
-		FIFO_R_ACLK			: out std_logic;
+		FIFO_R_ACLK		: out std_logic;
 		-- Global Reset signal
 		FIFO_R_ARSTN 		: out std_logic;
 		-- Information about empty FIFO's state
-		FIFO_EMPTY      : in std_logic;
+		FIFO_EMPTY      	: in std_logic;
 		-- Read from FIFO using this signal
-		FIFO_REN        : out std_logic;
+		FIFO_REN        	: out std_logic;
 		-- Data that came out
 		FIFO_DATA_OUT		: in std_logic_vector(C_M_AXIS_TDATA_WIDTH-1 downto 0);
 
 		-- Global ports
-		M_AXIS_ACLK			: in std_logic;
+		M_AXIS_ACLK		: in std_logic;
 		-- 
 		M_AXIS_ARESETN	: in std_logic;
 		-- Master Stream Ports. TVALID indicates that the master is driving a valid transfer, A transfer takes place when both TVALID and TREADY are asserted. 
@@ -70,27 +70,29 @@ begin
 	-- We ask from FIFO to pop data only when there is a 
 	-- valid transaction handshake between MY-IP and DMAe, this means that
 	-- DMAe is ready and we have valid data to send
-	FIFO_REN  		<= M_AXIS_TREADY AND (NOT FIFO_EMPTY);
-	FIFO_R_ACLK		<= M_AXIS_ACLK;
+	FIFO_REN  	<= M_AXIS_TREADY AND (NOT FIFO_EMPTY);
+
+	-- Just wiring
+	FIFO_R_ACLK	<= M_AXIS_ACLK;
 	FIFO_R_ARSTN    <= M_AXIS_ARESETN;
 	
 	-- Data that we actually read
 	stream_data_out <= FIFO_DATA_OUT;
 
 	-- We delay data and last signals for 1 cc
-	-- This is important because according to AXIS4 and AXIS4 Streaming Protocols
+	-- This is important because according to AXIS4 and AXIS4 Stream Protocols
 	-- handshake has to be preceded and then on the next cc when send them
 	process(M_AXIS_ACLK)                                                                           
 	begin                                                                                    
-	  if (rising_edge (M_AXIS_ACLK)) then                                               
-	    if(M_AXIS_ARESETN = '0') then                                                              
-            M_AXIS_TDATA <= "00000000000000000000000000000000";    
-            M_AXIS_TLAST <= '0' ;                                         
-	    else                                                                                       
-            M_AXIS_TDATA <= stream_data_out; 
-            M_AXIS_TLAST <= FIFO_EMPTY ;  
-	    end if;                                                                                    
-  end if;                                                                                      
-end process;                                                                                   
+		if (rising_edge (M_AXIS_ACLK)) then                                               
+			if(M_AXIS_ARESETN = '0') then                                                              
+				M_AXIS_TDATA <= "00000000000000000000000000000000";    
+				M_AXIS_TLAST <= '0' ;                                         
+			else                                                                                       
+				M_AXIS_TDATA <= stream_data_out; 
+				M_AXIS_TLAST <= '0' ;  
+			end if;                                                                                    
+  		end if;                                                                                      
+	end process;                                                                                   
 
 end implementation;
