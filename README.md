@@ -32,7 +32,7 @@ This project was developed using [Xilinx Vivado 2017.4](https://www.xilinx.com/s
 
 5. Replace myip_v1_1.vhd, myip_v1_1_S00_AXIS.vhd and myip_v1_1_M00_AXIS.vhd with these [files](./src/) (do not forget excepting myip_v1_1_FIFO.vhd if you use copy-paste)
 
-6. From Sources tab select add source -> Add or create design source -> Add files -> Select this [file](./src/myip_v1_1_FIFO.vhd)
+6. From Sources tab select add source -> Add or create design sources -> Add files -> Select this [file](./src/myip_v1_1_FIFO.vhd)
 
 7. Open Package Ip -> Identification -> Change version
 
@@ -44,7 +44,7 @@ This project was developed using [Xilinx Vivado 2017.4](https://www.xilinx.com/s
 
 #### If you want to run simulations:
 
-1. Just select add source from sources tab when you are on IP Packager -> Add or create design source --> Select one or more of these test [files](./test/)
+1. Just select add source from sources tab when you are on IP Packager -> Add or create simulation sources -> Add files -> Select one or more of these test [files](./test/)
 
 2. Run simulation
 
