@@ -28,7 +28,10 @@ entity myip_v1_1 is
 		C_M00_AXIS_TDATA_WIDTH	: integer	:= 32;
 
 		-- Parameters of Axi Slave Bus Interface S00_AXIS
-		C_S00_AXIS_TDATA_WIDTH	: integer	:= 32
+		C_S00_AXIS_TDATA_WIDTH	: integer	:= 32;
+
+		-- Not used but needed
+		C_M00_AXIS_START_COUNT	: integer	:= 32
 	);
 	port (
 		-- Ports of Axi Master Bus Interface M00_AXIS
