@@ -165,9 +165,11 @@ begin
 						
 						R_ACTION <= READ_DONE;
 					else
+						data_out <= (others => '0');
 						R_ACTION <= READ_FAILED;
 					end if;
 				else
+					data_out <= (others => '0');
 					R_STATE <= IDLE;
 					R_ACTION <= NOP;
 				end if;

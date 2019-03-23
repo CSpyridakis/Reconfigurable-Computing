@@ -5,7 +5,7 @@
 -- 
 -- Create Date: 
 -- Design Name:   
--- Module Name:   				/myip_v1_1_TEST.vhd
+-- Module Name:   				/myip_v1_1_TEST_long.vhd
 -- Project Name:              Reconfigurable Computing
 -- Target Devices:            zc706  evaluation board
 -- Tool versions:             Vivado 2017.4
@@ -22,10 +22,10 @@ LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
 use ieee.numeric_std.all;
 
-ENTITY myip_v1_1_TEST IS
-END myip_v1_1_TEST;
+ENTITY myip_v1_1_TEST_long IS
+END myip_v1_1_TEST_long;
  
-ARCHITECTURE behavior OF myip_v1_1_TEST IS 
+ARCHITECTURE behavior OF myip_v1_1_TEST_long IS 
  
     -- Component Declaration for the Unit Under Test (UUT)
  
@@ -135,9 +135,82 @@ BEGIN
       m00_axis_tready  <= '0';
 		wait for s00_axis_aclk_period*2;
       
-
-
+      ----------------------------------- CC 4 : Handshake for writing data
+      s00_axis_tvalid  <= '1';
+      m00_axis_tready  <= '0';
+      --
+		s00_axis_tdata   <= std_logic_vector(to_unsigned(0,32));
+      s00_axis_tlast   <= '0';
+      wait for s00_axis_aclk_period*1;
       
+
+      ----------------------------------- CC 5 : First packet with valid data + valid = 1 
+      s00_axis_tvalid  <= '1';
+      m00_axis_tready  <= '0';
+      --
+		s00_axis_tdata   <= std_logic_vector(to_unsigned(1,32));
+      s00_axis_tlast   <= '0';
+      wait for s00_axis_aclk_period*1;
+
+      ----------------------------------- CC 6 : Second packet with valid data + valid = 1 
+      s00_axis_tvalid  <= '1';
+      m00_axis_tready  <= '0';
+      --
+      s00_axis_tdata   <= std_logic_vector(to_unsigned(2,32));
+      s00_axis_tlast   <= '0';
+      wait for s00_axis_aclk_period*1;
+
+      ----------------------------------- CC 7-106 : Push and Pop simultaneously (not exacly) for 98 CCs   (DMAe is ready to receive data)
+      for I in 3 to 101 loop
+         if (I=48) then
+            m00_axis_tready  <= '1';
+            --
+            s00_axis_tvalid  <= '0';
+            s00_axis_tlast   <= '0';
+            s00_axis_tdata   <= std_logic_vector(to_unsigned(I,32));
+         elsif (I>48 AND I<52) then 
+            m00_axis_tready  <= '0';
+            --
+            s00_axis_tvalid  <= '0';
+            s00_axis_tlast   <= '0';
+            s00_axis_tdata   <= std_logic_vector(to_unsigned(0,32));
+         elsif (I=52) then 
+            m00_axis_tready  <= '0';
+            --
+            s00_axis_tvalid  <= '1';
+            s00_axis_tlast   <= '0';
+            s00_axis_tdata   <= std_logic_vector(to_unsigned(0,32));
+         elsif (I<100) then 
+            m00_axis_tready  <= '1';
+            --
+            s00_axis_tvalid  <= '1';
+            s00_axis_tlast   <= '0';
+            s00_axis_tdata   <= std_logic_vector(to_unsigned(I,32));
+         elsif (I=100) then 
+            m00_axis_tready  <= '1';
+            --
+            s00_axis_tvalid  <= '0';
+            s00_axis_tlast   <= '1';
+            s00_axis_tdata   <= std_logic_vector(to_unsigned(I,32));
+         else
+            m00_axis_tready  <= '1';
+            --
+            s00_axis_tvalid  <= '0';
+            s00_axis_tlast   <= '0';
+            s00_axis_tdata   <= std_logic_vector(to_unsigned(0,32));
+         end if;
+         wait for s00_axis_aclk_period*1;
+      end loop;
+
+      ----------------------------------- CC 107-111 : Read last data  (Mention that there is not read error because the control logic solves it)
+      m00_axis_tready  <= '1';
+      --
+      s00_axis_tvalid  <= '0';
+      s00_axis_tlast   <= '0';
+      s00_axis_tdata   <= std_logic_vector(to_unsigned(0,32));
+      wait for s00_axis_aclk_period*3;
+
+
       ----------------------------------- CC 6 : Nop  
       s00_axis_aresetn <= '1';
       m00_axis_aresetn <= '1';
@@ -151,4 +224,14 @@ BEGIN
       wait;
    end process;
 
+   -- Stimulus process
+   stim_proc_r: process
+   begin		
+      -- hold reset state for 100 ns.
+      wait for 100 ns;	
+
+      wait for m00_axis_aclk_period*1;
+      
+      wait;
+   end process;
 END;
