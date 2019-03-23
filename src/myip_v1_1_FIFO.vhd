@@ -13,8 +13,8 @@
 --
 -- Dependencies:              
 --
--- Revision:                  2.0
--- Revision                   2.0 - FIFO logic implemented
+-- Revision:                  3.0
+-- Revision                   3.0 - FIFO -> 32b x 64 available slots
 -- Additional Comments: 
 --
 ----------------------------------------------------------------------------------
@@ -35,13 +35,13 @@ entity myip_v1_1_FIFO is
 		FIFO_ARESETN		: in std_logic;
 		
 		-- If you want to push data in FIFO use this signal
-		FIFO_WEN	      : in std_logic;
+		FIFO_WEN	      	: in std_logic;
 		-- In order to pop data from FIFO you have to assert this signal
-		FIFO_REN	      : in std_logic;
+		FIFO_REN	      	: in std_logic;
 		-- If FIFO is full this signal is high
-		FIFO_FULL	   		: out std_logic;
+		FIFO_FULL	   	: out std_logic;
 		-- When there are not valid data inside FIFO this signal's state is high
-		FIFO_EMPTY			: out std_logic;
+		FIFO_EMPTY		: out std_logic;
 		-- Data you want to push in 
 		FIFO_DATA_IN		: in std_logic_vector(FIFO_DATA_WIDTH-1 downto 0);
 		-- Data that came out FIFO during pop (read) action
@@ -65,7 +65,7 @@ architecture Behavioral of myip_v1_1_FIFO is
 	
 	-- This signal represents the initial value of the two pointers 
 	-- (the value they take during reset)  
-	constant BEGIN_POINTER : integer := 10;
+	constant BEGIN_POINTER : integer := 62;
 
 	-- Indicators
 	signal full : std_logic;
@@ -75,19 +75,19 @@ architecture Behavioral of myip_v1_1_FIFO is
 	signal data_out : std_logic_vector(FIFO_DATA_WIDTH-1 downto 0);
 	
 	-- FIFO's valid states for each (read/write) FSMs
-	type FIFO_STATES is ( IDLE,        		-- This is the initial/idle state 
-						  					READ_FIFO,   		-- Read data from FIFO
-	                      WRITE_FIFO);		-- In this state FIFO pushes data
+	type FIFO_STATES is ( 	IDLE,        		-- This is the initial/idle state 
+				READ_FIFO,   		-- Read data from FIFO
+	                      	WRITE_FIFO);		-- In this state FIFO pushes data
 	signal  W_STATE : FIFO_STATES; 
 	signal  R_STATE : FIFO_STATES; 
 	
 	-- Use this type of signal only for DEBUG purposes
-	type DEBUG_STATES is( RESETED,
-												NOP,
-												READ_DONE,   		
-												READ_FAILED,
-												WRITE_DONE,   		
-												WRITE_FAILED); 		 
+	type DEBUG_STATES is( 	RESETED,
+				NOP,
+				READ_DONE,   		
+				READ_FAILED,
+				WRITE_DONE,   		
+				WRITE_FAILED); 		 
 	signal W_ACTION : DEBUG_STATES; 
 	signal R_ACTION : DEBUG_STATES; 
 
@@ -152,13 +152,13 @@ begin
 				if (FIFO_REN = '1') THEN
 					R_STATE <= READ_FIFO;
 					
-					-- Pop date from FIFO only if it is possible
+					-- Pop data from FIFO only if it is possible
 					if (empty = '0') then 
 						-- Pop Data
 						data_out <= FIFO(read_pointer);
 						-- Increment write position
 						read_pointer <= read_pointer + 1;
-						-- If read pointerout of bounds make correction
+						-- If read pointer is out of bounds make correction
 						if (read_pointer >= FIFO_DEPTH) then 
 							read_pointer <= 0;
 						end if;

@@ -5,13 +5,13 @@
 -- 
 -- Create Date: 
 -- Design Name:   
--- Module Name:   				/myip_v1_1_FIFO_TEST_WRW.vhd
+-- Module Name:   				/myip_v1_1_FIFO_TEST_2clocks.vhd
 -- Project Name:              Reconfigurable Computing
 -- Target Devices:            zc706  evaluation board
 -- Tool versions:             Vivado 2017.4
--- Description:               FIFO test for cycle writing/reading
+-- Description:               FIFO test using two different clocks one for each process
 -- 
--- Dependencies:              ieee.numeric_std.all
+-- Dependencies:              None
 -- 
 -- Revision:
 -- Revision                   3.0 - FIFO -> 32b x 64 available slots
@@ -19,13 +19,12 @@
 --
 --------------------------------------------------------------------------------
 LIBRARY ieee;
-use ieee.std_logic_1164.all;
-use ieee.numeric_std.all;
+USE ieee.std_logic_1164.ALL;
  
-ENTITY myip_v1_1_FIFO_TEST_WRW IS
-END myip_v1_1_FIFO_TEST_WRW;
+ENTITY myip_v1_1_FIFO_TEST_2clocks IS
+END myip_v1_1_FIFO_TEST_2clocks;
  
-ARCHITECTURE behavior OF myip_v1_1_FIFO_TEST_WRW IS 
+ARCHITECTURE behavior OF myip_v1_1_FIFO_TEST_2clocks IS 
  
     -- Component Declaration for the Unit Under Test (UUT)
  
@@ -59,7 +58,7 @@ ARCHITECTURE behavior OF myip_v1_1_FIFO_TEST_WRW IS
 
    -- Clock period definitions
    constant FIFO_W_ACLK_period : time := 10 ns;
-   constant FIFO_R_ACLK_period : time := 10 ns;
+   constant FIFO_R_ACLK_period : time := 20 ns;
  
 BEGIN
  
@@ -108,41 +107,58 @@ BEGIN
 	  FIFO_DATA_IN <= "00000000000000000000000000000000";
 	  wait for FIFO_W_ACLK_period*1;
 	  
-	  --------------------------------------------- CC ~2-10 : Nop for 9 CCs 
-	  FIFO_ARESETN <= '1';
-	  FIFO_WEN     <= '0';
-	  FIFO_DATA_IN <= "00000000000000000000000000000000";
-	  wait for FIFO_W_ACLK_period*9;
-     
-	  --------------------------------------------- CC ~11-70 : Push 70 values (Completed: 64 | Failed: 6)
-	  FIFO_ARESETN <= '1';
-	  for I in 1 to 70 loop
-		  FIFO_WEN     <= '1';
-		  FIFO_DATA_IN <= std_logic_vector(to_unsigned(I,32));
-		  wait for FIFO_W_ACLK_period*1;
-	  end loop;
-     
-	  --------------------------------------------- CC ~76 - 176 : Nop  (Reading time) 
-	  FIFO_ARESETN <= '1';
-	  FIFO_WEN     <= '0';
-	  FIFO_DATA_IN <= "00000000000000000000000000000000";
-	  wait for FIFO_W_ACLK_period*100;
-	  
-	  
-	  --------------------------------------------- CC ~177- : Push 70 values (Completed: 64 | Failed: 6)
-	  FIFO_ARESETN <= '1';
-	  for I in 71 to 140 loop
-		  FIFO_WEN     <= '1';
-		  FIFO_DATA_IN <= std_logic_vector(to_unsigned(I,32));
-		  wait for FIFO_W_ACLK_period*1;
-	  end loop;
-     
-	  --------------------------------------------- CC ~178-. : Nop 
-	  FIFO_ARESETN <= '1';
-	  FIFO_WEN     <= '0';
-	  FIFO_DATA_IN <= "00000000000000000000000000000000";
-	  wait for FIFO_W_ACLK_period*100;
-     wait;
+	   --------------------------------------------- CC 2-10 : Nop for 9 CCs 
+      FIFO_ARESETN <= '1';
+      FIFO_WEN     <= '0';
+      FIFO_DATA_IN <= "00000000000000000000000000000000";
+      wait for FIFO_W_ACLK_period*9;
+        
+      --------------------------------------------- CC 11 : Push 1  
+      FIFO_WEN     <= '1';
+      FIFO_DATA_IN <= "00000000000000000000000000000001";
+      wait for FIFO_W_ACLK_period*1;
+      
+      --------------------------------------------- CC 12 : Push 2  
+      FIFO_WEN     <= '1';
+      FIFO_DATA_IN <= "00000000000000000000000000000010";
+      wait for FIFO_W_ACLK_period*1;
+      
+      --------------------------------------------- CC 13 : Push 3  
+      FIFO_WEN     <= '1';
+      FIFO_DATA_IN <= "00000000000000000000000000000011";
+      wait for FIFO_W_ACLK_period*1;
+      
+      --------------------------------------------- CC 14 : Push 4 
+      FIFO_WEN     <= '1';
+      FIFO_DATA_IN <= "00000000000000000000000000000100";
+      wait for FIFO_W_ACLK_period*1;
+      
+      --------------------------------------------- CC 15 : Push 5
+      FIFO_WEN     <= '1';
+      FIFO_DATA_IN <= "00000000000000000000000000000101";
+      wait for FIFO_W_ACLK_period*1;
+      
+      --------------------------------------------- CC 16 : Push 6
+      FIFO_WEN     <= '1';
+      FIFO_DATA_IN <= "00000000000000000000000000000110";
+      wait for FIFO_W_ACLK_period*1;
+      
+      --------------------------------------------- CC 17 : Push 7  (Read first data at the same time)
+      FIFO_WEN     <= '1';
+      FIFO_DATA_IN <= "00000000000000000000000000000111";
+      wait for FIFO_W_ACLK_period*1;
+      
+      --------------------------------------------- CC 18 : Push 8  (Read first data at the same time)
+      FIFO_WEN     <= '1';
+      FIFO_DATA_IN <= "00000000000000000000000000001000";
+      wait for FIFO_W_ACLK_period*1;
+      
+      --------------------------------------------- CC 19-. : Nop 
+      FIFO_WEN     <= '0';
+      FIFO_DATA_IN <= "00000000000000000000000000000000";
+      wait for FIFO_W_ACLK_period*1;
+      
+      wait;
    end process;
 
     -- Stimulus process
@@ -151,17 +167,22 @@ BEGIN
       -- hold reset state for 100 ns.
       wait for 100 ns;	
 
-		------------------------------------------- CC ~1-100 : Nop for 100 CCs (Writing Time) 
+	   ------------------------------------------- CC 1-13 : Nop 
       FIFO_REN     <= '0';
-      wait for FIFO_R_ACLK_period*100;
-		
-	   ------------------------------------------- CC ~101-180 : Read 70  values (Completed: 64 | Failed: 6)
+      wait for FIFO_R_ACLK_period*13;
+      
+      ------------------------------------------- CC 14 : Pop 1  (Write 7th and 8th value at the same time)
       FIFO_REN     <= '1';
-      wait for FIFO_R_ACLK_period*70;
+      wait for FIFO_R_ACLK_period*1;
+      
+      ------------------------------------------- CC 22 : Pop 8 CCs (COmpleted:7  | Failed: 1)
+      FIFO_REN     <= '1';
+      wait for FIFO_R_ACLK_period*8;
 
-      ------------------------------------------- CC ~181:. : Nop  
+      ------------------------------------------ CC 26-. : Nop
       FIFO_REN     <= '0';
       wait for FIFO_R_ACLK_period*1;
+      
       wait;
    end process;
 END;

@@ -9,30 +9,19 @@
 -- Project Name:              Reconfigurable Computing
 -- Target Devices:            zc706  evaluation board
 -- Tool versions:             Vivado 2017.4
--- Description:    
+-- Description:               FIFO test using two different clocks one for each process
 -- 
--- VHDL Test Bench Created by ISE for module: myip_v1_1_FIFO
--- 
--- Dependencies:
+-- Dependencies:              ieee.numeric_std.all
 -- 
 -- Revision:
--- Revision 0.01 - File Created
+-- Revision                   3.0 - FIFO -> 32b x 64 available slots
 -- Additional Comments:
 --
--- Notes: 
--- This testbench has been automatically generated using types std_logic and
--- std_logic_vector for the ports of the unit under test.  Xilinx recommends
--- that these types always be used for the top-level I/O of a design in order
--- to guarantee that the testbench will bind correctly to the post-implementation 
--- simulation model.
 --------------------------------------------------------------------------------
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
- 
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
---USE ieee.numeric_std.ALL;
- 
+use ieee.numeric_std.all;
+
 ENTITY myip_v1_1_FIFO_TEST IS
 END myip_v1_1_FIFO_TEST;
  
@@ -70,7 +59,7 @@ ARCHITECTURE behavior OF myip_v1_1_FIFO_TEST IS
 
    -- Clock period definitions
    constant FIFO_W_ACLK_period : time := 10 ns;
-   constant FIFO_R_ACLK_period : time := 20 ns;
+   constant FIFO_R_ACLK_period : time := 10 ns;
  
 BEGIN
  
@@ -114,101 +103,52 @@ BEGIN
       wait for FIFO_W_ACLK_period*10;
 
       --------------------------------------------- CC 1 : RESET 
-	  FIFO_ARESETN <= '0';
-	  FIFO_WEN 	 <= '0';
-	  FIFO_DATA_IN <= "00000000000000000000000000000000";
-	  wait for FIFO_W_ACLK_period*1;
-	  
-	  --------------------------------------------- CC 2-10 : Nop for 9 CCs 
+      FIFO_ARESETN <= '0';
+      FIFO_WEN 	 <= '0';
+      FIFO_REN     <= '0';
+      FIFO_DATA_IN <= "00000000000000000000000000000000";
+      wait for FIFO_W_ACLK_period*1;
+     
+      --------------------------------------------- CC 2 :  Nop x 2
       FIFO_ARESETN <= '1';
-      FIFO_WEN     <= '0';
+      FIFO_WEN 	 <= '0';
+      FIFO_REN     <= '0';
       FIFO_DATA_IN <= "00000000000000000000000000000000";
-      wait for FIFO_W_ACLK_period*9;
-        
-      --------------------------------------------- CC 11 : Push 1  
-      FIFO_WEN     <= '1';
-      FIFO_DATA_IN <= "00000000000000000000000000000001";
-      wait for FIFO_W_ACLK_period*1;
+      wait for FIFO_W_ACLK_period*2;
+
+      --------------------------------------------- CC 3-6 :  Push 3 values
+      FIFO_ARESETN <= '1';
+      FIFO_REN     <= '0';
+      for I in 1 to 3 loop
+         FIFO_WEN     <= '1';
+         FIFO_DATA_IN <= std_logic_vector(to_unsigned(I,32));
+         wait for FIFO_W_ACLK_period*1;
+      end loop;
       
-      --------------------------------------------- CC 12 : Push 2  
-      FIFO_WEN     <= '1';
-      FIFO_DATA_IN <= "00000000000000000000000000000010";
-      wait for FIFO_W_ACLK_period*1;
-      
-      --------------------------------------------- CC 13 : Push 3  
-      FIFO_WEN     <= '1';
-      FIFO_DATA_IN <= "00000000000000000000000000000011";
-      wait for FIFO_W_ACLK_period*1;
-      
-      --------------------------------------------- CC 14 : Push 4 
-      FIFO_WEN     <= '1';
-      FIFO_DATA_IN <= "00000000000000000000000000000100";
-      wait for FIFO_W_ACLK_period*1;
-      
-      --------------------------------------------- CC 15 : Push 5
-      FIFO_WEN     <= '1';
-      FIFO_DATA_IN <= "00000000000000000000000000000101";
-      wait for FIFO_W_ACLK_period*1;
-      
-      --------------------------------------------- CC 16 : Push 6
-      FIFO_WEN     <= '1';
-      FIFO_DATA_IN <= "00000000000000000000000000000110";
-      wait for FIFO_W_ACLK_period*1;
-      
-      --------------------------------------------- CC 17 : Push 7
-      FIFO_WEN     <= '1';
-      FIFO_DATA_IN <= "00000000000000000000000000000111";
-      wait for FIFO_W_ACLK_period*1;
-      
-      --------------------------------------------- CC 15 : Push 8
-      FIFO_WEN     <= '1';
-      FIFO_DATA_IN <= "00000000000000000000000000001000";
-      wait for FIFO_W_ACLK_period*1;
-      
-      --------------------------------------------- CC 15-. : Nop 
-      FIFO_WEN     <= '0';
+      --------------------------------------------- CC 7-13 :  Push and Pop simultaneously for 6 CCs
+      FIFO_ARESETN <= '1';
+      for I in 4 to 9 loop
+         FIFO_REN     <= '1';
+         FIFO_WEN     <= '1';
+         FIFO_DATA_IN <= std_logic_vector(to_unsigned(I,32));
+         wait for FIFO_W_ACLK_period*1;
+      end loop;
+     
+      --------------------------------------------- CC 13-18 :  Pop 5 values (Completed: 3 | Failed: 2)
+      FIFO_ARESETN <= '1';
+      FIFO_WEN 	 <= '0';
+      FIFO_REN     <= '1';
       FIFO_DATA_IN <= "00000000000000000000000000000000";
-      wait for FIFO_W_ACLK_period*1;
+      wait for FIFO_W_ACLK_period*5;
+      
+      --------------------------------------------- CC 19 : Nop
+      FIFO_ARESETN <= '1';
+      FIFO_WEN 	 <= '0';
+      FIFO_REN     <= '0';
+      FIFO_DATA_IN <= "00000000000000000000000000000000";
+      wait for FIFO_W_ACLK_period;
       
       wait;
    end process;
 
-    -- Stimulus process
-   stim_proc_r: process
-   begin		
-      -- hold reset state for 100 ns.
-      wait for 100 ns;	
-
-      wait for FIFO_R_ACLK_period*10;
-		
-	  ------------------------------------------- CC 1-20 : Nop for 20 CCs  
-      FIFO_REN     <= '0';
-      wait for FIFO_R_ACLK_period*3;
-      
-      ------------------------------------------- CC 21 : Pop 1  
-      FIFO_REN     <= '1';
-      wait for FIFO_R_ACLK_period*1;
-      
-      ------------------------------------------- CC 22 : Pop 2 
-      FIFO_REN     <= '1';
-      wait for FIFO_R_ACLK_period*1;
-      
-      ------------------------------------------- CC 23 : Pop 3
-      FIFO_REN     <= '1';
-      wait for FIFO_R_ACLK_period*1;
-      
-      ------------------------------------------- CC 24 : Pop 4
-      FIFO_REN     <= '1';
-      wait for FIFO_R_ACLK_period*1;
-   
-      ------------------------------------------ CC 25 : Error Empty
-      FIFO_REN     <= '1';
-      wait for FIFO_R_ACLK_period*1;
-      
-      ------------------------------------------ CC 26-. : Nop
-      FIFO_REN     <= '0';
-      wait for FIFO_R_ACLK_period*1;
-      
-      wait;
-   end process;
 END;
