@@ -5,11 +5,11 @@
 -- 
 -- Create Date: 
 -- Design Name:   
--- Module Name:   				/myip_v1_1_FIFO_TEST.vhd
+-- Module Name:   	      /myip_v1_1_FIFO_TEST.vhd
 -- Project Name:              Reconfigurable Computing
 -- Target Devices:            zc706  evaluation board
 -- Tool versions:             Vivado 2017.4
--- Description:               FIFO test using two different clocks one for each process
+-- Description:               FIFO simple test
 -- 
 -- Dependencies:              ieee.numeric_std.all
 -- 
@@ -104,48 +104,48 @@ BEGIN
 
       --------------------------------------------- CC 1 : RESET 
       FIFO_ARESETN <= '0';
-      FIFO_WEN 	 <= '0';
+      FIFO_WEN 	   <= '0';
       FIFO_REN     <= '0';
-      FIFO_DATA_IN <= "00000000000000000000000000000000";
+      FIFO_DATA_IN <= std_logic_vector(to_unsigned(0,32));
       wait for FIFO_W_ACLK_period*1;
      
       --------------------------------------------- CC 2 :  Nop x 2
       FIFO_ARESETN <= '1';
-      FIFO_WEN 	 <= '0';
+      FIFO_WEN 	   <= '0';
       FIFO_REN     <= '0';
-      FIFO_DATA_IN <= "00000000000000000000000000000000";
+      FIFO_DATA_IN <= std_logic_vector(to_unsigned(0,32));
       wait for FIFO_W_ACLK_period*2;
 
-      --------------------------------------------- CC 3-6 :  Push 3 values
+      --------------------------------------------- CC 3-5 :  Push 2 values
       FIFO_ARESETN <= '1';
       FIFO_REN     <= '0';
-      for I in 1 to 3 loop
+      for I in 1 to 2 loop
          FIFO_WEN     <= '1';
          FIFO_DATA_IN <= std_logic_vector(to_unsigned(I,32));
          wait for FIFO_W_ACLK_period*1;
       end loop;
       
-      --------------------------------------------- CC 7-13 :  Push and Pop simultaneously for 6 CCs
+      --------------------------------------------- CC 6-9 :  Push and Pop simultaneously for 3 CCs
       FIFO_ARESETN <= '1';
-      for I in 4 to 9 loop
-         FIFO_REN     <= '1';
-         FIFO_WEN     <= '1';
-         FIFO_DATA_IN <= std_logic_vector(to_unsigned(I,32));
-         wait for FIFO_W_ACLK_period*1;
+      for I in 3 to 5 loop
+	FIFO_REN     <= '1';
+	FIFO_WEN     <= '1';
+	FIFO_DATA_IN <= std_logic_vector(to_unsigned(I,32));
+	wait for FIFO_W_ACLK_period*1;
       end loop;
      
-      --------------------------------------------- CC 13-18 :  Pop 5 values (Completed: 3 | Failed: 2)
+      --------------------------------------------- CC 10-12 :  Pop 3 values (Completed: 2 | Failed: 1)
       FIFO_ARESETN <= '1';
-      FIFO_WEN 	 <= '0';
+      FIFO_WEN 	   <= '0';
       FIFO_REN     <= '1';
-      FIFO_DATA_IN <= "00000000000000000000000000000000";
-      wait for FIFO_W_ACLK_period*5;
+      FIFO_DATA_IN <= std_logic_vector(to_unsigned(0,32));
+      wait for FIFO_W_ACLK_period*3;
       
-      --------------------------------------------- CC 19 : Nop
+      --------------------------------------------- CC 13-. : Nop
       FIFO_ARESETN <= '1';
-      FIFO_WEN 	 <= '0';
+      FIFO_WEN 	   <= '0';
       FIFO_REN     <= '0';
-      FIFO_DATA_IN <= "00000000000000000000000000000000";
+      FIFO_DATA_IN <= std_logic_vector(to_unsigned(0,32));
       wait for FIFO_W_ACLK_period;
       
       wait;

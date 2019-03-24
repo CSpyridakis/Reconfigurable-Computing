@@ -5,16 +5,16 @@
 -- 
 -- Create Date: 
 -- Design Name:   
--- Module Name:   				/myip_v1_1_TEST.vhd
+-- Module Name:   	      /myip_v1_1_TEST.vhd
 -- Project Name:              Reconfigurable Computing
 -- Target Devices:            zc706  evaluation board
 -- Tool versions:             Vivado 2017.4
--- Description:               Only push data, only pop data and do both actions at the same time
+-- Description:               MY-IP simple test
 -- 
 -- Dependencies:              ieee.numeric_std.all
 -- 
 -- Revision:
--- Revision                    3 - FIFO -> 32b x 64 available slots
+-- Revision                   3.0 - FIFO -> 32b x 64 available slots
 -- Additional Comments:
 --
 --------------------------------------------------------------------------------
@@ -117,28 +117,94 @@ BEGIN
 
       wait for m00_axis_aclk_period*10;
 
-		----------------------------------- CC 1 : Reset 
+      ----------------------------------- CC 1 : Reset 
       m00_axis_aresetn <= '0';
       s00_axis_aresetn <= '0';
-		wait for m00_axis_aclk_period*1;
+      wait for m00_axis_aclk_period*1;
       
-      --------------------------------------------------------------------------------------------------
-
-		----------------------------------- CC 2-3 : Nop x2  
+      ----------------------------------- CC 2 : Nop   
       s00_axis_aresetn <= '1';
       m00_axis_aresetn <= '1';
       --
-		s00_axis_tvalid  <= '0';
-		s00_axis_tdata   <= std_logic_vector(to_unsigned(0,32));
+      s00_axis_tvalid  <= '0';
+      s00_axis_tdata   <= std_logic_vector(to_unsigned(0,32));
       s00_axis_tlast   <= '0';
       --
       m00_axis_tready  <= '0';
-		wait for s00_axis_aclk_period*2;
+      wait for s00_axis_aclk_period*1;
       
 
+      ----------------------------------- CC 3-12  
+      s00_axis_aresetn <= '1';
+      m00_axis_aresetn <= '1';
+      --
+      for I in 1 to 12 loop
+		-- Write Valid
+		if (I=1) then
+			s00_axis_tvalid  <= '1';
+			s00_axis_tdata   <= std_logic_vector(to_unsigned(0,32));
+			s00_axis_tlast   <= '0';
+			m00_axis_tready  <= '0';
+		--Write data
+		elsif (I=2) then
+			s00_axis_tvalid  <= '0';
+			s00_axis_tdata   <= std_logic_vector(to_unsigned(I,32));
+			s00_axis_tlast   <= '0';
+			m00_axis_tready  <= '0';
+		-- Write valid
+		elsif (I=3) then
+			s00_axis_tvalid  <= '1';
+			s00_axis_tdata   <= std_logic_vector(to_unsigned(0,32));
+			s00_axis_tlast   <= '0';
+			m00_axis_tready  <= '0';
+		-- Write data
+		elsif (I=4) then
+			s00_axis_tvalid  <= '1';
+			s00_axis_tdata   <= std_logic_vector(to_unsigned(I,32));
+			s00_axis_tlast   <= '0';
+			m00_axis_tready  <= '0';
+		-- Read and Write
+		elsif (I<8) then
+			s00_axis_tvalid  <= '1';
+			s00_axis_tdata   <= std_logic_vector(to_unsigned(I,32));
+			s00_axis_tlast   <= '0';
+			m00_axis_tready  <= '1';
+		-- Write last and continue reading
+		elsif (I=8) then
+			s00_axis_tvalid  <= '0';
+			s00_axis_tdata   <= std_logic_vector(to_unsigned(I,32));
+			s00_axis_tlast   <= '1';
+			m00_axis_tready  <= '1';
+		-- Read only
+		elsif (I=9) then
+			s00_axis_tvalid  <= '0';
+			s00_axis_tdata   <= std_logic_vector(to_unsigned(0,32));
+			s00_axis_tlast   <= '0';
+			m00_axis_tready  <= '1';
+		-- Nop 
+		elsif (I=10) then
+			s00_axis_tvalid  <= '0';
+			s00_axis_tdata   <= std_logic_vector(to_unsigned(0,32));
+			s00_axis_tlast   <= '0';
+			m00_axis_tready  <= '0';
+		-- Read
+		elsif (I=11) then
+			s00_axis_tvalid  <= '0';
+			s00_axis_tdata   <= std_logic_vector(to_unsigned(0,32));
+			s00_axis_tlast   <= '0';
+			m00_axis_tready  <= '1';
+		-- Read ready without handshake
+		elsif (I=12) then
+			s00_axis_tvalid  <= '0';
+			s00_axis_tdata   <= std_logic_vector(to_unsigned(0,32));
+			s00_axis_tlast   <= '0';
+			m00_axis_tready  <= '1';		
+		end if;
 
-      
-      ----------------------------------- CC 6 : Nop  
+		wait for s00_axis_aclk_period*1;
+        end loop;
+
+      ----------------------------------- CC  : Nop  
       s00_axis_aresetn <= '1';
       m00_axis_aresetn <= '1';
       --

@@ -5,7 +5,7 @@
 -- 
 -- Create Date: 
 -- Design Name:   
--- Module Name:   				/myip_v1_1_FIFO_TEST_2clocks.vhd
+-- Module Name:   	      /myip_v1_1_FIFO_TEST_2clocks.vhd
 -- Project Name:              Reconfigurable Computing
 -- Target Devices:            zc706  evaluation board
 -- Tool versions:             Vivado 2017.4
@@ -51,7 +51,7 @@ ARCHITECTURE behavior OF myip_v1_1_FIFO_TEST_2clocks IS
    signal FIFO_REN : std_logic := '0';
    signal FIFO_DATA_IN : std_logic_vector(31 downto 0) := (others => '0');
 
- 	--Outputs
+   --Outputs
    signal FIFO_FULL : std_logic;
    signal FIFO_EMPTY : std_logic;
    signal FIFO_DATA_OUT : std_logic_vector(31 downto 0);
@@ -102,12 +102,12 @@ BEGIN
       wait for FIFO_W_ACLK_period*10;
 
       --------------------------------------------- CC 1 : RESET 
-	  FIFO_ARESETN <= '0';
-	  FIFO_WEN 	 <= '0';
-	  FIFO_DATA_IN <= "00000000000000000000000000000000";
-	  wait for FIFO_W_ACLK_period*1;
-	  
-	   --------------------------------------------- CC 2-10 : Nop for 9 CCs 
+      FIFO_ARESETN <= '0';
+      FIFO_WEN 	   <= '0';
+      FIFO_DATA_IN <= "00000000000000000000000000000000";
+      wait for FIFO_W_ACLK_period*1;
+
+      --------------------------------------------- CC 2-10 : Nop for 9 CCs 
       FIFO_ARESETN <= '1';
       FIFO_WEN     <= '0';
       FIFO_DATA_IN <= "00000000000000000000000000000000";
@@ -143,12 +143,12 @@ BEGIN
       FIFO_DATA_IN <= "00000000000000000000000000000110";
       wait for FIFO_W_ACLK_period*1;
       
-      --------------------------------------------- CC 17 : Push 7  (Read first data at the same time)
+      --------------------------------------------- CC 17 : Push 7  (Read first value at the same time)
       FIFO_WEN     <= '1';
       FIFO_DATA_IN <= "00000000000000000000000000000111";
       wait for FIFO_W_ACLK_period*1;
       
-      --------------------------------------------- CC 18 : Push 8  (Read first data at the same time)
+      --------------------------------------------- CC 18 : Push 8  (Read first value at the same time)
       FIFO_WEN     <= '1';
       FIFO_DATA_IN <= "00000000000000000000000000001000";
       wait for FIFO_W_ACLK_period*1;
@@ -167,19 +167,19 @@ BEGIN
       -- hold reset state for 100 ns.
       wait for 100 ns;	
 
-	   ------------------------------------------- CC 1-13 : Nop 
+      ------------------------------------------- CC 1-13 : Nop 
       FIFO_REN     <= '0';
       wait for FIFO_R_ACLK_period*13;
       
-      ------------------------------------------- CC 14 : Pop 1  (Write 7th and 8th value at the same time)
+      ------------------------------------------- CC 14 : Pop 1  (Write 7th and 8th values at the same time)
       FIFO_REN     <= '1';
       wait for FIFO_R_ACLK_period*1;
       
-      ------------------------------------------- CC 22 : Pop 8 CCs (COmpleted:7  | Failed: 1)
+      ------------------------------------------- CC 15-23 : Pop 8 CCs (Completed:7  | Failed: 1)
       FIFO_REN     <= '1';
       wait for FIFO_R_ACLK_period*8;
 
-      ------------------------------------------ CC 26-. : Nop
+      ------------------------------------------ CC 24-. : Nop
       FIFO_REN     <= '0';
       wait for FIFO_R_ACLK_period*1;
       

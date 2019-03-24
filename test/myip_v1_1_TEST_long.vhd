@@ -5,11 +5,11 @@
 -- 
 -- Create Date: 
 -- Design Name:   
--- Module Name:   				/myip_v1_1_TEST_long.vhd
+-- Module Name:   	      /myip_v1_1_TEST_long.vhd
 -- Project Name:              Reconfigurable Computing
 -- Target Devices:            zc706  evaluation board
 -- Tool versions:             Vivado 2017.4
--- Description:               Only push data, only pop data and do both actions at the same time
+-- Description:               Push data, pop data and do both actions at the same time
 -- 
 -- Dependencies:              ieee.numeric_std.all
 -- 
@@ -117,29 +117,29 @@ BEGIN
 
       wait for m00_axis_aclk_period*10;
 
-		----------------------------------- CC 1 : Reset 
+      ----------------------------------- CC 1 : Reset 
       m00_axis_aresetn <= '0';
       s00_axis_aresetn <= '0';
-		wait for m00_axis_aclk_period*1;
+      wait for m00_axis_aclk_period*1;
       
       --------------------------------------------------------------------------------------------------
 
-		----------------------------------- CC 2-3 : Nop x2  
+      ----------------------------------- CC 2-3 : Nop x2  
       s00_axis_aresetn <= '1';
       m00_axis_aresetn <= '1';
       --
-		s00_axis_tvalid  <= '0';
-		s00_axis_tdata   <= std_logic_vector(to_unsigned(0,32));
+      s00_axis_tvalid  <= '0';
+      s00_axis_tdata   <= std_logic_vector(to_unsigned(0,32));
       s00_axis_tlast   <= '0';
       --
       m00_axis_tready  <= '0';
-		wait for s00_axis_aclk_period*2;
+      wait for s00_axis_aclk_period*2;
       
       ----------------------------------- CC 4 : Handshake for writing data
       s00_axis_tvalid  <= '1';
       m00_axis_tready  <= '0';
       --
-		s00_axis_tdata   <= std_logic_vector(to_unsigned(0,32));
+      s00_axis_tdata   <= std_logic_vector(to_unsigned(0,32));
       s00_axis_tlast   <= '0';
       wait for s00_axis_aclk_period*1;
       
@@ -148,7 +148,7 @@ BEGIN
       s00_axis_tvalid  <= '1';
       m00_axis_tready  <= '0';
       --
-		s00_axis_tdata   <= std_logic_vector(to_unsigned(1,32));
+      s00_axis_tdata   <= std_logic_vector(to_unsigned(1,32));
       s00_axis_tlast   <= '0';
       wait for s00_axis_aclk_period*1;
 
@@ -160,7 +160,7 @@ BEGIN
       s00_axis_tlast   <= '0';
       wait for s00_axis_aclk_period*1;
 
-      ----------------------------------- CC 7-106 : Push and Pop simultaneously (not exacly) for 98 CCs   (DMAe is ready to receive data)
+      ----------------------------------- CC 7-106 : Push and Pop simultaneously for 98 CCs (not exacly | DMAe is ready to receive data)
       for I in 3 to 101 loop
          if (I=48) then
             m00_axis_tready  <= '1';
@@ -202,7 +202,7 @@ BEGIN
          wait for s00_axis_aclk_period*1;
       end loop;
 
-      ----------------------------------- CC 107-111 : Read last data  (Mention that there is not read error because the control logic solves it)
+      ----------------------------------- CC 107-111 : Read last value  (Note: there is not reading error because we are not valid)
       m00_axis_tready  <= '1';
       --
       s00_axis_tvalid  <= '0';
@@ -211,7 +211,7 @@ BEGIN
       wait for s00_axis_aclk_period*3;
 
 
-      ----------------------------------- CC 6 : Nop  
+      ----------------------------------- CC 112 : Nop  
       s00_axis_aresetn <= '1';
       m00_axis_aresetn <= '1';
       --
