@@ -75,8 +75,6 @@ begin
 	S_AXIS_TREADY	<= NOT FIFO_FULL;
 	
 	-- Select FIFO_WEN state based on availability and valid data 
-	-- Αccording to AXIS4 and AXIS4 Stream Protocols
-	-- handshake has to be preceded and then on the next cc we receive data
 	FIFO_WEN 	<= S_AXIS_TVALID and (NOT FIFO_FULL); 
 
 end arch_imp;

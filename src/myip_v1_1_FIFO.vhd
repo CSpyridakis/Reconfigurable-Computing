@@ -56,7 +56,7 @@ architecture Behavioral of myip_v1_1_FIFO is
 	
 	-- Implement FIFO as an array of logic_vectors
 	type FIFO_TYPE is array (0 to (FIFO_DEPTH)) of std_logic_vector((FIFO_DATA_WIDTH-1) downto 0);
-	signal FIFO : FIFO_TYPE;
+	signal FIFO : FIFO_TYPE := (others => (others => '0'));
 	
 	-- Write pointer is an integer with strictly acceptable values
 	signal write_pointer : integer range 0 to FIFO_DEPTH + 1;
@@ -70,9 +70,6 @@ architecture Behavioral of myip_v1_1_FIFO is
 	-- Indicators
 	signal full : std_logic;
 	signal empty : std_logic;
-	
-	-- Data out
-	signal data_out : std_logic_vector(FIFO_DATA_WIDTH-1 downto 0);
 	
 	-- FIFO's valid states for each (read/write) FSMs
 	type FIFO_STATES is ( 	IDLE,        		-- This is the initial/idle state 
@@ -99,7 +96,7 @@ begin
 	-- Actual connections
 	FIFO_FULL     <= full;
 	FIFO_EMPTY    <= empty;
-	FIFO_DATA_OUT <= data_out;
+	FIFO_DATA_OUT <= FIFO(read_pointer);
 	
 	-- In this process exists the implementation of FIFO's push control logic 
 	process(FIFO_W_ACLK) 
@@ -144,7 +141,6 @@ begin
 	  if (rising_edge (FIFO_R_ACLK)) then
 			-- Synchronous reset (active low) 
 			if (FIFO_ARESETN= '0') then
-				data_out      <= (others => '0');
 				read_pointer  <= BEGIN_POINTER;
 				R_STATE <= IDLE;
 				R_ACTION <= RESETED;
@@ -154,8 +150,6 @@ begin
 					
 					-- Pop data from FIFO only if it is possible
 					if (empty = '0') then 
-						-- Pop Data
-						data_out <= FIFO(read_pointer);
 						-- Increment write position
 						read_pointer <= read_pointer + 1;
 						-- If read pointer is out of bounds make correction
@@ -165,11 +159,9 @@ begin
 						
 						R_ACTION <= READ_DONE;
 					else
-						data_out <= (others => '0');
 						R_ACTION <= READ_FAILED;
 					end if;
 				else
-					data_out <= (others => '0');
 					R_STATE <= IDLE;
 					R_ACTION <= NOP;
 				end if;

@@ -67,38 +67,18 @@ begin
 	-- Just wiring
 	FIFO_R_ACLK	<= M_AXIS_ACLK;
 	FIFO_R_ARSTN    <= M_AXIS_ARESETN;
-	
+	M_AXIS_TLAST    <= '0' ;
+
 	-- Data that we actually read
-	stream_data_out <= FIFO_DATA_OUT;
+	M_AXIS_TDATA <= FIFO_DATA_OUT;
 
 	-- We are valid only when we are not busy (not implemented because there are not other jobs to do)
 	-- and there are valid data inside FIFO that we could potentially read
-	TVALID_TMP	<= NOT FIFO_EMPTY;  
+	M_AXIS_TVALID	<= NOT FIFO_EMPTY;  
 
-	process(M_AXIS_ACLK)                                                                           
-	begin            
-		
-		if (rising_edge (M_AXIS_ACLK)) then   
-		
-			-- We ask from FIFO to pop data only when there is a 
-			-- valid transaction handshake between MY-IP and DMAe, this means that
-			-- DMAe is ready and we have valid data to send
-			FIFO_REN  	<= M_AXIS_TREADY AND (NOT FIFO_EMPTY); 
-			      
-			-- We delay data and last signals for 1 cc
-			-- This is important because according to AXIS4 and AXIS4 Stream Protocols
-			-- handshake has to be preceded and then on the next cc when send them
-			if(M_AXIS_ARESETN = '0') then                                                              
-				M_AXIS_TDATA  <= "00000000000000000000000000000000";   
-				M_AXIS_TVALID <= '0';  
-				M_AXIS_TLAST  <= '0' ;   
-				                                     
-			else                                                                                       
-				M_AXIS_TDATA  <= stream_data_out; 
-				M_AXIS_TVALID <= TVALID_TMP;
-				M_AXIS_TLAST  <= '0' ;  
-			end if;                                                                                    
-  		end if;                                                                                      
-	end process;                                                                                   
+	-- We ask from FIFO to pop data only when there is a 
+	-- valid transaction handshake between MY-IP and DMAe, this means that
+	-- DMAe is ready and we have valid data to send
+	FIFO_REN  	<= M_AXIS_TREADY AND (NOT FIFO_EMPTY);                                                                                 
 
 end implementation;
