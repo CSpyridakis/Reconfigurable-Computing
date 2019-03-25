@@ -60,17 +60,10 @@ architecture implementation of myip_v1_1_M00_AXIS is
 	signal stream_data_out	: std_logic_vector(C_M_AXIS_TDATA_WIDTH-1 downto 0);
 begin
 	
-	-- We are valid only when we are not busy (not implemented because there are not other jobs to do)
-	-- and there are valid data inside FIFO that we could potentially read
-	M_AXIS_TVALID	<= NOT FIFO_EMPTY;
+
 
 	-- Same as template code 
 	M_AXIS_TSTRB	<= (others => '1');
-	
-	-- We ask from FIFO to pop data only when there is a 
-	-- valid transaction handshake between MY-IP and DMAe, this means that
-	-- DMAe is ready and we have valid data to send
-	FIFO_REN  	<= M_AXIS_TREADY AND (NOT FIFO_EMPTY);
 
 	-- Just wiring
 	FIFO_R_ACLK	<= M_AXIS_ACLK;
@@ -83,7 +76,16 @@ begin
 	-- This is important because according to AXIS4 and AXIS4 Stream Protocols
 	-- handshake has to be preceded and then on the next cc when send them
 	process(M_AXIS_ACLK)                                                                           
-	begin                                                                                    
+	begin    
+		-- We are valid only when we are not busy (not implemented because there are not other jobs to do)
+		-- and there are valid data inside FIFO that we could potentially read
+		M_AXIS_TVALID	<= NOT FIFO_EMPTY;
+
+		-- We ask from FIFO to pop data only when there is a 
+		-- valid transaction handshake between MY-IP and DMAe, this means that
+		-- DMAe is ready and we have valid data to send
+		FIFO_REN  	<= M_AXIS_TREADY AND (NOT FIFO_EMPTY); 
+		                                                                               
 		if (rising_edge (M_AXIS_ACLK)) then                                               
 			if(M_AXIS_ARESETN = '0') then                                                              
 				M_AXIS_TDATA <= "00000000000000000000000000000000";    
