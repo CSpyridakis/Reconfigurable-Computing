@@ -79,9 +79,9 @@ BEGIN
    -- Clock process definitions
    FIFO_W_ACLK_process :process
    begin
-		FIFO_W_ACLK <= '1';
-		wait for FIFO_W_ACLK_period/2;
 		FIFO_W_ACLK <= '0';
+		wait for FIFO_W_ACLK_period/2;
+		FIFO_W_ACLK <= '1';
 		wait for FIFO_W_ACLK_period/2;
    end process;
  

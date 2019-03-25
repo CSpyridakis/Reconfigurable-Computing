@@ -79,17 +79,17 @@ BEGIN
    -- Clock process definitions
    FIFO_W_ACLK_process :process
    begin
-		FIFO_W_ACLK <= '1';
-		wait for FIFO_W_ACLK_period/2;
 		FIFO_W_ACLK <= '0';
+		wait for FIFO_W_ACLK_period/2;
+		FIFO_W_ACLK <= '1';
 		wait for FIFO_W_ACLK_period/2;
    end process;
  
    FIFO_R_ACLK_process :process
    begin
-		FIFO_R_ACLK <= '1';
-		wait for FIFO_R_ACLK_period/2;
 		FIFO_R_ACLK <= '0';
+		wait for FIFO_R_ACLK_period/2;
+		FIFO_R_ACLK <= '1';
 		wait for FIFO_R_ACLK_period/2;
    end process;
  
@@ -104,14 +104,14 @@ BEGIN
 
       --------------------------------------------- CC 1 : RESET 
       FIFO_ARESETN <= '0';
-      FIFO_WEN 	   <= '0';
+      FIFO_WEN 	 <= '0';
       FIFO_REN     <= '0';
       FIFO_DATA_IN <= std_logic_vector(to_unsigned(0,32));
       wait for FIFO_W_ACLK_period*1;
      
       --------------------------------------------- CC 2 :  Nop x 2
       FIFO_ARESETN <= '1';
-      FIFO_WEN 	   <= '0';
+      FIFO_WEN 	 <= '0';
       FIFO_REN     <= '0';
       FIFO_DATA_IN <= std_logic_vector(to_unsigned(0,32));
       wait for FIFO_W_ACLK_period*2;
@@ -128,10 +128,10 @@ BEGIN
       --------------------------------------------- CC 6-9 :  Push and Pop simultaneously for 3 CCs
       FIFO_ARESETN <= '1';
       for I in 3 to 5 loop
-	FIFO_REN     <= '1';
-	FIFO_WEN     <= '1';
-	FIFO_DATA_IN <= std_logic_vector(to_unsigned(I,32));
-	wait for FIFO_W_ACLK_period*1;
+         FIFO_REN     <= '1';
+         FIFO_WEN     <= '1';
+         FIFO_DATA_IN <= std_logic_vector(to_unsigned(I,32));
+         wait for FIFO_W_ACLK_period*1;
       end loop;
      
       --------------------------------------------- CC 10-12 :  Pop 3 values (Completed: 2 | Failed: 1)

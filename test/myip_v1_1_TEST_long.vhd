@@ -94,17 +94,17 @@ BEGIN
    -- Clock process definitions
    m00_axis_aclk_process :process
    begin
-		m00_axis_aclk <= '1';
-		wait for m00_axis_aclk_period/2;
 		m00_axis_aclk <= '0';
+		wait for m00_axis_aclk_period/2;
+		m00_axis_aclk <= '1';
 		wait for m00_axis_aclk_period/2;
    end process;
  
    s00_axis_aclk_process :process
    begin
-		s00_axis_aclk <= '1';
-		wait for s00_axis_aclk_period/2;
 		s00_axis_aclk <= '0';
+		wait for s00_axis_aclk_period/2;
+		s00_axis_aclk <= '1';
 		wait for s00_axis_aclk_period/2;
    end process;
  

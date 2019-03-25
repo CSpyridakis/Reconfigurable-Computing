@@ -78,17 +78,17 @@ BEGIN
    -- Clock process definitions
    FIFO_W_ACLK_process :process
    begin
-		FIFO_W_ACLK <= '1';
-		wait for FIFO_W_ACLK_period/2;
 		FIFO_W_ACLK <= '0';
+		wait for FIFO_W_ACLK_period/2;
+		FIFO_W_ACLK <= '1';
 		wait for FIFO_W_ACLK_period/2;
    end process;
  
    FIFO_R_ACLK_process :process
    begin
-		FIFO_R_ACLK <= '1';
-		wait for FIFO_R_ACLK_period/2;
 		FIFO_R_ACLK <= '0';
+		wait for FIFO_R_ACLK_period/2;
+		FIFO_R_ACLK <= '1';
 		wait for FIFO_R_ACLK_period/2;
    end process;
  
@@ -103,7 +103,7 @@ BEGIN
 
       --------------------------------------------- CC 1 : RESET 
       FIFO_ARESETN <= '0';
-      FIFO_WEN 	   <= '0';
+      FIFO_WEN 	 <= '0';
       FIFO_DATA_IN <= "00000000000000000000000000000000";
       wait for FIFO_W_ACLK_period*1;
 
@@ -143,12 +143,12 @@ BEGIN
       FIFO_DATA_IN <= "00000000000000000000000000000110";
       wait for FIFO_W_ACLK_period*1;
       
-      --------------------------------------------- CC 17 : Push 7  (Read first value at the same time)
+      --------------------------------------------- CC 17 : Push 7  (REN at the same time)
       FIFO_WEN     <= '1';
       FIFO_DATA_IN <= "00000000000000000000000000000111";
       wait for FIFO_W_ACLK_period*1;
       
-      --------------------------------------------- CC 18 : Push 8  (Read first value at the same time)
+      --------------------------------------------- CC 18 : Push 8  (REN at the same time)
       FIFO_WEN     <= '1';
       FIFO_DATA_IN <= "00000000000000000000000000001000";
       wait for FIFO_W_ACLK_period*1;
@@ -171,7 +171,7 @@ BEGIN
       FIFO_REN     <= '0';
       wait for FIFO_R_ACLK_period*13;
       
-      ------------------------------------------- CC 14 : Pop 1  (Write 7th and 8th values at the same time)
+      ------------------------------------------- CC 14 : Pop 1  (POP between 7th and 8th values at the same time)
       FIFO_REN     <= '1';
       wait for FIFO_R_ACLK_period*1;
       

@@ -94,17 +94,17 @@ BEGIN
    -- Clock process definitions
    m00_axis_aclk_process :process
    begin
-		m00_axis_aclk <= '1';
-		wait for m00_axis_aclk_period/2;
 		m00_axis_aclk <= '0';
+		wait for m00_axis_aclk_period/2;
+		m00_axis_aclk <= '1';
 		wait for m00_axis_aclk_period/2;
    end process;
  
    s00_axis_aclk_process :process
    begin
-		s00_axis_aclk <= '1';
-		wait for s00_axis_aclk_period/2;
 		s00_axis_aclk <= '0';
+		wait for s00_axis_aclk_period/2;
+		s00_axis_aclk <= '1';
 		wait for s00_axis_aclk_period/2;
    end process;
  
@@ -139,70 +139,70 @@ BEGIN
       m00_axis_aresetn <= '1';
       --
       for I in 1 to 12 loop
-		-- Write Valid
-		if (I=1) then
-			s00_axis_tvalid  <= '1';
-			s00_axis_tdata   <= std_logic_vector(to_unsigned(0,32));
-			s00_axis_tlast   <= '0';
-			m00_axis_tready  <= '0';
-		--Write data
-		elsif (I=2) then
-			s00_axis_tvalid  <= '0';
-			s00_axis_tdata   <= std_logic_vector(to_unsigned(I,32));
-			s00_axis_tlast   <= '0';
-			m00_axis_tready  <= '0';
-		-- Write valid
-		elsif (I=3) then
-			s00_axis_tvalid  <= '1';
-			s00_axis_tdata   <= std_logic_vector(to_unsigned(0,32));
-			s00_axis_tlast   <= '0';
-			m00_axis_tready  <= '0';
-		-- Write data
-		elsif (I=4) then
-			s00_axis_tvalid  <= '1';
-			s00_axis_tdata   <= std_logic_vector(to_unsigned(I,32));
-			s00_axis_tlast   <= '0';
-			m00_axis_tready  <= '0';
-		-- Read and Write
-		elsif (I<8) then
-			s00_axis_tvalid  <= '1';
-			s00_axis_tdata   <= std_logic_vector(to_unsigned(I,32));
-			s00_axis_tlast   <= '0';
-			m00_axis_tready  <= '1';
-		-- Write last and continue reading
-		elsif (I=8) then
-			s00_axis_tvalid  <= '0';
-			s00_axis_tdata   <= std_logic_vector(to_unsigned(I,32));
-			s00_axis_tlast   <= '1';
-			m00_axis_tready  <= '1';
-		-- Read only
-		elsif (I=9) then
-			s00_axis_tvalid  <= '0';
-			s00_axis_tdata   <= std_logic_vector(to_unsigned(0,32));
-			s00_axis_tlast   <= '0';
-			m00_axis_tready  <= '1';
-		-- Nop 
-		elsif (I=10) then
-			s00_axis_tvalid  <= '0';
-			s00_axis_tdata   <= std_logic_vector(to_unsigned(0,32));
-			s00_axis_tlast   <= '0';
-			m00_axis_tready  <= '0';
-		-- Read
-		elsif (I=11) then
-			s00_axis_tvalid  <= '0';
-			s00_axis_tdata   <= std_logic_vector(to_unsigned(0,32));
-			s00_axis_tlast   <= '0';
-			m00_axis_tready  <= '1';
-		-- Read ready without handshake
-		elsif (I=12) then
-			s00_axis_tvalid  <= '0';
-			s00_axis_tdata   <= std_logic_vector(to_unsigned(0,32));
-			s00_axis_tlast   <= '0';
-			m00_axis_tready  <= '1';		
-		end if;
+         -- Write Valid
+         if (I=1) then
+            s00_axis_tvalid  <= '0';
+            s00_axis_tdata   <= std_logic_vector(to_unsigned(0,32));
+            s00_axis_tlast   <= '0';
+            m00_axis_tready  <= '0';
+         --Write data
+         elsif (I=2) then
+            s00_axis_tvalid  <= '1';
+            s00_axis_tdata   <= std_logic_vector(to_unsigned(I,32));
+            s00_axis_tlast   <= '0';
+            m00_axis_tready  <= '0';
+         -- Write valid
+         elsif (I=3) then
+            s00_axis_tvalid  <= '0';
+            s00_axis_tdata   <= std_logic_vector(to_unsigned(0,32));
+            s00_axis_tlast   <= '0';
+            m00_axis_tready  <= '0';
+         -- Write data
+         elsif (I=4) then
+            s00_axis_tvalid  <= '1';
+            s00_axis_tdata   <= std_logic_vector(to_unsigned(I,32));
+            s00_axis_tlast   <= '0';
+            m00_axis_tready  <= '0';
+         -- Read and Write
+         elsif (I<8) then
+            s00_axis_tvalid  <= '1';
+            s00_axis_tdata   <= std_logic_vector(to_unsigned(I,32));
+            s00_axis_tlast   <= '0';
+            m00_axis_tready  <= '1';
+         -- Write last and continue reading
+         elsif (I=8) then
+            s00_axis_tvalid  <= '1';
+            s00_axis_tdata   <= std_logic_vector(to_unsigned(I,32));
+            s00_axis_tlast   <= '1';
+            m00_axis_tready  <= '1';
+         -- Read only
+         elsif (I=9) then
+            s00_axis_tvalid  <= '0';
+            s00_axis_tdata   <= std_logic_vector(to_unsigned(0,32));
+            s00_axis_tlast   <= '0';
+            m00_axis_tready  <= '1';
+         -- Nop 
+         elsif (I=10) then
+            s00_axis_tvalid  <= '0';
+            s00_axis_tdata   <= std_logic_vector(to_unsigned(0,32));
+            s00_axis_tlast   <= '0';
+            m00_axis_tready  <= '0';
+         -- Read
+         elsif (I=11) then
+            s00_axis_tvalid  <= '0';
+            s00_axis_tdata   <= std_logic_vector(to_unsigned(0,32));
+            s00_axis_tlast   <= '0';
+            m00_axis_tready  <= '1';
+         -- Read ready without handshake
+         elsif (I=12) then
+            s00_axis_tvalid  <= '0';
+            s00_axis_tdata   <= std_logic_vector(to_unsigned(0,32));
+            s00_axis_tlast   <= '0';
+            m00_axis_tready  <= '1';		
+         end if;
 
-		wait for s00_axis_aclk_period*1;
-        end loop;
+         wait for s00_axis_aclk_period*1;
+      end loop;
 
       ----------------------------------- CC  : Nop  
       s00_axis_aresetn <= '1';
