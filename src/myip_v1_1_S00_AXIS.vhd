@@ -74,23 +74,9 @@ begin
 	-- and there is available space to write data inside FIFO
 	S_AXIS_TREADY	<= NOT FIFO_FULL;
 	
-	-- We delay FIFO_EN for 1 cc
-	-- This is important because according to AXIS4 and AXIS4 Stream Protocols
+	-- Select FIFO_WEN state based on availability and valid data 
+	-- Αccording to AXIS4 and AXIS4 Stream Protocols
 	-- handshake has to be preceded and then on the next cc we receive data
-	process(S_AXIS_ACLK)                                                                           
-	begin          
-		if (rising_edge (S_AXIS_ACLK)) then                       
-			if(S_AXIS_ARESETN = '0') then                                                              
-				FIFO_WEN_TMP <= '0';                                                                                                                               
-			else
-				-- Select FIFO_WEN state based on availability and valid data 
-				if (S_AXIS_TVALID='1' and (NOT FIFO_FULL)='1') then
-					FIFO_WEN_TMP <='1';
-				else
-					FIFO_WEN_TMP <='0'; 
-				end if;   		  
-				FIFO_WEN <= FIFO_WEN_TMP;                                   
-			end if;  
-		end if;                                                                                      
-	end process;   
+	FIFO_WEN 	<= S_AXIS_TVALID and (NOT FIFO_FULL); 
+
 end arch_imp;

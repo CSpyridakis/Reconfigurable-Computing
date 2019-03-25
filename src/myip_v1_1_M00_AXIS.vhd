@@ -58,6 +58,7 @@ end myip_v1_1_M00_AXIS;
 
 architecture implementation of myip_v1_1_M00_AXIS is                                                    
 	signal stream_data_out	: std_logic_vector(C_M_AXIS_TDATA_WIDTH-1 downto 0);
+	signal TVALID_TMP	: std_logic;
 begin
 	
 	-- Same as template code 
@@ -70,14 +71,15 @@ begin
 	-- Data that we actually read
 	stream_data_out <= FIFO_DATA_OUT;
 
+	-- We are valid only when we are not busy (not implemented because there are not other jobs to do)
+	-- and there are valid data inside FIFO that we could potentially read
+	TVALID_TMP	<= NOT FIFO_EMPTY;  
+
 	process(M_AXIS_ACLK)                                                                           
-	begin                                                       
+	begin            
+		
 		if (rising_edge (M_AXIS_ACLK)) then   
 		
-			-- We are valid only when we are not busy (not implemented because there are not other jobs to do)
-			-- and there are valid data inside FIFO that we could potentially read
-			M_AXIS_TVALID	<= NOT FIFO_EMPTY;
-
 			-- We ask from FIFO to pop data only when there is a 
 			-- valid transaction handshake between MY-IP and DMAe, this means that
 			-- DMAe is ready and we have valid data to send
@@ -87,11 +89,14 @@ begin
 			-- This is important because according to AXIS4 and AXIS4 Stream Protocols
 			-- handshake has to be preceded and then on the next cc when send them
 			if(M_AXIS_ARESETN = '0') then                                                              
-				M_AXIS_TDATA <= "00000000000000000000000000000000";    
-				M_AXIS_TLAST <= '0' ;                                         
+				M_AXIS_TDATA  <= "00000000000000000000000000000000";   
+				M_AXIS_TVALID <= '0';  
+				M_AXIS_TLAST  <= '0' ;   
+				                                     
 			else                                                                                       
-				M_AXIS_TDATA <= stream_data_out; 
-				M_AXIS_TLAST <= '0' ;  
+				M_AXIS_TDATA  <= stream_data_out; 
+				M_AXIS_TVALID <= TVALID_TMP;
+				M_AXIS_TLAST  <= '0' ;  
 			end if;                                                                                    
   		end if;                                                                                      
 	end process;                                                                                   
