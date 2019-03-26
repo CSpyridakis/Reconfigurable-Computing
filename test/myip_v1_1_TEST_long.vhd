@@ -124,7 +124,7 @@ BEGIN
       
       --------------------------------------------------------------------------------------------------
 
-      ----------------------------------- CC 2-3 : Nop x2  
+      ----------------------------------- CC 2-4 : Nop x3  
       s00_axis_aresetn <= '1';
       m00_axis_aresetn <= '1';
       --
@@ -133,18 +133,10 @@ BEGIN
       s00_axis_tlast   <= '0';
       --
       m00_axis_tready  <= '0';
-      wait for s00_axis_aclk_period*2;
-      
-      ----------------------------------- CC 4 : Handshake for writing data
-      s00_axis_tvalid  <= '1';
-      m00_axis_tready  <= '0';
-      --
-      s00_axis_tdata   <= std_logic_vector(to_unsigned(0,32));
-      s00_axis_tlast   <= '0';
-      wait for s00_axis_aclk_period*1;
-      
+      wait for s00_axis_aclk_period*3;
 
-      ----------------------------------- CC 5 : First packet with valid data + valid = 1 
+
+      ----------------------------------- CC 5 : First packet with valid data 
       s00_axis_tvalid  <= '1';
       m00_axis_tready  <= '0';
       --
@@ -152,7 +144,7 @@ BEGIN
       s00_axis_tlast   <= '0';
       wait for s00_axis_aclk_period*1;
 
-      ----------------------------------- CC 6 : Second packet with valid data + valid = 1 
+      ----------------------------------- CC 6 : Second packet with valid data 
       s00_axis_tvalid  <= '1';
       m00_axis_tready  <= '0';
       --
@@ -162,22 +154,10 @@ BEGIN
 
       ----------------------------------- CC 7-106 : Push and Pop simultaneously for 98 CCs (not exacly | DMAe is ready to receive data)
       for I in 3 to 101 loop
-         if (I=48) then
-            m00_axis_tready  <= '1';
-            --
-            s00_axis_tvalid  <= '0';
-            s00_axis_tlast   <= '0';
-            s00_axis_tdata   <= std_logic_vector(to_unsigned(I,32));
-         elsif (I>48 AND I<52) then 
+         if (I>48 AND I<52) then 
             m00_axis_tready  <= '0';
             --
             s00_axis_tvalid  <= '0';
-            s00_axis_tlast   <= '0';
-            s00_axis_tdata   <= std_logic_vector(to_unsigned(0,32));
-         elsif (I=52) then 
-            m00_axis_tready  <= '0';
-            --
-            s00_axis_tvalid  <= '1';
             s00_axis_tlast   <= '0';
             s00_axis_tdata   <= std_logic_vector(to_unsigned(0,32));
          elsif (I<100) then 
@@ -189,7 +169,7 @@ BEGIN
          elsif (I=100) then 
             m00_axis_tready  <= '1';
             --
-            s00_axis_tvalid  <= '0';
+            s00_axis_tvalid  <= '1';
             s00_axis_tlast   <= '1';
             s00_axis_tdata   <= std_logic_vector(to_unsigned(I,32));
          else
@@ -202,7 +182,7 @@ BEGIN
          wait for s00_axis_aclk_period*1;
       end loop;
 
-      ----------------------------------- CC 107-111 : Read last value  (Note: there is not reading error because we are not valid)
+      ----------------------------------- CC 107-111 : Read last values  (Note: there is not reading error because we are not valid)
       m00_axis_tready  <= '1';
       --
       s00_axis_tvalid  <= '0';

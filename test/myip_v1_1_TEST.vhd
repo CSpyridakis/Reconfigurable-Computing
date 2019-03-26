@@ -139,7 +139,7 @@ BEGIN
       m00_axis_aresetn <= '1';
       --
       for I in 1 to 12 loop
-         -- Write Valid
+         -- 
          if (I=1) then
             s00_axis_tvalid  <= '0';
             s00_axis_tdata   <= std_logic_vector(to_unsigned(0,32));
@@ -151,7 +151,7 @@ BEGIN
             s00_axis_tdata   <= std_logic_vector(to_unsigned(I,32));
             s00_axis_tlast   <= '0';
             m00_axis_tready  <= '0';
-         -- Write valid
+         -- 
          elsif (I=3) then
             s00_axis_tvalid  <= '0';
             s00_axis_tdata   <= std_logic_vector(to_unsigned(0,32));
