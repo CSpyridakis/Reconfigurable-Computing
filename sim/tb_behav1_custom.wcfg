@@ -1,0 +1,1001 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="axi_bram_ctrl_funcs" />
+            <top_module name="axi_dma_pkg" />
+            <top_module name="axi_vip_pkg" />
+            <top_module name="glbl" />
+            <top_module name="lib_pkg" />
+            <top_module name="std" />
+            <top_module name="tb" />
+            <top_module name="vcomponents" />
+            <top_module name="xil_common_vip_pkg" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="8303825200fs"></ZoomStartTime>
+      <ZoomEndTime time="8727225201fs"></ZoomEndTime>
+      <Cursor1Time time="8600225000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="281"></NameColumnWidth>
+      <ValueColumnWidth column_width="66"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="116" />
+   <wvobject fp_name="/tb/tb_ACLK" type="logic">
+      <obj_property name="ElementShortName">tb_ACLK</obj_property>
+      <obj_property name="ObjectShortName">tb_ACLK</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/tb_ARESETn" type="logic">
+      <obj_property name="ElementShortName">tb_ARESETn</obj_property>
+      <obj_property name="ObjectShortName">tb_ARESETn</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/temp_clk" type="logic">
+      <obj_property name="ElementShortName">temp_clk</obj_property>
+      <obj_property name="ObjectShortName">temp_clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/temp_rstn" type="logic">
+      <obj_property name="ElementShortName">temp_rstn</obj_property>
+      <obj_property name="ObjectShortName">temp_rstn</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/read_data" type="array">
+      <obj_property name="ElementShortName">read_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">read_data[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/resp" type="logic">
+      <obj_property name="ElementShortName">resp</obj_property>
+      <obj_property name="ObjectShortName">resp</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider57">
+      <obj_property name="label">BRAM_PORTA</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/blk_mem_ip/inst/clka" type="logic">
+      <obj_property name="ElementShortName">clka</obj_property>
+      <obj_property name="ObjectShortName">clka</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/blk_mem_ip/inst/rsta" type="logic">
+      <obj_property name="ElementShortName">rsta</obj_property>
+      <obj_property name="ObjectShortName">rsta</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/blk_mem_ip/inst/ena" type="logic">
+      <obj_property name="ElementShortName">ena</obj_property>
+      <obj_property name="ObjectShortName">ena</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/blk_mem_ip/inst/wea" type="array">
+      <obj_property name="ElementShortName">wea[3:0]</obj_property>
+      <obj_property name="ObjectShortName">wea[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/blk_mem_ip/inst/addra" type="array">
+      <obj_property name="ElementShortName">addra[31:0]</obj_property>
+      <obj_property name="ObjectShortName">addra[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/blk_mem_ip/inst/dina" type="array">
+      <obj_property name="ElementShortName">dina[31:0]</obj_property>
+      <obj_property name="ObjectShortName">dina[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/blk_mem_ip/inst/douta" type="array">
+      <obj_property name="ElementShortName">douta[31:0]</obj_property>
+      <obj_property name="ObjectShortName">douta[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider65">
+      <obj_property name="label">BRAM_PORTB</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/blk_mem_ip/inst/clkb" type="logic">
+      <obj_property name="ElementShortName">clkb</obj_property>
+      <obj_property name="ObjectShortName">clkb</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/blk_mem_ip/inst/rstb" type="logic">
+      <obj_property name="ElementShortName">rstb</obj_property>
+      <obj_property name="ObjectShortName">rstb</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/blk_mem_ip/inst/enb" type="logic">
+      <obj_property name="ElementShortName">enb</obj_property>
+      <obj_property name="ObjectShortName">enb</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/blk_mem_ip/inst/web" type="array">
+      <obj_property name="ElementShortName">web[3:0]</obj_property>
+      <obj_property name="ObjectShortName">web[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/blk_mem_ip/inst/addrb" type="array">
+      <obj_property name="ElementShortName">addrb[31:0]</obj_property>
+      <obj_property name="ObjectShortName">addrb[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/blk_mem_ip/inst/dinb" type="array">
+      <obj_property name="ElementShortName">dinb[31:0]</obj_property>
+      <obj_property name="ObjectShortName">dinb[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/blk_mem_ip/inst/doutb" type="array">
+      <obj_property name="ElementShortName">doutb[31:0]</obj_property>
+      <obj_property name="ObjectShortName">doutb[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider48">
+      <obj_property name="label">DMA CONFIG REGS</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/I_AXI_DMA_REG_MODULE/mm2s_dmacr" type="array">
+      <obj_property name="ElementShortName">mm2s_dmacr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">mm2s_dmacr[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/I_AXI_DMA_REG_MODULE/mm2s_dmasr" type="array">
+      <obj_property name="ElementShortName">mm2s_dmasr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">mm2s_dmasr[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/I_AXI_DMA_REG_MODULE/mm2s_sa" type="array">
+      <obj_property name="ElementShortName">mm2s_sa[31:0]</obj_property>
+      <obj_property name="ObjectShortName">mm2s_sa[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/I_AXI_DMA_REG_MODULE/mm2s_length" type="array">
+      <obj_property name="ElementShortName">mm2s_length[22:0]</obj_property>
+      <obj_property name="ObjectShortName">mm2s_length[22:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/I_AXI_DMA_REG_MODULE/s2mm_dmacr" type="array">
+      <obj_property name="ElementShortName">s2mm_dmacr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">s2mm_dmacr[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/I_AXI_DMA_REG_MODULE/s2mm_dmasr" type="array">
+      <obj_property name="ElementShortName">s2mm_dmasr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">s2mm_dmasr[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/I_AXI_DMA_REG_MODULE/s2mm_da" type="array">
+      <obj_property name="ElementShortName">s2mm_da[31:0]</obj_property>
+      <obj_property name="ObjectShortName">s2mm_da[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/I_AXI_DMA_REG_MODULE/s2mm_length" type="array">
+      <obj_property name="ElementShortName">s2mm_length[22:0]</obj_property>
+      <obj_property name="ObjectShortName">s2mm_length[22:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/mm2s_introut" type="logic">
+      <obj_property name="ElementShortName">mm2s_introut</obj_property>
+      <obj_property name="ObjectShortName">mm2s_introut</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/s2mm_introut" type="logic">
+      <obj_property name="ElementShortName">s2mm_introut</obj_property>
+      <obj_property name="ObjectShortName">s2mm_introut</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider29">
+      <obj_property name="label">DMA AXI LITE</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/I_AXI_DMA_REG_MODULE/s_axi_lite_aclk" type="logic">
+      <obj_property name="ElementShortName">s_axi_lite_aclk</obj_property>
+      <obj_property name="ObjectShortName">s_axi_lite_aclk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/I_AXI_DMA_REG_MODULE/axi_lite_reset_n" type="logic">
+      <obj_property name="ElementShortName">axi_lite_reset_n</obj_property>
+      <obj_property name="ObjectShortName">axi_lite_reset_n</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/I_AXI_DMA_REG_MODULE/s_axi_lite_awvalid" type="logic">
+      <obj_property name="ElementShortName">s_axi_lite_awvalid</obj_property>
+      <obj_property name="ObjectShortName">s_axi_lite_awvalid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/I_AXI_DMA_REG_MODULE/s_axi_lite_awready" type="logic">
+      <obj_property name="ElementShortName">s_axi_lite_awready</obj_property>
+      <obj_property name="ObjectShortName">s_axi_lite_awready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/I_AXI_DMA_REG_MODULE/s_axi_lite_awaddr" type="array">
+      <obj_property name="ElementShortName">s_axi_lite_awaddr[9:0]</obj_property>
+      <obj_property name="ObjectShortName">s_axi_lite_awaddr[9:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/I_AXI_DMA_REG_MODULE/s_axi_lite_wvalid" type="logic">
+      <obj_property name="ElementShortName">s_axi_lite_wvalid</obj_property>
+      <obj_property name="ObjectShortName">s_axi_lite_wvalid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/I_AXI_DMA_REG_MODULE/s_axi_lite_wready" type="logic">
+      <obj_property name="ElementShortName">s_axi_lite_wready</obj_property>
+      <obj_property name="ObjectShortName">s_axi_lite_wready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/I_AXI_DMA_REG_MODULE/s_axi_lite_wdata" type="array">
+      <obj_property name="ElementShortName">s_axi_lite_wdata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">s_axi_lite_wdata[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/I_AXI_DMA_REG_MODULE/s_axi_lite_bresp" type="array">
+      <obj_property name="ElementShortName">s_axi_lite_bresp[1:0]</obj_property>
+      <obj_property name="ObjectShortName">s_axi_lite_bresp[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/I_AXI_DMA_REG_MODULE/s_axi_lite_bvalid" type="logic">
+      <obj_property name="ElementShortName">s_axi_lite_bvalid</obj_property>
+      <obj_property name="ObjectShortName">s_axi_lite_bvalid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/I_AXI_DMA_REG_MODULE/s_axi_lite_bready" type="logic">
+      <obj_property name="ElementShortName">s_axi_lite_bready</obj_property>
+      <obj_property name="ObjectShortName">s_axi_lite_bready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/I_AXI_DMA_REG_MODULE/s_axi_lite_arvalid" type="logic">
+      <obj_property name="ElementShortName">s_axi_lite_arvalid</obj_property>
+      <obj_property name="ObjectShortName">s_axi_lite_arvalid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/I_AXI_DMA_REG_MODULE/s_axi_lite_arready" type="logic">
+      <obj_property name="ElementShortName">s_axi_lite_arready</obj_property>
+      <obj_property name="ObjectShortName">s_axi_lite_arready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/I_AXI_DMA_REG_MODULE/s_axi_lite_araddr" type="array">
+      <obj_property name="ElementShortName">s_axi_lite_araddr[9:0]</obj_property>
+      <obj_property name="ObjectShortName">s_axi_lite_araddr[9:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/I_AXI_DMA_REG_MODULE/s_axi_lite_rvalid" type="logic">
+      <obj_property name="ElementShortName">s_axi_lite_rvalid</obj_property>
+      <obj_property name="ObjectShortName">s_axi_lite_rvalid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/I_AXI_DMA_REG_MODULE/s_axi_lite_rready" type="logic">
+      <obj_property name="ElementShortName">s_axi_lite_rready</obj_property>
+      <obj_property name="ObjectShortName">s_axi_lite_rready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/I_AXI_DMA_REG_MODULE/s_axi_lite_rdata" type="array">
+      <obj_property name="ElementShortName">s_axi_lite_rdata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">s_axi_lite_rdata[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/I_AXI_DMA_REG_MODULE/s_axi_lite_rresp" type="array">
+      <obj_property name="ElementShortName">s_axi_lite_rresp[1:0]</obj_property>
+      <obj_property name="ObjectShortName">s_axi_lite_rresp[1:0]</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider74">
+      <obj_property name="label">DMA MAXI_MM2S</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/m_axi_mm2s_aclk" type="logic">
+      <obj_property name="ElementShortName">m_axi_mm2s_aclk</obj_property>
+      <obj_property name="ObjectShortName">m_axi_mm2s_aclk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/m_axi_mm2s_araddr" type="array">
+      <obj_property name="ElementShortName">m_axi_mm2s_araddr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">m_axi_mm2s_araddr[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/m_axi_mm2s_arlen" type="array">
+      <obj_property name="ElementShortName">m_axi_mm2s_arlen[7:0]</obj_property>
+      <obj_property name="ObjectShortName">m_axi_mm2s_arlen[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/m_axi_mm2s_arsize" type="array">
+      <obj_property name="ElementShortName">m_axi_mm2s_arsize[2:0]</obj_property>
+      <obj_property name="ObjectShortName">m_axi_mm2s_arsize[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/m_axi_mm2s_arburst" type="array">
+      <obj_property name="ElementShortName">m_axi_mm2s_arburst[1:0]</obj_property>
+      <obj_property name="ObjectShortName">m_axi_mm2s_arburst[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/m_axi_mm2s_arprot" type="array">
+      <obj_property name="ElementShortName">m_axi_mm2s_arprot[2:0]</obj_property>
+      <obj_property name="ObjectShortName">m_axi_mm2s_arprot[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/m_axi_mm2s_arcache" type="array">
+      <obj_property name="ElementShortName">m_axi_mm2s_arcache[3:0]</obj_property>
+      <obj_property name="ObjectShortName">m_axi_mm2s_arcache[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/m_axi_mm2s_aruser" type="array">
+      <obj_property name="ElementShortName">m_axi_mm2s_aruser[3:0]</obj_property>
+      <obj_property name="ObjectShortName">m_axi_mm2s_aruser[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/m_axi_mm2s_arvalid" type="logic">
+      <obj_property name="ElementShortName">m_axi_mm2s_arvalid</obj_property>
+      <obj_property name="ObjectShortName">m_axi_mm2s_arvalid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/m_axi_mm2s_arready" type="logic">
+      <obj_property name="ElementShortName">m_axi_mm2s_arready</obj_property>
+      <obj_property name="ObjectShortName">m_axi_mm2s_arready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/m_axi_mm2s_rdata" type="array">
+      <obj_property name="ElementShortName">m_axi_mm2s_rdata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">m_axi_mm2s_rdata[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/m_axi_mm2s_rresp" type="array">
+      <obj_property name="ElementShortName">m_axi_mm2s_rresp[1:0]</obj_property>
+      <obj_property name="ObjectShortName">m_axi_mm2s_rresp[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/m_axi_mm2s_rlast" type="logic">
+      <obj_property name="ElementShortName">m_axi_mm2s_rlast</obj_property>
+      <obj_property name="ObjectShortName">m_axi_mm2s_rlast</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/m_axi_mm2s_rvalid" type="logic">
+      <obj_property name="ElementShortName">m_axi_mm2s_rvalid</obj_property>
+      <obj_property name="ObjectShortName">m_axi_mm2s_rvalid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/m_axi_mm2s_rready" type="logic">
+      <obj_property name="ElementShortName">m_axi_mm2s_rready</obj_property>
+      <obj_property name="ObjectShortName">m_axi_mm2s_rready</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider89">
+      <obj_property name="label">DMA_MAXI_S2MM</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/m_axi_s2mm_aclk" type="logic">
+      <obj_property name="ElementShortName">m_axi_s2mm_aclk</obj_property>
+      <obj_property name="ObjectShortName">m_axi_s2mm_aclk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/m_axi_s2mm_awaddr" type="array">
+      <obj_property name="ElementShortName">m_axi_s2mm_awaddr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">m_axi_s2mm_awaddr[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/m_axi_s2mm_awlen" type="array">
+      <obj_property name="ElementShortName">m_axi_s2mm_awlen[7:0]</obj_property>
+      <obj_property name="ObjectShortName">m_axi_s2mm_awlen[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/m_axi_s2mm_awsize" type="array">
+      <obj_property name="ElementShortName">m_axi_s2mm_awsize[2:0]</obj_property>
+      <obj_property name="ObjectShortName">m_axi_s2mm_awsize[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/m_axi_s2mm_awburst" type="array">
+      <obj_property name="ElementShortName">m_axi_s2mm_awburst[1:0]</obj_property>
+      <obj_property name="ObjectShortName">m_axi_s2mm_awburst[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/m_axi_s2mm_awprot" type="array">
+      <obj_property name="ElementShortName">m_axi_s2mm_awprot[2:0]</obj_property>
+      <obj_property name="ObjectShortName">m_axi_s2mm_awprot[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/m_axi_s2mm_awcache" type="array">
+      <obj_property name="ElementShortName">m_axi_s2mm_awcache[3:0]</obj_property>
+      <obj_property name="ObjectShortName">m_axi_s2mm_awcache[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/m_axi_s2mm_awuser" type="array">
+      <obj_property name="ElementShortName">m_axi_s2mm_awuser[3:0]</obj_property>
+      <obj_property name="ObjectShortName">m_axi_s2mm_awuser[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/m_axi_s2mm_awvalid" type="logic">
+      <obj_property name="ElementShortName">m_axi_s2mm_awvalid</obj_property>
+      <obj_property name="ObjectShortName">m_axi_s2mm_awvalid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/m_axi_s2mm_awready" type="logic">
+      <obj_property name="ElementShortName">m_axi_s2mm_awready</obj_property>
+      <obj_property name="ObjectShortName">m_axi_s2mm_awready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/m_axi_s2mm_wdata" type="array">
+      <obj_property name="ElementShortName">m_axi_s2mm_wdata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">m_axi_s2mm_wdata[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/m_axi_s2mm_wstrb" type="array">
+      <obj_property name="ElementShortName">m_axi_s2mm_wstrb[3:0]</obj_property>
+      <obj_property name="ObjectShortName">m_axi_s2mm_wstrb[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/m_axi_s2mm_wlast" type="logic">
+      <obj_property name="ElementShortName">m_axi_s2mm_wlast</obj_property>
+      <obj_property name="ObjectShortName">m_axi_s2mm_wlast</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/m_axi_s2mm_wvalid" type="logic">
+      <obj_property name="ElementShortName">m_axi_s2mm_wvalid</obj_property>
+      <obj_property name="ObjectShortName">m_axi_s2mm_wvalid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/m_axi_s2mm_wready" type="logic">
+      <obj_property name="ElementShortName">m_axi_s2mm_wready</obj_property>
+      <obj_property name="ObjectShortName">m_axi_s2mm_wready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/m_axi_s2mm_bresp" type="array">
+      <obj_property name="ElementShortName">m_axi_s2mm_bresp[1:0]</obj_property>
+      <obj_property name="ObjectShortName">m_axi_s2mm_bresp[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/m_axi_s2mm_bvalid" type="logic">
+      <obj_property name="ElementShortName">m_axi_s2mm_bvalid</obj_property>
+      <obj_property name="ObjectShortName">m_axi_s2mm_bvalid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/m_axi_s2mm_bready" type="logic">
+      <obj_property name="ElementShortName">m_axi_s2mm_bready</obj_property>
+      <obj_property name="ObjectShortName">m_axi_s2mm_bready</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider108">
+      <obj_property name="label">MY_IP</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/s00_axis_tdata" type="array">
+      <obj_property name="ElementShortName">s00_axis_tdata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">s00_axis_tdata[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/s00_axis_tvalid" type="logic">
+      <obj_property name="ElementShortName">s00_axis_tvalid</obj_property>
+      <obj_property name="ObjectShortName">s00_axis_tvalid</obj_property>
+      <obj_property name="CustomSignalColor">#FF0000</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/s00_axis_tready" type="logic">
+      <obj_property name="ElementShortName">s00_axis_tready</obj_property>
+      <obj_property name="ObjectShortName">s00_axis_tready</obj_property>
+      <obj_property name="CustomSignalColor">#FF0000</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/s00_axis_tlast" type="logic">
+      <obj_property name="ElementShortName">s00_axis_tlast</obj_property>
+      <obj_property name="ObjectShortName">s00_axis_tlast</obj_property>
+      <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/s00_axis_tstrb" type="array">
+      <obj_property name="ElementShortName">s00_axis_tstrb[3:0]</obj_property>
+      <obj_property name="ObjectShortName">s00_axis_tstrb[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/s00_axis_aclk" type="logic">
+      <obj_property name="ElementShortName">s00_axis_aclk</obj_property>
+      <obj_property name="ObjectShortName">s00_axis_aclk</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/s00_axis_aresetn" type="logic">
+      <obj_property name="ElementShortName">s00_axis_aresetn</obj_property>
+      <obj_property name="ObjectShortName">s00_axis_aresetn</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/m00_axis_tdata" type="array">
+      <obj_property name="ElementShortName">m00_axis_tdata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">m00_axis_tdata[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/m00_axis_tvalid" type="logic">
+      <obj_property name="ElementShortName">m00_axis_tvalid</obj_property>
+      <obj_property name="ObjectShortName">m00_axis_tvalid</obj_property>
+      <obj_property name="CustomSignalColor">#FF0000</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/m00_axis_tready" type="logic">
+      <obj_property name="ElementShortName">m00_axis_tready</obj_property>
+      <obj_property name="ObjectShortName">m00_axis_tready</obj_property>
+      <obj_property name="CustomSignalColor">#FF0000</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/m00_axis_tlast" type="logic">
+      <obj_property name="ElementShortName">m00_axis_tlast</obj_property>
+      <obj_property name="ObjectShortName">m00_axis_tlast</obj_property>
+      <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/m00_axis_tstrb" type="array">
+      <obj_property name="ElementShortName">m00_axis_tstrb[3:0]</obj_property>
+      <obj_property name="ObjectShortName">m00_axis_tstrb[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/m00_axis_aclk" type="logic">
+      <obj_property name="ElementShortName">m00_axis_aclk</obj_property>
+      <obj_property name="ObjectShortName">m00_axis_aclk</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/m00_axis_aresetn" type="logic">
+      <obj_property name="ElementShortName">m00_axis_aresetn</obj_property>
+      <obj_property name="ObjectShortName">m00_axis_aresetn</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider1168">
+      <obj_property name="label">FIFO</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/U0/myip_v1_1_FIFO_inst/FIFO_FULL" type="logic">
+      <obj_property name="ElementShortName">FIFO_FULL</obj_property>
+      <obj_property name="ObjectShortName">FIFO_FULL</obj_property>
+      <obj_property name="CustomSignalColor">#FF0000</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/U0/myip_v1_1_FIFO_inst/FIFO_WEN" type="logic">
+      <obj_property name="ElementShortName">FIFO_WEN</obj_property>
+      <obj_property name="ObjectShortName">FIFO_WEN</obj_property>
+      <obj_property name="CustomSignalColor">#FF0000</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/U0/myip_v1_1_FIFO_inst/FIFO_DATA_IN" type="array">
+      <obj_property name="ElementShortName">FIFO_DATA_IN[31:0]</obj_property>
+      <obj_property name="ObjectShortName">FIFO_DATA_IN[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/U0/myip_v1_1_FIFO_inst/W_STATE" type="other">
+      <obj_property name="ElementShortName">W_STATE</obj_property>
+      <obj_property name="ObjectShortName">W_STATE</obj_property>
+      <obj_property name="CustomSignalColor">#FFFFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/U0/myip_v1_1_FIFO_inst/W_ACTION" type="other">
+      <obj_property name="ElementShortName">W_ACTION</obj_property>
+      <obj_property name="ObjectShortName">W_ACTION</obj_property>
+      <obj_property name="CustomSignalColor">#FFFFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/U0/myip_v1_1_FIFO_inst/write_pointer" type="other">
+      <obj_property name="ElementShortName">write_pointer</obj_property>
+      <obj_property name="ObjectShortName">write_pointer</obj_property>
+      <obj_property name="CustomSignalColor">#FFFFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/U0/myip_v1_1_FIFO_inst/FIFO_EMPTY" type="logic">
+      <obj_property name="ElementShortName">FIFO_EMPTY</obj_property>
+      <obj_property name="ObjectShortName">FIFO_EMPTY</obj_property>
+      <obj_property name="CustomSignalColor">#FF0000</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/U0/myip_v1_1_FIFO_inst/FIFO_REN" type="logic">
+      <obj_property name="ElementShortName">FIFO_REN</obj_property>
+      <obj_property name="ObjectShortName">FIFO_REN</obj_property>
+      <obj_property name="CustomSignalColor">#FF0000</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/U0/myip_v1_1_FIFO_inst/FIFO_DATA_OUT" type="array">
+      <obj_property name="ElementShortName">FIFO_DATA_OUT[31:0]</obj_property>
+      <obj_property name="ObjectShortName">FIFO_DATA_OUT[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/U0/myip_v1_1_FIFO_inst/R_STATE" type="other">
+      <obj_property name="ElementShortName">R_STATE</obj_property>
+      <obj_property name="ObjectShortName">R_STATE</obj_property>
+      <obj_property name="CustomSignalColor">#FFFFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/U0/myip_v1_1_FIFO_inst/R_ACTION" type="other">
+      <obj_property name="ElementShortName">R_ACTION</obj_property>
+      <obj_property name="ObjectShortName">R_ACTION</obj_property>
+      <obj_property name="CustomSignalColor">#FFFFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/U0/myip_v1_1_FIFO_inst/read_pointer" type="other">
+      <obj_property name="ElementShortName">read_pointer</obj_property>
+      <obj_property name="ObjectShortName">read_pointer</obj_property>
+      <obj_property name="CustomSignalColor">#FFFFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/U0/myip_v1_1_FIFO_inst/FIFO" type="array">
+      <obj_property name="ElementShortName">FIFO[0:64][31:0]</obj_property>
+      <obj_property name="ObjectShortName">FIFO[0:64][31:0]</obj_property>
+      <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/U0/myip_v1_1_FIFO_inst/FIFO[0]" type="array">
+         <obj_property name="ElementShortName">[0][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[0][31:0]</obj_property>
+         <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/U0/myip_v1_1_FIFO_inst/FIFO[1]" type="array">
+         <obj_property name="ElementShortName">[1][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[1][31:0]</obj_property>
+         <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/U0/myip_v1_1_FIFO_inst/FIFO[2]" type="array">
+         <obj_property name="ElementShortName">[2][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[2][31:0]</obj_property>
+         <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/U0/myip_v1_1_FIFO_inst/FIFO[3]" type="array">
+         <obj_property name="ElementShortName">[3][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[3][31:0]</obj_property>
+         <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/U0/myip_v1_1_FIFO_inst/FIFO[4]" type="array">
+         <obj_property name="ElementShortName">[4][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[4][31:0]</obj_property>
+         <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/U0/myip_v1_1_FIFO_inst/FIFO[5]" type="array">
+         <obj_property name="ElementShortName">[5][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[5][31:0]</obj_property>
+         <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/U0/myip_v1_1_FIFO_inst/FIFO[6]" type="array">
+         <obj_property name="ElementShortName">[6][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[6][31:0]</obj_property>
+         <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/U0/myip_v1_1_FIFO_inst/FIFO[7]" type="array">
+         <obj_property name="ElementShortName">[7][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[7][31:0]</obj_property>
+         <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/U0/myip_v1_1_FIFO_inst/FIFO[8]" type="array">
+         <obj_property name="ElementShortName">[8][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[8][31:0]</obj_property>
+         <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/U0/myip_v1_1_FIFO_inst/FIFO[9]" type="array">
+         <obj_property name="ElementShortName">[9][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[9][31:0]</obj_property>
+         <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/U0/myip_v1_1_FIFO_inst/FIFO[10]" type="array">
+         <obj_property name="ElementShortName">[10][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[10][31:0]</obj_property>
+         <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/U0/myip_v1_1_FIFO_inst/FIFO[11]" type="array">
+         <obj_property name="ElementShortName">[11][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[11][31:0]</obj_property>
+         <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/U0/myip_v1_1_FIFO_inst/FIFO[12]" type="array">
+         <obj_property name="ElementShortName">[12][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[12][31:0]</obj_property>
+         <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/U0/myip_v1_1_FIFO_inst/FIFO[13]" type="array">
+         <obj_property name="ElementShortName">[13][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[13][31:0]</obj_property>
+         <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/U0/myip_v1_1_FIFO_inst/FIFO[14]" type="array">
+         <obj_property name="ElementShortName">[14][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[14][31:0]</obj_property>
+         <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/U0/myip_v1_1_FIFO_inst/FIFO[15]" type="array">
+         <obj_property name="ElementShortName">[15][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[15][31:0]</obj_property>
+         <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/U0/myip_v1_1_FIFO_inst/FIFO[16]" type="array">
+         <obj_property name="ElementShortName">[16][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[16][31:0]</obj_property>
+         <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/U0/myip_v1_1_FIFO_inst/FIFO[17]" type="array">
+         <obj_property name="ElementShortName">[17][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[17][31:0]</obj_property>
+         <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/U0/myip_v1_1_FIFO_inst/FIFO[18]" type="array">
+         <obj_property name="ElementShortName">[18][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[18][31:0]</obj_property>
+         <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/U0/myip_v1_1_FIFO_inst/FIFO[19]" type="array">
+         <obj_property name="ElementShortName">[19][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[19][31:0]</obj_property>
+         <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/U0/myip_v1_1_FIFO_inst/FIFO[20]" type="array">
+         <obj_property name="ElementShortName">[20][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[20][31:0]</obj_property>
+         <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/U0/myip_v1_1_FIFO_inst/FIFO[21]" type="array">
+         <obj_property name="ElementShortName">[21][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[21][31:0]</obj_property>
+         <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/U0/myip_v1_1_FIFO_inst/FIFO[22]" type="array">
+         <obj_property name="ElementShortName">[22][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[22][31:0]</obj_property>
+         <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/U0/myip_v1_1_FIFO_inst/FIFO[23]" type="array">
+         <obj_property name="ElementShortName">[23][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[23][31:0]</obj_property>
+         <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/U0/myip_v1_1_FIFO_inst/FIFO[24]" type="array">
+         <obj_property name="ElementShortName">[24][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[24][31:0]</obj_property>
+         <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/U0/myip_v1_1_FIFO_inst/FIFO[25]" type="array">
+         <obj_property name="ElementShortName">[25][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[25][31:0]</obj_property>
+         <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/U0/myip_v1_1_FIFO_inst/FIFO[26]" type="array">
+         <obj_property name="ElementShortName">[26][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[26][31:0]</obj_property>
+         <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/U0/myip_v1_1_FIFO_inst/FIFO[27]" type="array">
+         <obj_property name="ElementShortName">[27][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[27][31:0]</obj_property>
+         <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/U0/myip_v1_1_FIFO_inst/FIFO[28]" type="array">
+         <obj_property name="ElementShortName">[28][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[28][31:0]</obj_property>
+         <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/U0/myip_v1_1_FIFO_inst/FIFO[29]" type="array">
+         <obj_property name="ElementShortName">[29][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[29][31:0]</obj_property>
+         <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/U0/myip_v1_1_FIFO_inst/FIFO[30]" type="array">
+         <obj_property name="ElementShortName">[30][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[30][31:0]</obj_property>
+         <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/U0/myip_v1_1_FIFO_inst/FIFO[31]" type="array">
+         <obj_property name="ElementShortName">[31][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[31][31:0]</obj_property>
+         <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/U0/myip_v1_1_FIFO_inst/FIFO[32]" type="array">
+         <obj_property name="ElementShortName">[32][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[32][31:0]</obj_property>
+         <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/U0/myip_v1_1_FIFO_inst/FIFO[33]" type="array">
+         <obj_property name="ElementShortName">[33][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[33][31:0]</obj_property>
+         <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/U0/myip_v1_1_FIFO_inst/FIFO[34]" type="array">
+         <obj_property name="ElementShortName">[34][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[34][31:0]</obj_property>
+         <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/U0/myip_v1_1_FIFO_inst/FIFO[35]" type="array">
+         <obj_property name="ElementShortName">[35][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[35][31:0]</obj_property>
+         <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/U0/myip_v1_1_FIFO_inst/FIFO[36]" type="array">
+         <obj_property name="ElementShortName">[36][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[36][31:0]</obj_property>
+         <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/U0/myip_v1_1_FIFO_inst/FIFO[37]" type="array">
+         <obj_property name="ElementShortName">[37][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[37][31:0]</obj_property>
+         <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/U0/myip_v1_1_FIFO_inst/FIFO[38]" type="array">
+         <obj_property name="ElementShortName">[38][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[38][31:0]</obj_property>
+         <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/U0/myip_v1_1_FIFO_inst/FIFO[39]" type="array">
+         <obj_property name="ElementShortName">[39][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[39][31:0]</obj_property>
+         <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/U0/myip_v1_1_FIFO_inst/FIFO[40]" type="array">
+         <obj_property name="ElementShortName">[40][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[40][31:0]</obj_property>
+         <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/U0/myip_v1_1_FIFO_inst/FIFO[41]" type="array">
+         <obj_property name="ElementShortName">[41][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[41][31:0]</obj_property>
+         <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/U0/myip_v1_1_FIFO_inst/FIFO[42]" type="array">
+         <obj_property name="ElementShortName">[42][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[42][31:0]</obj_property>
+         <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/U0/myip_v1_1_FIFO_inst/FIFO[43]" type="array">
+         <obj_property name="ElementShortName">[43][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[43][31:0]</obj_property>
+         <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/U0/myip_v1_1_FIFO_inst/FIFO[44]" type="array">
+         <obj_property name="ElementShortName">[44][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[44][31:0]</obj_property>
+         <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/U0/myip_v1_1_FIFO_inst/FIFO[45]" type="array">
+         <obj_property name="ElementShortName">[45][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[45][31:0]</obj_property>
+         <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/U0/myip_v1_1_FIFO_inst/FIFO[46]" type="array">
+         <obj_property name="ElementShortName">[46][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[46][31:0]</obj_property>
+         <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/U0/myip_v1_1_FIFO_inst/FIFO[47]" type="array">
+         <obj_property name="ElementShortName">[47][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[47][31:0]</obj_property>
+         <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/U0/myip_v1_1_FIFO_inst/FIFO[48]" type="array">
+         <obj_property name="ElementShortName">[48][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[48][31:0]</obj_property>
+         <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/U0/myip_v1_1_FIFO_inst/FIFO[49]" type="array">
+         <obj_property name="ElementShortName">[49][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[49][31:0]</obj_property>
+         <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/U0/myip_v1_1_FIFO_inst/FIFO[50]" type="array">
+         <obj_property name="ElementShortName">[50][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[50][31:0]</obj_property>
+         <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/U0/myip_v1_1_FIFO_inst/FIFO[51]" type="array">
+         <obj_property name="ElementShortName">[51][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[51][31:0]</obj_property>
+         <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/U0/myip_v1_1_FIFO_inst/FIFO[52]" type="array">
+         <obj_property name="ElementShortName">[52][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[52][31:0]</obj_property>
+         <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/U0/myip_v1_1_FIFO_inst/FIFO[53]" type="array">
+         <obj_property name="ElementShortName">[53][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[53][31:0]</obj_property>
+         <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/U0/myip_v1_1_FIFO_inst/FIFO[54]" type="array">
+         <obj_property name="ElementShortName">[54][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[54][31:0]</obj_property>
+         <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/U0/myip_v1_1_FIFO_inst/FIFO[55]" type="array">
+         <obj_property name="ElementShortName">[55][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[55][31:0]</obj_property>
+         <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/U0/myip_v1_1_FIFO_inst/FIFO[56]" type="array">
+         <obj_property name="ElementShortName">[56][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[56][31:0]</obj_property>
+         <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/U0/myip_v1_1_FIFO_inst/FIFO[57]" type="array">
+         <obj_property name="ElementShortName">[57][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[57][31:0]</obj_property>
+         <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/U0/myip_v1_1_FIFO_inst/FIFO[58]" type="array">
+         <obj_property name="ElementShortName">[58][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[58][31:0]</obj_property>
+         <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/U0/myip_v1_1_FIFO_inst/FIFO[59]" type="array">
+         <obj_property name="ElementShortName">[59][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[59][31:0]</obj_property>
+         <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/U0/myip_v1_1_FIFO_inst/FIFO[60]" type="array">
+         <obj_property name="ElementShortName">[60][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[60][31:0]</obj_property>
+         <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/U0/myip_v1_1_FIFO_inst/FIFO[61]" type="array">
+         <obj_property name="ElementShortName">[61][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[61][31:0]</obj_property>
+         <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/U0/myip_v1_1_FIFO_inst/FIFO[62]" type="array">
+         <obj_property name="ElementShortName">[62][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[62][31:0]</obj_property>
+         <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/U0/myip_v1_1_FIFO_inst/FIFO[63]" type="array">
+         <obj_property name="ElementShortName">[63][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[63][31:0]</obj_property>
+         <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/U0/myip_v1_1_FIFO_inst/FIFO[64]" type="array">
+         <obj_property name="ElementShortName">[64][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[64][31:0]</obj_property>
+         <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+   </wvobject>
+</wave_config>
