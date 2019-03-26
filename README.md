@@ -38,7 +38,7 @@ This project was developed using [Xilinx Vivado 2017.4](https://www.xilinx.com/s
 
 8. From Package Ip -> File Groups -> Merge changes from File Groups Wizard
 
-9. From Package Ip -> Review and Package -> Ip has been modified -> Package Ip
+9. From Package Ip -> Review and Package -> Package Ip
 
 10. Completed
 
