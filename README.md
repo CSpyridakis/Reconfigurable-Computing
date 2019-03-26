@@ -6,7 +6,7 @@ Introduction in Reconfigurable Computing (using reconfigurable Systems-on-Chip r
 ## Documentation
 ### Reports
 If you want more information about each module you could read (or just try to read, unfortunately at this point are only in greek language) the following report files:
-* [Milestone 1](./doc/Milestone-1.pdf)
+* [Milestone 1](./doc/Milestone-1-Report.pdf)
 
 ### Diagrams
 
