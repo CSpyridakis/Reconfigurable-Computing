@@ -1,0 +1,156 @@
+
+
+================================================================
+== Vivado HLS Report for 'ps2ip_fifo'
+================================================================
+* Date:           Wed Apr  3 17:22:44 2019
+
+* Version:        2017.4 (Build 2086221 on Fri Dec 15 21:13:33 MST 2017)
+* Project:        my_ip_hls
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z045ffg900-2
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|      3.40|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+----------+
+    |  Latency  |  Interval | Pipeline |
+    | min | max | min | max |   Type   |
+    +-----+-----+-----+-----+----------+
+    |    1|    1|    1|    1| function |
+    +-----+-----+-----+-----+----------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+--------+
+|       Name      | BRAM_18K| DSP48E|   FF   |   LUT  |
++-----------------+---------+-------+--------+--------+
+|DSP              |        -|      -|       -|       -|
+|Expression       |        -|      -|       0|      32|
+|FIFO             |        -|      -|       -|       -|
+|Instance         |        -|      -|       -|       -|
+|Memory           |        -|      -|       -|       -|
+|Multiplexer      |        -|      -|       -|      69|
+|Register         |        -|      -|      43|       -|
++-----------------+---------+-------+--------+--------+
+|Total            |        0|      0|      43|     101|
++-----------------+---------+-------+--------+--------+
+|Available        |     1090|    900|  437200|  218600|
++-----------------+---------+-------+--------+--------+
+|Utilization (%)  |        0|      0|   ~0   |   ~0   |
++-----------------+---------+-------+--------+--------+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP48: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +----------------------------------+----------+-------+---+----+------------+------------+
+    |           Variable Name          | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +----------------------------------+----------+-------+---+----+------------+------------+
+    |ap_block_state2_pp0_stage0_iter1  |    and   |      0|  0|   8|           1|           1|
+    |ps2ipFifo_V_data_V1_status        |    and   |      0|  0|   8|           1|           1|
+    |tmp_nbreadreq_fu_40_p5            |    and   |      0|  0|   8|           1|           0|
+    |ap_block_state1_pp0_stage0_iter0  |    or    |      0|  0|   8|           1|           1|
+    +----------------------------------+----------+-------+---+----+------------+------------+
+    |Total                             |          |      0|  0|  32|           4|           3|
+    +----------------------------------+----------+-------+---+----+------------+------------+
+
+    * Multiplexer: 
+    +--------------------------+----+-----------+-----+-----------+
+    |           Name           | LUT| Input Size| Bits| Total Bits|
+    +--------------------------+----+-----------+-----+-----------+
+    |ap_NS_iter1_fsm           |  15|          3|    2|          6|
+    |ap_done                   |   9|          2|    1|          2|
+    |ps2ipFifo_V_data_V_blk_n  |   9|          2|    1|          2|
+    |ps2ipFifo_V_last_V_blk_n  |   9|          2|    1|          2|
+    |ps2ipFifo_V_strb_V_blk_n  |   9|          2|    1|          2|
+    |real_start                |   9|          2|    1|          2|
+    |slaveIn_TDATA_blk_n       |   9|          2|    1|          2|
+    +--------------------------+----+-----------+-----+-----------+
+    |Total                     |  69|         15|    8|         18|
+    +--------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +--------------------+----+----+-----+-----------+
+    |        Name        | FF | LUT| Bits| Const Bits|
+    +--------------------+----+----+-----+-----------+
+    |ap_CS_iter0_fsm     |   1|   0|    1|          0|
+    |ap_CS_iter1_fsm     |   2|   0|    2|          0|
+    |ap_done_reg         |   1|   0|    1|          0|
+    |start_once_reg      |   1|   0|    1|          0|
+    |tmp_data_V_reg_91   |  32|   0|   32|          0|
+    |tmp_last_V_reg_101  |   1|   0|    1|          0|
+    |tmp_reg_87          |   1|   0|    1|          0|
+    |tmp_strb_V_reg_96   |   4|   0|    4|          0|
+    +--------------------+----+----+-----+-----------+
+    |Total               |  43|   0|   43|          0|
+    +--------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++---------------------------+-----+-----+------------+--------------------+--------------+
+|         RTL Ports         | Dir | Bits|  Protocol  |    Source Object   |    C Type    |
++---------------------------+-----+-----+------------+--------------------+--------------+
+|ap_clk                     |  in |    1| ap_ctrl_hs |     ps2ip_fifo     | return value |
+|ap_rst                     |  in |    1| ap_ctrl_hs |     ps2ip_fifo     | return value |
+|ap_start                   |  in |    1| ap_ctrl_hs |     ps2ip_fifo     | return value |
+|start_full_n               |  in |    1| ap_ctrl_hs |     ps2ip_fifo     | return value |
+|ap_done                    | out |    1| ap_ctrl_hs |     ps2ip_fifo     | return value |
+|ap_continue                |  in |    1| ap_ctrl_hs |     ps2ip_fifo     | return value |
+|ap_idle                    | out |    1| ap_ctrl_hs |     ps2ip_fifo     | return value |
+|ap_ready                   | out |    1| ap_ctrl_hs |     ps2ip_fifo     | return value |
+|start_out                  | out |    1| ap_ctrl_hs |     ps2ip_fifo     | return value |
+|start_write                | out |    1| ap_ctrl_hs |     ps2ip_fifo     | return value |
+|slaveIn_TVALID             |  in |    1|    axis    |   ps2ip_V_last_V   |    pointer   |
+|slaveIn_TREADY             | out |    1|    axis    |   ps2ip_V_last_V   |    pointer   |
+|slaveIn_TLAST              |  in |    1|    axis    |   ps2ip_V_last_V   |    pointer   |
+|slaveIn_TDATA              |  in |   32|    axis    |   ps2ip_V_data_V   |    pointer   |
+|slaveIn_TSTRB              |  in |    4|    axis    |   ps2ip_V_strb_V   |    pointer   |
+|ps2ipFifo_V_data_V_din     | out |   32|   ap_fifo  | ps2ipFifo_V_data_V |    pointer   |
+|ps2ipFifo_V_data_V_full_n  |  in |    1|   ap_fifo  | ps2ipFifo_V_data_V |    pointer   |
+|ps2ipFifo_V_data_V_write   | out |    1|   ap_fifo  | ps2ipFifo_V_data_V |    pointer   |
+|ps2ipFifo_V_strb_V_din     | out |    4|   ap_fifo  | ps2ipFifo_V_strb_V |    pointer   |
+|ps2ipFifo_V_strb_V_full_n  |  in |    1|   ap_fifo  | ps2ipFifo_V_strb_V |    pointer   |
+|ps2ipFifo_V_strb_V_write   | out |    1|   ap_fifo  | ps2ipFifo_V_strb_V |    pointer   |
+|ps2ipFifo_V_last_V_din     | out |    1|   ap_fifo  | ps2ipFifo_V_last_V |    pointer   |
+|ps2ipFifo_V_last_V_full_n  |  in |    1|   ap_fifo  | ps2ipFifo_V_last_V |    pointer   |
+|ps2ipFifo_V_last_V_write   | out |    1|   ap_fifo  | ps2ipFifo_V_last_V |    pointer   |
++---------------------------+-----+-----+------------+--------------------+--------------+
+

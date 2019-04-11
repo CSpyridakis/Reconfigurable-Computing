@@ -1,0 +1,12 @@
+fifo_w32_d64_A
+fifo_w4_d64_A
+fifo_w1_d64_A
+fifo_w32_d64_A
+fifo_w4_d64_A
+fifo_w1_d64_A
+start_for_core_U0
+start_for_ip2ps_fbkb
+ps2ip_fifo
+core
+ip2ps_fifo
+my_ip_hls

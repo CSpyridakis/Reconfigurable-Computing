@@ -1,0 +1,136 @@
+
+
+================================================================
+== Vivado HLS Report for 'my_ip_hls'
+================================================================
+* Date:           Wed Apr  3 17:22:44 2019
+
+* Version:        2017.4 (Build 2086221 on Fri Dec 15 21:13:33 MST 2017)
+* Project:        my_ip_hls
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z045ffg900-2
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|      3.40|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+----------+
+    |  Latency  |  Interval | Pipeline |
+    | min | max | min | max |   Type   |
+    +-----+-----+-----+-----+----------+
+    |    6|    6|    1|    1| dataflow |
+    +-----+-----+-----+-----+----------+
+
+    + Detail: 
+        * Instance: 
+        +---------------+------------+-----+-----+-----+-----+----------+
+        |               |            |  Latency  |  Interval | Pipeline |
+        |    Instance   |   Module   | min | max | min | max |   Type   |
+        +---------------+------------+-----+-----+-----+-----+----------+
+        |ps2ip_fifo_U0  |ps2ip_fifo  |    1|    1|    1|    1| function |
+        |core_U0        |core        |    1|    1|    1|    1| function |
+        |ip2ps_fifo_U0  |ip2ps_fifo  |    2|    2|    1|    1| function |
+        +---------------+------------+-----+-----+-----+-----+----------+
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+--------+
+|       Name      | BRAM_18K| DSP48E|   FF   |   LUT  |
++-----------------+---------+-------+--------+--------+
+|DSP              |        -|      -|       -|       -|
+|Expression       |        -|      -|       -|       -|
+|FIFO             |        4|      -|     144|     256|
+|Instance         |        -|      -|     217|     479|
+|Memory           |        -|      -|       -|       -|
+|Multiplexer      |        -|      -|       -|       -|
+|Register         |        -|      -|       -|       -|
++-----------------+---------+-------+--------+--------+
+|Total            |        4|      0|     361|     735|
++-----------------+---------+-------+--------+--------+
+|Available        |     1090|    900|  437200|  218600|
++-----------------+---------+-------+--------+--------+
+|Utilization (%)  |    ~0   |      0|   ~0   |   ~0   |
++-----------------+---------+-------+--------+--------+
+
++ Detail: 
+    * Instance: 
+    +---------------+------------+---------+-------+-----+-----+
+    |    Instance   |   Module   | BRAM_18K| DSP48E|  FF | LUT |
+    +---------------+------------+---------+-------+-----+-----+
+    |core_U0        |core        |        0|      0|   43|  119|
+    |ip2ps_fifo_U0  |ip2ps_fifo  |        0|      0|  131|  259|
+    |ps2ip_fifo_U0  |ps2ip_fifo  |        0|      0|   43|  101|
+    +---------------+------------+---------+-------+-----+-----+
+    |Total          |            |        0|      0|  217|  479|
+    +---------------+------------+---------+-------+-----+-----+
+
+    * DSP48: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    +----------------------+---------+----+----+------+-----+---------+
+    |         Name         | BRAM_18K| FF | LUT| Depth| Bits| Size:D*B|
+    +----------------------+---------+----+----+------+-----+---------+
+    |ip2psFifo_V_data_V_U  |        2|  54|  56|    64|   32|     2048|
+    |ip2psFifo_V_last_V_U  |        0|   9|  36|    64|    1|       64|
+    |ip2psFifo_V_strb_V_U  |        0|   9|  36|    64|    4|      256|
+    |ps2ipFifo_V_data_V_U  |        2|  54|  56|    64|   32|     2048|
+    |ps2ipFifo_V_last_V_U  |        0|   9|  36|    64|    1|       64|
+    |ps2ipFifo_V_strb_V_U  |        0|   9|  36|    64|    4|      256|
+    +----------------------+---------+----+----+------+-----+---------+
+    |Total                 |        4| 144| 256|   384|   74|     4736|
+    +----------------------+---------+----+----+------+-----+---------+
+
+    * Expression: 
+    N/A
+
+    * Multiplexer: 
+    N/A
+
+    * Register: 
+    N/A
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++------------------+-----+-----+--------------+--------------------+--------------+
+|     RTL Ports    | Dir | Bits|   Protocol   |    Source Object   |    C Type    |
++------------------+-----+-----+--------------+--------------------+--------------+
+|slaveIn_TDATA     |  in |   32|     axis     |  slaveIn_V_data_V  |    pointer   |
+|slaveIn_TSTRB     |  in |    4|     axis     |  slaveIn_V_strb_V  |    pointer   |
+|slaveIn_TLAST     |  in |    1|     axis     |  slaveIn_V_last_V  |    pointer   |
+|slaveIn_TVALID    |  in |    1|     axis     |  slaveIn_V_last_V  |    pointer   |
+|slaveIn_TREADY    | out |    1|     axis     |  slaveIn_V_last_V  |    pointer   |
+|masterOut_TDATA   | out |   32|     axis     | masterOut_V_data_V |    pointer   |
+|masterOut_TSTRB   | out |    4|     axis     | masterOut_V_strb_V |    pointer   |
+|masterOut_TLAST   | out |    1|     axis     | masterOut_V_last_V |    pointer   |
+|masterOut_TVALID  | out |    1|     axis     | masterOut_V_last_V |    pointer   |
+|masterOut_TREADY  |  in |    1|     axis     | masterOut_V_last_V |    pointer   |
+|ap_clk            |  in |    1| ap_ctrl_none |      my_ip_hls     | return value |
+|ap_rst_n          |  in |    1| ap_ctrl_none |      my_ip_hls     | return value |
++------------------+-----+-----+--------------+--------------------+--------------+
+

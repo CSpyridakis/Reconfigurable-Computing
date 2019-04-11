@@ -1,0 +1,13 @@
+<annotationInfo>
+<annotationInfo>
+</annotationInfo>
+<annotationInfo>
+</annotationInfo>
+<annotationInfo>
+</annotationInfo>
+<annotationInfo>
+<item  id="36" filename="my_ip_hls/my_ip_hls.cpp" linenumber="22" name="" contextFuncName="my_ip_hls" moduleName="my_ip_hls" rtlName="ps2ip_fifo_U0" latency="1" BRAM="-1" DSP="-1" FF="-1" LUT="-1" fileDirectory="C:\Work\Courses\HRY591\project\files\hls_distro"></item>
+<item  id="37" filename="my_ip_hls/my_ip_hls.cpp" linenumber="24" name="" contextFuncName="my_ip_hls" moduleName="my_ip_hls" rtlName="core_U0" latency="1" BRAM="-1" DSP="-1" FF="-1" LUT="-1" fileDirectory="C:\Work\Courses\HRY591\project\files\hls_distro"></item>
+<item  id="38" filename="my_ip_hls/my_ip_hls.cpp" linenumber="26" name="" contextFuncName="my_ip_hls" moduleName="my_ip_hls" rtlName="ip2ps_fifo_U0" latency="2" BRAM="-1" DSP="-1" FF="-1" LUT="-1" fileDirectory="C:\Work\Courses\HRY591\project\files\hls_distro"></item>
+</annotationInfo>
+</annotationInfo>
