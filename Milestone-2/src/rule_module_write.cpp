@@ -1,23 +1,15 @@
 #include "my_ip_hls.hpp"
 #include <inttypes.h>
 
-void rule_module_write(uint32 rule1 ,uint32 rule2, uint32 rule3, uint32 ruleOut[],uint32 ruleOutcnt[] ) {
+void give_rules(uint32 rule0 ,uint32 rule1, uint32 rule2, uint32 rules[],uint32 rulesCnts[]) {
 
-	if(ruleOut[0]!= rule1){
-		ruleOutcnt[0] = 0;
-	}
-	else if(ruleOut[1]!= rule2){
-		ruleOutcnt[1] = 0;
-	}
-	else if(ruleOut[2]!= rule3){
-		ruleOutcnt[2] = 0;
-	}
-	ruleOut[0] = rule1;
-	ruleOut[1] = rule2;
-	ruleOut[2] = rule3;
+	// Re-initialize counters if one or more of the rules changed
+	rulesCnts[0] = (rules[0] == rule0) ? rulesCnts[0] : (uint32)0;
+	rulesCnts[1] = (rules[1] == rule1) ? rulesCnts[1] : (uint32)0;
+	rulesCnts[2] = (rules[2] == rule2) ? rulesCnts[2] : (uint32)0;
+
+	// Save rules in registers
+	rules[0] = rule0;
+	rules[1] = rule1;
+	rules[2] = rule2;
 }
-
-
-
-
-

@@ -1,13 +1,9 @@
 #include "my_ip_hls.hpp"
 #include <inttypes.h>
 
-void rule_module_read(uint32 ruleOutcnt[] ,uint32 &ruleOutcounter0, uint32 &ruleOutcounter1,uint32 &ruleOutcounter2){
-	ruleOutcounter0 = ruleOutcnt[0];
-	ruleOutcounter1 = ruleOutcnt[1];
-	ruleOutcounter2 = ruleOutcnt[2];
+void read_rules_counters(uint32 rulesCnts[] ,uint32 &rule0cnt, uint32 &rule1cnt,uint32 &rule2cnt){
+	// Read rules' Counters
+	rule0cnt = rulesCnts[0];
+	rule1cnt = rulesCnts[1];
+	rule2cnt = rulesCnts[2];
 }
-
-
-
-
-
