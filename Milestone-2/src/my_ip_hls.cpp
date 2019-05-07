@@ -31,15 +31,42 @@ void my_ip_hls(stream<axiWord> &slaveIn,stream<axiWord> &masterOut,uint32 rule0,
 	static stream<axiWord> ip2psFifo("ip2psFifo");
 #pragma HLS STREAM variable=ip2psFifo depth=64 dim=1
 
+// Try to solve problem using arrays
+#ifdef ARRAY_SOLUTION
 
-	static uint32 rulesCnts [3] = { 0, 0, 0 };						// Rules' Counters registers
-	static uint32 rules [3] = { -1 , -1 , -1 };						// Rules registers
+	// Rules' Counters registers as an array with initialization
+	static uint32 rulesCnts [3] = { 0, 0, 0};
+#pragma HLS ARRAY_MAP variable=rulesCnts horizontal
+	// Rules registers as an array with initialization
+	static uint32 rules [3] = { 0, 0, 0};
+#pragma HLS ARRAY_MAP variable=rules horizontal
 
 	give_rules(rule0, rule1, rule2, rules, rulesCnts);				// Save Rules and their counters in registers
 	ps2ip_fifo(slaveIn,ps2ipFifo);									// FIFO that keeps input data
 	core(ps2ipFifo,ip2psFifo,rules,rulesCnts);						// Core of the IP with core logic
 	read_rules_counters(rulesCnts, rule0cnt, rule1cnt, rule2cnt);	// Give back rules' counters
 	ip2ps_fifo(ip2psFifo,masterOut);								// FIFO that keeps output data
+
+//
+#else
+
+	// Rules registers
+	static uint32 rule0Reg=0, rule1Reg=0, rule2Reg=0;
+	// Rules' Counters registers
+	static uint32 rule0cntReg=0, rule1cntReg=0, rule2cntReg=0;
+
+	// Save Rules and their counters in registers
+	give_rules(rule0, rule1, rule2, rule0Reg, rule1Reg, rule2Reg, rule0cntReg, rule1cntReg, rule2cntReg);
+	// FIFO that keeps input data
+	ps2ip_fifo(slaveIn,ps2ipFifo);
+	// Core of the IP with core logic
+	core(ps2ipFifo, ip2psFifo, rule0Reg, rule1Reg, rule2Reg, rule0cntReg, rule1cntReg, rule2cntReg);
+	// Give back rules' counters
+	read_rules_counters(rule0cntReg, rule1cntReg, rule2cntReg, rule0cnt, rule1cnt, rule2cnt);
+	// FIFO that keeps output data
+	ip2ps_fifo(ip2psFifo,masterOut);
+
+#endif
 
 	return;
 

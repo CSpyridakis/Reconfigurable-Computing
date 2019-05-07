@@ -4,6 +4,8 @@
 #include <stdint.h>
 #include <stdio.h>
 
+//#define ARRAY_SOLUTION
+
 using namespace hls;
 
 struct axiWord {
@@ -20,9 +22,10 @@ void ps2ip_fifo(stream<axiWord> &ps2ip,stream<axiWord> &ps2ipIntFifo);
 
 void ip2ps_fifo(stream<axiWord> &ip2psIntFifo,stream<axiWord> &ip2ps);
 
-void core(stream<axiWord> &ps2ipIntFifo,stream<axiWord> &ip2psIntFifo,uint32 rules[],uint32 rulesCnts[]);
-
 void my_ip_hls(stream<axiWord> &slaveIn,stream<axiWord> &masterOut, uint32 rule0, uint32 rule1, uint32 rule2, uint32 &rule0cnt, uint32 &rule1cnt, uint32 &rule2cnt);
+
+// Try to solve problem using arrays
+#ifdef ARRAY_SOLUTION
 
 /**
  *	\brief  This function saves rules' values from axi 4 lite interface in internal registers.
@@ -48,3 +51,13 @@ void give_rules(uint32 rule0, uint32 rule1, uint32 rule2, uint32 rules[], uint32
  *	\param rule2cnt 		Third rule counter value
  */
 void read_rules_counters(uint32 rulesCnts[] ,uint32 &rule0cnt, uint32 &rule1cnt, uint32 &rule2cnt);
+
+void core(stream<axiWord> &ps2ipIntFifo,stream<axiWord> &ip2psIntFifo,uint32 rules[],uint32 rulesCnts[]);
+
+#else
+
+void give_rules(uint32 rule0, uint32 rule1, uint32 rule2, uint32 &rule0Reg, uint32 &rule1Reg, uint32 &rule2Reg, uint32 &rule0cntReg, uint32 &rule1cntReg, uint32 &rule2cntReg);
+void read_rules_counters(uint32 rule0cntReg, uint32 rule1cntReg, uint32 rule2cntReg ,uint32 &rule0cnt, uint32 &rule1cnt, uint32 &rule2cnt);
+void core(stream<axiWord> &ps2ipIntFifo,stream<axiWord> &ip2psIntFifo,uint32 rule0Reg, uint32 rule1Reg, uint32 rule2Reg, uint32 &rule0cntReg, uint32 &rule1cntReg, uint32 &rule2cntReg);
+
+#endif

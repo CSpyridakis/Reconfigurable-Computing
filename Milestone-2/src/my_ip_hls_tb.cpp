@@ -21,7 +21,7 @@ uint32 MDATA [STREAM_TEST_ITERATIONS] = {10,15,20,25,30,35,40,45,50,55,
 //			This part of the code is just for testing and DEBUGING purposes
 //			If you need to test what is going to happen in case that you would like
 //			to change/give one or more of the rules at a specific point of execution
-// 			un-comment DEBUG and use below variables and function
+// 			uncomment DEBUG and use below variables and function as needed
 
 //#define DEBUG 0
 
@@ -57,9 +57,14 @@ int main() {
 	stream<axiWord> slaveIn("slaveIn");
 	stream<axiWord> masterOut("masterOut");
 
-	static uint32 rulesCnts [3] = { 0, 0, 0 };	// Rule Counters
+	static uint32 rule0cnt = 0, rule1cnt = 0, rule2cnt = 0;		// Rule Counters
 
 	printf("\n---------------------------------\n");
+#ifdef ARRAY_SOLUTION
+	printf("Array solution\n");
+#else
+	printf("Simple Solution\n");
+#endif
 	printf("Begin Simulation...\n");
 	for (i=0;i<STREAM_TEST_ITERATIONS;i++) {
 		axiWord dataIn = {0,0,0};
@@ -74,9 +79,9 @@ int main() {
 		slaveIn.write(dataIn);
 
 #ifdef DEBUG
-		my_ip_hls(slaveIn, masterOut, ruleXState(0,i), ruleXState(1,i), ruleXState(2,i), rulesCnts[0], rulesCnts[1], rulesCnts[2]);
+		my_ip_hls(slaveIn, masterOut, ruleXState(0,i), ruleXState(1,i), ruleXState(2,i), rule0cnt, rule1cnt, rule2cnt);
 #else
-		my_ip_hls(slaveIn, masterOut, static0Rule, static1Rule, static2Rule, rulesCnts[0], rulesCnts[1], rulesCnts[2]);
+		my_ip_hls(slaveIn, masterOut, static0Rule, static1Rule, static2Rule, rule0cnt, rule1cnt, rule2cnt);
 #endif
 
 		if (!masterOut.empty()) {
@@ -90,14 +95,14 @@ int main() {
 
 #ifdef DEBUG
 		printf("R0: %d  | R1: %d  | R2: %d\n", (int)ruleXState(0,i), (int)ruleXState(1,i), (int)ruleXState(2,i));
-		printf("C0: %d   | C1: %d   | C2: %d\n--\n", int(rulesCnts[0]), int(rulesCnts[1]), int(rulesCnts[2]));
+		printf("C0: %d   | C1: %d   | C2: %d\n--\n", (int)rule0cnt, (int)rule1cnt, (int)rule2cnt);
 #endif
 
 	}
 	printf("\nResults:\n");
-	printf("  Counter 0 : %d\n", int(rulesCnts[0]));
-	printf("  Counter 1 : %d\n", int(rulesCnts[1]));
-	printf("  Counter 2 : %d\n", int(rulesCnts[2]));
+	printf("  Counter 0 : %d\n", (int)rule0cnt);
+	printf("  Counter 1 : %d\n", (int)rule1cnt);
+	printf("  Counter 2 : %d\n", (int)rule2cnt);
 	printf("---------------------------------\n\n");
 
 	return 0;
