@@ -16,50 +16,6 @@ uint32 MDATA [STREAM_TEST_ITERATIONS] = {10,15,20,25,30,35,40,45,50,55,
 										 60,65,70,65,60,55,50,45,40,35,
 										 30,25,20,15,10,15,20,25,30,35};
 
-
-//--------------------------------------------------------------------------------------------
-//			This part of the code is just for testing and DEBUGING purposes
-//			If you need to test what is going to happen in case that you would like
-//			to change/give one or more of the rules at a specific point of execution
-// 			uncomment DEBUG and use below variables and function as needed
-
-//#define DEBUG 0
-
-const int numOfChanges = 2;
-// Rules values that we want to test
-uint32 rules[3][numOfChanges] = {
-		{10,40},	//Rule 0
-		{65,35},	//Rule 1
-		{35,0}};	//Rule 2
-
-// The domain of iterations that we are going to use for each rule
-// E.g.
-//  	If you have the following arrays
-//		rules {a, b, c}
-//  	rulesChangeOnIteration {d, f, g, h}
-// Then:
-//		use rule a in [d, f)
-//      use rule b in [f, g)
-//		use rule c in [g, h)
-uint32 rulesChangeOnIteration[3][numOfChanges+1] = {
-		{0,15,1000},		//Rule 0
-		{0,15,1000},		//Rule 1
-		{0,1000,1000},};	//Rule 2
-
-// The value that each rule has at a specific time of operation
-uint32 ruleXState(uint32 rule, uint32 i){
-	uint32 j = 0;
-	for (j=0; j<(uint32)numOfChanges; j++) {
-		if (i>=rulesChangeOnIteration[rule][j] && i<rulesChangeOnIteration[rule][j+1]){
-			return rules[rule][j];
-		}
-	}
-	return uint32(0);
-}
-//--------------------------------------------------------------------------------------------
-
-
-
 int main() {
 
 	uint32 i = 0;
@@ -68,12 +24,7 @@ int main() {
 
 	uint32 rule0cnt = 0, rule1cnt = 0, rule2cnt = 0;		// Rule Counters
 
-// DEBUG Message
-#ifdef ARRAY_SOLUTION
-	printf("\n---------------------------------\nArray solution\nBegin Simulation...\n");
-#else
-	printf("\n---------------------------------\nSimple Solution\nBegin Simulation...\n");
-#endif
+	printf("\n---------------------------------\nBegin Simulation...\n");
 
 	for (i=0;i<STREAM_TEST_ITERATIONS;i++) {
 		axiWord dataIn = {0,0,0};
@@ -87,12 +38,7 @@ int main() {
 
 		slaveIn.write(dataIn);
 
-// Select which simulation is going to be executed (basic VS complex)
-#ifdef DEBUG
-		my_ip_hls(slaveIn, masterOut, ruleXState(0,i), ruleXState(1,i), ruleXState(2,i), rule0cnt, rule1cnt, rule2cnt);
-#else
-		my_ip_hls(slaveIn, masterOut, static0Rule, static1Rule, static2Rule);//, rule0cnt, rule1cnt, rule2cnt);
-#endif
+		my_ip_hls(slaveIn, masterOut, static0Rule, static1Rule, static2Rule, rule0cnt, rule1cnt, rule2cnt);
 
 		if (!masterOut.empty()) {
 			axiWord dataOut = {0,0,0};
@@ -103,14 +49,8 @@ int main() {
 			printf("%d: no data available!\n",(int)i);
 		}
 
-// DEBUG Message
-#ifdef DEBUG
-		printf("R0: %d  | R1: %d  | R2: %d\n", (int)ruleXState(0,i), (int)ruleXState(1,i), (int)ruleXState(2,i));
-		printf("C0: %d   | C1: %d   | C2: %d\n--\n", (int)rule0cnt, (int)rule1cnt, (int)rule2cnt);
-#endif
-
 	}
-	//printf("\nResults:\n  Counter 0 : %d\n  Counter 1 : %d\n  Counter 2 : %d\n---------------------------------\n\n")
+	printf("\nResults:\n  Counter 0 : %d\n  Counter 1 : %d\n  Counter 2 : %d\n---------------------------------\n\n",(int)rule0cnt,(int)rule1cnt, (int)rule2cnt);
 
 	return 0;
 }

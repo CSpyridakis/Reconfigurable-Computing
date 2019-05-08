@@ -22,10 +22,9 @@ void core(	stream<axiWord> &ps2ipIntFifo,stream<axiWord> &ip2psIntFifo,
 			uint32 rule0Reg, uint32 rule1Reg, uint32 rule2Reg,
 			uint32 &cnt0Reg, uint32 &cnt1Reg, uint32 &cnt2Reg);
 
-//TODO: AXI 4 Lite counters out
 void my_ip_hls(	stream<axiWord> &slaveIn,stream<axiWord> &masterOut,
-				uint32 rule0, uint32 rule1, uint32 rule2);
-				//uint32 &rule0cnt, uint32 &rule1cnt, uint32 &rule2cnt);
+				uint32 rule0, uint32 rule1, uint32 rule2,
+				uint32 &rule0cnt, uint32 &rule1cnt, uint32 &rule2cnt);
 
 /**
  *	\brief  This function saves rules' values from axi 4 lite interface in internal registers.
