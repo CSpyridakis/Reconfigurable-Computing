@@ -34,16 +34,20 @@ void my_ip_hls( stream<axiWord> &slaveIn,stream<axiWord> &masterOut,
 	static uint32 rule1Reg=0;
 	static uint32 rule2Reg=0;
 
-	// Save Rules and their counters in registers
+	// Temp counters values
+	uint32 cnt0Reg, cnt1Reg, cnt2Reg;
+	// Save Rules in registers
 	rules_in(rule0, rule1, rule2, rule0Reg, rule1Reg, rule2Reg);
 
-	//fifo that keeps input data
+	// fifo that keeps input data
 	ps2ip_fifo(slaveIn,ps2ipFifo);
-	//core of the IP
-	core(ps2ipFifo, ip2psFifo, rule0Reg, rule1Reg, rule2Reg, rule0cnt, rule1cnt, rule2cnt);
-	//fifo that keeps output data
+	// core of the IP
+	core(ps2ipFifo, ip2psFifo, rule0Reg, rule1Reg, rule2Reg, cnt0Reg, cnt1Reg, cnt2Reg);
+	// fifo that keeps output data
 	ip2ps_fifo(ip2psFifo,masterOut);
 
+	// Give back counters to PS
+	counters_out(cnt0Reg, cnt1Reg, cnt2Reg, rule0cnt, rule1cnt, rule2cnt);
 	return ;
 
 }

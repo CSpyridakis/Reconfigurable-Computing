@@ -13,6 +13,11 @@ void core(	stream<axiWord> &ps2ipIntFifo,stream<axiWord> &ip2psIntFifo,
 
 	static axiWord newInWord = {0,0,0};
 
+	// Counters actual registers
+	static uint32 cnt0Reg_core=0;
+	static uint32 cnt1Reg_core=0;
+	static uint32 cnt2Reg_core=0;
+
 	switch(curState) {
 
 		  case (IN_STATE_IDLE): {
@@ -21,19 +26,24 @@ void core(	stream<axiWord> &ps2ipIntFifo,stream<axiWord> &ip2psIntFifo,
 
 				  // Check if this packet triggers one of the rules
 				  if (rule0Reg == newInWord.data){
-					  cnt0Reg++;
+					  cnt0Reg_core++;
 				  }
 				  else if(rule1Reg == newInWord.data){
-					  cnt1Reg++;
+					  cnt1Reg_core++;
 				  }
 				  else if (rule2Reg == newInWord.data){
-					  cnt2Reg++;
+					  cnt2Reg_core++;
 				  }
 				  // Write back packet only in case none
 				  // of the rules has been triggered
 				  else{
 					  ip2psIntFifo.write(newInWord);
 				  }
+
+				  // Give back counters values
+				  cnt0Reg=cnt0Reg_core;
+				  cnt1Reg=cnt1Reg_core;
+				  cnt2Reg=cnt2Reg_core;
 			  }
 
 			  curState = IN_STATE_IDLE;

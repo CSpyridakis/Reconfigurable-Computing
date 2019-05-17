@@ -28,11 +28,11 @@ void my_ip_hls(	stream<axiWord> &slaveIn,stream<axiWord> &masterOut,
 
 /**
  *	\brief  This function saves rules' values from axi 4 lite interface in internal registers.
- *			Moreover re-initialize the value of a counter when this rule is replaced.
+ *			TODO : Moreover re-initialize the value of a counter when one ore more of the rules is/are replaced.
  *
- *	\param rule0 		First rule value
- *	\param rule1 		Second rule value
- *	\param rule2 		Third rule value
+ *	\param rule0 		First rule value from axi 4 lite
+ *	\param rule1 		Second rule value from axi 4 lite
+ *	\param rule2 		Third rule value from axi 4 lite
  *
  *	\param rule0Reg 	Registers that first rule is located
  *	\param rule1Reg 	Registers that second rule is located
@@ -45,9 +45,9 @@ void rules_in(	uint32 rule0, uint32 rule1, uint32 rule2,
  *	\brief  The actual wiring between rules' counters internal registers and
  *			axi 4 lite interface.
  *
- *	\param cnt0Reg			Registers that first counter value is located
- *	\param cnt1Reg			Registers that second counter value is located
- *	\param cnt2Reg			Registers that third counter value is located
+ *	\param cnt0Reg			first counter value
+ *	\param cnt1Reg			second counter value
+ *	\param cnt2Reg			third counter value
  *
  *	\param rule0cnt			first counter to Axi 4 Lite
  *	\param rule1cnt			second counter to Axi 4 Lite

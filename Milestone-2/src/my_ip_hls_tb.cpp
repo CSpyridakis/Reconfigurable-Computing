@@ -38,6 +38,7 @@ int main() {
 
 		slaveIn.write(dataIn);
 
+		// my_ip behavior
 		my_ip_hls(slaveIn, masterOut, static0Rule, static1Rule, static2Rule, rule0cnt, rule1cnt, rule2cnt);
 
 		if (!masterOut.empty()) {
