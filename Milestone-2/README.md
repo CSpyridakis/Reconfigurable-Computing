@@ -12,12 +12,9 @@ Block and timing diagrams are able to be changed:
 * For [json](./doc/timing-diagrams/) files (timing diagrams) we have used [Wavedrom editor](https://wavedrom.com)
  
 
-## Usage 
-
 ### Enviroment
 This project was developed using [Xilinx Vivado 2017.4](https://www.xilinx.com/support/download/index.html/content/xilinx/en/downloadNav/vivado-design-tools/2017-4.html)
 
-### Import and Run
 
 #### In order to import project:
 
