@@ -12,18 +12,20 @@ Block and timing diagrams are able to be changed:
  
 
 ### Enviroment
-This project was developed using [Xilinx Vivado 2017.4](https://www.xilinx.com/support/download/index.html/content/xilinx/en/downloadNav/vivado-design-tools/2017-4.html)
+This project was developed using [Xilinx Vivado HLS 2017.4](https://www.xilinx.com/support/download/index.html/content/xilinx/en/downloadNav/vivado-design-tools/2017-4.html)
 
 
 #### In order to import project:
 
-1. Open [Vivado 2017.4](https://www.xilinx.com/support/download/index.html/content/xilinx/en/downloadNav/vivado-design-tools/2017-4.html) and using it open reference project
+1. Open [Vivado HLS 2017.4](https://www.xilinx.com/support/download/index.html/content/xilinx/en/downloadNav/vivado-design-tools/2017-4.html) and using it open reference project
 
-2. Open Project by going to the File -> Open project
+2. Open the reference Project by going to the File -> Open project
 
-3. Import Files if needed by right clicking the Source and selecting the components
+3. Replace the source files of your reference project with those from our project [xml](./doc/src/) 
 
-4. Completed
+4. Import Files if needed by right clicking the Source and selecting Add Files
+
+5. Completed
 
 #### If you want to run simulations:
 
