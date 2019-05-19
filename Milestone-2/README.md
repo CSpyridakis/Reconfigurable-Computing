@@ -9,7 +9,6 @@ If you want more information about each module you could read (or just try to re
 
 Block and timing diagrams are able to be changed:
 * For [xml](./doc/schematics/) files (block diagrams) we have used [draw.io](https://www.draw.io/)
-* For [json](./doc/timing-diagrams/) files (timing diagrams) we have used [Wavedrom editor](https://wavedrom.com)
  
 
 ### Enviroment
