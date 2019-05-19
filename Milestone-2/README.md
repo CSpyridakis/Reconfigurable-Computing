@@ -21,7 +21,7 @@ This project was developed using [Xilinx Vivado HLS 2017.4](https://www.xilinx.c
 
 2. Open the reference Project by going to the File -> Open project
 
-3. Replace the source files of your reference project with those from our project [xml](./doc/src/) 
+3. Replace the source files of your reference project with those from our project [src](./doc/src/) 
 
 4. Import Files if needed by right clicking the Source and selecting Add Files
 
