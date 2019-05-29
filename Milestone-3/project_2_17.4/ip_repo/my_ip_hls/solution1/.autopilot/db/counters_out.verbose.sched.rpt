@@ -1,0 +1,110 @@
+
+
+================================================================
+== Vivado HLS Report for 'counters_out'
+================================================================
+* Date:           Wed May 29 09:54:39 2019
+
+* Version:        2017.4 (Build 2086221 on Fri Dec 15 21:13:33 MST 2017)
+* Project:        my_ip_hls
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z045ffg900-2
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|      0.00|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |    0|    0|    0|    0|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 2
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 0
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 1
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+
+* FSM state operations: 
+
+ <State 1> : 0.00ns
+ST_1 : Operation 2 [1/1] (0.00ns)   --->   "%p_read_1 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %p_read2)"
+ST_1 : Operation 3 [1/1] (0.00ns)   --->   "%p_read_2 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %p_read1)"
+ST_1 : Operation 4 [1/1] (0.00ns)   --->   "%p_read_3 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %p_read)"
+ST_1 : Operation 5 [1/1] (0.00ns)   --->   "call void @_ssdm_op_Write.ap_auto.i32P(i32* %rule0cnt_V, i32 %p_read_3)" [my_ip_hls/counters_out.cpp:7->my_ip_hls/my_ip_hls.cpp:50]
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "call void @_ssdm_op_Write.ap_auto.i32P(i32* %rule1cnt_V, i32 %p_read_2)" [my_ip_hls/counters_out.cpp:8->my_ip_hls/my_ip_hls.cpp:50]
+ST_1 : Operation 7 [1/1] (0.00ns)   --->   "call void @_ssdm_op_Write.ap_auto.i32P(i32* %rule2cnt_V, i32 %p_read_1)" [my_ip_hls/counters_out.cpp:9->my_ip_hls/my_ip_hls.cpp:50]
+ST_1 : Operation 8 [1/1] (0.00ns)   --->   "ret void"
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 0ns
+The critical path consists of the following:
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

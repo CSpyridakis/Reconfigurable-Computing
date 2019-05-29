@@ -1,0 +1,18 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Work/Courses/HRY591/project/work/project_2_17.4/project_2.ip_user_files/bd/base_zynq/ip/base_zynq_processing_system7_0_0/sim/base_zynq_processing_system7_0_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module base_zynq_processing_system7_0_0
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Work/Courses/HRY591/project/work/project_2_17.4/project_2.ip_user_files/bd/base_zynq/ip/base_zynq_blk_mem_gen_0_0/sim/base_zynq_blk_mem_gen_0_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module base_zynq_blk_mem_gen_0_0
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Work/Courses/HRY591/project/work/project_2_17.4/project_2.ip_user_files/bd/base_zynq/ip/base_zynq_xlconcat_0_0/sim/base_zynq_xlconcat_0_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module base_zynq_xlconcat_0_0
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Work/Courses/HRY591/project/work/project_2_17.4/project_2.ip_user_files/bd/base_zynq/ip/base_zynq_xbar_0/sim/base_zynq_xbar_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module base_zynq_xbar_0
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Work/Courses/HRY591/project/work/project_2_17.4/project_2.ip_user_files/bd/base_zynq/ip/base_zynq_xbar_1/sim/base_zynq_xbar_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module base_zynq_xbar_1
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Work/Courses/HRY591/project/work/project_2_17.4/project_2.ip_user_files/bd/base_zynq/ip/base_zynq_auto_pc_0/sim/base_zynq_auto_pc_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module base_zynq_auto_pc_0
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Work/Courses/HRY591/project/work/project_2_17.4/project_2.ip_user_files/bd/base_zynq/ip/base_zynq_auto_pc_1/sim/base_zynq_auto_pc_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module base_zynq_auto_pc_1
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Work/Courses/HRY591/project/work/project_2_17.4/project_2.srcs/sim_1/imports/base_zynq/zynq_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Work/Courses/HRY591/project/work/project_2_17.4/project_2.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl

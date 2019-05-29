@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Webtalk v2017.4 (64-bit)
+# SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
+# IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
+# Start of session at: Fri Feb 15 18:02:52 2019
+# Process ID: 12676
+# Current directory: C:/Work/Courses/HRY591/project/work/project_2_17.4/project_2.sim/sim_1/behav/xsim
+# Command line: wbtcv.exe -mode batch -source C:/Work/Courses/HRY591/project/work/project_2_17.4/project_2.sim/sim_1/behav/xsim/xsim.dir/tb_behav/webtalk/xsim_webtalk.tcl -notrace
+# Log file: C:/Work/Courses/HRY591/project/work/project_2_17.4/project_2.sim/sim_1/behav/xsim/webtalk.log
+# Journal file: C:/Work/Courses/HRY591/project/work/project_2_17.4/project_2.sim/sim_1/behav/xsim\webtalk.jou
+#-----------------------------------------------------------
+source C:/Work/Courses/HRY591/project/work/project_2_17.4/project_2.sim/sim_1/behav/xsim/xsim.dir/tb_behav/webtalk/xsim_webtalk.tcl -notrace

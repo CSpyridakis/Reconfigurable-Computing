@@ -1,0 +1,163 @@
+
+
+================================================================
+== Vivado HLS Report for 'core'
+================================================================
+* Date:           Wed May 29 09:54:39 2019
+
+* Version:        2017.4 (Build 2086221 on Fri Dec 15 21:13:33 MST 2017)
+* Project:        my_ip_hls
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z045ffg900-2
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|      6.70|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+----------+
+    |  Latency  |  Interval | Pipeline |
+    | min | max | min | max |   Type   |
+    +-----+-----+-----+-----+----------+
+    |    1|    1|    1|    1| function |
+    +-----+-----+-----+-----+----------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 2
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 1
+HasVarLatency: 0
+IsPipeline: 1
+IsRtlPipelined: 1
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 1, depth = 2
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 2
+* Pipeline : 1
+  Pipeline-0 : II = 1, D = 2, States = { 1 2 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+
+* FSM state operations: 
+
+ <State 1> : 6.70ns
+ST_1 : Operation 3 [1/1] (0.00ns)   --->   "%p_read_4 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %p_read2)"
+ST_1 : Operation 4 [1/1] (0.00ns)   --->   "%p_read14 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %p_read1)"
+ST_1 : Operation 5 [1/1] (0.00ns)   --->   "%p_read_5 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %p_read)"
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%tmp = call i1 @_ssdm_op_NbReadReq.ap_fifo.i32P.i4P.i1P(i32* @ps2ipFifo_V_data_V, i4* @ps2ipFifo_V_strb_V, i1* @ps2ipFifo_V_last_V, i32 1)" [my_ip_hls/core.cpp:24->my_ip_hls/my_ip_hls.cpp:45]   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 3.40> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 1> <FIFO>
+ST_1 : Operation 7 [1/1] (1.30ns)   --->   "br i1 %tmp, label %0, label %core.exit" [my_ip_hls/core.cpp:24->my_ip_hls/my_ip_hls.cpp:45]
+ST_1 : Operation 8 [1/1] (3.40ns)   --->   "%empty = call { i32, i4, i1 } @_ssdm_op_Read.ap_fifo.volatile.i32P.i4P.i1P(i32* @ps2ipFifo_V_data_V, i4* @ps2ipFifo_V_strb_V, i1* @ps2ipFifo_V_last_V)" [my_ip_hls/core.cpp:25->my_ip_hls/my_ip_hls.cpp:45]   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 3.40> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 1> <FIFO>
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%tmp_data_V = extractvalue { i32, i4, i1 } %empty, 0" [my_ip_hls/core.cpp:25->my_ip_hls/my_ip_hls.cpp:45]
+ST_1 : Operation 10 [1/1] (0.00ns)   --->   "%tmp_strb_V = extractvalue { i32, i4, i1 } %empty, 1" [my_ip_hls/core.cpp:25->my_ip_hls/my_ip_hls.cpp:45]
+ST_1 : Operation 11 [1/1] (0.00ns)   --->   "%tmp_last_V = extractvalue { i32, i4, i1 } %empty, 2" [my_ip_hls/core.cpp:25->my_ip_hls/my_ip_hls.cpp:45]
+ST_1 : Operation 12 [1/1] (2.14ns)   --->   "%tmp_6_i_i = icmp eq i32 %tmp_data_V, %p_read_5" [my_ip_hls/core.cpp:28->my_ip_hls/my_ip_hls.cpp:45]   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.14> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 13 [1/1] (0.00ns)   --->   "%t_V = load i32* @cnt0Reg_core_V, align 4" [my_ip_hls/core.cpp:29->my_ip_hls/my_ip_hls.cpp:45]
+ST_1 : Operation 14 [1/1] (0.00ns)   --->   "%t_V_1 = load i32* @cnt1Reg_core_V, align 4" [my_ip_hls/core.cpp:32->my_ip_hls/my_ip_hls.cpp:45]
+ST_1 : Operation 15 [1/1] (0.00ns)   --->   "%t_V_2 = load i32* @cnt2Reg_core_V, align 4" [my_ip_hls/core.cpp:35->my_ip_hls/my_ip_hls.cpp:45]
+ST_1 : Operation 16 [1/1] (0.00ns)   --->   "br i1 %tmp_6_i_i, label %1, label %2" [my_ip_hls/core.cpp:28->my_ip_hls/my_ip_hls.cpp:45]
+ST_1 : Operation 17 [1/1] (2.14ns)   --->   "%tmp_8_i_i = icmp eq i32 %tmp_data_V, %p_read14" [my_ip_hls/core.cpp:31->my_ip_hls/my_ip_hls.cpp:45]   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.14> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 18 [1/1] (0.00ns)   --->   "br i1 %tmp_8_i_i, label %3, label %4" [my_ip_hls/core.cpp:31->my_ip_hls/my_ip_hls.cpp:45]
+ST_1 : Operation 19 [1/1] (2.14ns)   --->   "%tmp_i_i = icmp eq i32 %tmp_data_V, %p_read_4" [my_ip_hls/core.cpp:34->my_ip_hls/my_ip_hls.cpp:45]   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.14> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 20 [1/1] (0.00ns)   --->   "br i1 %tmp_i_i, label %5, label %6" [my_ip_hls/core.cpp:34->my_ip_hls/my_ip_hls.cpp:45]
+ST_1 : Operation 21 [1/1] (1.30ns)   --->   "br label %core.exit"
+ST_1 : Operation 22 [1/1] (2.24ns)   --->   "%tmp_1_i_i = add i32 %t_V_2, 1" [my_ip_hls/core.cpp:35->my_ip_hls/my_ip_hls.cpp:45]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.24> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 23 [1/1] (0.00ns)   --->   "store i32 %tmp_1_i_i, i32* @cnt2Reg_core_V, align 4" [my_ip_hls/core.cpp:35->my_ip_hls/my_ip_hls.cpp:45]
+ST_1 : Operation 24 [1/1] (1.30ns)   --->   "br label %core.exit" [my_ip_hls/core.cpp:36->my_ip_hls/my_ip_hls.cpp:45]
+ST_1 : Operation 25 [1/1] (2.24ns)   --->   "%tmp_9_i_i = add i32 %t_V_1, 1" [my_ip_hls/core.cpp:32->my_ip_hls/my_ip_hls.cpp:45]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.24> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 26 [1/1] (0.00ns)   --->   "store i32 %tmp_9_i_i, i32* @cnt1Reg_core_V, align 4" [my_ip_hls/core.cpp:32->my_ip_hls/my_ip_hls.cpp:45]
+ST_1 : Operation 27 [1/1] (1.30ns)   --->   "br label %core.exit" [my_ip_hls/core.cpp:33->my_ip_hls/my_ip_hls.cpp:45]
+ST_1 : Operation 28 [1/1] (2.24ns)   --->   "%tmp_7_i_i = add i32 %t_V, 1" [my_ip_hls/core.cpp:29->my_ip_hls/my_ip_hls.cpp:45]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.24> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 29 [1/1] (0.00ns)   --->   "store i32 %tmp_7_i_i, i32* @cnt0Reg_core_V, align 4" [my_ip_hls/core.cpp:29->my_ip_hls/my_ip_hls.cpp:45]
+ST_1 : Operation 30 [1/1] (1.30ns)   --->   "br label %core.exit" [my_ip_hls/core.cpp:30->my_ip_hls/my_ip_hls.cpp:45]
+
+ <State 2> : 3.40ns
+ST_2 : Operation 31 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32* @ip2psFifo_V_data_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"
+ST_2 : Operation 32 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i1* @ip2psFifo_V_last_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"
+ST_2 : Operation 33 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i4* @ip2psFifo_V_strb_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"
+ST_2 : Operation 34 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32* @ps2ipFifo_V_data_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"
+ST_2 : Operation 35 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i1* @ps2ipFifo_V_last_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"
+ST_2 : Operation 36 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i4* @ps2ipFifo_V_strb_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"
+ST_2 : Operation 37 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecPipeline(i32 1, i32 2, i32 1, i32 0, [1 x i8]* @p_str29) nounwind" [my_ip_hls/core.cpp:7->my_ip_hls/my_ip_hls.cpp:45]
+ST_2 : Operation 38 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32 0, [13 x i8]* @p_str130, i32 0, i32 0, [1 x i8]* @p_str29, i32 0, i32 0, [1 x i8]* @p_str29, [1 x i8]* @p_str29, [1 x i8]* @p_str29, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str29, [1 x i8]* @p_str29) nounwind" [my_ip_hls/core.cpp:8->my_ip_hls/my_ip_hls.cpp:45]
+ST_2 : Operation 39 [1/1] (3.40ns)   --->   "call void @_ssdm_op_Write.ap_fifo.volatile.i32P.i4P.i1P(i32* @ip2psFifo_V_data_V, i4* @ip2psFifo_V_strb_V, i1* @ip2psFifo_V_last_V, i32 %tmp_data_V, i4 %tmp_strb_V, i1 %tmp_last_V)" [my_ip_hls/core.cpp:40->my_ip_hls/my_ip_hls.cpp:45]   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 3.40> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 1> <FIFO>
+ST_2 : Operation 40 [1/1] (0.00ns)   --->   "%cnt1Reg_V_write_assi = phi i32 [ undef, %entry ], [ %t_V_1, %1 ], [ %t_V_1, %5 ], [ %t_V_1, %6 ], [ %tmp_9_i_i, %3 ]"
+ST_2 : Operation 41 [1/1] (0.00ns)   --->   "%cnt2Reg_V_write_assi = phi i32 [ undef, %entry ], [ %t_V_2, %1 ], [ %tmp_1_i_i, %5 ], [ %t_V_2, %6 ], [ %t_V_2, %3 ]"
+ST_2 : Operation 42 [1/1] (0.00ns)   --->   "%cnt0Reg_V_write_assi = phi i32 [ undef, %entry ], [ %tmp_7_i_i, %1 ], [ %t_V, %5 ], [ %t_V, %6 ], [ %t_V, %3 ]"
+ST_2 : Operation 43 [1/1] (0.00ns)   --->   "%mrv = insertvalue { i32, i32, i32 } undef, i32 %cnt0Reg_V_write_assi, 0" [my_ip_hls/core.cpp:29->my_ip_hls/my_ip_hls.cpp:45]
+ST_2 : Operation 44 [1/1] (0.00ns)   --->   "%mrv_1 = insertvalue { i32, i32, i32 } %mrv, i32 %cnt1Reg_V_write_assi, 1" [my_ip_hls/core.cpp:29->my_ip_hls/my_ip_hls.cpp:45]
+ST_2 : Operation 45 [1/1] (0.00ns)   --->   "%mrv_2 = insertvalue { i32, i32, i32 } %mrv_1, i32 %cnt2Reg_V_write_assi, 2" [my_ip_hls/core.cpp:29->my_ip_hls/my_ip_hls.cpp:45]
+ST_2 : Operation 46 [1/1] (0.00ns)   --->   "ret { i32, i32, i32 } %mrv_2" [my_ip_hls/core.cpp:29->my_ip_hls/my_ip_hls.cpp:45]
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 6.7ns
+The critical path consists of the following:
+	fifo read on port 'ps2ipFifo_V_data_V' (my_ip_hls/core.cpp:25->my_ip_hls/my_ip_hls.cpp:45) [27]  (3.4 ns)
+	'icmp' operation ('tmp_8_i_i', my_ip_hls/core.cpp:31->my_ip_hls/my_ip_hls.cpp:45) [37]  (2.14 ns)
+	blocking operation 1.15 ns on control path)
+
+ <State 2>: 3.4ns
+The critical path consists of the following:
+	fifo write on port 'ip2psFifo_V_data_V' (my_ip_hls/core.cpp:40->my_ip_hls/my_ip_hls.cpp:45) [43]  (3.4 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

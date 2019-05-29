@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xd:acceleratorMap xmlns:xd="http://www.xilinx.com/xidane" xd:functionName="my_ip_hls" xd:componentRef="my_ip_hls" xd:initiationInterval="7" xd:clockPeriod="10.000" xd:sequential="true" xd:hostMachine="64" xd:reset="control">
+  <xd:arg xd:name="slaveIn.data" xd:originalName="slaveIn" xd:direction="in" xd:interfaceRef="slaveIn" xd:busTypeRef="axis" xd:dataWidth="32"/>
+  <xd:arg xd:name="slaveIn.strb" xd:originalName="slaveIn" xd:direction="in" xd:interfaceRef="slaveIn" xd:busTypeRef="axis" xd:dataWidth="4"/>
+  <xd:arg xd:name="slaveIn.last" xd:originalName="slaveIn" xd:direction="in" xd:interfaceRef="slaveIn" xd:busTypeRef="axis" xd:dataWidth="1"/>
+  <xd:arg xd:name="masterOut.data" xd:originalName="masterOut" xd:direction="out" xd:interfaceRef="masterOut" xd:busTypeRef="axis" xd:dataWidth="32"/>
+  <xd:arg xd:name="masterOut.strb" xd:originalName="masterOut" xd:direction="out" xd:interfaceRef="masterOut" xd:busTypeRef="axis" xd:dataWidth="4"/>
+  <xd:arg xd:name="masterOut.last" xd:originalName="masterOut" xd:direction="out" xd:interfaceRef="masterOut" xd:busTypeRef="axis" xd:dataWidth="1"/>
+  <xd:arg xd:name="rule0" xd:originalName="rule0" xd:direction="in" xd:interfaceRef="s_axi_psAxiLite" xd:busTypeRef="axilite" xd:offset="0x10" xd:handshakeRef="ap_none" xd:dataWidth="32"/>
+  <xd:arg xd:name="rule1" xd:originalName="rule1" xd:direction="in" xd:interfaceRef="s_axi_psAxiLite" xd:busTypeRef="axilite" xd:offset="0x18" xd:handshakeRef="ap_none" xd:dataWidth="32"/>
+  <xd:arg xd:name="rule2" xd:originalName="rule2" xd:direction="in" xd:interfaceRef="s_axi_psAxiLite" xd:busTypeRef="axilite" xd:offset="0x20" xd:handshakeRef="ap_none" xd:dataWidth="32"/>
+  <xd:arg xd:name="rule0cnt" xd:originalName="rule0cnt" xd:direction="out" xd:interfaceRef="s_axi_psAxiLite" xd:busTypeRef="axilite" xd:offset="0x28" xd:statusOffset="0x2C" xd:handshakeRef="ap_vld" xd:dataWidth="32"/>
+  <xd:arg xd:name="rule1cnt" xd:originalName="rule1cnt" xd:direction="out" xd:interfaceRef="s_axi_psAxiLite" xd:busTypeRef="axilite" xd:offset="0x30" xd:statusOffset="0x34" xd:handshakeRef="ap_vld" xd:dataWidth="32"/>
+  <xd:arg xd:name="rule2cnt" xd:originalName="rule2cnt" xd:direction="out" xd:interfaceRef="s_axi_psAxiLite" xd:busTypeRef="axilite" xd:offset="0x38" xd:statusOffset="0x3C" xd:handshakeRef="ap_vld" xd:dataWidth="32"/>
+  <xd:latencyEstimates xd:best-case="6" xd:worst-case="6" xd:average-case="6"/>
+  <xd:resourceEstimates xd:LUT="2359" xd:FF="1177" xd:BRAM="4" xd:DSP="0"/>
+</xd:acceleratorMap>

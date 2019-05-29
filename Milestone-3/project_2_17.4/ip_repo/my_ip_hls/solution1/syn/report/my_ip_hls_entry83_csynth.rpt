@@ -1,0 +1,153 @@
+
+
+================================================================
+== Vivado HLS Report for 'my_ip_hls_entry83'
+================================================================
+* Date:           Wed May 29 09:54:40 2019
+
+* Version:        2017.4 (Build 2086221 on Fri Dec 15 21:13:33 MST 2017)
+* Project:        my_ip_hls
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z045ffg900-2
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|      6.80|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |    0|    0|    0|    0|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+--------+
+|       Name      | BRAM_18K| DSP48E|   FF   |   LUT  |
++-----------------+---------+-------+--------+--------+
+|DSP              |        -|      -|       -|       -|
+|Expression       |        -|      -|       0|       8|
+|FIFO             |        -|      -|       -|       -|
+|Instance         |        -|      -|       -|       -|
+|Memory           |        -|      -|       -|       -|
+|Multiplexer      |        -|      -|       -|      72|
+|Register         |        -|      -|       3|       -|
++-----------------+---------+-------+--------+--------+
+|Total            |        0|      0|       3|      80|
++-----------------+---------+-------+--------+--------+
+|Available        |     1090|    900|  437200|  218600|
++-----------------+---------+-------+--------+--------+
+|Utilization (%)  |        0|      0|   ~0   |   ~0   |
++-----------------+---------+-------+--------+--------+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP48: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +-----------------+----------+-------+---+----+------------+------------+
+    |  Variable Name  | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +-----------------+----------+-------+---+----+------------+------------+
+    |ap_block_state1  |    or    |      0|  0|   8|           1|           1|
+    +-----------------+----------+-------+---+----+------------+------------+
+    |Total            |          |      0|  0|   8|           1|           1|
+    +-----------------+----------+-------+---+----+------------+------------+
+
+    * Multiplexer: 
+    +-------------------+----+-----------+-----+-----------+
+    |        Name       | LUT| Input Size| Bits| Total Bits|
+    +-------------------+----+-----------+-----+-----------+
+    |ap_done            |   9|          2|    1|          2|
+    |real_start         |   9|          2|    1|          2|
+    |rule0_V_blk_n      |   9|          2|    1|          2|
+    |rule0_V_out_blk_n  |   9|          2|    1|          2|
+    |rule1_V_blk_n      |   9|          2|    1|          2|
+    |rule1_V_out_blk_n  |   9|          2|    1|          2|
+    |rule2_V_blk_n      |   9|          2|    1|          2|
+    |rule2_V_out_blk_n  |   9|          2|    1|          2|
+    +-------------------+----+-----------+-----+-----------+
+    |Total              |  72|         16|    8|         16|
+    +-------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +----------------+---+----+-----+-----------+
+    |      Name      | FF| LUT| Bits| Const Bits|
+    +----------------+---+----+-----+-----------+
+    |ap_CS_fsm       |  1|   0|    1|          0|
+    |ap_done_reg     |  1|   0|    1|          0|
+    |start_once_reg  |  1|   0|    1|          0|
+    +----------------+---+----+-----+-----------+
+    |Total           |  3|   0|    3|          0|
+    +----------------+---+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++--------------------+-----+-----+------------+-------------------+--------------+
+|      RTL Ports     | Dir | Bits|  Protocol  |   Source Object   |    C Type    |
++--------------------+-----+-----+------------+-------------------+--------------+
+|ap_clk              |  in |    1| ap_ctrl_hs | my_ip_hls.entry83 | return value |
+|ap_rst              |  in |    1| ap_ctrl_hs | my_ip_hls.entry83 | return value |
+|ap_start            |  in |    1| ap_ctrl_hs | my_ip_hls.entry83 | return value |
+|start_full_n        |  in |    1| ap_ctrl_hs | my_ip_hls.entry83 | return value |
+|ap_done             | out |    1| ap_ctrl_hs | my_ip_hls.entry83 | return value |
+|ap_continue         |  in |    1| ap_ctrl_hs | my_ip_hls.entry83 | return value |
+|ap_idle             | out |    1| ap_ctrl_hs | my_ip_hls.entry83 | return value |
+|ap_ready            | out |    1| ap_ctrl_hs | my_ip_hls.entry83 | return value |
+|start_out           | out |    1| ap_ctrl_hs | my_ip_hls.entry83 | return value |
+|start_write         | out |    1| ap_ctrl_hs | my_ip_hls.entry83 | return value |
+|rule0_V_dout        |  in |   32|   ap_fifo  |      rule0_V      |    pointer   |
+|rule0_V_empty_n     |  in |    1|   ap_fifo  |      rule0_V      |    pointer   |
+|rule0_V_read        | out |    1|   ap_fifo  |      rule0_V      |    pointer   |
+|rule1_V_dout        |  in |   32|   ap_fifo  |      rule1_V      |    pointer   |
+|rule1_V_empty_n     |  in |    1|   ap_fifo  |      rule1_V      |    pointer   |
+|rule1_V_read        | out |    1|   ap_fifo  |      rule1_V      |    pointer   |
+|rule2_V_dout        |  in |   32|   ap_fifo  |      rule2_V      |    pointer   |
+|rule2_V_empty_n     |  in |    1|   ap_fifo  |      rule2_V      |    pointer   |
+|rule2_V_read        | out |    1|   ap_fifo  |      rule2_V      |    pointer   |
+|rule0_V_out_din     | out |   32|   ap_fifo  |    rule0_V_out    |    pointer   |
+|rule0_V_out_full_n  |  in |    1|   ap_fifo  |    rule0_V_out    |    pointer   |
+|rule0_V_out_write   | out |    1|   ap_fifo  |    rule0_V_out    |    pointer   |
+|rule1_V_out_din     | out |   32|   ap_fifo  |    rule1_V_out    |    pointer   |
+|rule1_V_out_full_n  |  in |    1|   ap_fifo  |    rule1_V_out    |    pointer   |
+|rule1_V_out_write   | out |    1|   ap_fifo  |    rule1_V_out    |    pointer   |
+|rule2_V_out_din     | out |   32|   ap_fifo  |    rule2_V_out    |    pointer   |
+|rule2_V_out_full_n  |  in |    1|   ap_fifo  |    rule2_V_out    |    pointer   |
+|rule2_V_out_write   | out |    1|   ap_fifo  |    rule2_V_out    |    pointer   |
++--------------------+-----+-----+------------+-------------------+--------------+
+

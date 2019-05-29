@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xd:acceleratorMap xmlns:xd="http://www.xilinx.com/xidane" xd:functionName="my_ip_hls" xd:componentRef="my_ip_hls" xd:initiationInterval="1" xd:clockPeriod="10.000" xd:sequential="true" xd:hostMachine="64" xd:reset="control">
+  <xd:arg xd:name="slaveIn.data" xd:originalName="slaveIn" xd:direction="in" xd:interfaceRef="slaveIn" xd:busTypeRef="axis" xd:dataWidth="32"/>
+  <xd:arg xd:name="slaveIn.strb" xd:originalName="slaveIn" xd:direction="in" xd:interfaceRef="slaveIn" xd:busTypeRef="axis" xd:dataWidth="4"/>
+  <xd:arg xd:name="slaveIn.last" xd:originalName="slaveIn" xd:direction="in" xd:interfaceRef="slaveIn" xd:busTypeRef="axis" xd:dataWidth="1"/>
+  <xd:arg xd:name="MasterOut.data" xd:originalName="MasterOut" xd:direction="out" xd:interfaceRef="MasterOut" xd:busTypeRef="axis" xd:dataWidth="32"/>
+  <xd:arg xd:name="MasterOut.strb" xd:originalName="MasterOut" xd:direction="out" xd:interfaceRef="MasterOut" xd:busTypeRef="axis" xd:dataWidth="4"/>
+  <xd:arg xd:name="MasterOut.last" xd:originalName="MasterOut" xd:direction="out" xd:interfaceRef="MasterOut" xd:busTypeRef="axis" xd:dataWidth="1"/>
+  <xd:latencyEstimates xd:best-case="2" xd:worst-case="2" xd:average-case="2"/>
+  <xd:resourceEstimates xd:LUT="232" xd:FF="130" xd:BRAM="0" xd:DSP="0"/>
+</xd:acceleratorMap>

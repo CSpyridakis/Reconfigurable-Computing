@@ -1,0 +1,34 @@
+INFO: [SIM 2] *************** CSIM start ***************
+INFO: [SIM 4] CSIM will launch GCC as the compiler.
+   Compiling ../../../my_ip_hls_tb.cpp in debug mode
+   Compiling ../../../core.cpp in debug mode
+   Compiling ../../../counters_out.cpp in debug mode
+   Compiling ../../../ip2ps_fifo.cpp in debug mode
+   Compiling ../../../my_ip_hls.cpp in debug mode
+   Compiling ../../../ps2ip_fifo.cpp in debug mode
+   Compiling ../../../rules_in.cpp in debug mode
+   Generating csim.exe
+
+
+Rule0: 10	| Rule1: 30	| Rule2: 50
+Stream Data:
+ 10, 20, 30, 40, 50, 60, 70, 50
+---------------------------------
+Begin Simulation...
+0: no data available!
+1: read data: 20
+2: no data available!
+3: read data: 40
+4: no data available!
+5: read data: 60
+6: read data: 70
+7: no data available!
+
+Results:
+  Counter 0 : 1
+  Counter 1 : 1
+  Counter 2 : 2
+---------------------------------
+
+INFO: [SIM 1] CSim done with 0 errors.
+INFO: [SIM 3] *************** CSIM finish ***************

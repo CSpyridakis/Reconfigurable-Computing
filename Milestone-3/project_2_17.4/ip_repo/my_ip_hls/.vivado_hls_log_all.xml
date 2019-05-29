@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vivadoHLSLog:LogRoot xmlns:vivadoHLSLog="www.xilinx.com/vivadoHLSLog">
+  <errorLogs>
+    <logs>
+      <synLog/>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
+    </logs>
+  </errorLogs>
+  <warningLogs>
+    <logs>
+      <synLog>
+        <logs message="WARNING: [RTGEN 206-101] Register 'cnt2Reg_core_V' is power-on initialization." projectName="my_ip_hls" solutionName="solution1" date="2019-05-29T09:54:40.551+0200" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'cnt1Reg_core_V' is power-on initialization." projectName="my_ip_hls" solutionName="solution1" date="2019-05-29T09:54:40.535+0200" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'cnt0Reg_core_V' is power-on initialization." projectName="my_ip_hls" solutionName="solution1" date="2019-05-29T09:54:40.520+0200" type="Warning"/>
+        <logs message="WARNING: [SYN 201-103] Legalizing function name 'my_ip_hls.entry83' to 'my_ip_hls_entry83'." projectName="my_ip_hls" solutionName="solution1" date="2019-05-29T09:54:37.907+0200" type="Warning"/>
+        <logs message="WARNING: [SYN 201-103] Legalizing function name 'my_ip_hls.entry3' to 'my_ip_hls_entry3'." projectName="my_ip_hls" solutionName="solution1" date="2019-05-29T09:54:37.892+0200" type="Warning"/>
+      </synLog>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
+    </logs>
+  </warningLogs>
+</vivadoHLSLog:LogRoot>

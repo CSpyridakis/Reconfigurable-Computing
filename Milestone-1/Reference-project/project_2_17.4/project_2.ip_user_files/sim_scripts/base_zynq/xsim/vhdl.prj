@@ -1,0 +1,12 @@
+vhdl xil_defaultlib  \
+"../../../bd/base_zynq/ip/base_zynq_axi_bram_ctrl_0_0/sim/base_zynq_axi_bram_ctrl_0_0.vhd" \
+"../../../bd/base_zynq/ip/base_zynq_rst_ps7_0_50M_0/sim/base_zynq_rst_ps7_0_50M_0.vhd" \
+"../../../bd/base_zynq/ip/base_zynq_axi_bram_ctrl_0_1/sim/base_zynq_axi_bram_ctrl_0_1.vhd" \
+"../../../bd/base_zynq/ip/base_zynq_axi_dma_0_0/sim/base_zynq_axi_dma_0_0.vhd" \
+"../../../bd/base_zynq/sim/base_zynq.vhd" \
+"../../../bd/base_zynq/ipshared/1f12/hdl/myip_v1_1_M00_AXIS.vhd" \
+"../../../bd/base_zynq/ipshared/1f12/hdl/myip_v1_1_S00_AXIS.vhd" \
+"../../../bd/base_zynq/ipshared/1f12/hdl/myip_v1_1.vhd" \
+"../../../bd/base_zynq/ip/base_zynq_myip_0_0/sim/base_zynq_myip_0_0.vhd" \
+
+nosort

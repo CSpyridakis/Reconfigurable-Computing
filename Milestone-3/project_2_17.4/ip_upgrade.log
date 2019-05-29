@@ -1,0 +1,37 @@
+Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
+| Date         : Fri Feb 15 16:14:04 2019
+| Host         : Toshiba running 64-bit Service Pack 1  (build 7601)
+| Command      : upgrade_ip
+| Device       : xc7z045ffg900-2
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'base_zynq_myip_0_1'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of base_zynq_myip_0_1 from xilinx.com:user:myip:1.1 (Rev. 1) to xilinx.com:user:myip:1.3 (Rev. 1)
+
+
+
+
+
+
+Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
+| Date         : Fri Feb 15 15:34:51 2019
+| Host         : Toshiba running 64-bit Service Pack 1  (build 7601)
+| Command      : upgrade_ip
+| Device       : xc7z045ffg900-2
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'base_zynq_myip_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of base_zynq_myip_0_0 from xilinx.com:user:myip:1.1 (Rev. 1) to xilinx.com:user:myip:1.2 (Rev. 1)
+
