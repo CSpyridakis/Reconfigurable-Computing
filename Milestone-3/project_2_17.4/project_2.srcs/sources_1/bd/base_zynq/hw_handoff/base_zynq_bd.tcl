@@ -211,6 +211,12 @@ proc create_root_design { parentCell } {
   # Create instance: my_ip_hls_0, and set properties
   set my_ip_hls_0 [ create_bd_cell -type ip -vlnv xilinx.com:hls:my_ip_hls:1.1 my_ip_hls_0 ]
 
+  # Create instance: myip_0, and set properties
+  set myip_0 [ create_bd_cell -type ip -vlnv xilinx.com:user:myip:2.1 myip_0 ]
+
+  # Create instance: myip_1, and set properties
+  set myip_1 [ create_bd_cell -type ip -vlnv xilinx.com:user:myip:2.1 myip_1 ]
+
   # Create instance: processing_system7_0, and set properties
   set processing_system7_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:processing_system7:5.5 processing_system7_0 ]
   set_property -dict [ list \
@@ -1028,11 +1034,13 @@ proc create_root_design { parentCell } {
   # Create interface connections
   connect_bd_intf_net -intf_net axi_bram_ctrl_0_BRAM_PORTA [get_bd_intf_pins axi_bram_ctrl_port_A_ip/BRAM_PORTA] [get_bd_intf_pins blk_mem_ip/BRAM_PORTA]
   connect_bd_intf_net -intf_net axi_bram_ctrl_port_B_ip_BRAM_PORTA [get_bd_intf_pins axi_bram_ctrl_port_B_ip/BRAM_PORTA] [get_bd_intf_pins blk_mem_ip/BRAM_PORTB]
-  connect_bd_intf_net -intf_net axi_dma_ip_M_AXIS_MM2S [get_bd_intf_pins axi_dma_ip/M_AXIS_MM2S] [get_bd_intf_pins my_ip_hls_0/slaveIn]
+  connect_bd_intf_net -intf_net axi_dma_ip_M_AXIS_MM2S [get_bd_intf_pins axi_dma_ip/M_AXIS_MM2S] [get_bd_intf_pins myip_0/S00_AXIS]
   connect_bd_intf_net -intf_net axi_dma_ip_M_AXI_MM2S [get_bd_intf_pins axi_dma_ip/M_AXI_MM2S] [get_bd_intf_pins dma_axi_interconnect_ic_ip/S00_AXI]
   connect_bd_intf_net -intf_net axi_dma_ip_M_AXI_S2MM [get_bd_intf_pins axi_dma_ip/M_AXI_S2MM] [get_bd_intf_pins dma_axi_interconnect_ic_ip/S01_AXI]
   connect_bd_intf_net -intf_net dma_axi_interconnect_ic_ip_M00_AXI [get_bd_intf_pins axi_bram_ctrl_port_B_ip/S_AXI] [get_bd_intf_pins dma_axi_interconnect_ic_ip/M00_AXI]
-  connect_bd_intf_net -intf_net my_ip_hls_0_masterOut [get_bd_intf_pins axi_dma_ip/S_AXIS_S2MM] [get_bd_intf_pins my_ip_hls_0/masterOut]
+  connect_bd_intf_net -intf_net my_ip_hls_0_masterOut [get_bd_intf_pins my_ip_hls_0/masterOut] [get_bd_intf_pins myip_1/S00_AXIS]
+  connect_bd_intf_net -intf_net myip_0_M00_AXIS [get_bd_intf_pins my_ip_hls_0/slaveIn] [get_bd_intf_pins myip_0/M00_AXIS]
+  connect_bd_intf_net -intf_net myip_1_M00_AXIS [get_bd_intf_pins axi_dma_ip/S_AXIS_S2MM] [get_bd_intf_pins myip_1/M00_AXIS]
   connect_bd_intf_net -intf_net processing_system7_0_DDR [get_bd_intf_ports DDR] [get_bd_intf_pins processing_system7_0/DDR]
   connect_bd_intf_net -intf_net processing_system7_0_FIXED_IO [get_bd_intf_ports FIXED_IO] [get_bd_intf_pins processing_system7_0/FIXED_IO]
   connect_bd_intf_net -intf_net processing_system7_0_M_AXI_GP0 [get_bd_intf_pins processing_system7_0/M_AXI_GP0] [get_bd_intf_pins ps7_0_axi_periph_ip/S00_AXI]
@@ -1043,10 +1051,10 @@ proc create_root_design { parentCell } {
   # Create port connections
   connect_bd_net -net axi_dma_ip_mm2s_introut [get_bd_pins axi_dma_ip/mm2s_introut] [get_bd_pins dma_irq_concat_ip/In0]
   connect_bd_net -net axi_dma_ip_s2mm_introut [get_bd_pins axi_dma_ip/s2mm_introut] [get_bd_pins dma_irq_concat_ip/In1]
-  connect_bd_net -net processing_system7_0_FCLK_CLK0 [get_bd_pins axi_bram_ctrl_port_A_ip/s_axi_aclk] [get_bd_pins axi_bram_ctrl_port_B_ip/s_axi_aclk] [get_bd_pins axi_dma_ip/m_axi_mm2s_aclk] [get_bd_pins axi_dma_ip/m_axi_s2mm_aclk] [get_bd_pins axi_dma_ip/s_axi_lite_aclk] [get_bd_pins dma_axi_interconnect_ic_ip/ACLK] [get_bd_pins dma_axi_interconnect_ic_ip/M00_ACLK] [get_bd_pins dma_axi_interconnect_ic_ip/S00_ACLK] [get_bd_pins dma_axi_interconnect_ic_ip/S01_ACLK] [get_bd_pins my_ip_hls_0/ap_clk] [get_bd_pins processing_system7_0/FCLK_CLK0] [get_bd_pins processing_system7_0/M_AXI_GP0_ACLK] [get_bd_pins ps7_0_axi_periph_ip/ACLK] [get_bd_pins ps7_0_axi_periph_ip/M00_ACLK] [get_bd_pins ps7_0_axi_periph_ip/M01_ACLK] [get_bd_pins ps7_0_axi_periph_ip/M02_ACLK] [get_bd_pins ps7_0_axi_periph_ip/S00_ACLK] [get_bd_pins rst_ps7_0_50M/slowest_sync_clk]
+  connect_bd_net -net processing_system7_0_FCLK_CLK0 [get_bd_pins axi_bram_ctrl_port_A_ip/s_axi_aclk] [get_bd_pins axi_bram_ctrl_port_B_ip/s_axi_aclk] [get_bd_pins axi_dma_ip/m_axi_mm2s_aclk] [get_bd_pins axi_dma_ip/m_axi_s2mm_aclk] [get_bd_pins axi_dma_ip/s_axi_lite_aclk] [get_bd_pins dma_axi_interconnect_ic_ip/ACLK] [get_bd_pins dma_axi_interconnect_ic_ip/M00_ACLK] [get_bd_pins dma_axi_interconnect_ic_ip/S00_ACLK] [get_bd_pins dma_axi_interconnect_ic_ip/S01_ACLK] [get_bd_pins my_ip_hls_0/ap_clk] [get_bd_pins myip_0/m00_axis_aclk] [get_bd_pins myip_0/s00_axis_aclk] [get_bd_pins myip_1/m00_axis_aclk] [get_bd_pins myip_1/s00_axis_aclk] [get_bd_pins processing_system7_0/FCLK_CLK0] [get_bd_pins processing_system7_0/M_AXI_GP0_ACLK] [get_bd_pins ps7_0_axi_periph_ip/ACLK] [get_bd_pins ps7_0_axi_periph_ip/M00_ACLK] [get_bd_pins ps7_0_axi_periph_ip/M01_ACLK] [get_bd_pins ps7_0_axi_periph_ip/M02_ACLK] [get_bd_pins ps7_0_axi_periph_ip/S00_ACLK] [get_bd_pins rst_ps7_0_50M/slowest_sync_clk]
   connect_bd_net -net processing_system7_0_FCLK_RESET0_N [get_bd_pins processing_system7_0/FCLK_RESET0_N] [get_bd_pins rst_ps7_0_50M/ext_reset_in]
-  connect_bd_net -net rst_ps7_0_50M_interconnect_aresetn [get_bd_pins dma_axi_interconnect_ic_ip/ARESETN] [get_bd_pins ps7_0_axi_periph_ip/ARESETN] [get_bd_pins rst_ps7_0_50M/interconnect_aresetn]
-  connect_bd_net -net rst_ps7_0_50M_peripheral_aresetn [get_bd_pins axi_bram_ctrl_port_A_ip/s_axi_aresetn] [get_bd_pins axi_bram_ctrl_port_B_ip/s_axi_aresetn] [get_bd_pins axi_dma_ip/axi_resetn] [get_bd_pins dma_axi_interconnect_ic_ip/M00_ARESETN] [get_bd_pins dma_axi_interconnect_ic_ip/S00_ARESETN] [get_bd_pins dma_axi_interconnect_ic_ip/S01_ARESETN] [get_bd_pins my_ip_hls_0/ap_rst_n] [get_bd_pins ps7_0_axi_periph_ip/M00_ARESETN] [get_bd_pins ps7_0_axi_periph_ip/M01_ARESETN] [get_bd_pins ps7_0_axi_periph_ip/M02_ARESETN] [get_bd_pins ps7_0_axi_periph_ip/S00_ARESETN] [get_bd_pins rst_ps7_0_50M/peripheral_aresetn]
+  connect_bd_net -net rst_ps7_0_50M_interconnect_aresetn [get_bd_pins ps7_0_axi_periph_ip/ARESETN] [get_bd_pins rst_ps7_0_50M/interconnect_aresetn]
+  connect_bd_net -net rst_ps7_0_50M_peripheral_aresetn [get_bd_pins axi_bram_ctrl_port_A_ip/s_axi_aresetn] [get_bd_pins axi_bram_ctrl_port_B_ip/s_axi_aresetn] [get_bd_pins axi_dma_ip/axi_resetn] [get_bd_pins dma_axi_interconnect_ic_ip/ARESETN] [get_bd_pins dma_axi_interconnect_ic_ip/M00_ARESETN] [get_bd_pins dma_axi_interconnect_ic_ip/S00_ARESETN] [get_bd_pins dma_axi_interconnect_ic_ip/S01_ARESETN] [get_bd_pins my_ip_hls_0/ap_rst_n] [get_bd_pins myip_0/m00_axis_aresetn] [get_bd_pins myip_0/s00_axis_aresetn] [get_bd_pins myip_1/m00_axis_aresetn] [get_bd_pins myip_1/s00_axis_aresetn] [get_bd_pins ps7_0_axi_periph_ip/M00_ARESETN] [get_bd_pins ps7_0_axi_periph_ip/M01_ARESETN] [get_bd_pins ps7_0_axi_periph_ip/M02_ARESETN] [get_bd_pins ps7_0_axi_periph_ip/S00_ARESETN] [get_bd_pins rst_ps7_0_50M/peripheral_aresetn]
   connect_bd_net -net xlconcat_0_dout [get_bd_pins dma_irq_concat_ip/dout] [get_bd_pins processing_system7_0/IRQ_F2P]
 
   # Create address segments

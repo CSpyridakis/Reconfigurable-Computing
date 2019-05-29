@@ -46,7 +46,6 @@
 `timescale 1ns / 1ps
 
 module tb;    
-
     // ------- Milestone 3 parameters  -------
     parameter MY_IP_HLS_BASE_ADDR = 32'h43C00000;
     parameter MALICIOUS_PACKET_0_RULE = 32'h10;
@@ -162,6 +161,7 @@ module tb;
         tb.zynq_sys.base_zynq_i.processing_system7_0.inst.read_data((BRAM_BASE_ADDR + 4*7),4,read_data,resp);
         $display ("%t, running the testbench, data read from BRAM was 32'h%x",$time, read_data);        
         
+        
         // --------------------------------------- Milestone 3 parameters  ---------------------------------------
         // configure my ip rule 0
         tb.zynq_sys.base_zynq_i.processing_system7_0.inst.write_data((MY_IP_HLS_PACKER_0_RULE_ADDR), 4, MALICIOUS_PACKET_0_RULE, resp);
@@ -177,6 +177,7 @@ module tb;
         $display ("%t, running the testbench, data read from BRAM was 32'h%x",$time, read_data);   
         // --------------------------------------------------------------------------------------------------------
         
+        
         //start the S2MM channel by setting the run/stop bit to 1 RS = 1   
         tb.zynq_sys.base_zynq_i.processing_system7_0.inst.write_data(DMA_S2MM_DMACR_REG,4, 32'b00000000000000000000000000000001, resp);
         //write a valid address to the DMA_S2MM_DMADA_REG where data will be written  
@@ -189,7 +190,6 @@ module tb;
         //write a valid address to the DMA_MM2S_DMASA_REG from where data will be read
         tb.zynq_sys.base_zynq_i.processing_system7_0.inst.write_data(DMA_MM2S_DMASA_REG,4, DMA_MM2S_BRAM_SPACE_START, resp);        
         //start the DMA read transfer by writing the number of data to be read
-//        tb.zynq_sys.base_zynq_i.processing_system7_0.inst.write_data(DMA_MM2S_LENGTH_REG,4, 20, resp);
         tb.zynq_sys.base_zynq_i.processing_system7_0.inst.write_data(DMA_MM2S_LENGTH_REG,4, DMA_TEST_SIZE_BYTES, resp);
         
         $display ("Simulation completed!");

@@ -1,7 +1,7 @@
 --Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
---Date        : Wed May 29 11:01:15 2019
+--Date        : Wed May 29 21:48:08 2019
 --Host        : MSI running 64-bit major release  (build 9200)
 --Command     : generate_target base_zynq.bd
 --Design      : base_zynq
@@ -1774,12 +1774,6 @@ architecture STRUCTURE of base_zynq_axi_interconnect_0_0 is
     m_axi_rready : out STD_LOGIC_VECTOR ( 0 to 0 )
   );
   end component base_zynq_xbar_1;
-  signal M00_ACLK_1 : STD_LOGIC;
-  signal M00_ARESETN_1 : STD_LOGIC;
-  signal S00_ACLK_1 : STD_LOGIC;
-  signal S00_ARESETN_1 : STD_LOGIC;
-  signal S01_ACLK_1 : STD_LOGIC;
-  signal S01_ARESETN_1 : STD_LOGIC;
   signal dma_axi_interconnect_ic_ip_ACLK_net : STD_LOGIC;
   signal dma_axi_interconnect_ic_ip_ARESETN_net : STD_LOGIC;
   signal dma_axi_interconnect_ic_ip_to_s00_couplers_ARADDR : STD_LOGIC_VECTOR ( 31 downto 0 );
@@ -1926,8 +1920,6 @@ architecture STRUCTURE of base_zynq_axi_interconnect_0_0 is
   signal NLW_xbar_s_axi_rvalid_UNCONNECTED : STD_LOGIC_VECTOR ( 1 to 1 );
   signal NLW_xbar_s_axi_wready_UNCONNECTED : STD_LOGIC_VECTOR ( 0 to 0 );
 begin
-  M00_ACLK_1 <= M00_ACLK;
-  M00_ARESETN_1 <= M00_ARESETN;
   M00_AXI_araddr(31 downto 0) <= m00_couplers_to_dma_axi_interconnect_ic_ip_ARADDR(31 downto 0);
   M00_AXI_arburst(1 downto 0) <= m00_couplers_to_dma_axi_interconnect_ic_ip_ARBURST(1 downto 0);
   M00_AXI_arcache(3 downto 0) <= m00_couplers_to_dma_axi_interconnect_ic_ip_ARCACHE(3 downto 0);
@@ -1952,15 +1944,11 @@ begin
   M00_AXI_wlast(0) <= m00_couplers_to_dma_axi_interconnect_ic_ip_WLAST(0);
   M00_AXI_wstrb(3 downto 0) <= m00_couplers_to_dma_axi_interconnect_ic_ip_WSTRB(3 downto 0);
   M00_AXI_wvalid(0) <= m00_couplers_to_dma_axi_interconnect_ic_ip_WVALID(0);
-  S00_ACLK_1 <= S00_ACLK;
-  S00_ARESETN_1 <= S00_ARESETN;
   S00_AXI_arready(0) <= dma_axi_interconnect_ic_ip_to_s00_couplers_ARREADY(0);
   S00_AXI_rdata(31 downto 0) <= dma_axi_interconnect_ic_ip_to_s00_couplers_RDATA(31 downto 0);
   S00_AXI_rlast(0) <= dma_axi_interconnect_ic_ip_to_s00_couplers_RLAST(0);
   S00_AXI_rresp(1 downto 0) <= dma_axi_interconnect_ic_ip_to_s00_couplers_RRESP(1 downto 0);
   S00_AXI_rvalid(0) <= dma_axi_interconnect_ic_ip_to_s00_couplers_RVALID(0);
-  S01_ACLK_1 <= S01_ACLK;
-  S01_ARESETN_1 <= S01_ARESETN;
   S01_AXI_awready(0) <= dma_axi_interconnect_ic_ip_to_s01_couplers_AWREADY(0);
   S01_AXI_bresp(1 downto 0) <= dma_axi_interconnect_ic_ip_to_s01_couplers_BRESP(1 downto 0);
   S01_AXI_bvalid(0) <= dma_axi_interconnect_ic_ip_to_s01_couplers_BVALID(0);
@@ -2000,8 +1988,8 @@ begin
   m00_couplers_to_dma_axi_interconnect_ic_ip_WREADY(0) <= M00_AXI_wready(0);
 m00_couplers: entity work.m00_couplers_imp_U3ORI
      port map (
-      M_ACLK => M00_ACLK_1,
-      M_ARESETN => M00_ARESETN_1,
+      M_ACLK => dma_axi_interconnect_ic_ip_ACLK_net,
+      M_ARESETN => dma_axi_interconnect_ic_ip_ARESETN_net,
       M_AXI_araddr(31 downto 0) => m00_couplers_to_dma_axi_interconnect_ic_ip_ARADDR(31 downto 0),
       M_AXI_arburst(1 downto 0) => m00_couplers_to_dma_axi_interconnect_ic_ip_ARBURST(1 downto 0),
       M_AXI_arcache(3 downto 0) => m00_couplers_to_dma_axi_interconnect_ic_ip_ARCACHE(3 downto 0),
@@ -2092,8 +2080,8 @@ s00_couplers: entity work.s00_couplers_imp_171TS1U
       M_AXI_rready(0) => s00_couplers_to_xbar_RREADY(0),
       M_AXI_rresp(1 downto 0) => s00_couplers_to_xbar_RRESP(1 downto 0),
       M_AXI_rvalid(0) => s00_couplers_to_xbar_RVALID(0),
-      S_ACLK => S00_ACLK_1,
-      S_ARESETN => S00_ARESETN_1,
+      S_ACLK => dma_axi_interconnect_ic_ip_ACLK_net,
+      S_ARESETN => dma_axi_interconnect_ic_ip_ARESETN_net,
       S_AXI_araddr(31 downto 0) => dma_axi_interconnect_ic_ip_to_s00_couplers_ARADDR(31 downto 0),
       S_AXI_arburst(1 downto 0) => dma_axi_interconnect_ic_ip_to_s00_couplers_ARBURST(1 downto 0),
       S_AXI_arcache(3 downto 0) => dma_axi_interconnect_ic_ip_to_s00_couplers_ARCACHE(3 downto 0),
@@ -2128,8 +2116,8 @@ s01_couplers: entity work.s01_couplers_imp_LB242I
       M_AXI_wready(0) => s01_couplers_to_xbar_WREADY(1),
       M_AXI_wstrb(3 downto 0) => s01_couplers_to_xbar_WSTRB(3 downto 0),
       M_AXI_wvalid(0) => s01_couplers_to_xbar_WVALID(0),
-      S_ACLK => S01_ACLK_1,
-      S_ARESETN => S01_ARESETN_1,
+      S_ACLK => dma_axi_interconnect_ic_ip_ACLK_net,
+      S_ARESETN => dma_axi_interconnect_ic_ip_ARESETN_net,
       S_AXI_awaddr(31 downto 0) => dma_axi_interconnect_ic_ip_to_s01_couplers_AWADDR(31 downto 0),
       S_AXI_awburst(1 downto 0) => dma_axi_interconnect_ic_ip_to_s01_couplers_AWBURST(1 downto 0),
       S_AXI_awcache(3 downto 0) => dma_axi_interconnect_ic_ip_to_s01_couplers_AWCACHE(3 downto 0),
@@ -3326,7 +3314,7 @@ entity base_zynq is
     FIXED_IO_ps_srstb : inout STD_LOGIC
   );
   attribute CORE_GENERATION_INFO : string;
-  attribute CORE_GENERATION_INFO of base_zynq : entity is "base_zynq,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=base_zynq,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=22,numReposBlks=13,numNonXlnxBlks=0,numHierBlks=9,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=1,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=1,da_clkrst_cnt=6,synth_mode=OOC_per_IP}";
+  attribute CORE_GENERATION_INFO of base_zynq : entity is "base_zynq,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=base_zynq,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=24,numReposBlks=15,numNonXlnxBlks=0,numHierBlks=9,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=1,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=1,da_clkrst_cnt=2,synth_mode=OOC_per_IP}";
   attribute HW_HANDOFF : string;
   attribute HW_HANDOFF of base_zynq : entity is "base_zynq.hwdef";
 end base_zynq;
@@ -3607,6 +3595,24 @@ architecture STRUCTURE of base_zynq is
     peripheral_aresetn : out STD_LOGIC_VECTOR ( 0 to 0 )
   );
   end component base_zynq_rst_ps7_0_50M_0;
+  component base_zynq_myip_0_0 is
+  port (
+    s00_axis_tdata : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    s00_axis_tstrb : in STD_LOGIC_VECTOR ( 3 downto 0 );
+    s00_axis_tlast : in STD_LOGIC;
+    s00_axis_tvalid : in STD_LOGIC;
+    s00_axis_tready : out STD_LOGIC;
+    s00_axis_aclk : in STD_LOGIC;
+    s00_axis_aresetn : in STD_LOGIC;
+    m00_axis_tdata : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    m00_axis_tstrb : out STD_LOGIC_VECTOR ( 3 downto 0 );
+    m00_axis_tlast : out STD_LOGIC;
+    m00_axis_tvalid : out STD_LOGIC;
+    m00_axis_tready : in STD_LOGIC;
+    m00_axis_aclk : in STD_LOGIC;
+    m00_axis_aresetn : in STD_LOGIC
+  );
+  end component base_zynq_myip_0_0;
   component base_zynq_my_ip_hls_0_0 is
   port (
     s_axi_psAxiLite_AWADDR : in STD_LOGIC_VECTOR ( 5 downto 0 );
@@ -3640,6 +3646,24 @@ architecture STRUCTURE of base_zynq is
     masterOut_TLAST : out STD_LOGIC_VECTOR ( 0 to 0 )
   );
   end component base_zynq_my_ip_hls_0_0;
+  component base_zynq_myip_1_0 is
+  port (
+    s00_axis_tdata : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    s00_axis_tstrb : in STD_LOGIC_VECTOR ( 3 downto 0 );
+    s00_axis_tlast : in STD_LOGIC;
+    s00_axis_tvalid : in STD_LOGIC;
+    s00_axis_tready : out STD_LOGIC;
+    s00_axis_aclk : in STD_LOGIC;
+    s00_axis_aresetn : in STD_LOGIC;
+    m00_axis_tdata : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    m00_axis_tstrb : out STD_LOGIC_VECTOR ( 3 downto 0 );
+    m00_axis_tlast : out STD_LOGIC;
+    m00_axis_tvalid : out STD_LOGIC;
+    m00_axis_tready : in STD_LOGIC;
+    m00_axis_aclk : in STD_LOGIC;
+    m00_axis_aresetn : in STD_LOGIC
+  );
+  end component base_zynq_myip_1_0;
   signal axi_bram_ctrl_0_BRAM_PORTA_ADDR : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal axi_bram_ctrl_0_BRAM_PORTA_CLK : STD_LOGIC;
   signal axi_bram_ctrl_0_BRAM_PORTA_DIN : STD_LOGIC_VECTOR ( 31 downto 0 );
@@ -3727,7 +3751,17 @@ architecture STRUCTURE of base_zynq is
   signal my_ip_hls_0_masterOut_TDATA : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal my_ip_hls_0_masterOut_TLAST : STD_LOGIC_VECTOR ( 0 to 0 );
   signal my_ip_hls_0_masterOut_TREADY : STD_LOGIC;
+  signal my_ip_hls_0_masterOut_TSTRB : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal my_ip_hls_0_masterOut_TVALID : STD_LOGIC;
+  signal myip_0_M00_AXIS_TDATA : STD_LOGIC_VECTOR ( 31 downto 0 );
+  signal myip_0_M00_AXIS_TLAST : STD_LOGIC;
+  signal myip_0_M00_AXIS_TREADY : STD_LOGIC;
+  signal myip_0_M00_AXIS_TSTRB : STD_LOGIC_VECTOR ( 3 downto 0 );
+  signal myip_0_M00_AXIS_TVALID : STD_LOGIC;
+  signal myip_1_M00_AXIS_TDATA : STD_LOGIC_VECTOR ( 31 downto 0 );
+  signal myip_1_M00_AXIS_TLAST : STD_LOGIC;
+  signal myip_1_M00_AXIS_TREADY : STD_LOGIC;
+  signal myip_1_M00_AXIS_TVALID : STD_LOGIC;
   signal processing_system7_0_DDR_ADDR : STD_LOGIC_VECTOR ( 14 downto 0 );
   signal processing_system7_0_DDR_BA : STD_LOGIC_VECTOR ( 2 downto 0 );
   signal processing_system7_0_DDR_CAS_N : STD_LOGIC;
@@ -3863,7 +3897,7 @@ architecture STRUCTURE of base_zynq is
   signal NLW_axi_dma_ip_mm2s_prmry_reset_out_n_UNCONNECTED : STD_LOGIC;
   signal NLW_axi_dma_ip_s2mm_prmry_reset_out_n_UNCONNECTED : STD_LOGIC;
   signal NLW_axi_dma_ip_m_axis_mm2s_tkeep_UNCONNECTED : STD_LOGIC_VECTOR ( 3 downto 0 );
-  signal NLW_my_ip_hls_0_masterOut_TSTRB_UNCONNECTED : STD_LOGIC_VECTOR ( 3 downto 0 );
+  signal NLW_myip_1_m00_axis_tstrb_UNCONNECTED : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal NLW_processing_system7_0_TTC0_WAVE0_OUT_UNCONNECTED : STD_LOGIC;
   signal NLW_processing_system7_0_TTC0_WAVE1_OUT_UNCONNECTED : STD_LOGIC;
   signal NLW_processing_system7_0_TTC0_WAVE2_OUT_UNCONNECTED : STD_LOGIC;
@@ -4059,11 +4093,11 @@ axi_dma_ip: component base_zynq_axi_dma_0_0
       s_axi_lite_wdata(31 downto 0) => ps7_0_axi_periph_ip_M01_AXI_WDATA(31 downto 0),
       s_axi_lite_wready => ps7_0_axi_periph_ip_M01_AXI_WREADY,
       s_axi_lite_wvalid => ps7_0_axi_periph_ip_M01_AXI_WVALID,
-      s_axis_s2mm_tdata(31 downto 0) => my_ip_hls_0_masterOut_TDATA(31 downto 0),
+      s_axis_s2mm_tdata(31 downto 0) => myip_1_M00_AXIS_TDATA(31 downto 0),
       s_axis_s2mm_tkeep(3 downto 0) => B"1111",
-      s_axis_s2mm_tlast => my_ip_hls_0_masterOut_TLAST(0),
-      s_axis_s2mm_tready => my_ip_hls_0_masterOut_TREADY,
-      s_axis_s2mm_tvalid => my_ip_hls_0_masterOut_TVALID
+      s_axis_s2mm_tlast => myip_1_M00_AXIS_TLAST,
+      s_axis_s2mm_tready => myip_1_M00_AXIS_TREADY,
+      s_axis_s2mm_tvalid => myip_1_M00_AXIS_TVALID
     );
 blk_mem_ip: component base_zynq_blk_mem_gen_0_0
      port map (
@@ -4087,7 +4121,7 @@ blk_mem_ip: component base_zynq_blk_mem_gen_0_0
 dma_axi_interconnect_ic_ip: entity work.base_zynq_axi_interconnect_0_0
      port map (
       ACLK => processing_system7_0_FCLK_CLK0,
-      ARESETN => rst_ps7_0_50M_interconnect_aresetn(0),
+      ARESETN => rst_ps7_0_50M_peripheral_aresetn(0),
       M00_ACLK => processing_system7_0_FCLK_CLK0,
       M00_ARESETN => rst_ps7_0_50M_peripheral_aresetn(0),
       M00_AXI_araddr(31 downto 0) => dma_axi_interconnect_ic_ip_M00_AXI_ARADDR(31 downto 0),
@@ -4172,7 +4206,7 @@ my_ip_hls_0: component base_zynq_my_ip_hls_0_0
       masterOut_TDATA(31 downto 0) => my_ip_hls_0_masterOut_TDATA(31 downto 0),
       masterOut_TLAST(0) => my_ip_hls_0_masterOut_TLAST(0),
       masterOut_TREADY => my_ip_hls_0_masterOut_TREADY,
-      masterOut_TSTRB(3 downto 0) => NLW_my_ip_hls_0_masterOut_TSTRB_UNCONNECTED(3 downto 0),
+      masterOut_TSTRB(3 downto 0) => my_ip_hls_0_masterOut_TSTRB(3 downto 0),
       masterOut_TVALID => my_ip_hls_0_masterOut_TVALID,
       s_axi_psAxiLite_ARADDR(5 downto 0) => ps7_0_axi_periph_ip_M02_AXI_ARADDR(5 downto 0),
       s_axi_psAxiLite_ARREADY => ps7_0_axi_periph_ip_M02_AXI_ARREADY,
@@ -4191,11 +4225,45 @@ my_ip_hls_0: component base_zynq_my_ip_hls_0_0
       s_axi_psAxiLite_WREADY => ps7_0_axi_periph_ip_M02_AXI_WREADY,
       s_axi_psAxiLite_WSTRB(3 downto 0) => ps7_0_axi_periph_ip_M02_AXI_WSTRB(3 downto 0),
       s_axi_psAxiLite_WVALID => ps7_0_axi_periph_ip_M02_AXI_WVALID,
-      slaveIn_TDATA(31 downto 0) => axi_dma_ip_M_AXIS_MM2S_TDATA(31 downto 0),
-      slaveIn_TLAST(0) => axi_dma_ip_M_AXIS_MM2S_TLAST,
-      slaveIn_TREADY => axi_dma_ip_M_AXIS_MM2S_TREADY,
-      slaveIn_TSTRB(3 downto 0) => B"1111",
-      slaveIn_TVALID => axi_dma_ip_M_AXIS_MM2S_TVALID
+      slaveIn_TDATA(31 downto 0) => myip_0_M00_AXIS_TDATA(31 downto 0),
+      slaveIn_TLAST(0) => myip_0_M00_AXIS_TLAST,
+      slaveIn_TREADY => myip_0_M00_AXIS_TREADY,
+      slaveIn_TSTRB(3 downto 0) => myip_0_M00_AXIS_TSTRB(3 downto 0),
+      slaveIn_TVALID => myip_0_M00_AXIS_TVALID
+    );
+myip_0: component base_zynq_myip_0_0
+     port map (
+      m00_axis_aclk => processing_system7_0_FCLK_CLK0,
+      m00_axis_aresetn => rst_ps7_0_50M_peripheral_aresetn(0),
+      m00_axis_tdata(31 downto 0) => myip_0_M00_AXIS_TDATA(31 downto 0),
+      m00_axis_tlast => myip_0_M00_AXIS_TLAST,
+      m00_axis_tready => myip_0_M00_AXIS_TREADY,
+      m00_axis_tstrb(3 downto 0) => myip_0_M00_AXIS_TSTRB(3 downto 0),
+      m00_axis_tvalid => myip_0_M00_AXIS_TVALID,
+      s00_axis_aclk => processing_system7_0_FCLK_CLK0,
+      s00_axis_aresetn => rst_ps7_0_50M_peripheral_aresetn(0),
+      s00_axis_tdata(31 downto 0) => axi_dma_ip_M_AXIS_MM2S_TDATA(31 downto 0),
+      s00_axis_tlast => axi_dma_ip_M_AXIS_MM2S_TLAST,
+      s00_axis_tready => axi_dma_ip_M_AXIS_MM2S_TREADY,
+      s00_axis_tstrb(3 downto 0) => B"1111",
+      s00_axis_tvalid => axi_dma_ip_M_AXIS_MM2S_TVALID
+    );
+myip_1: component base_zynq_myip_1_0
+     port map (
+      m00_axis_aclk => processing_system7_0_FCLK_CLK0,
+      m00_axis_aresetn => rst_ps7_0_50M_peripheral_aresetn(0),
+      m00_axis_tdata(31 downto 0) => myip_1_M00_AXIS_TDATA(31 downto 0),
+      m00_axis_tlast => myip_1_M00_AXIS_TLAST,
+      m00_axis_tready => myip_1_M00_AXIS_TREADY,
+      m00_axis_tstrb(3 downto 0) => NLW_myip_1_m00_axis_tstrb_UNCONNECTED(3 downto 0),
+      m00_axis_tvalid => myip_1_M00_AXIS_TVALID,
+      s00_axis_aclk => processing_system7_0_FCLK_CLK0,
+      s00_axis_aresetn => rst_ps7_0_50M_peripheral_aresetn(0),
+      s00_axis_tdata(31 downto 0) => my_ip_hls_0_masterOut_TDATA(31 downto 0),
+      s00_axis_tlast => my_ip_hls_0_masterOut_TLAST(0),
+      s00_axis_tready => my_ip_hls_0_masterOut_TREADY,
+      s00_axis_tstrb(3 downto 0) => my_ip_hls_0_masterOut_TSTRB(3 downto 0),
+      s00_axis_tvalid => my_ip_hls_0_masterOut_TVALID
     );
 processing_system7_0: component base_zynq_processing_system7_0_0
      port map (

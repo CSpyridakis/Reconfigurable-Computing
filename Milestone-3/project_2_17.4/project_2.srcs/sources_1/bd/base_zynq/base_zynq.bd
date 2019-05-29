@@ -832,10 +832,24 @@
         </spirit:configurableElementValues>
       </spirit:componentInstance>
       <spirit:componentInstance>
+        <spirit:instanceName>myip_0</spirit:instanceName>
+        <spirit:componentRef spirit:library="user" spirit:name="myip" spirit:vendor="xilinx.com" spirit:version="2.1"/>
+        <spirit:configurableElementValues>
+          <spirit:configurableElementValue spirit:referenceId="bd:xciName">base_zynq_myip_0_0</spirit:configurableElementValue>
+        </spirit:configurableElementValues>
+      </spirit:componentInstance>
+      <spirit:componentInstance>
         <spirit:instanceName>my_ip_hls_0</spirit:instanceName>
         <spirit:componentRef spirit:library="hls" spirit:name="my_ip_hls" spirit:vendor="xilinx.com" spirit:version="1.1"/>
         <spirit:configurableElementValues>
           <spirit:configurableElementValue spirit:referenceId="bd:xciName">base_zynq_my_ip_hls_0_0</spirit:configurableElementValue>
+        </spirit:configurableElementValues>
+      </spirit:componentInstance>
+      <spirit:componentInstance>
+        <spirit:instanceName>myip_1</spirit:instanceName>
+        <spirit:componentRef spirit:library="user" spirit:name="myip" spirit:vendor="xilinx.com" spirit:version="2.1"/>
+        <spirit:configurableElementValues>
+          <spirit:configurableElementValue spirit:referenceId="bd:xciName">base_zynq_myip_1_0</spirit:configurableElementValue>
         </spirit:configurableElementValues>
       </spirit:componentInstance>
     </spirit:componentInstances>
@@ -881,32 +895,86 @@
         <spirit:activeInterface spirit:busRef="S_AXI" spirit:componentRef="axi_bram_ctrl_port_B_ip"/>
       </spirit:interconnection>
       <spirit:interconnection>
+        <spirit:name>axi_dma_ip_M_AXIS_MM2S</spirit:name>
+        <spirit:activeInterface spirit:busRef="M_AXIS_MM2S" spirit:componentRef="axi_dma_ip"/>
+        <spirit:activeInterface spirit:busRef="S00_AXIS" spirit:componentRef="myip_0"/>
+      </spirit:interconnection>
+      <spirit:interconnection>
         <spirit:name>ps7_0_axi_periph_ip_M02_AXI</spirit:name>
         <spirit:activeInterface spirit:busRef="M02_AXI" spirit:componentRef="ps7_0_axi_periph_ip"/>
         <spirit:activeInterface spirit:busRef="s_axi_psAxiLite" spirit:componentRef="my_ip_hls_0"/>
       </spirit:interconnection>
       <spirit:interconnection>
-        <spirit:name>axi_dma_ip_M_AXIS_MM2S</spirit:name>
-        <spirit:activeInterface spirit:busRef="slaveIn" spirit:componentRef="my_ip_hls_0"/>
-        <spirit:activeInterface spirit:busRef="M_AXIS_MM2S" spirit:componentRef="axi_dma_ip"/>
-      </spirit:interconnection>
-      <spirit:interconnection>
         <spirit:name>my_ip_hls_0_masterOut</spirit:name>
         <spirit:activeInterface spirit:busRef="masterOut" spirit:componentRef="my_ip_hls_0"/>
+        <spirit:activeInterface spirit:busRef="S00_AXIS" spirit:componentRef="myip_1"/>
+      </spirit:interconnection>
+      <spirit:interconnection>
+        <spirit:name>myip_0_M00_AXIS</spirit:name>
+        <spirit:activeInterface spirit:busRef="M00_AXIS" spirit:componentRef="myip_0"/>
+        <spirit:activeInterface spirit:busRef="slaveIn" spirit:componentRef="my_ip_hls_0"/>
+      </spirit:interconnection>
+      <spirit:interconnection>
+        <spirit:name>myip_1_M00_AXIS</spirit:name>
+        <spirit:activeInterface spirit:busRef="M00_AXIS" spirit:componentRef="myip_1"/>
         <spirit:activeInterface spirit:busRef="S_AXIS_S2MM" spirit:componentRef="axi_dma_ip"/>
       </spirit:interconnection>
     </spirit:interconnections>
     <spirit:adHocConnections>
+      <spirit:adHocConnection>
+        <spirit:name>processing_system7_0_FCLK_CLK0</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="processing_system7_0" spirit:portRef="FCLK_CLK0"/>
+        <spirit:internalPortReference spirit:componentRef="axi_bram_ctrl_port_A_ip" spirit:portRef="s_axi_aclk"/>
+        <spirit:internalPortReference spirit:componentRef="axi_bram_ctrl_port_B_ip" spirit:portRef="s_axi_aclk"/>
+        <spirit:internalPortReference spirit:componentRef="axi_dma_ip" spirit:portRef="s_axi_lite_aclk"/>
+        <spirit:internalPortReference spirit:componentRef="axi_dma_ip" spirit:portRef="m_axi_mm2s_aclk"/>
+        <spirit:internalPortReference spirit:componentRef="axi_dma_ip" spirit:portRef="m_axi_s2mm_aclk"/>
+        <spirit:internalPortReference spirit:componentRef="processing_system7_0" spirit:portRef="M_AXI_GP0_ACLK"/>
+        <spirit:internalPortReference spirit:componentRef="rst_ps7_0_50M" spirit:portRef="slowest_sync_clk"/>
+        <spirit:internalPortReference spirit:componentRef="myip_0" spirit:portRef="s00_axis_aclk"/>
+        <spirit:internalPortReference spirit:componentRef="myip_0" spirit:portRef="m00_axis_aclk"/>
+        <spirit:internalPortReference spirit:componentRef="dma_axi_interconnect_ic_ip" spirit:portRef="ACLK"/>
+        <spirit:internalPortReference spirit:componentRef="dma_axi_interconnect_ic_ip" spirit:portRef="S00_ACLK"/>
+        <spirit:internalPortReference spirit:componentRef="dma_axi_interconnect_ic_ip" spirit:portRef="M00_ACLK"/>
+        <spirit:internalPortReference spirit:componentRef="dma_axi_interconnect_ic_ip" spirit:portRef="S01_ACLK"/>
+        <spirit:internalPortReference spirit:componentRef="ps7_0_axi_periph_ip" spirit:portRef="ACLK"/>
+        <spirit:internalPortReference spirit:componentRef="ps7_0_axi_periph_ip" spirit:portRef="S00_ACLK"/>
+        <spirit:internalPortReference spirit:componentRef="ps7_0_axi_periph_ip" spirit:portRef="M00_ACLK"/>
+        <spirit:internalPortReference spirit:componentRef="ps7_0_axi_periph_ip" spirit:portRef="M01_ACLK"/>
+        <spirit:internalPortReference spirit:componentRef="my_ip_hls_0" spirit:portRef="ap_clk"/>
+        <spirit:internalPortReference spirit:componentRef="ps7_0_axi_periph_ip" spirit:portRef="M02_ACLK"/>
+        <spirit:internalPortReference spirit:componentRef="myip_1" spirit:portRef="s00_axis_aclk"/>
+        <spirit:internalPortReference spirit:componentRef="myip_1" spirit:portRef="m00_axis_aclk"/>
+      </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>processing_system7_0_FCLK_RESET0_N</spirit:name>
         <spirit:internalPortReference spirit:componentRef="processing_system7_0" spirit:portRef="FCLK_RESET0_N"/>
         <spirit:internalPortReference spirit:componentRef="rst_ps7_0_50M" spirit:portRef="ext_reset_in"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
+        <spirit:name>rst_ps7_0_50M_peripheral_aresetn</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="rst_ps7_0_50M" spirit:portRef="peripheral_aresetn"/>
+        <spirit:internalPortReference spirit:componentRef="axi_bram_ctrl_port_A_ip" spirit:portRef="s_axi_aresetn"/>
+        <spirit:internalPortReference spirit:componentRef="axi_bram_ctrl_port_B_ip" spirit:portRef="s_axi_aresetn"/>
+        <spirit:internalPortReference spirit:componentRef="axi_dma_ip" spirit:portRef="axi_resetn"/>
+        <spirit:internalPortReference spirit:componentRef="myip_0" spirit:portRef="s00_axis_aresetn"/>
+        <spirit:internalPortReference spirit:componentRef="myip_0" spirit:portRef="m00_axis_aresetn"/>
+        <spirit:internalPortReference spirit:componentRef="dma_axi_interconnect_ic_ip" spirit:portRef="ARESETN"/>
+        <spirit:internalPortReference spirit:componentRef="dma_axi_interconnect_ic_ip" spirit:portRef="S00_ARESETN"/>
+        <spirit:internalPortReference spirit:componentRef="dma_axi_interconnect_ic_ip" spirit:portRef="M00_ARESETN"/>
+        <spirit:internalPortReference spirit:componentRef="dma_axi_interconnect_ic_ip" spirit:portRef="S01_ARESETN"/>
+        <spirit:internalPortReference spirit:componentRef="ps7_0_axi_periph_ip" spirit:portRef="S00_ARESETN"/>
+        <spirit:internalPortReference spirit:componentRef="ps7_0_axi_periph_ip" spirit:portRef="M00_ARESETN"/>
+        <spirit:internalPortReference spirit:componentRef="ps7_0_axi_periph_ip" spirit:portRef="M01_ARESETN"/>
+        <spirit:internalPortReference spirit:componentRef="my_ip_hls_0" spirit:portRef="ap_rst_n"/>
+        <spirit:internalPortReference spirit:componentRef="ps7_0_axi_periph_ip" spirit:portRef="M02_ARESETN"/>
+        <spirit:internalPortReference spirit:componentRef="myip_1" spirit:portRef="s00_axis_aresetn"/>
+        <spirit:internalPortReference spirit:componentRef="myip_1" spirit:portRef="m00_axis_aresetn"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
         <spirit:name>rst_ps7_0_50M_interconnect_aresetn</spirit:name>
         <spirit:internalPortReference spirit:componentRef="rst_ps7_0_50M" spirit:portRef="interconnect_aresetn"/>
         <spirit:internalPortReference spirit:componentRef="ps7_0_axi_periph_ip" spirit:portRef="ARESETN"/>
-        <spirit:internalPortReference spirit:componentRef="dma_axi_interconnect_ic_ip" spirit:portRef="ARESETN"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>axi_dma_ip_mm2s_introut</spirit:name>
@@ -922,42 +990,6 @@
         <spirit:name>xlconcat_0_dout</spirit:name>
         <spirit:internalPortReference spirit:componentRef="dma_irq_concat_ip" spirit:portRef="dout"/>
         <spirit:internalPortReference spirit:componentRef="processing_system7_0" spirit:portRef="IRQ_F2P"/>
-      </spirit:adHocConnection>
-      <spirit:adHocConnection>
-        <spirit:name>processing_system7_0_FCLK_CLK0</spirit:name>
-        <spirit:internalPortReference spirit:componentRef="processing_system7_0" spirit:portRef="FCLK_CLK0"/>
-        <spirit:internalPortReference spirit:componentRef="processing_system7_0" spirit:portRef="M_AXI_GP0_ACLK"/>
-        <spirit:internalPortReference spirit:componentRef="ps7_0_axi_periph_ip" spirit:portRef="S00_ACLK"/>
-        <spirit:internalPortReference spirit:componentRef="rst_ps7_0_50M" spirit:portRef="slowest_sync_clk"/>
-        <spirit:internalPortReference spirit:componentRef="my_ip_hls_0" spirit:portRef="ap_clk"/>
-        <spirit:internalPortReference spirit:componentRef="ps7_0_axi_periph_ip" spirit:portRef="M02_ACLK"/>
-        <spirit:internalPortReference spirit:componentRef="ps7_0_axi_periph_ip" spirit:portRef="ACLK"/>
-        <spirit:internalPortReference spirit:componentRef="axi_bram_ctrl_port_A_ip" spirit:portRef="s_axi_aclk"/>
-        <spirit:internalPortReference spirit:componentRef="ps7_0_axi_periph_ip" spirit:portRef="M00_ACLK"/>
-        <spirit:internalPortReference spirit:componentRef="axi_bram_ctrl_port_B_ip" spirit:portRef="s_axi_aclk"/>
-        <spirit:internalPortReference spirit:componentRef="dma_axi_interconnect_ic_ip" spirit:portRef="M00_ACLK"/>
-        <spirit:internalPortReference spirit:componentRef="axi_dma_ip" spirit:portRef="s_axi_lite_aclk"/>
-        <spirit:internalPortReference spirit:componentRef="ps7_0_axi_periph_ip" spirit:portRef="M01_ACLK"/>
-        <spirit:internalPortReference spirit:componentRef="axi_dma_ip" spirit:portRef="m_axi_mm2s_aclk"/>
-        <spirit:internalPortReference spirit:componentRef="dma_axi_interconnect_ic_ip" spirit:portRef="S00_ACLK"/>
-        <spirit:internalPortReference spirit:componentRef="axi_dma_ip" spirit:portRef="m_axi_s2mm_aclk"/>
-        <spirit:internalPortReference spirit:componentRef="dma_axi_interconnect_ic_ip" spirit:portRef="S01_ACLK"/>
-        <spirit:internalPortReference spirit:componentRef="dma_axi_interconnect_ic_ip" spirit:portRef="ACLK"/>
-      </spirit:adHocConnection>
-      <spirit:adHocConnection>
-        <spirit:name>rst_ps7_0_50M_peripheral_aresetn</spirit:name>
-        <spirit:internalPortReference spirit:componentRef="rst_ps7_0_50M" spirit:portRef="peripheral_aresetn"/>
-        <spirit:internalPortReference spirit:componentRef="ps7_0_axi_periph_ip" spirit:portRef="S00_ARESETN"/>
-        <spirit:internalPortReference spirit:componentRef="my_ip_hls_0" spirit:portRef="ap_rst_n"/>
-        <spirit:internalPortReference spirit:componentRef="ps7_0_axi_periph_ip" spirit:portRef="M02_ARESETN"/>
-        <spirit:internalPortReference spirit:componentRef="axi_bram_ctrl_port_A_ip" spirit:portRef="s_axi_aresetn"/>
-        <spirit:internalPortReference spirit:componentRef="ps7_0_axi_periph_ip" spirit:portRef="M00_ARESETN"/>
-        <spirit:internalPortReference spirit:componentRef="axi_bram_ctrl_port_B_ip" spirit:portRef="s_axi_aresetn"/>
-        <spirit:internalPortReference spirit:componentRef="dma_axi_interconnect_ic_ip" spirit:portRef="M00_ARESETN"/>
-        <spirit:internalPortReference spirit:componentRef="axi_dma_ip" spirit:portRef="axi_resetn"/>
-        <spirit:internalPortReference spirit:componentRef="ps7_0_axi_periph_ip" spirit:portRef="M01_ARESETN"/>
-        <spirit:internalPortReference spirit:componentRef="dma_axi_interconnect_ic_ip" spirit:portRef="S00_ARESETN"/>
-        <spirit:internalPortReference spirit:componentRef="dma_axi_interconnect_ic_ip" spirit:portRef="S01_ARESETN"/>
       </spirit:adHocConnection>
     </spirit:adHocConnections>
     <spirit:hierConnections>
@@ -2631,47 +2663,23 @@
         <spirit:name>dma_axi_interconnect_ic_ip_ACLK_net</spirit:name>
         <spirit:externalPortReference spirit:portRef="ACLK"/>
         <spirit:internalPortReference spirit:componentRef="xbar" spirit:portRef="aclk"/>
+        <spirit:internalPortReference spirit:componentRef="s00_couplers" spirit:portRef="S_ACLK"/>
+        <spirit:internalPortReference spirit:componentRef="s01_couplers" spirit:portRef="S_ACLK"/>
         <spirit:internalPortReference spirit:componentRef="s00_couplers" spirit:portRef="M_ACLK"/>
         <spirit:internalPortReference spirit:componentRef="s01_couplers" spirit:portRef="M_ACLK"/>
+        <spirit:internalPortReference spirit:componentRef="m00_couplers" spirit:portRef="M_ACLK"/>
         <spirit:internalPortReference spirit:componentRef="m00_couplers" spirit:portRef="S_ACLK"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>dma_axi_interconnect_ic_ip_ARESETN_net</spirit:name>
         <spirit:externalPortReference spirit:portRef="ARESETN"/>
         <spirit:internalPortReference spirit:componentRef="xbar" spirit:portRef="aresetn"/>
+        <spirit:internalPortReference spirit:componentRef="s00_couplers" spirit:portRef="S_ARESETN"/>
+        <spirit:internalPortReference spirit:componentRef="s01_couplers" spirit:portRef="S_ARESETN"/>
         <spirit:internalPortReference spirit:componentRef="s00_couplers" spirit:portRef="M_ARESETN"/>
         <spirit:internalPortReference spirit:componentRef="s01_couplers" spirit:portRef="M_ARESETN"/>
-        <spirit:internalPortReference spirit:componentRef="m00_couplers" spirit:portRef="S_ARESETN"/>
-      </spirit:adHocConnection>
-      <spirit:adHocConnection>
-        <spirit:name>S00_ACLK_1</spirit:name>
-        <spirit:externalPortReference spirit:portRef="S00_ACLK"/>
-        <spirit:internalPortReference spirit:componentRef="s00_couplers" spirit:portRef="S_ACLK"/>
-      </spirit:adHocConnection>
-      <spirit:adHocConnection>
-        <spirit:name>S00_ARESETN_1</spirit:name>
-        <spirit:externalPortReference spirit:portRef="S00_ARESETN"/>
-        <spirit:internalPortReference spirit:componentRef="s00_couplers" spirit:portRef="S_ARESETN"/>
-      </spirit:adHocConnection>
-      <spirit:adHocConnection>
-        <spirit:name>S01_ACLK_1</spirit:name>
-        <spirit:externalPortReference spirit:portRef="S01_ACLK"/>
-        <spirit:internalPortReference spirit:componentRef="s01_couplers" spirit:portRef="S_ACLK"/>
-      </spirit:adHocConnection>
-      <spirit:adHocConnection>
-        <spirit:name>S01_ARESETN_1</spirit:name>
-        <spirit:externalPortReference spirit:portRef="S01_ARESETN"/>
-        <spirit:internalPortReference spirit:componentRef="s01_couplers" spirit:portRef="S_ARESETN"/>
-      </spirit:adHocConnection>
-      <spirit:adHocConnection>
-        <spirit:name>M00_ACLK_1</spirit:name>
-        <spirit:externalPortReference spirit:portRef="M00_ACLK"/>
-        <spirit:internalPortReference spirit:componentRef="m00_couplers" spirit:portRef="M_ACLK"/>
-      </spirit:adHocConnection>
-      <spirit:adHocConnection>
-        <spirit:name>M00_ARESETN_1</spirit:name>
-        <spirit:externalPortReference spirit:portRef="M00_ARESETN"/>
         <spirit:internalPortReference spirit:componentRef="m00_couplers" spirit:portRef="M_ARESETN"/>
+        <spirit:internalPortReference spirit:componentRef="m00_couplers" spirit:portRef="S_ARESETN"/>
       </spirit:adHocConnection>
     </spirit:adHocConnections>
     <spirit:hierConnections>

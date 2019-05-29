@@ -88,4 +88,31 @@ Time: 4090 ns  Iteration: 1  Process: /axi_vip_pkg/axi_monitor(C_AXI_PROTOCOL=1,
 [4310] : M_AXI_GP0 : *ZYNQ_VIP_INFO : Starting Address(0x4000001c) -> AXI Read -> 4 bytes
 [4490] : M_AXI_GP0 : *ZYNQ_VIP_INFO : Done AXI Read for Starting Address(0x4000001c) with Response 'OKAY'
              4490000, running the testbench, data read from BRAM was 32'h00000070
-[4490] : M_AXI_GP0 : *ZYNQ_VIP_INFO : Starting Add
+[4490] : M_AXI_GP0 : *ZYNQ_VIP_INFO : Starting Address(0x43c00010) -> AXI Write -> 4 bytes
+[4930] : M_AXI_GP0 : *ZYNQ_VIP_INFO : Done AXI Write for Starting Address(0x43c00010) with Response 'OKAY'
+[4930] : M_AXI_GP0 : *ZYNQ_VIP_INFO : Starting Address(0x43c00010) -> AXI Read -> 4 bytes
+[5150] : M_AXI_GP0 : *ZYNQ_VIP_INFO : Done AXI Read for Starting Address(0x43c00010) with Response 'OKAY'
+             5150000, running the testbench, data read from BRAM was 32'h00000010
+[5150] : M_AXI_GP0 : *ZYNQ_VIP_INFO : Starting Address(0x43c00018) -> AXI Write -> 4 bytes
+[5410] : M_AXI_GP0 : *ZYNQ_VIP_INFO : Done AXI Write for Starting Address(0x43c00018) with Response 'OKAY'
+[5410] : M_AXI_GP0 : *ZYNQ_VIP_INFO : Starting Address(0x43c00018) -> AXI Read -> 4 bytes
+[5630] : M_AXI_GP0 : *ZYNQ_VIP_INFO : Done AXI Read for Starting Address(0x43c00018) with Response 'OKAY'
+             5630000, running the testbench, data read from BRAM was 32'h00000030
+[5630] : M_AXI_GP0 : *ZYNQ_VIP_INFO : Starting Address(0x43c00020) -> AXI Write -> 4 bytes
+[6070] : M_AXI_GP0 : *ZYNQ_VIP_INFO : Done AXI Write for Starting Address(0x43c00020) with Response 'OKAY'
+[6070] : M_AXI_GP0 : *ZYNQ_VIP_INFO : Starting Address(0x43c00020) -> AXI Read -> 4 bytes
+[6290] : M_AXI_GP0 : *ZYNQ_VIP_INFO : Done AXI Read for Starting Address(0x43c00020) with Response 'OKAY'
+             6290000, running the testbench, data read from BRAM was 32'h00000050
+[6290] : M_AXI_GP0 : *ZYNQ_VIP_INFO : Starting Address(0x40400030) -> AXI Write -> 4 bytes
+[6610] : M_AXI_GP0 : *ZYNQ_VIP_INFO : Done AXI Write for Starting Address(0x40400030) with Response 'OKAY'
+[6610] : M_AXI_GP0 : *ZYNQ_VIP_INFO : Starting Address(0x40400048) -> AXI Write -> 4 bytes
+[7090] : M_AXI_GP0 : *ZYNQ_VIP_INFO : Done AXI Write for Starting Address(0x40400048) with Response 'OKAY'
+[7090] : M_AXI_GP0 : *ZYNQ_VIP_INFO : Starting Address(0x40400058) -> AXI Write -> 4 bytes
+[7390] : M_AXI_GP0 : *ZYNQ_VIP_INFO : Done AXI Write for Starting Address(0x40400058) with Response 'OKAY'
+[7390] : M_AXI_GP0 : *ZYNQ_VIP_INFO : Starting Address(0x40400000) -> AXI Write -> 4 bytes
+[7810] : M_AXI_GP0 : *ZYNQ_VIP_INFO : Done AXI Write for Starting Address(0x40400000) with Response 'OKAY'
+[7810] : M_AXI_GP0 : *ZYNQ_VIP_INFO : Starting Address(0x40400018) -> AXI Write -> 4 bytes
+[8230] : M_AXI_GP0 : *ZYNQ_VIP_INFO : Done AXI Write for Starting Address(0x40400018) with Response 'OKAY'
+[8230] : M_AXI_GP0 : *ZYNQ_VIP_INFO : Starting Address(0x40400028) -> AXI Write -> 4 bytes
+[8710] : M_AXI_GP0 : *ZYNQ_VIP_INFO : Done AXI Write for Starting Address(0x40400028) with Response 'OKAY'
+Simulation completed!

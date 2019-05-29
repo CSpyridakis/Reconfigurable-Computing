@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Wed May 29 11:01:16 2019" VIVADOVERSION="2017.4">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Wed May 29 21:48:09 2019" VIVADOVERSION="2017.4">
 
   <SYSTEMINFO ARCH="zynq" BOARD="xilinx.com:zc706:part0:1.4" DEVICE="7z045" NAME="base_zynq" PACKAGE="ffg900" SPEEDGRADE="-2"/>
 
@@ -2129,23 +2129,23 @@
         <PORT DIR="O" NAME="mm2s_prmry_reset_out_n" SIGIS="rst"/>
         <PORT DIR="O" LEFT="31" NAME="m_axis_mm2s_tdata" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_ip_m_axis_mm2s_tdata">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="my_ip_hls_0" PORT="slaveIn_TDATA"/>
+            <CONNECTION INSTANCE="myip_0" PORT="s00_axis_tdata"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="3" NAME="m_axis_mm2s_tkeep" RIGHT="0" SIGIS="undef"/>
         <PORT DIR="O" NAME="m_axis_mm2s_tvalid" SIGIS="undef" SIGNAME="axi_dma_ip_m_axis_mm2s_tvalid">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="my_ip_hls_0" PORT="slaveIn_TVALID"/>
+            <CONNECTION INSTANCE="myip_0" PORT="s00_axis_tvalid"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="m_axis_mm2s_tready" SIGIS="undef" SIGNAME="axi_dma_ip_m_axis_mm2s_tready">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="my_ip_hls_0" PORT="slaveIn_TREADY"/>
+            <CONNECTION INSTANCE="myip_0" PORT="s00_axis_tready"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="m_axis_mm2s_tlast" SIGIS="undef" SIGNAME="axi_dma_ip_m_axis_mm2s_tlast">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="my_ip_hls_0" PORT="slaveIn_TLAST"/>
+            <CONNECTION INSTANCE="myip_0" PORT="s00_axis_tlast"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="31" NAME="m_axi_s2mm_awaddr" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_ip_m_axi_s2mm_awaddr">
@@ -2231,23 +2231,23 @@
         <PORT DIR="O" NAME="s2mm_prmry_reset_out_n" SIGIS="rst"/>
         <PORT DIR="I" LEFT="31" NAME="s_axis_s2mm_tdata" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_ip_s_axis_s2mm_tdata">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="my_ip_hls_0" PORT="masterOut_TDATA"/>
+            <CONNECTION INSTANCE="myip_1" PORT="m00_axis_tdata"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="3" NAME="s_axis_s2mm_tkeep" RIGHT="0" SIGIS="undef"/>
         <PORT DIR="I" NAME="s_axis_s2mm_tvalid" SIGIS="undef" SIGNAME="axi_dma_ip_s_axis_s2mm_tvalid">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="my_ip_hls_0" PORT="masterOut_TVALID"/>
+            <CONNECTION INSTANCE="myip_1" PORT="m00_axis_tvalid"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="s_axis_s2mm_tready" SIGIS="undef" SIGNAME="axi_dma_ip_s_axis_s2mm_tready">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="my_ip_hls_0" PORT="masterOut_TREADY"/>
+            <CONNECTION INSTANCE="myip_1" PORT="m00_axis_tready"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="s_axis_s2mm_tlast" SIGIS="undef" SIGNAME="axi_dma_ip_s_axis_s2mm_tlast">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="my_ip_hls_0" PORT="masterOut_TLAST"/>
+            <CONNECTION INSTANCE="myip_1" PORT="m00_axis_tlast"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="mm2s_introut" SENSITIVITY="LEVEL_HIGH" SIGIS="INTERRUPT" SIGNAME="axi_dma_ip_mm2s_introut">
@@ -2431,7 +2431,7 @@
             <PORTMAP LOGICAL="TVALID" PHYSICAL="m_axis_mm2s_tvalid"/>
           </PORTMAPS>
         </BUSINTERFACE>
-        <BUSINTERFACE BUSNAME="my_ip_hls_0_masterOut" NAME="S_AXIS_S2MM" TYPE="TARGET" VLNV="xilinx.com:interface:axis:1.0">
+        <BUSINTERFACE BUSNAME="myip_1_M00_AXIS" NAME="S_AXIS_S2MM" TYPE="TARGET" VLNV="xilinx.com:interface:axis:1.0">
           <PARAMETER NAME="TDATA_NUM_BYTES" VALUE="4"/>
           <PARAMETER NAME="TDEST_WIDTH" VALUE="0"/>
           <PARAMETER NAME="TID_WIDTH" VALUE="0"/>
@@ -2443,7 +2443,7 @@
           <PARAMETER NAME="FREQ_HZ" VALUE="50000000"/>
           <PARAMETER NAME="PHASE" VALUE="0.000"/>
           <PARAMETER NAME="CLK_DOMAIN" VALUE="base_zynq_processing_system7_0_0_FCLK_CLK0"/>
-          <PARAMETER NAME="LAYERED_METADATA" VALUE="xilinx.com:interface:datatypes:1.0 {CLK {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 1} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0}}} TDATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 32} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}} TDATA_WIDTH 32}"/>
+          <PARAMETER NAME="LAYERED_METADATA" VALUE="undef"/>
           <PORTMAPS>
             <PORTMAP LOGICAL="TDATA" PHYSICAL="s_axis_s2mm_tdata"/>
             <PORTMAP LOGICAL="TKEEP" PHYSICAL="s_axis_s2mm_tkeep"/>
@@ -2459,7 +2459,7 @@
       </MEMORYMAP>
       <PERIPHERALS>
         <PERIPHERAL INSTANCE="axi_bram_ctrl_port_B_ip"/>
-        <PERIPHERAL INSTANCE="my_ip_hls_0"/>
+        <PERIPHERAL INSTANCE="myip_0"/>
       </PERIPHERALS>
     </MODULE>
     <MODULE FULLNAME="/blk_mem_ip" HWVERSION="8.4" INSTANCE="blk_mem_ip" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="MEMORY" MODTYPE="blk_mem_gen" VLNV="xilinx.com:ip:blk_mem_gen:8.4">
@@ -3047,9 +3047,9 @@
             <CONNECTION INSTANCE="processing_system7_0" PORT="FCLK_CLK0"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="ARESETN" SIGIS="rst" SIGNAME="rst_ps7_0_50M_interconnect_aresetn">
+        <PORT DIR="I" NAME="ARESETN" SIGIS="rst" SIGNAME="rst_ps7_0_50M_peripheral_aresetn">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="rst_ps7_0_50M" PORT="interconnect_aresetn"/>
+            <CONNECTION INSTANCE="rst_ps7_0_50M" PORT="peripheral_aresetn"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="S00_ACLK" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK0">
@@ -3868,46 +3868,54 @@
             <CONNECTION INSTANCE="rst_ps7_0_50M" PORT="peripheral_aresetn"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="slaveIn_TVALID" SIGIS="undef" SIGNAME="axi_dma_ip_m_axis_mm2s_tvalid">
+        <PORT DIR="I" NAME="slaveIn_TVALID" SIGIS="undef" SIGNAME="my_ip_hls_0_slaveIn_TVALID">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_dma_ip" PORT="m_axis_mm2s_tvalid"/>
+            <CONNECTION INSTANCE="myip_0" PORT="m00_axis_tvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="slaveIn_TREADY" SIGIS="undef" SIGNAME="axi_dma_ip_m_axis_mm2s_tready">
+        <PORT DIR="O" NAME="slaveIn_TREADY" SIGIS="undef" SIGNAME="my_ip_hls_0_slaveIn_TREADY">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_dma_ip" PORT="m_axis_mm2s_tready"/>
+            <CONNECTION INSTANCE="myip_0" PORT="m00_axis_tready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="31" NAME="slaveIn_TDATA" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_ip_m_axis_mm2s_tdata">
+        <PORT DIR="I" LEFT="31" NAME="slaveIn_TDATA" RIGHT="0" SIGIS="undef" SIGNAME="my_ip_hls_0_slaveIn_TDATA">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_dma_ip" PORT="m_axis_mm2s_tdata"/>
+            <CONNECTION INSTANCE="myip_0" PORT="m00_axis_tdata"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="3" NAME="slaveIn_TSTRB" RIGHT="0" SIGIS="undef"/>
-        <PORT DIR="I" LEFT="0" NAME="slaveIn_TLAST" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_ip_m_axis_mm2s_tlast">
+        <PORT DIR="I" LEFT="3" NAME="slaveIn_TSTRB" RIGHT="0" SIGIS="undef" SIGNAME="my_ip_hls_0_slaveIn_TSTRB">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_dma_ip" PORT="m_axis_mm2s_tlast"/>
+            <CONNECTION INSTANCE="myip_0" PORT="m00_axis_tstrb"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="masterOut_TVALID" SIGIS="undef" SIGNAME="axi_dma_ip_s_axis_s2mm_tvalid">
+        <PORT DIR="I" LEFT="0" NAME="slaveIn_TLAST" RIGHT="0" SIGIS="undef" SIGNAME="my_ip_hls_0_slaveIn_TLAST">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_dma_ip" PORT="s_axis_s2mm_tvalid"/>
+            <CONNECTION INSTANCE="myip_0" PORT="m00_axis_tlast"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="masterOut_TREADY" SIGIS="undef" SIGNAME="axi_dma_ip_s_axis_s2mm_tready">
+        <PORT DIR="O" NAME="masterOut_TVALID" SIGIS="undef" SIGNAME="my_ip_hls_0_masterOut_TVALID">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_dma_ip" PORT="s_axis_s2mm_tready"/>
+            <CONNECTION INSTANCE="myip_1" PORT="s00_axis_tvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="31" NAME="masterOut_TDATA" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_ip_s_axis_s2mm_tdata">
+        <PORT DIR="I" NAME="masterOut_TREADY" SIGIS="undef" SIGNAME="my_ip_hls_0_masterOut_TREADY">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_dma_ip" PORT="s_axis_s2mm_tdata"/>
+            <CONNECTION INSTANCE="myip_1" PORT="s00_axis_tready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="3" NAME="masterOut_TSTRB" RIGHT="0" SIGIS="undef"/>
-        <PORT DIR="O" LEFT="0" NAME="masterOut_TLAST" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_ip_s_axis_s2mm_tlast">
+        <PORT DIR="O" LEFT="31" NAME="masterOut_TDATA" RIGHT="0" SIGIS="undef" SIGNAME="my_ip_hls_0_masterOut_TDATA">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_dma_ip" PORT="s_axis_s2mm_tlast"/>
+            <CONNECTION INSTANCE="myip_1" PORT="s00_axis_tdata"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="3" NAME="masterOut_TSTRB" RIGHT="0" SIGIS="undef" SIGNAME="my_ip_hls_0_masterOut_TSTRB">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="myip_1" PORT="s00_axis_tstrb"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="0" NAME="masterOut_TLAST" RIGHT="0" SIGIS="undef" SIGNAME="my_ip_hls_0_masterOut_TLAST">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="myip_1" PORT="s00_axis_tlast"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -3964,7 +3972,7 @@
             <PORTMAP LOGICAL="RREADY" PHYSICAL="s_axi_psAxiLite_RREADY"/>
           </PORTMAPS>
         </BUSINTERFACE>
-        <BUSINTERFACE BUSNAME="axi_dma_ip_M_AXIS_MM2S" NAME="slaveIn" TYPE="TARGET" VLNV="xilinx.com:interface:axis:1.0">
+        <BUSINTERFACE BUSNAME="myip_0_M00_AXIS" NAME="slaveIn" TYPE="TARGET" VLNV="xilinx.com:interface:axis:1.0">
           <PARAMETER NAME="TDATA_NUM_BYTES" VALUE="4"/>
           <PARAMETER NAME="TUSER_WIDTH" VALUE="0"/>
           <PARAMETER NAME="LAYERED_METADATA" VALUE="undef"/>
@@ -4004,6 +4012,254 @@
             <PORTMAP LOGICAL="TDATA" PHYSICAL="masterOut_TDATA"/>
             <PORTMAP LOGICAL="TSTRB" PHYSICAL="masterOut_TSTRB"/>
             <PORTMAP LOGICAL="TLAST" PHYSICAL="masterOut_TLAST"/>
+          </PORTMAPS>
+        </BUSINTERFACE>
+      </BUSINTERFACES>
+    </MODULE>
+    <MODULE FULLNAME="/myip_0" HWVERSION="2.1" INSTANCE="myip_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="myip" VLNV="xilinx.com:user:myip:2.1">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="C_S00_AXIS_TDATA_WIDTH" VALUE="32"/>
+        <PARAMETER NAME="C_M00_AXIS_TDATA_WIDTH" VALUE="32"/>
+        <PARAMETER NAME="C_M00_AXIS_START_COUNT" VALUE="32"/>
+        <PARAMETER NAME="Component_Name" VALUE="base_zynq_myip_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="31" NAME="s00_axis_tdata" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_ip_m_axis_mm2s_tdata">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_dma_ip" PORT="m_axis_mm2s_tdata"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="3" NAME="s00_axis_tstrb" RIGHT="0" SIGIS="undef"/>
+        <PORT DIR="I" NAME="s00_axis_tlast" SIGIS="undef" SIGNAME="axi_dma_ip_m_axis_mm2s_tlast">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_dma_ip" PORT="m_axis_mm2s_tlast"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="s00_axis_tvalid" SIGIS="undef" SIGNAME="axi_dma_ip_m_axis_mm2s_tvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_dma_ip" PORT="m_axis_mm2s_tvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="s00_axis_tready" SIGIS="undef" SIGNAME="axi_dma_ip_m_axis_mm2s_tready">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_dma_ip" PORT="m_axis_mm2s_tready"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="50000000" DIR="I" NAME="s00_axis_aclk" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK0">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="processing_system7_0" PORT="FCLK_CLK0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="s00_axis_aresetn" SIGIS="rst" SIGNAME="rst_ps7_0_50M_peripheral_aresetn">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="rst_ps7_0_50M" PORT="peripheral_aresetn"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="31" NAME="m00_axis_tdata" RIGHT="0" SIGIS="undef" SIGNAME="my_ip_hls_0_slaveIn_TDATA">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="my_ip_hls_0" PORT="slaveIn_TDATA"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="3" NAME="m00_axis_tstrb" RIGHT="0" SIGIS="undef" SIGNAME="my_ip_hls_0_slaveIn_TSTRB">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="my_ip_hls_0" PORT="slaveIn_TSTRB"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="m00_axis_tlast" SIGIS="undef" SIGNAME="my_ip_hls_0_slaveIn_TLAST">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="my_ip_hls_0" PORT="slaveIn_TLAST"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="m00_axis_tvalid" SIGIS="undef" SIGNAME="my_ip_hls_0_slaveIn_TVALID">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="my_ip_hls_0" PORT="slaveIn_TVALID"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="m00_axis_tready" SIGIS="undef" SIGNAME="my_ip_hls_0_slaveIn_TREADY">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="my_ip_hls_0" PORT="slaveIn_TREADY"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="50000000" DIR="I" NAME="m00_axis_aclk" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK0">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="processing_system7_0" PORT="FCLK_CLK0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="m00_axis_aresetn" SIGIS="rst" SIGNAME="rst_ps7_0_50M_peripheral_aresetn">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="rst_ps7_0_50M" PORT="peripheral_aresetn"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES>
+        <BUSINTERFACE BUSNAME="myip_0_M00_AXIS" NAME="M00_AXIS" TYPE="INITIATOR" VLNV="xilinx.com:interface:axis:1.0">
+          <PARAMETER NAME="WIZ_DATA_WIDTH" VALUE="32"/>
+          <PARAMETER NAME="TDATA_NUM_BYTES" VALUE="4"/>
+          <PARAMETER NAME="TDEST_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="TID_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="TUSER_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="HAS_TREADY" VALUE="1"/>
+          <PARAMETER NAME="HAS_TSTRB" VALUE="1"/>
+          <PARAMETER NAME="HAS_TKEEP" VALUE="0"/>
+          <PARAMETER NAME="HAS_TLAST" VALUE="1"/>
+          <PARAMETER NAME="FREQ_HZ" VALUE="50000000"/>
+          <PARAMETER NAME="PHASE" VALUE="0.000"/>
+          <PARAMETER NAME="CLK_DOMAIN" VALUE="base_zynq_processing_system7_0_0_FCLK_CLK0"/>
+          <PARAMETER NAME="LAYERED_METADATA" VALUE="undef"/>
+          <PORTMAPS>
+            <PORTMAP LOGICAL="TDATA" PHYSICAL="m00_axis_tdata"/>
+            <PORTMAP LOGICAL="TSTRB" PHYSICAL="m00_axis_tstrb"/>
+            <PORTMAP LOGICAL="TLAST" PHYSICAL="m00_axis_tlast"/>
+            <PORTMAP LOGICAL="TVALID" PHYSICAL="m00_axis_tvalid"/>
+            <PORTMAP LOGICAL="TREADY" PHYSICAL="m00_axis_tready"/>
+          </PORTMAPS>
+        </BUSINTERFACE>
+        <BUSINTERFACE BUSNAME="axi_dma_ip_M_AXIS_MM2S" NAME="S00_AXIS" TYPE="TARGET" VLNV="xilinx.com:interface:axis:1.0">
+          <PARAMETER NAME="WIZ_DATA_WIDTH" VALUE="32"/>
+          <PARAMETER NAME="TDATA_NUM_BYTES" VALUE="4"/>
+          <PARAMETER NAME="TDEST_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="TID_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="TUSER_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="HAS_TREADY" VALUE="1"/>
+          <PARAMETER NAME="HAS_TSTRB" VALUE="1"/>
+          <PARAMETER NAME="HAS_TKEEP" VALUE="0"/>
+          <PARAMETER NAME="HAS_TLAST" VALUE="1"/>
+          <PARAMETER NAME="FREQ_HZ" VALUE="50000000"/>
+          <PARAMETER NAME="PHASE" VALUE="0.000"/>
+          <PARAMETER NAME="CLK_DOMAIN" VALUE="base_zynq_processing_system7_0_0_FCLK_CLK0"/>
+          <PARAMETER NAME="LAYERED_METADATA" VALUE="undef"/>
+          <PORTMAPS>
+            <PORTMAP LOGICAL="TDATA" PHYSICAL="s00_axis_tdata"/>
+            <PORTMAP LOGICAL="TSTRB" PHYSICAL="s00_axis_tstrb"/>
+            <PORTMAP LOGICAL="TLAST" PHYSICAL="s00_axis_tlast"/>
+            <PORTMAP LOGICAL="TVALID" PHYSICAL="s00_axis_tvalid"/>
+            <PORTMAP LOGICAL="TREADY" PHYSICAL="s00_axis_tready"/>
+          </PORTMAPS>
+        </BUSINTERFACE>
+      </BUSINTERFACES>
+    </MODULE>
+    <MODULE FULLNAME="/myip_1" HWVERSION="2.1" INSTANCE="myip_1" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="myip" VLNV="xilinx.com:user:myip:2.1">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="C_S00_AXIS_TDATA_WIDTH" VALUE="32"/>
+        <PARAMETER NAME="C_M00_AXIS_TDATA_WIDTH" VALUE="32"/>
+        <PARAMETER NAME="C_M00_AXIS_START_COUNT" VALUE="32"/>
+        <PARAMETER NAME="Component_Name" VALUE="base_zynq_myip_1_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="31" NAME="s00_axis_tdata" RIGHT="0" SIGIS="undef" SIGNAME="my_ip_hls_0_masterOut_TDATA">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="my_ip_hls_0" PORT="masterOut_TDATA"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="3" NAME="s00_axis_tstrb" RIGHT="0" SIGIS="undef" SIGNAME="my_ip_hls_0_masterOut_TSTRB">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="my_ip_hls_0" PORT="masterOut_TSTRB"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="s00_axis_tlast" SIGIS="undef" SIGNAME="my_ip_hls_0_masterOut_TLAST">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="my_ip_hls_0" PORT="masterOut_TLAST"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="s00_axis_tvalid" SIGIS="undef" SIGNAME="my_ip_hls_0_masterOut_TVALID">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="my_ip_hls_0" PORT="masterOut_TVALID"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="s00_axis_tready" SIGIS="undef" SIGNAME="my_ip_hls_0_masterOut_TREADY">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="my_ip_hls_0" PORT="masterOut_TREADY"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="50000000" DIR="I" NAME="s00_axis_aclk" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK0">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="processing_system7_0" PORT="FCLK_CLK0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="s00_axis_aresetn" SIGIS="rst" SIGNAME="rst_ps7_0_50M_peripheral_aresetn">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="rst_ps7_0_50M" PORT="peripheral_aresetn"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="31" NAME="m00_axis_tdata" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_ip_s_axis_s2mm_tdata">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_dma_ip" PORT="s_axis_s2mm_tdata"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="3" NAME="m00_axis_tstrb" RIGHT="0" SIGIS="undef"/>
+        <PORT DIR="O" NAME="m00_axis_tlast" SIGIS="undef" SIGNAME="axi_dma_ip_s_axis_s2mm_tlast">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_dma_ip" PORT="s_axis_s2mm_tlast"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="m00_axis_tvalid" SIGIS="undef" SIGNAME="axi_dma_ip_s_axis_s2mm_tvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_dma_ip" PORT="s_axis_s2mm_tvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="m00_axis_tready" SIGIS="undef" SIGNAME="axi_dma_ip_s_axis_s2mm_tready">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_dma_ip" PORT="s_axis_s2mm_tready"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="50000000" DIR="I" NAME="m00_axis_aclk" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK0">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="processing_system7_0" PORT="FCLK_CLK0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="m00_axis_aresetn" SIGIS="rst" SIGNAME="rst_ps7_0_50M_peripheral_aresetn">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="rst_ps7_0_50M" PORT="peripheral_aresetn"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES>
+        <BUSINTERFACE BUSNAME="myip_1_M00_AXIS" NAME="M00_AXIS" TYPE="INITIATOR" VLNV="xilinx.com:interface:axis:1.0">
+          <PARAMETER NAME="WIZ_DATA_WIDTH" VALUE="32"/>
+          <PARAMETER NAME="TDATA_NUM_BYTES" VALUE="4"/>
+          <PARAMETER NAME="TDEST_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="TID_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="TUSER_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="HAS_TREADY" VALUE="1"/>
+          <PARAMETER NAME="HAS_TSTRB" VALUE="1"/>
+          <PARAMETER NAME="HAS_TKEEP" VALUE="0"/>
+          <PARAMETER NAME="HAS_TLAST" VALUE="1"/>
+          <PARAMETER NAME="FREQ_HZ" VALUE="50000000"/>
+          <PARAMETER NAME="PHASE" VALUE="0.000"/>
+          <PARAMETER NAME="CLK_DOMAIN" VALUE="base_zynq_processing_system7_0_0_FCLK_CLK0"/>
+          <PARAMETER NAME="LAYERED_METADATA" VALUE="undef"/>
+          <PORTMAPS>
+            <PORTMAP LOGICAL="TDATA" PHYSICAL="m00_axis_tdata"/>
+            <PORTMAP LOGICAL="TSTRB" PHYSICAL="m00_axis_tstrb"/>
+            <PORTMAP LOGICAL="TLAST" PHYSICAL="m00_axis_tlast"/>
+            <PORTMAP LOGICAL="TVALID" PHYSICAL="m00_axis_tvalid"/>
+            <PORTMAP LOGICAL="TREADY" PHYSICAL="m00_axis_tready"/>
+          </PORTMAPS>
+        </BUSINTERFACE>
+        <BUSINTERFACE BUSNAME="my_ip_hls_0_masterOut" NAME="S00_AXIS" TYPE="TARGET" VLNV="xilinx.com:interface:axis:1.0">
+          <PARAMETER NAME="WIZ_DATA_WIDTH" VALUE="32"/>
+          <PARAMETER NAME="TDATA_NUM_BYTES" VALUE="4"/>
+          <PARAMETER NAME="TDEST_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="TID_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="TUSER_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="HAS_TREADY" VALUE="1"/>
+          <PARAMETER NAME="HAS_TSTRB" VALUE="1"/>
+          <PARAMETER NAME="HAS_TKEEP" VALUE="0"/>
+          <PARAMETER NAME="HAS_TLAST" VALUE="1"/>
+          <PARAMETER NAME="FREQ_HZ" VALUE="50000000"/>
+          <PARAMETER NAME="PHASE" VALUE="0.000"/>
+          <PARAMETER NAME="CLK_DOMAIN" VALUE="base_zynq_processing_system7_0_0_FCLK_CLK0"/>
+          <PARAMETER NAME="LAYERED_METADATA" VALUE="xilinx.com:interface:datatypes:1.0 {CLK {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 1} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0}}} TDATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 32} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}} TDATA_WIDTH 32}"/>
+          <PORTMAPS>
+            <PORTMAP LOGICAL="TDATA" PHYSICAL="s00_axis_tdata"/>
+            <PORTMAP LOGICAL="TSTRB" PHYSICAL="s00_axis_tstrb"/>
+            <PORTMAP LOGICAL="TLAST" PHYSICAL="s00_axis_tlast"/>
+            <PORTMAP LOGICAL="TVALID" PHYSICAL="s00_axis_tvalid"/>
+            <PORTMAP LOGICAL="TREADY" PHYSICAL="s00_axis_tready"/>
           </PORTMAPS>
         </BUSINTERFACE>
       </BUSINTERFACES>
@@ -5158,23 +5414,27 @@
         </PORT>
         <PORT CLKFREQUENCY="50000000" DIR="O" NAME="FCLK_CLK0" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK0">
           <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_bram_ctrl_port_A_ip" PORT="s_axi_aclk"/>
+            <CONNECTION INSTANCE="axi_bram_ctrl_port_B_ip" PORT="s_axi_aclk"/>
+            <CONNECTION INSTANCE="axi_dma_ip" PORT="s_axi_lite_aclk"/>
+            <CONNECTION INSTANCE="axi_dma_ip" PORT="m_axi_mm2s_aclk"/>
+            <CONNECTION INSTANCE="axi_dma_ip" PORT="m_axi_s2mm_aclk"/>
             <CONNECTION INSTANCE="processing_system7_0" PORT="M_AXI_GP0_ACLK"/>
-            <CONNECTION INSTANCE="ps7_0_axi_periph_ip" PORT="S00_ACLK"/>
             <CONNECTION INSTANCE="rst_ps7_0_50M" PORT="slowest_sync_clk"/>
+            <CONNECTION INSTANCE="myip_0" PORT="s00_axis_aclk"/>
+            <CONNECTION INSTANCE="myip_0" PORT="m00_axis_aclk"/>
+            <CONNECTION INSTANCE="dma_axi_interconnect_ic_ip" PORT="ACLK"/>
+            <CONNECTION INSTANCE="dma_axi_interconnect_ic_ip" PORT="S00_ACLK"/>
+            <CONNECTION INSTANCE="dma_axi_interconnect_ic_ip" PORT="M00_ACLK"/>
+            <CONNECTION INSTANCE="dma_axi_interconnect_ic_ip" PORT="S01_ACLK"/>
+            <CONNECTION INSTANCE="ps7_0_axi_periph_ip" PORT="ACLK"/>
+            <CONNECTION INSTANCE="ps7_0_axi_periph_ip" PORT="S00_ACLK"/>
+            <CONNECTION INSTANCE="ps7_0_axi_periph_ip" PORT="M00_ACLK"/>
+            <CONNECTION INSTANCE="ps7_0_axi_periph_ip" PORT="M01_ACLK"/>
             <CONNECTION INSTANCE="my_ip_hls_0" PORT="ap_clk"/>
             <CONNECTION INSTANCE="ps7_0_axi_periph_ip" PORT="M02_ACLK"/>
-            <CONNECTION INSTANCE="ps7_0_axi_periph_ip" PORT="ACLK"/>
-            <CONNECTION INSTANCE="axi_bram_ctrl_port_A_ip" PORT="s_axi_aclk"/>
-            <CONNECTION INSTANCE="ps7_0_axi_periph_ip" PORT="M00_ACLK"/>
-            <CONNECTION INSTANCE="axi_bram_ctrl_port_B_ip" PORT="s_axi_aclk"/>
-            <CONNECTION INSTANCE="dma_axi_interconnect_ic_ip" PORT="M00_ACLK"/>
-            <CONNECTION INSTANCE="axi_dma_ip" PORT="s_axi_lite_aclk"/>
-            <CONNECTION INSTANCE="ps7_0_axi_periph_ip" PORT="M01_ACLK"/>
-            <CONNECTION INSTANCE="axi_dma_ip" PORT="m_axi_mm2s_aclk"/>
-            <CONNECTION INSTANCE="dma_axi_interconnect_ic_ip" PORT="S00_ACLK"/>
-            <CONNECTION INSTANCE="axi_dma_ip" PORT="m_axi_s2mm_aclk"/>
-            <CONNECTION INSTANCE="dma_axi_interconnect_ic_ip" PORT="S01_ACLK"/>
-            <CONNECTION INSTANCE="dma_axi_interconnect_ic_ip" PORT="ACLK"/>
+            <CONNECTION INSTANCE="myip_1" PORT="s00_axis_aclk"/>
+            <CONNECTION INSTANCE="myip_1" PORT="m00_axis_aclk"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="FCLK_RESET0_N" SIGIS="rst" SIGNAME="processing_system7_0_FCLK_RESET0_N">
@@ -6452,22 +6712,26 @@
         <PORT DIR="O" LEFT="0" NAME="interconnect_aresetn" RIGHT="0" SIGIS="rst" SIGNAME="rst_ps7_0_50M_interconnect_aresetn">
           <CONNECTIONS>
             <CONNECTION INSTANCE="ps7_0_axi_periph_ip" PORT="ARESETN"/>
-            <CONNECTION INSTANCE="dma_axi_interconnect_ic_ip" PORT="ARESETN"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="0" NAME="peripheral_aresetn" RIGHT="0" SIGIS="rst" SIGNAME="rst_ps7_0_50M_peripheral_aresetn">
           <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_bram_ctrl_port_A_ip" PORT="s_axi_aresetn"/>
+            <CONNECTION INSTANCE="axi_bram_ctrl_port_B_ip" PORT="s_axi_aresetn"/>
+            <CONNECTION INSTANCE="axi_dma_ip" PORT="axi_resetn"/>
+            <CONNECTION INSTANCE="myip_0" PORT="s00_axis_aresetn"/>
+            <CONNECTION INSTANCE="myip_0" PORT="m00_axis_aresetn"/>
+            <CONNECTION INSTANCE="dma_axi_interconnect_ic_ip" PORT="ARESETN"/>
+            <CONNECTION INSTANCE="dma_axi_interconnect_ic_ip" PORT="S00_ARESETN"/>
+            <CONNECTION INSTANCE="dma_axi_interconnect_ic_ip" PORT="M00_ARESETN"/>
+            <CONNECTION INSTANCE="dma_axi_interconnect_ic_ip" PORT="S01_ARESETN"/>
             <CONNECTION INSTANCE="ps7_0_axi_periph_ip" PORT="S00_ARESETN"/>
+            <CONNECTION INSTANCE="ps7_0_axi_periph_ip" PORT="M00_ARESETN"/>
+            <CONNECTION INSTANCE="ps7_0_axi_periph_ip" PORT="M01_ARESETN"/>
             <CONNECTION INSTANCE="my_ip_hls_0" PORT="ap_rst_n"/>
             <CONNECTION INSTANCE="ps7_0_axi_periph_ip" PORT="M02_ARESETN"/>
-            <CONNECTION INSTANCE="axi_bram_ctrl_port_A_ip" PORT="s_axi_aresetn"/>
-            <CONNECTION INSTANCE="ps7_0_axi_periph_ip" PORT="M00_ARESETN"/>
-            <CONNECTION INSTANCE="axi_bram_ctrl_port_B_ip" PORT="s_axi_aresetn"/>
-            <CONNECTION INSTANCE="dma_axi_interconnect_ic_ip" PORT="M00_ARESETN"/>
-            <CONNECTION INSTANCE="axi_dma_ip" PORT="axi_resetn"/>
-            <CONNECTION INSTANCE="ps7_0_axi_periph_ip" PORT="M01_ARESETN"/>
-            <CONNECTION INSTANCE="dma_axi_interconnect_ic_ip" PORT="S00_ARESETN"/>
-            <CONNECTION INSTANCE="dma_axi_interconnect_ic_ip" PORT="S01_ARESETN"/>
+            <CONNECTION INSTANCE="myip_1" PORT="s00_axis_aresetn"/>
+            <CONNECTION INSTANCE="myip_1" PORT="m00_axis_aresetn"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
