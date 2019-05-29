@@ -1,0 +1,35 @@
+<annotationInfo>
+<annotationInfo>
+</annotationInfo>
+<annotationInfo>
+</annotationInfo>
+<annotationInfo>
+</annotationInfo>
+<annotationInfo>
+</annotationInfo>
+<annotationInfo>
+<item  id="31" filename="my_ip_hls/core.cpp" linenumber="28" name="tmp_6_i_i" contextFuncName="core" moduleName="core" rtlName="tmp_6_i_i_fu_172_p2" latency="0" BRAM="-1" DSP="-1" FF="0" LUT="18" fileDirectory="C:\Users\CS\Desktop\Vivado-Projects\M3"></item>
+<item  id="37" filename="my_ip_hls/core.cpp" linenumber="31" name="tmp_8_i_i" contextFuncName="core" moduleName="core" rtlName="tmp_8_i_i_fu_190_p2" latency="0" BRAM="-1" DSP="-1" FF="0" LUT="18" fileDirectory="C:\Users\CS\Desktop\Vivado-Projects\M3"></item>
+<item  id="40" filename="my_ip_hls/core.cpp" linenumber="34" name="tmp_i_i" contextFuncName="core" moduleName="core" rtlName="tmp_i_i_fu_196_p2" latency="0" BRAM="-1" DSP="-1" FF="0" LUT="18" fileDirectory="C:\Users\CS\Desktop\Vivado-Projects\M3"></item>
+<item  id="46" filename="my_ip_hls/core.cpp" linenumber="35" name="tmp_1_i_i" contextFuncName="core" moduleName="core" rtlName="tmp_1_i_i_fu_202_p2" latency="0" BRAM="-1" DSP="-1" FF="0" LUT="39" fileDirectory="C:\Users\CS\Desktop\Vivado-Projects\M3"></item>
+<item  id="50" filename="my_ip_hls/core.cpp" linenumber="32" name="tmp_9_i_i" contextFuncName="core" moduleName="core" rtlName="tmp_9_i_i_fu_214_p2" latency="0" BRAM="-1" DSP="-1" FF="0" LUT="39" fileDirectory="C:\Users\CS\Desktop\Vivado-Projects\M3"></item>
+<item  id="54" filename="my_ip_hls/core.cpp" linenumber="29" name="tmp_7_i_i" contextFuncName="core" moduleName="core" rtlName="tmp_7_i_i_fu_226_p2" latency="0" BRAM="-1" DSP="-1" FF="0" LUT="39" fileDirectory="C:\Users\CS\Desktop\Vivado-Projects\M3"></item>
+</annotationInfo>
+<annotationInfo>
+</annotationInfo>
+<annotationInfo>
+</annotationInfo>
+<annotationInfo>
+<item  id="80" filename="my_ip_hls/my_ip_hls.cpp" linenumber="40" name="call_ret" contextFuncName="my_ip_hls" moduleName="my_ip_hls" rtlName="rules_in_U0" latency="0" BRAM="-1" DSP="-1" FF="-1" LUT="-1" fileDirectory="C:\Users\CS\Desktop\Vivado-Projects\M3"></item>
+<item  id="81" filename="my_ip_hls/my_ip_hls.cpp" linenumber="40" name="rule0Reg_V_channel" contextFuncName="my_ip_hls" moduleName="my_ip_hls" rtlName="rule0Reg_V_channel_U" latency="0" BRAM="-1" DSP="-1" FF="-1" LUT="-1" fileDirectory="C:\Users\CS\Desktop\Vivado-Projects\M3"></item>
+<item  id="82" filename="my_ip_hls/my_ip_hls.cpp" linenumber="40" name="rule1Reg_V_channel" contextFuncName="my_ip_hls" moduleName="my_ip_hls" rtlName="rule1Reg_V_channel_U" latency="0" BRAM="-1" DSP="-1" FF="-1" LUT="-1" fileDirectory="C:\Users\CS\Desktop\Vivado-Projects\M3"></item>
+<item  id="83" filename="my_ip_hls/my_ip_hls.cpp" linenumber="40" name="rule2Reg_V_channel" contextFuncName="my_ip_hls" moduleName="my_ip_hls" rtlName="rule2Reg_V_channel_U" latency="0" BRAM="-1" DSP="-1" FF="-1" LUT="-1" fileDirectory="C:\Users\CS\Desktop\Vivado-Projects\M3"></item>
+<item  id="84" filename="my_ip_hls/my_ip_hls.cpp" linenumber="43" name="" contextFuncName="my_ip_hls" moduleName="my_ip_hls" rtlName="ps2ip_fifo_U0" latency="1" BRAM="-1" DSP="-1" FF="-1" LUT="-1" fileDirectory="C:\Users\CS\Desktop\Vivado-Projects\M3"></item>
+<item  id="85" filename="my_ip_hls/my_ip_hls.cpp" linenumber="40" name="core_ret" contextFuncName="my_ip_hls" moduleName="my_ip_hls" rtlName="core_U0" latency="1" BRAM="-1" DSP="-1" FF="-1" LUT="-1" fileDirectory="C:\Users\CS\Desktop\Vivado-Projects\M3"></item>
+<item  id="86" filename="my_ip_hls/my_ip_hls.cpp" linenumber="40" name="cnt0Reg_V" contextFuncName="my_ip_hls" moduleName="my_ip_hls" rtlName="cnt0Reg_V_U" latency="0" BRAM="-1" DSP="-1" FF="-1" LUT="-1" fileDirectory="C:\Users\CS\Desktop\Vivado-Projects\M3"></item>
+<item  id="87" filename="my_ip_hls/my_ip_hls.cpp" linenumber="40" name="cnt1Reg_V" contextFuncName="my_ip_hls" moduleName="my_ip_hls" rtlName="cnt1Reg_V_U" latency="0" BRAM="-1" DSP="-1" FF="-1" LUT="-1" fileDirectory="C:\Users\CS\Desktop\Vivado-Projects\M3"></item>
+<item  id="88" filename="my_ip_hls/my_ip_hls.cpp" linenumber="40" name="cnt2Reg_V" contextFuncName="my_ip_hls" moduleName="my_ip_hls" rtlName="cnt2Reg_V_U" latency="0" BRAM="-1" DSP="-1" FF="-1" LUT="-1" fileDirectory="C:\Users\CS\Desktop\Vivado-Projects\M3"></item>
+<item  id="89" filename="my_ip_hls/my_ip_hls.cpp" linenumber="47" name="" contextFuncName="my_ip_hls" moduleName="my_ip_hls" rtlName="ip2ps_fifo_U0" latency="2" BRAM="-1" DSP="-1" FF="-1" LUT="-1" fileDirectory="C:\Users\CS\Desktop\Vivado-Projects\M3"></item>
+<item  id="90" filename="my_ip_hls/my_ip_hls.cpp" linenumber="40" name="" contextFuncName="my_ip_hls" moduleName="my_ip_hls" rtlName="counters_out_U0" latency="0" BRAM="-1" DSP="-1" FF="-1" LUT="-1" fileDirectory="C:\Users\CS\Desktop\Vivado-Projects\M3"></item>
+</annotationInfo>
+</annotationInfo>

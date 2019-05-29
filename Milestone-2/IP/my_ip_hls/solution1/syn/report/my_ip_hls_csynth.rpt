@@ -1,0 +1,217 @@
+
+
+================================================================
+== Vivado HLS Report for 'my_ip_hls'
+================================================================
+* Date:           Wed May 29 09:54:41 2019
+
+* Version:        2017.4 (Build 2086221 on Fri Dec 15 21:13:33 MST 2017)
+* Project:        my_ip_hls
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z045ffg900-2
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|      6.80|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+----------+
+    |  Latency  |  Interval | Pipeline |
+    | min | max | min | max |   Type   |
+    +-----+-----+-----+-----+----------+
+    |    6|    6|    1|    1| dataflow |
+    +-----+-----+-----+-----+----------+
+
+    + Detail: 
+        * Instance: 
+        +----------------------+-------------------+-----+-----+-----+-----+----------+
+        |                      |                   |  Latency  |  Interval | Pipeline |
+        |       Instance       |       Module      | min | max | min | max |   Type   |
+        +----------------------+-------------------+-----+-----+-----+-----+----------+
+        |core_U0               |core               |    1|    1|    1|    1| function |
+        |ps2ip_fifo_U0         |ps2ip_fifo         |    1|    1|    1|    1| function |
+        |ip2ps_fifo_U0         |ip2ps_fifo         |    2|    2|    1|    1| function |
+        |my_ip_hls_entry3_U0   |my_ip_hls_entry3   |    0|    0|    0|    0|   none   |
+        |my_ip_hls_entry83_U0  |my_ip_hls_entry83  |    0|    0|    0|    0|   none   |
+        |counters_out_U0       |counters_out       |    0|    0|    0|    0|   none   |
+        |rules_in_U0           |rules_in           |    0|    0|    0|    0|   none   |
+        +----------------------+-------------------+-----+-----+-----+-----+----------+
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+--------+
+|       Name      | BRAM_18K| DSP48E|   FF   |   LUT  |
++-----------------+---------+-------+--------+--------+
+|DSP              |        -|      -|       -|       -|
+|Expression       |        -|      -|       0|     128|
+|FIFO             |        4|      -|     204|     784|
+|Instance         |        0|      -|     967|    1393|
+|Memory           |        -|      -|       -|       -|
+|Multiplexer      |        -|      -|       -|      54|
+|Register         |        -|      -|       6|       -|
++-----------------+---------+-------+--------+--------+
+|Total            |        4|      0|    1177|    2359|
++-----------------+---------+-------+--------+--------+
+|Available        |     1090|    900|  437200|  218600|
++-----------------+---------+-------+--------+--------+
+|Utilization (%)  |    ~0   |      0|   ~0   |       1|
++-----------------+---------+-------+--------+--------+
+
++ Detail: 
+    * Instance: 
+    +-----------------------------+---------------------------+---------+-------+-----+-----+
+    |           Instance          |           Module          | BRAM_18K| DSP48E|  FF | LUT |
+    +-----------------------------+---------------------------+---------+-------+-----+-----+
+    |core_U0                      |core                       |        0|      0|  334|  370|
+    |counters_out_U0              |counters_out               |        0|      0|   98|   44|
+    |ip2ps_fifo_U0                |ip2ps_fifo                 |        0|      0|  131|  259|
+    |my_ip_hls_entry3_U0          |my_ip_hls_entry3           |        0|      0|    3|   53|
+    |my_ip_hls_entry83_U0         |my_ip_hls_entry83          |        0|      0|    3|   80|
+    |my_ip_hls_psAxiLite_s_axi_U  |my_ip_hls_psAxiLite_s_axi  |        0|      0|  258|  424|
+    |ps2ip_fifo_U0                |ps2ip_fifo                 |        0|      0|   42|   92|
+    |rules_in_U0                  |rules_in                   |        0|      0|   98|   71|
+    +-----------------------------+---------------------------+---------+-------+-----+-----+
+    |Total                        |                           |        0|      0|  967| 1393|
+    +-----------------------------+---------------------------+---------+-------+-----+-----+
+
+    * DSP48: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    +----------------------+---------+----+----+------+-----+---------+
+    |         Name         | BRAM_18K| FF | LUT| Depth| Bits| Size:D*B|
+    +----------------------+---------+----+----+------+-----+---------+
+    |cnt0Reg_V_U           |        0|   5|  44|     2|   32|       64|
+    |cnt1Reg_V_U           |        0|   5|  44|     2|   32|       64|
+    |cnt2Reg_V_U           |        0|   5|  44|     2|   32|       64|
+    |ip2psFifo_V_data_V_U  |        2|  54|  56|    64|   32|     2048|
+    |ip2psFifo_V_last_V_U  |        0|   9|  36|    64|    1|       64|
+    |ip2psFifo_V_strb_V_U  |        0|   9|  36|    64|    4|      256|
+    |ps2ipFifo_V_data_V_U  |        2|  54|  56|    64|   32|     2048|
+    |ps2ipFifo_V_last_V_U  |        0|   9|  36|    64|    1|       64|
+    |ps2ipFifo_V_strb_V_U  |        0|   9|  36|    64|    4|      256|
+    |rule0Reg_V_channel_U  |        0|   5|  44|     2|   32|       64|
+    |rule0_V_c1_U          |        0|   5|  44|     1|   32|       32|
+    |rule0_V_c_U           |        0|   5|  44|     1|   32|       32|
+    |rule1Reg_V_channel_U  |        0|   5|  44|     2|   32|       64|
+    |rule1_V_c2_U          |        0|   5|  44|     1|   32|       32|
+    |rule1_V_c_U           |        0|   5|  44|     1|   32|       32|
+    |rule2Reg_V_channel_U  |        0|   5|  44|     2|   32|       64|
+    |rule2_V_c3_U          |        0|   5|  44|     1|   32|       32|
+    |rule2_V_c_U           |        0|   5|  44|     1|   32|       32|
+    +----------------------+---------+----+----+------+-----+---------+
+    |Total                 |        4| 204| 784|   402|  458|     5312|
+    +----------------------+---------+----+----+------+-----+---------+
+
+    * Expression: 
+    +------------------------------------------+----------+-------+---+----+------------+------------+
+    |               Variable Name              | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +------------------------------------------+----------+-------+---+----+------------+------------+
+    |ap_channel_done_cnt0Reg_V                 |    and   |      0|  0|   8|           1|           1|
+    |ap_channel_done_cnt1Reg_V                 |    and   |      0|  0|   8|           1|           1|
+    |ap_channel_done_cnt2Reg_V                 |    and   |      0|  0|   8|           1|           1|
+    |ap_channel_done_rule0Reg_V_channel        |    and   |      0|  0|   8|           1|           1|
+    |ap_channel_done_rule1Reg_V_channel        |    and   |      0|  0|   8|           1|           1|
+    |ap_channel_done_rule2Reg_V_channel        |    and   |      0|  0|   8|           1|           1|
+    |core_U0_ap_continue                       |    and   |      0|  0|   8|           1|           1|
+    |core_U0_ap_start                          |    and   |      0|  0|   8|           1|           1|
+    |counters_out_U0_ap_start                  |    and   |      0|  0|   8|           1|           1|
+    |rules_in_U0_ap_continue                   |    and   |      0|  0|   8|           1|           1|
+    |ap_sync_channel_write_cnt0Reg_V           |    or    |      0|  0|   8|           1|           1|
+    |ap_sync_channel_write_cnt1Reg_V           |    or    |      0|  0|   8|           1|           1|
+    |ap_sync_channel_write_cnt2Reg_V           |    or    |      0|  0|   8|           1|           1|
+    |ap_sync_channel_write_rule0Reg_V_channel  |    or    |      0|  0|   8|           1|           1|
+    |ap_sync_channel_write_rule1Reg_V_channel  |    or    |      0|  0|   8|           1|           1|
+    |ap_sync_channel_write_rule2Reg_V_channel  |    or    |      0|  0|   8|           1|           1|
+    +------------------------------------------+----------+-------+---+----+------------+------------+
+    |Total                                     |          |      0|  0| 128|          16|          16|
+    +------------------------------------------+----------+-------+---+----+------------+------------+
+
+    * Multiplexer: 
+    +----------------------------------------------+----+-----------+-----+-----------+
+    |                     Name                     | LUT| Input Size| Bits| Total Bits|
+    +----------------------------------------------+----+-----------+-----+-----------+
+    |ap_sync_reg_channel_write_cnt0Reg_V           |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_cnt1Reg_V           |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_cnt2Reg_V           |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_rule0Reg_V_channel  |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_rule1Reg_V_channel  |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_rule2Reg_V_channel  |   9|          2|    1|          2|
+    +----------------------------------------------+----+-----------+-----+-----------+
+    |Total                                         |  54|         12|    6|         12|
+    +----------------------------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +----------------------------------------------+---+----+-----+-----------+
+    |                     Name                     | FF| LUT| Bits| Const Bits|
+    +----------------------------------------------+---+----+-----+-----------+
+    |ap_sync_reg_channel_write_cnt0Reg_V           |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_cnt1Reg_V           |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_cnt2Reg_V           |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_rule0Reg_V_channel  |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_rule1Reg_V_channel  |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_rule2Reg_V_channel  |  1|   0|    1|          0|
+    +----------------------------------------------+---+----+-----+-----------+
+    |Total                                         |  6|   0|    6|          0|
+    +----------------------------------------------+---+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++-------------------------+-----+-----+--------------+--------------------+--------------+
+|        RTL Ports        | Dir | Bits|   Protocol   |    Source Object   |    C Type    |
++-------------------------+-----+-----+--------------+--------------------+--------------+
+|s_axi_psAxiLite_AWVALID  |  in |    1|     s_axi    |      psAxiLite     |    pointer   |
+|s_axi_psAxiLite_AWREADY  | out |    1|     s_axi    |      psAxiLite     |    pointer   |
+|s_axi_psAxiLite_AWADDR   |  in |    6|     s_axi    |      psAxiLite     |    pointer   |
+|s_axi_psAxiLite_WVALID   |  in |    1|     s_axi    |      psAxiLite     |    pointer   |
+|s_axi_psAxiLite_WREADY   | out |    1|     s_axi    |      psAxiLite     |    pointer   |
+|s_axi_psAxiLite_WDATA    |  in |   32|     s_axi    |      psAxiLite     |    pointer   |
+|s_axi_psAxiLite_WSTRB    |  in |    4|     s_axi    |      psAxiLite     |    pointer   |
+|s_axi_psAxiLite_ARVALID  |  in |    1|     s_axi    |      psAxiLite     |    pointer   |
+|s_axi_psAxiLite_ARREADY  | out |    1|     s_axi    |      psAxiLite     |    pointer   |
+|s_axi_psAxiLite_ARADDR   |  in |    6|     s_axi    |      psAxiLite     |    pointer   |
+|s_axi_psAxiLite_RVALID   | out |    1|     s_axi    |      psAxiLite     |    pointer   |
+|s_axi_psAxiLite_RREADY   |  in |    1|     s_axi    |      psAxiLite     |    pointer   |
+|s_axi_psAxiLite_RDATA    | out |   32|     s_axi    |      psAxiLite     |    pointer   |
+|s_axi_psAxiLite_RRESP    | out |    2|     s_axi    |      psAxiLite     |    pointer   |
+|s_axi_psAxiLite_BVALID   | out |    1|     s_axi    |      psAxiLite     |    pointer   |
+|s_axi_psAxiLite_BREADY   |  in |    1|     s_axi    |      psAxiLite     |    pointer   |
+|s_axi_psAxiLite_BRESP    | out |    2|     s_axi    |      psAxiLite     |    pointer   |
+|ap_clk                   |  in |    1| ap_ctrl_none |      my_ip_hls     | return value |
+|ap_rst_n                 |  in |    1| ap_ctrl_none |      my_ip_hls     | return value |
+|slaveIn_TDATA            |  in |   32|     axis     |  slaveIn_V_data_V  |    pointer   |
+|slaveIn_TSTRB            |  in |    4|     axis     |  slaveIn_V_strb_V  |    pointer   |
+|slaveIn_TLAST            |  in |    1|     axis     |  slaveIn_V_last_V  |    pointer   |
+|slaveIn_TVALID           |  in |    1|     axis     |  slaveIn_V_last_V  |    pointer   |
+|slaveIn_TREADY           | out |    1|     axis     |  slaveIn_V_last_V  |    pointer   |
+|masterOut_TDATA          | out |   32|     axis     | masterOut_V_data_V |    pointer   |
+|masterOut_TSTRB          | out |    4|     axis     | masterOut_V_strb_V |    pointer   |
+|masterOut_TLAST          | out |    1|     axis     | masterOut_V_last_V |    pointer   |
+|masterOut_TVALID         | out |    1|     axis     | masterOut_V_last_V |    pointer   |
+|masterOut_TREADY         |  in |    1|     axis     | masterOut_V_last_V |    pointer   |
++-------------------------+-----+-----+--------------+--------------------+--------------+
+
