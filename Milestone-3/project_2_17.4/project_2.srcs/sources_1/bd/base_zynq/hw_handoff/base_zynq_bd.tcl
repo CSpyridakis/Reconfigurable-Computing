@@ -212,10 +212,10 @@ proc create_root_design { parentCell } {
   set my_ip_hls_0 [ create_bd_cell -type ip -vlnv xilinx.com:hls:my_ip_hls:1.1 my_ip_hls_0 ]
 
   # Create instance: myip_0, and set properties
-  set myip_0 [ create_bd_cell -type ip -vlnv xilinx.com:user:myip:2.1 myip_0 ]
+  set myip_0 [ create_bd_cell -type ip -vlnv xilinx.com:user:myip:3.1 myip_0 ]
 
   # Create instance: myip_1, and set properties
-  set myip_1 [ create_bd_cell -type ip -vlnv xilinx.com:user:myip:2.1 myip_1 ]
+  set myip_1 [ create_bd_cell -type ip -vlnv xilinx.com:user:myip:3.1 myip_1 ]
 
   # Create instance: processing_system7_0, and set properties
   set processing_system7_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:processing_system7:5.5 processing_system7_0 ]

@@ -1,7 +1,7 @@
 --Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
---Date        : Wed May 29 21:48:08 2019
+--Date        : Wed May 29 23:06:23 2019
 --Host        : MSI running 64-bit major release  (build 9200)
 --Command     : generate_target base_zynq.bd
 --Design      : base_zynq
@@ -3595,24 +3595,6 @@ architecture STRUCTURE of base_zynq is
     peripheral_aresetn : out STD_LOGIC_VECTOR ( 0 to 0 )
   );
   end component base_zynq_rst_ps7_0_50M_0;
-  component base_zynq_myip_0_0 is
-  port (
-    s00_axis_tdata : in STD_LOGIC_VECTOR ( 31 downto 0 );
-    s00_axis_tstrb : in STD_LOGIC_VECTOR ( 3 downto 0 );
-    s00_axis_tlast : in STD_LOGIC;
-    s00_axis_tvalid : in STD_LOGIC;
-    s00_axis_tready : out STD_LOGIC;
-    s00_axis_aclk : in STD_LOGIC;
-    s00_axis_aresetn : in STD_LOGIC;
-    m00_axis_tdata : out STD_LOGIC_VECTOR ( 31 downto 0 );
-    m00_axis_tstrb : out STD_LOGIC_VECTOR ( 3 downto 0 );
-    m00_axis_tlast : out STD_LOGIC;
-    m00_axis_tvalid : out STD_LOGIC;
-    m00_axis_tready : in STD_LOGIC;
-    m00_axis_aclk : in STD_LOGIC;
-    m00_axis_aresetn : in STD_LOGIC
-  );
-  end component base_zynq_myip_0_0;
   component base_zynq_my_ip_hls_0_0 is
   port (
     s_axi_psAxiLite_AWADDR : in STD_LOGIC_VECTOR ( 5 downto 0 );
@@ -3646,6 +3628,24 @@ architecture STRUCTURE of base_zynq is
     masterOut_TLAST : out STD_LOGIC_VECTOR ( 0 to 0 )
   );
   end component base_zynq_my_ip_hls_0_0;
+  component base_zynq_myip_0_0 is
+  port (
+    s00_axis_tdata : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    s00_axis_tstrb : in STD_LOGIC_VECTOR ( 3 downto 0 );
+    s00_axis_tlast : in STD_LOGIC;
+    s00_axis_tvalid : in STD_LOGIC;
+    s00_axis_tready : out STD_LOGIC;
+    s00_axis_aclk : in STD_LOGIC;
+    s00_axis_aresetn : in STD_LOGIC;
+    m00_axis_tdata : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    m00_axis_tstrb : out STD_LOGIC_VECTOR ( 3 downto 0 );
+    m00_axis_tlast : out STD_LOGIC;
+    m00_axis_tvalid : out STD_LOGIC;
+    m00_axis_tready : in STD_LOGIC;
+    m00_axis_aclk : in STD_LOGIC;
+    m00_axis_aresetn : in STD_LOGIC
+  );
+  end component base_zynq_myip_0_0;
   component base_zynq_myip_1_0 is
   port (
     s00_axis_tdata : in STD_LOGIC_VECTOR ( 31 downto 0 );

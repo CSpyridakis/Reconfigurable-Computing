@@ -7,7 +7,7 @@
   <spirit:componentInstances>
     <spirit:componentInstance>
       <spirit:instanceName>base_zynq_myip_1_0</spirit:instanceName>
-      <spirit:componentRef spirit:vendor="xilinx.com" spirit:library="user" spirit:name="myip" spirit:version="2.1"/>
+      <spirit:componentRef spirit:vendor="xilinx.com" spirit:library="user" spirit:name="myip" spirit:version="3.1"/>
       <spirit:configurableElementValues>
         <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.M00_AXIS.CLK_DOMAIN">base_zynq_processing_system7_0_0_FCLK_CLK0</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.M00_AXIS.FREQ_HZ">50000000</spirit:configurableElementValue>

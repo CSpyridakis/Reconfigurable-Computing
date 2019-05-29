@@ -29,8 +29,8 @@ preplace netloc rst_ps7_0_50M_interconnect_aresetn 1 1 1 760
 preplace netloc myip_1_M00_AXIS 1 2 5 1140 410 NJ 410 NJ 410 NJ 410 2670
 preplace netloc axi_bram_ctrl_port_B_ip_BRAM_PORTA 1 3 1 1510
 preplace netloc xlconcat_0_dout 1 0 4 0J 670 NJ 670 NJ 670 1490
-preplace netloc my_ip_hls_0_masterOut 1 5 1 2250
 preplace netloc processing_system7_0_FIXED_IO 1 1 6 810J 350 NJ 350 1530J 340 NJ 340 NJ 340 NJ
+preplace netloc my_ip_hls_0_masterOut 1 5 1 2250
 preplace netloc axi_dma_ip_M_AXI_S2MM 1 1 3 820 650 NJ 650 1510
 preplace netloc rst_ps7_0_50M_peripheral_aresetn 1 1 5 770 -10 1120 630 1540 610 1830 610 2270
 preplace netloc axi_dma_ip_M_AXI_MM2S 1 1 3 820 330 1090J 360 1510

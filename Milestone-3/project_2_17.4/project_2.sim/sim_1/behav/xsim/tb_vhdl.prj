@@ -5,10 +5,10 @@ vhdl xil_defaultlib  \
 "../../../../project_2.ip_user_files/bd/base_zynq/ip/base_zynq_axi_bram_ctrl_0_1/sim/base_zynq_axi_bram_ctrl_0_1.vhd" \
 "../../../../project_2.ip_user_files/bd/base_zynq/ip/base_zynq_axi_dma_0_0/sim/base_zynq_axi_dma_0_0.vhd" \
 "../../../../project_2.ip_user_files/bd/base_zynq/sim/base_zynq.vhd" \
-"../../../../project_2.ip_user_files/bd/base_zynq/ipshared/7bdb/src/myip_v1_1_FIFO.vhd" \
-"../../../../project_2.ip_user_files/bd/base_zynq/ipshared/7bdb/hdl/myip_v1_1_M00_AXIS.vhd" \
-"../../../../project_2.ip_user_files/bd/base_zynq/ipshared/7bdb/hdl/myip_v1_1_S00_AXIS.vhd" \
-"../../../../project_2.ip_user_files/bd/base_zynq/ipshared/7bdb/hdl/myip_v1_1.vhd" \
+"../../../../project_2.ip_user_files/bd/base_zynq/ipshared/ef6b/src/myip_v1_1_FIFO.vhd" \
+"../../../../project_2.ip_user_files/bd/base_zynq/ipshared/ef6b/hdl/myip_v1_1_M00_AXIS.vhd" \
+"../../../../project_2.ip_user_files/bd/base_zynq/ipshared/ef6b/hdl/myip_v1_1_S00_AXIS.vhd" \
+"../../../../project_2.ip_user_files/bd/base_zynq/ipshared/ef6b/hdl/myip_v1_1.vhd" \
 "../../../../project_2.ip_user_files/bd/base_zynq/ip/base_zynq_myip_0_0/sim/base_zynq_myip_0_0.vhd" \
 "../../../../project_2.srcs/sources_1/bd/base_zynq/ipshared/b6f3/hdl/vhdl/core.vhd" \
 "../../../../project_2.srcs/sources_1/bd/base_zynq/ipshared/b6f3/hdl/vhdl/counters_out.vhd" \

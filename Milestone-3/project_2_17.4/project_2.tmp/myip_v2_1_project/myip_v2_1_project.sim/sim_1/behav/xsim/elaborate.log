@@ -1,0 +1,19 @@
+Vivado Simulator 2017.4
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2017.4/bin/unwrapped/win64.o/xelab.exe -wto aa75461fcdb44ef6950ef2f1de88242c --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot myip_v1_1_TEST_behav xil_defaultlib.myip_v1_1_TEST -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling architecture implementation of entity xil_defaultlib.myip_v1_1_M00_AXIS [myip_v1_1_m00_axis_default]
+Compiling architecture arch_imp of entity xil_defaultlib.myip_v1_1_S00_AXIS [myip_v1_1_s00_axis_default]
+Compiling architecture behavioral of entity xil_defaultlib.myip_v1_1_FIFO [myip_v1_1_fifo_default]
+Compiling architecture arch_imp of entity xil_defaultlib.myip_v1_1 [myip_v1_1_default]
+Compiling architecture behavior of entity xil_defaultlib.myip_v1_1_test
+Built simulation snapshot myip_v1_1_TEST_behav

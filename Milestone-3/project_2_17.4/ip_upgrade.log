@@ -1,6 +1,48 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
+| Date         : Wed May 29 23:06:06 2019
+| Host         : MSI running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z045ffg900-2
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'base_zynq_myip_1_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of base_zynq_myip_1_0 from xilinx.com:user:myip:2.1 (Rev. 1) to xilinx.com:user:myip:3.1 (Rev. 1)
+
+
+
+
+
+
+Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
+| Date         : Wed May 29 23:06:06 2019
+| Host         : MSI running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z045ffg900-2
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'base_zynq_myip_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of base_zynq_myip_0_0 from xilinx.com:user:myip:2.1 (Rev. 1) to xilinx.com:user:myip:3.1 (Rev. 1)
+
+
+
+
+
+
+Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
 | Date         : Wed May 29 18:26:56 2019
 | Host         : MSI running 64-bit major release  (build 9200)
 | Command      : upgrade_ip

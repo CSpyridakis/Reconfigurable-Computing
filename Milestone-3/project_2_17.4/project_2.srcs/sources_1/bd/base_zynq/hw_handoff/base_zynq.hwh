@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Wed May 29 21:48:09 2019" VIVADOVERSION="2017.4">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Wed May 29 23:06:25 2019" VIVADOVERSION="2017.4">
 
   <SYSTEMINFO ARCH="zynq" BOARD="xilinx.com:zc706:part0:1.4" DEVICE="7z045" NAME="base_zynq" PACKAGE="ffg900" SPEEDGRADE="-2"/>
 
@@ -4016,7 +4016,7 @@
         </BUSINTERFACE>
       </BUSINTERFACES>
     </MODULE>
-    <MODULE FULLNAME="/myip_0" HWVERSION="2.1" INSTANCE="myip_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="myip" VLNV="xilinx.com:user:myip:2.1">
+    <MODULE FULLNAME="/myip_0" HWVERSION="3.1" INSTANCE="myip_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="myip" VLNV="xilinx.com:user:myip:3.1">
       <DOCUMENTS/>
       <PARAMETERS>
         <PARAMETER NAME="C_S00_AXIS_TDATA_WIDTH" VALUE="32"/>
@@ -4140,7 +4140,7 @@
         </BUSINTERFACE>
       </BUSINTERFACES>
     </MODULE>
-    <MODULE FULLNAME="/myip_1" HWVERSION="2.1" INSTANCE="myip_1" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="myip" VLNV="xilinx.com:user:myip:2.1">
+    <MODULE FULLNAME="/myip_1" HWVERSION="3.1" INSTANCE="myip_1" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="myip" VLNV="xilinx.com:user:myip:3.1">
       <DOCUMENTS/>
       <PARAMETERS>
         <PARAMETER NAME="C_S00_AXIS_TDATA_WIDTH" VALUE="32"/>
@@ -5421,8 +5421,7 @@
             <CONNECTION INSTANCE="axi_dma_ip" PORT="m_axi_s2mm_aclk"/>
             <CONNECTION INSTANCE="processing_system7_0" PORT="M_AXI_GP0_ACLK"/>
             <CONNECTION INSTANCE="rst_ps7_0_50M" PORT="slowest_sync_clk"/>
-            <CONNECTION INSTANCE="myip_0" PORT="s00_axis_aclk"/>
-            <CONNECTION INSTANCE="myip_0" PORT="m00_axis_aclk"/>
+            <CONNECTION INSTANCE="my_ip_hls_0" PORT="ap_clk"/>
             <CONNECTION INSTANCE="dma_axi_interconnect_ic_ip" PORT="ACLK"/>
             <CONNECTION INSTANCE="dma_axi_interconnect_ic_ip" PORT="S00_ACLK"/>
             <CONNECTION INSTANCE="dma_axi_interconnect_ic_ip" PORT="M00_ACLK"/>
@@ -5431,8 +5430,9 @@
             <CONNECTION INSTANCE="ps7_0_axi_periph_ip" PORT="S00_ACLK"/>
             <CONNECTION INSTANCE="ps7_0_axi_periph_ip" PORT="M00_ACLK"/>
             <CONNECTION INSTANCE="ps7_0_axi_periph_ip" PORT="M01_ACLK"/>
-            <CONNECTION INSTANCE="my_ip_hls_0" PORT="ap_clk"/>
             <CONNECTION INSTANCE="ps7_0_axi_periph_ip" PORT="M02_ACLK"/>
+            <CONNECTION INSTANCE="myip_0" PORT="s00_axis_aclk"/>
+            <CONNECTION INSTANCE="myip_0" PORT="m00_axis_aclk"/>
             <CONNECTION INSTANCE="myip_1" PORT="s00_axis_aclk"/>
             <CONNECTION INSTANCE="myip_1" PORT="m00_axis_aclk"/>
           </CONNECTIONS>
@@ -5963,6 +5963,16 @@
             <CONNECTION INSTANCE="rst_ps7_0_50M" PORT="peripheral_aresetn"/>
           </CONNECTIONS>
         </PORT>
+        <PORT DIR="I" NAME="M02_ACLK" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK0">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="processing_system7_0" PORT="FCLK_CLK0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="M02_ARESETN" SIGIS="rst" SIGNAME="rst_ps7_0_50M_peripheral_aresetn">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="rst_ps7_0_50M" PORT="peripheral_aresetn"/>
+          </CONNECTIONS>
+        </PORT>
         <PORT DIR="I" NAME="S00_AXI_arvalid" SIGIS="undef" SIGNAME="processing_system7_0_M_AXI_GP0_ARVALID">
           <CONNECTIONS>
             <CONNECTION INSTANCE="processing_system7_0" PORT="M_AXI_GP0_ARVALID"/>
@@ -6408,30 +6418,11 @@
             <CONNECTION INSTANCE="axi_dma_ip" PORT="s_axi_lite_wvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="M02_ACLK" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK0">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="processing_system7_0" PORT="FCLK_CLK0"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="M02_ARESETN" SIGIS="rst" SIGNAME="rst_ps7_0_50M_peripheral_aresetn">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="rst_ps7_0_50M" PORT="peripheral_aresetn"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="M02_AXI_awid" SIGIS="undef"/>
         <PORT DIR="O" LEFT="31" NAME="M02_AXI_awaddr" RIGHT="0" SIGIS="undef" SIGNAME="my_ip_hls_0_s_axi_psAxiLite_AWADDR">
           <CONNECTIONS>
             <CONNECTION INSTANCE="my_ip_hls_0" PORT="s_axi_psAxiLite_AWADDR"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="M02_AXI_awlen" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M02_AXI_awsize" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M02_AXI_awburst" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M02_AXI_awlock" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M02_AXI_awcache" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M02_AXI_awprot" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M02_AXI_awregion" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M02_AXI_awqos" SIGIS="undef"/>
         <PORT DIR="O" NAME="M02_AXI_awvalid" SIGIS="undef" SIGNAME="my_ip_hls_0_s_axi_psAxiLite_AWVALID">
           <CONNECTIONS>
             <CONNECTION INSTANCE="my_ip_hls_0" PORT="s_axi_psAxiLite_AWVALID"/>
@@ -6452,7 +6443,6 @@
             <CONNECTION INSTANCE="my_ip_hls_0" PORT="s_axi_psAxiLite_WSTRB"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="M02_AXI_wlast" SIGIS="undef"/>
         <PORT DIR="O" NAME="M02_AXI_wvalid" SIGIS="undef" SIGNAME="my_ip_hls_0_s_axi_psAxiLite_WVALID">
           <CONNECTIONS>
             <CONNECTION INSTANCE="my_ip_hls_0" PORT="s_axi_psAxiLite_WVALID"/>
@@ -6463,7 +6453,6 @@
             <CONNECTION INSTANCE="my_ip_hls_0" PORT="s_axi_psAxiLite_WREADY"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="M02_AXI_bid" SIGIS="undef"/>
         <PORT DIR="I" LEFT="1" NAME="M02_AXI_bresp" RIGHT="0" SIGIS="undef" SIGNAME="my_ip_hls_0_s_axi_psAxiLite_BRESP">
           <CONNECTIONS>
             <CONNECTION INSTANCE="my_ip_hls_0" PORT="s_axi_psAxiLite_BRESP"/>
@@ -6479,20 +6468,11 @@
             <CONNECTION INSTANCE="my_ip_hls_0" PORT="s_axi_psAxiLite_BREADY"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="M02_AXI_arid" SIGIS="undef"/>
         <PORT DIR="O" LEFT="31" NAME="M02_AXI_araddr" RIGHT="0" SIGIS="undef" SIGNAME="my_ip_hls_0_s_axi_psAxiLite_ARADDR">
           <CONNECTIONS>
             <CONNECTION INSTANCE="my_ip_hls_0" PORT="s_axi_psAxiLite_ARADDR"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="M02_AXI_arlen" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M02_AXI_arsize" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M02_AXI_arburst" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M02_AXI_arlock" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M02_AXI_arcache" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M02_AXI_arprot" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M02_AXI_arregion" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M02_AXI_arqos" SIGIS="undef"/>
         <PORT DIR="O" NAME="M02_AXI_arvalid" SIGIS="undef" SIGNAME="my_ip_hls_0_s_axi_psAxiLite_ARVALID">
           <CONNECTIONS>
             <CONNECTION INSTANCE="my_ip_hls_0" PORT="s_axi_psAxiLite_ARVALID"/>
@@ -6503,7 +6483,6 @@
             <CONNECTION INSTANCE="my_ip_hls_0" PORT="s_axi_psAxiLite_ARREADY"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="M02_AXI_rid" SIGIS="undef"/>
         <PORT DIR="I" LEFT="31" NAME="M02_AXI_rdata" RIGHT="0" SIGIS="undef" SIGNAME="my_ip_hls_0_s_axi_psAxiLite_RDATA">
           <CONNECTIONS>
             <CONNECTION INSTANCE="my_ip_hls_0" PORT="s_axi_psAxiLite_RDATA"/>
@@ -6514,7 +6493,6 @@
             <CONNECTION INSTANCE="my_ip_hls_0" PORT="s_axi_psAxiLite_RRESP"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="M02_AXI_rlast" SIGIS="undef"/>
         <PORT DIR="I" NAME="M02_AXI_rvalid" SIGIS="undef" SIGNAME="my_ip_hls_0_s_axi_psAxiLite_RVALID">
           <CONNECTIONS>
             <CONNECTION INSTANCE="my_ip_hls_0" PORT="s_axi_psAxiLite_RVALID"/>
@@ -6630,43 +6608,21 @@
         </BUSINTERFACE>
         <BUSINTERFACE BUSNAME="ps7_0_axi_periph_ip_M02_AXI" DATAWIDTH="32" NAME="M02_AXI" TYPE="MASTER" VLNV="xilinx.com:interface:aximm:1.0">
           <PORTMAPS>
-            <PORTMAP LOGICAL="AWID" PHYSICAL="M02_AXI_awid"/>
             <PORTMAP LOGICAL="AWADDR" PHYSICAL="M02_AXI_awaddr"/>
-            <PORTMAP LOGICAL="AWLEN" PHYSICAL="M02_AXI_awlen"/>
-            <PORTMAP LOGICAL="AWSIZE" PHYSICAL="M02_AXI_awsize"/>
-            <PORTMAP LOGICAL="AWBURST" PHYSICAL="M02_AXI_awburst"/>
-            <PORTMAP LOGICAL="AWLOCK" PHYSICAL="M02_AXI_awlock"/>
-            <PORTMAP LOGICAL="AWCACHE" PHYSICAL="M02_AXI_awcache"/>
-            <PORTMAP LOGICAL="AWPROT" PHYSICAL="M02_AXI_awprot"/>
-            <PORTMAP LOGICAL="AWREGION" PHYSICAL="M02_AXI_awregion"/>
-            <PORTMAP LOGICAL="AWQOS" PHYSICAL="M02_AXI_awqos"/>
             <PORTMAP LOGICAL="AWVALID" PHYSICAL="M02_AXI_awvalid"/>
             <PORTMAP LOGICAL="AWREADY" PHYSICAL="M02_AXI_awready"/>
             <PORTMAP LOGICAL="WDATA" PHYSICAL="M02_AXI_wdata"/>
             <PORTMAP LOGICAL="WSTRB" PHYSICAL="M02_AXI_wstrb"/>
-            <PORTMAP LOGICAL="WLAST" PHYSICAL="M02_AXI_wlast"/>
             <PORTMAP LOGICAL="WVALID" PHYSICAL="M02_AXI_wvalid"/>
             <PORTMAP LOGICAL="WREADY" PHYSICAL="M02_AXI_wready"/>
-            <PORTMAP LOGICAL="BID" PHYSICAL="M02_AXI_bid"/>
             <PORTMAP LOGICAL="BRESP" PHYSICAL="M02_AXI_bresp"/>
             <PORTMAP LOGICAL="BVALID" PHYSICAL="M02_AXI_bvalid"/>
             <PORTMAP LOGICAL="BREADY" PHYSICAL="M02_AXI_bready"/>
-            <PORTMAP LOGICAL="ARID" PHYSICAL="M02_AXI_arid"/>
             <PORTMAP LOGICAL="ARADDR" PHYSICAL="M02_AXI_araddr"/>
-            <PORTMAP LOGICAL="ARLEN" PHYSICAL="M02_AXI_arlen"/>
-            <PORTMAP LOGICAL="ARSIZE" PHYSICAL="M02_AXI_arsize"/>
-            <PORTMAP LOGICAL="ARBURST" PHYSICAL="M02_AXI_arburst"/>
-            <PORTMAP LOGICAL="ARLOCK" PHYSICAL="M02_AXI_arlock"/>
-            <PORTMAP LOGICAL="ARCACHE" PHYSICAL="M02_AXI_arcache"/>
-            <PORTMAP LOGICAL="ARPROT" PHYSICAL="M02_AXI_arprot"/>
-            <PORTMAP LOGICAL="ARREGION" PHYSICAL="M02_AXI_arregion"/>
-            <PORTMAP LOGICAL="ARQOS" PHYSICAL="M02_AXI_arqos"/>
             <PORTMAP LOGICAL="ARVALID" PHYSICAL="M02_AXI_arvalid"/>
             <PORTMAP LOGICAL="ARREADY" PHYSICAL="M02_AXI_arready"/>
-            <PORTMAP LOGICAL="RID" PHYSICAL="M02_AXI_rid"/>
             <PORTMAP LOGICAL="RDATA" PHYSICAL="M02_AXI_rdata"/>
             <PORTMAP LOGICAL="RRESP" PHYSICAL="M02_AXI_rresp"/>
-            <PORTMAP LOGICAL="RLAST" PHYSICAL="M02_AXI_rlast"/>
             <PORTMAP LOGICAL="RVALID" PHYSICAL="M02_AXI_rvalid"/>
             <PORTMAP LOGICAL="RREADY" PHYSICAL="M02_AXI_rready"/>
           </PORTMAPS>
@@ -6719,8 +6675,7 @@
             <CONNECTION INSTANCE="axi_bram_ctrl_port_A_ip" PORT="s_axi_aresetn"/>
             <CONNECTION INSTANCE="axi_bram_ctrl_port_B_ip" PORT="s_axi_aresetn"/>
             <CONNECTION INSTANCE="axi_dma_ip" PORT="axi_resetn"/>
-            <CONNECTION INSTANCE="myip_0" PORT="s00_axis_aresetn"/>
-            <CONNECTION INSTANCE="myip_0" PORT="m00_axis_aresetn"/>
+            <CONNECTION INSTANCE="my_ip_hls_0" PORT="ap_rst_n"/>
             <CONNECTION INSTANCE="dma_axi_interconnect_ic_ip" PORT="ARESETN"/>
             <CONNECTION INSTANCE="dma_axi_interconnect_ic_ip" PORT="S00_ARESETN"/>
             <CONNECTION INSTANCE="dma_axi_interconnect_ic_ip" PORT="M00_ARESETN"/>
@@ -6728,8 +6683,9 @@
             <CONNECTION INSTANCE="ps7_0_axi_periph_ip" PORT="S00_ARESETN"/>
             <CONNECTION INSTANCE="ps7_0_axi_periph_ip" PORT="M00_ARESETN"/>
             <CONNECTION INSTANCE="ps7_0_axi_periph_ip" PORT="M01_ARESETN"/>
-            <CONNECTION INSTANCE="my_ip_hls_0" PORT="ap_rst_n"/>
             <CONNECTION INSTANCE="ps7_0_axi_periph_ip" PORT="M02_ARESETN"/>
+            <CONNECTION INSTANCE="myip_0" PORT="s00_axis_aresetn"/>
+            <CONNECTION INSTANCE="myip_0" PORT="m00_axis_aresetn"/>
             <CONNECTION INSTANCE="myip_1" PORT="s00_axis_aresetn"/>
             <CONNECTION INSTANCE="myip_1" PORT="m00_axis_aresetn"/>
           </CONNECTIONS>

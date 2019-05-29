@@ -46,7 +46,7 @@
 -- 
 -- DO NOT MODIFY THIS FILE.
 
--- IP VLNV: xilinx.com:user:myip:2.1
+-- IP VLNV: xilinx.com:user:myip:3.1
 -- IP Revision: 1
 
 LIBRARY ieee;
