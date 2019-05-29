@@ -21,6 +21,7 @@ This project was developed using [Xilinx Vivado 2017.4](https://www.xilinx.com/s
 
 #### In order to import project:
 
+##### Option 1
 1. Open [Vivado 2017.4](https://www.xilinx.com/support/download/index.html/content/xilinx/en/downloadNav/vivado-design-tools/2017-4.html) and using it open reference project
 
 2. Open Block Design
@@ -38,6 +39,11 @@ This project was developed using [Xilinx Vivado 2017.4](https://www.xilinx.com/s
 9. From Package Ip -> Review and Package -> Package Ip
 
 10. Completed
+
+
+##### Option 2
+1. Open [Vivado 2017.4](https://www.xilinx.com/support/download/index.html/content/xilinx/en/downloadNav/vivado-design-tools/2017-4.html) and using it open [project](./project_2_17.4)
+
 
 #### If you want to run simulations:
 
