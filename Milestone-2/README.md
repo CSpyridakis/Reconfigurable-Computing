@@ -7,7 +7,7 @@ If you want more information about each module you could read (or just try to re
 
 ### Diagrams
 
-Block and timing diagrams are able to be changed:
+Block diagrams are able to be changed:
 * For [xml](./doc/schematics/) files (block diagrams) we have used [draw.io](https://www.draw.io/)
  
 
@@ -32,3 +32,7 @@ This project was developed using [Xilinx Vivado HLS 2017.4](https://www.xilinx.c
 1. Go to the bar in the top of Vivado and select the Run C Simulation 
 
 (Simulation screenshots are included [here](./doc/sim))
+
+
+### More info:
+This [folder](./IP) contains the exported IP in order to use it in [Vivado 2017.4](https://www.xilinx.com/support/download/index.html/content/xilinx/en/downloadNav/vivado-design-tools/2017-4.html)
