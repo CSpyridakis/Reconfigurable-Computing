@@ -1,0 +1,103 @@
+Vivado Simulator 2017.4
+Time resolution is 1 ps
+Block Memory Generator module tb.zynq_sys.base_zynq_i.blk_mem_ip.inst.native_mem_mapped_module.blk_mem_gen_v8_4_1_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+XilinxAXIVIP: Found at Path: tb.zynq_sys.base_zynq_i.processing_system7_0.inst.M_AXI_GP0.master
+[0] : *ZYNQ_VIP_INFO : M_AXI_GP0 : Port is ENABLED.
+XilinxAXIVIP: Found at Path: tb.zynq_sys.base_zynq_i.processing_system7_0.inst.M_AXI_GP1.master
+[0] : *ZYNQ_VIP_INFO : M_AXI_GP1 : Port is DISABLED.
+XilinxAXIVIP: Found at Path: tb.zynq_sys.base_zynq_i.processing_system7_0.inst.S_AXI_GP0.slave
+[0] : *ZYNQ_VIP_INFO : S_AXI_GP0 : Port is DISABLED.
+XilinxAXIVIP: Found at Path: tb.zynq_sys.base_zynq_i.processing_system7_0.inst.S_AXI_GP1.slave
+[0] : *ZYNQ_VIP_INFO : S_AXI_GP1 : Port is DISABLED.
+XilinxAXIVIP: Found at Path: tb.zynq_sys.base_zynq_i.processing_system7_0.inst.S_AXI_HP0.slave
+[0] : *ZYNQ_VIP_INFO : S_AXI_HP0 : Port is DISABLED.
+XilinxAXIVIP: Found at Path: tb.zynq_sys.base_zynq_i.processing_system7_0.inst.S_AXI_HP1.slave
+[0] : *ZYNQ_VIP_INFO : S_AXI_HP1 : Port is DISABLED.
+XilinxAXIVIP: Found at Path: tb.zynq_sys.base_zynq_i.processing_system7_0.inst.S_AXI_HP2.slave
+[0] : *ZYNQ_VIP_INFO : S_AXI_HP2 : Port is DISABLED.
+XilinxAXIVIP: Found at Path: tb.zynq_sys.base_zynq_i.processing_system7_0.inst.S_AXI_HP3.slave
+[0] : *ZYNQ_VIP_INFO : S_AXI_HP3 : Port is DISABLED.
+XilinxAXIVIP: Found at Path: tb.zynq_sys.base_zynq_i.processing_system7_0.inst.S_AXI_ACP.slave
+[0] : *ZYNQ_VIP_INFO : S_AXI_ACP : Port is DISABLED.
+running the tb
+Info: [XPM_MEMORY 20-2] MEMORY_INIT_FILE (none), MEMORY_INIT_PARAM together specify no memory initialization. Initial memory contents will be all 0's. tb.zynq_sys.base_zynq_i.axi_dma_ip.U0.I_PRMRY_DATAMOVER.gen_mm2s_full.I_MM2S_FULL_WRAPPER.gen_include_mm2s_sf.I_RD_SF.I_DATA_FIFO.blk_mem.I_SYNC_FIFOGEN_FIFO.xpm_fifo_instance.xpm_fifo_sync_inst.xpm_fifo_base_inst.gen_sdpram.xpm_memory_base_inst.config_drc  0
+Time: 1 ps  Iteration: 0  Process: /tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/I_PRMRY_DATAMOVER/gen_mm2s_full/I_MM2S_FULL_WRAPPER/gen_include_mm2s_sf/I_RD_SF/I_DATA_FIFO/blk_mem/I_SYNC_FIFOGEN_FIFO/xpm_fifo_instance/xpm_fifo_sync_inst/xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst/Initial270_20  File: /wrk/2017.4/nightly/2017_12_15_2086221/prep/rdi/vivado/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv
+Info: [XPM_MEMORY 20-1] MEMORY_PRIMITIVE (0) instructs Vivado Synthesis to choose the memory primitive type. Depending on their values, other XPM_MEMORY parameters may preclude the choice of certain memory primitive types. Review XPM_MEMORY documentation and parameter values to understand any limitations, or set MEMORY_PRIMITIVE to a different value. tb.zynq_sys.base_zynq_i.axi_dma_ip.U0.I_PRMRY_DATAMOVER.gen_s2mm_full.I_S2MM_FULL_WRAPPER.gen_enable_indet_btt_sf.I_INDET_BTT.I_XD_FIFO.non_blk_mem.I_SYNC_FIFOGEN_FIFO.xpm_fifo_instance.xpm_fifo_sync_inst.xpm_fifo_base_inst.gen_sdpram.xpm_memory_base_inst.config_drc
+Time: 1 ps  Iteration: 0  Process: /tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/I_PRMRY_DATAMOVER/gen_s2mm_full/I_S2MM_FULL_WRAPPER/gen_enable_indet_btt_sf/I_INDET_BTT/I_XD_FIFO/non_blk_mem/I_SYNC_FIFOGEN_FIFO/xpm_fifo_instance/xpm_fifo_sync_inst/xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst/Initial270_79  File: /wrk/2017.4/nightly/2017_12_15_2086221/prep/rdi/vivado/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv
+Info: [XPM_MEMORY 20-2] MEMORY_INIT_FILE (none), MEMORY_INIT_PARAM together specify no memory initialization. Initial memory contents will be all 0's. tb.zynq_sys.base_zynq_i.axi_dma_ip.U0.I_PRMRY_DATAMOVER.gen_s2mm_full.I_S2MM_FULL_WRAPPER.gen_enable_indet_btt_sf.I_INDET_BTT.I_XD_FIFO.non_blk_mem.I_SYNC_FIFOGEN_FIFO.xpm_fifo_instance.xpm_fifo_sync_inst.xpm_fifo_base_inst.gen_sdpram.xpm_memory_base_inst.config_drc  0
+Time: 1 ps  Iteration: 0  Process: /tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/I_PRMRY_DATAMOVER/gen_s2mm_full/I_S2MM_FULL_WRAPPER/gen_enable_indet_btt_sf/I_INDET_BTT/I_XD_FIFO/non_blk_mem/I_SYNC_FIFOGEN_FIFO/xpm_fifo_instance/xpm_fifo_sync_inst/xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst/Initial270_79  File: /wrk/2017.4/nightly/2017_12_15_2086221/prep/rdi/vivado/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv
+Info: [XPM_MEMORY 20-2] MEMORY_INIT_FILE (none), MEMORY_INIT_PARAM together specify no memory initialization. Initial memory contents will be all 0's. tb.zynq_sys.base_zynq_i.axi_dma_ip.U0.I_PRMRY_DATAMOVER.gen_s2mm_full.I_S2MM_FULL_WRAPPER.gen_enable_indet_btt_sf.I_INDET_BTT.I_DATA_FIFO.blk_mem.I_SYNC_FIFOGEN_FIFO.xpm_fifo_instance.xpm_fifo_sync_inst.xpm_fifo_base_inst.gen_sdpram.xpm_memory_base_inst.config_drc  0
+Time: 1 ps  Iteration: 0  Process: /tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/I_PRMRY_DATAMOVER/gen_s2mm_full/I_S2MM_FULL_WRAPPER/gen_enable_indet_btt_sf/I_INDET_BTT/I_DATA_FIFO/blk_mem/I_SYNC_FIFOGEN_FIFO/xpm_fifo_instance/xpm_fifo_sync_inst/xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst/Initial270_138  File: /wrk/2017.4/nightly/2017_12_15_2086221/prep/rdi/vivado/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv
+[1050] : *ZYNQ_VIP_INFO : FPGA Soft Reset called for 0x1
+[1050] : *ZYNQ_VIP_INFO : FPGA Soft Reset called for 0x0
+[1050] : M_AXI_GP0 : *ZYNQ_VIP_INFO : Starting Address(0x40000000) -> AXI Write -> 4 bytes
+[1330] : M_AXI_GP0 : *ZYNQ_VIP_INFO : Done AXI Write for Starting Address(0x40000000) with Response 'OKAY'
+[1330] : M_AXI_GP0 : *ZYNQ_VIP_INFO : Starting Address(0x40000000) -> AXI Read -> 4 bytes
+[1490] : M_AXI_GP0 : *ZYNQ_VIP_INFO : Done AXI Read for Starting Address(0x40000000) with Response 'OKAY'
+             1490000, running the testbench, data read from BRAM was 32'h00000010
+[1490] : M_AXI_GP0 : *ZYNQ_VIP_INFO : Starting Address(0x40000004) -> AXI Write -> 4 bytes
+Error: [mst_monitor] (axi_vip_pkg.axi_monitor(C_AXI_PROTOCOL=1,C_AXI_WID_WIDTH=12,C_AXI_RID_WIDTH=12,C_AXI_HAS_REGION=0)::b_channel.B_LOOP) 1630000 : AXI_WRITE_RESPONSE_WITHOUT_DATA: Write response should not be sent before the corresponding write data burst is completed.
+BRESP: 
+Time: 1630 ns  Iteration: 1  Process: /axi_vip_pkg/axi_monitor(C_AXI_PROTOCOL=1,C_AXI_WID_WIDTH=12,C_AXI_RID_WIDTH=12,C_AXI_HAS_REGION=0)::b_channel/B_LOOP  File: /wrk/2017.4/nightly/2017_12_15_2086221/prep/rdi/vivado/data/xilinx_vip/hdl/axi_vip_pkg.sv
+[1790] : M_AXI_GP0 : *ZYNQ_VIP_INFO : Done AXI Write for Starting Address(0x40000004) with Response 'OKAY'
+[1790] : M_AXI_GP0 : *ZYNQ_VIP_INFO : Starting Address(0x40000004) -> AXI Read -> 4 bytes
+[1970] : M_AXI_GP0 : *ZYNQ_VIP_INFO : Done AXI Read for Starting Address(0x40000004) with Response 'OKAY'
+             1970000, running the testbench, data read from BRAM was 32'h00000010
+[1970] : M_AXI_GP0 : *ZYNQ_VIP_INFO : Starting Address(0x40000008) -> AXI Write -> 4 bytes
+Error: [mst_monitor] (axi_vip_pkg.axi_monitor(C_AXI_PROTOCOL=1,C_AXI_WID_WIDTH=12,C_AXI_RID_WIDTH=12,C_AXI_HAS_REGION=0)::b_channel.B_LOOP) 2110000 : AXI_WRITE_RESPONSE_WITHOUT_DATA: Write response should not be sent before the corresponding write data burst is completed.
+BRESP: 
+Time: 2110 ns  Iteration: 1  Process: /axi_vip_pkg/axi_monitor(C_AXI_PROTOCOL=1,C_AXI_WID_WIDTH=12,C_AXI_RID_WIDTH=12,C_AXI_HAS_REGION=0)::b_channel/B_LOOP  File: /wrk/2017.4/nightly/2017_12_15_2086221/prep/rdi/vivado/data/xilinx_vip/hdl/axi_vip_pkg.sv
+[2110] : M_AXI_GP0 : *ZYNQ_VIP_INFO : Done AXI Write for Starting Address(0x40000008) with Response 'OKAY'
+[2110] : M_AXI_GP0 : *ZYNQ_VIP_INFO : Starting Address(0x40000008) -> AXI Read -> 4 bytes
+[2270] : M_AXI_GP0 : *ZYNQ_VIP_INFO : Done AXI Read for Starting Address(0x40000008) with Response 'OKAY'
+             2270000, running the testbench, data read from BRAM was 32'h00000020
+[2270] : M_AXI_GP0 : *ZYNQ_VIP_INFO : Starting Address(0x4000000c) -> AXI Write -> 4 bytes
+Error: [mst_monitor] (axi_vip_pkg.axi_monitor(C_AXI_PROTOCOL=1,C_AXI_WID_WIDTH=12,C_AXI_RID_WIDTH=12,C_AXI_HAS_REGION=0)::b_channel.B_LOOP) 2410000 : AXI_WRITE_RESPONSE_WITHOUT_DATA: Write response should not be sent before the corresponding write data burst is completed.
+BRESP: 
+Time: 2410 ns  Iteration: 1  Process: /axi_vip_pkg/axi_monitor(C_AXI_PROTOCOL=1,C_AXI_WID_WIDTH=12,C_AXI_RID_WIDTH=12,C_AXI_HAS_REGION=0)::b_channel/B_LOOP  File: /wrk/2017.4/nightly/2017_12_15_2086221/prep/rdi/vivado/data/xilinx_vip/hdl/axi_vip_pkg.sv
+[2550] : M_AXI_GP0 : *ZYNQ_VIP_INFO : Done AXI Write for Starting Address(0x4000000c) with Response 'OKAY'
+[2550] : M_AXI_GP0 : *ZYNQ_VIP_INFO : Starting Address(0x4000000c) -> AXI Read -> 4 bytes
+[2750] : M_AXI_GP0 : *ZYNQ_VIP_INFO : Done AXI Read for Starting Address(0x4000000c) with Response 'OKAY'
+             2750000, running the testbench, data read from BRAM was 32'h00000030
+[2750] : M_AXI_GP0 : *ZYNQ_VIP_INFO : Starting Address(0x40000010) -> AXI Write -> 4 bytes
+Error: [mst_monitor] (axi_vip_pkg.axi_monitor(C_AXI_PROTOCOL=1,C_AXI_WID_WIDTH=12,C_AXI_RID_WIDTH=12,C_AXI_HAS_REGION=0)::b_channel.B_LOOP) 2890000 : AXI_WRITE_RESPONSE_WITHOUT_DATA: Write response should not be sent before the corresponding write data burst is completed.
+BRESP: 
+Time: 2890 ns  Iteration: 1  Process: /axi_vip_pkg/axi_monitor(C_AXI_PROTOCOL=1,C_AXI_WID_WIDTH=12,C_AXI_RID_WIDTH=12,C_AXI_HAS_REGION=0)::b_channel/B_LOOP  File: /wrk/2017.4/nightly/2017_12_15_2086221/prep/rdi/vivado/data/xilinx_vip/hdl/axi_vip_pkg.sv
+[3070] : M_AXI_GP0 : *ZYNQ_VIP_INFO : Done AXI Write for Starting Address(0x40000010) with Response 'OKAY'
+[3070] : M_AXI_GP0 : *ZYNQ_VIP_INFO : Starting Address(0x40000010) -> AXI Read -> 4 bytes
+[3230] : M_AXI_GP0 : *ZYNQ_VIP_INFO : Done AXI Read for Starting Address(0x40000010) with Response 'OKAY'
+             3230000, running the testbench, data read from BRAM was 32'h00000040
+[3230] : M_AXI_GP0 : *ZYNQ_VIP_INFO : Starting Address(0x40000014) -> AXI Write -> 4 bytes
+Error: [mst_monitor] (axi_vip_pkg.axi_monitor(C_AXI_PROTOCOL=1,C_AXI_WID_WIDTH=12,C_AXI_RID_WIDTH=12,C_AXI_HAS_REGION=0)::b_channel.B_LOOP) 3370000 : AXI_WRITE_RESPONSE_WITHOUT_DATA: Write response should not be sent before the corresponding write data burst is completed.
+BRESP: 
+Time: 3370 ns  Iteration: 1  Process: /axi_vip_pkg/axi_monitor(C_AXI_PROTOCOL=1,C_AXI_WID_WIDTH=12,C_AXI_RID_WIDTH=12,C_AXI_HAS_REGION=0)::b_channel/B_LOOP  File: /wrk/2017.4/nightly/2017_12_15_2086221/prep/rdi/vivado/data/xilinx_vip/hdl/axi_vip_pkg.sv
+[3450] : M_AXI_GP0 : *ZYNQ_VIP_INFO : Done AXI Write for Starting Address(0x40000014) with Response 'OKAY'
+[3450] : M_AXI_GP0 : *ZYNQ_VIP_INFO : Starting Address(0x40000014) -> AXI Read -> 4 bytes
+[3650] : M_AXI_GP0 : *ZYNQ_VIP_INFO : Done AXI Read for Starting Address(0x40000014) with Response 'OKAY'
+             3650000, running the testbench, data read from BRAM was 32'h00000050
+[3650] : M_AXI_GP0 : *ZYNQ_VIP_INFO : Starting Address(0x40000018) -> AXI Write -> 4 bytes
+[3790] : M_AXI_GP0 : *ZYNQ_VIP_INFO : Done AXI Write for Starting Address(0x40000018) with Response 'OKAY'
+[3790] : M_AXI_GP0 : *ZYNQ_VIP_INFO : Starting Address(0x40000018) -> AXI Read -> 4 bytes
+[3950] : M_AXI_GP0 : *ZYNQ_VIP_INFO : Done AXI Read for Starting Address(0x40000018) with Response 'OKAY'
+             3950000, running the testbench, data read from BRAM was 32'h00000060
+[3950] : M_AXI_GP0 : *ZYNQ_VIP_INFO : Starting Address(0x4000001c) -> AXI Write -> 4 bytes
+Error: [mst_monitor] (axi_vip_pkg.axi_monitor(C_AXI_PROTOCOL=1,C_AXI_WID_WIDTH=12,C_AXI_RID_WIDTH=12,C_AXI_HAS_REGION=0)::b_channel.B_LOOP) 4090000 : AXI_WRITE_RESPONSE_WITHOUT_DATA: Write response should not be sent before the corresponding write data burst is completed.
+BRESP: 
+Time: 4090 ns  Iteration: 1  Process: /axi_vip_pkg/axi_monitor(C_AXI_PROTOCOL=1,C_AXI_WID_WIDTH=12,C_AXI_RID_WIDTH=12,C_AXI_HAS_REGION=0)::b_channel/B_LOOP  File: /wrk/2017.4/nightly/2017_12_15_2086221/prep/rdi/vivado/data/xilinx_vip/hdl/axi_vip_pkg.sv
+[4310] : M_AXI_GP0 : *ZYNQ_VIP_INFO : Done AXI Write for Starting Address(0x4000001c) with Response 'OKAY'
+[4310] : M_AXI_GP0 : *ZYNQ_VIP_INFO : Starting Address(0x4000001c) -> AXI Read -> 4 bytes
+[4490] : M_AXI_GP0 : *ZYNQ_VIP_INFO : Done AXI Read for Starting Address(0x4000001c) with Response 'OKAY'
+             4490000, running the testbench, data read from BRAM was 32'h00000070
+[4490] : M_AXI_GP0 : *ZYNQ_VIP_INFO : Starting Address(0x40400030) -> AXI Write -> 4 bytes
+[4990] : M_AXI_GP0 : *ZYNQ_VIP_INFO : Done AXI Write for Starting Address(0x40400030) with Response 'OKAY'
+[4990] : M_AXI_GP0 : *ZYNQ_VIP_INFO : Starting Address(0x40400048) -> AXI Write -> 4 bytes
+[5290] : M_AXI_GP0 : *ZYNQ_VIP_INFO : Done AXI Write for Starting Address(0x40400048) with Response 'OKAY'
+[5290] : M_AXI_GP0 : *ZYNQ_VIP_INFO : Starting Address(0x40400058) -> AXI Write -> 4 bytes
+[5830] : M_AXI_GP0 : *ZYNQ_VIP_INFO : Done AXI Write for Starting Address(0x40400058) with Response 'OKAY'
+[5830] : M_AXI_GP0 : *ZYNQ_VIP_INFO : Starting Address(0x40400000) -> AXI Write -> 4 bytes
+[6130] : M_AXI_GP0 : *ZYNQ_VIP_INFO : Done AXI Write for Starting Address(0x40400000) with Response 'OKAY'
+[6130] : M_AXI_GP0 : *ZYNQ_VIP_INFO : Starting Address(0x40400018) -> AXI Write -> 4 bytes
+[6610] : M_AXI_GP0 : *ZYNQ_VIP_INFO : Done AXI Write for Starting Address(0x40400018) with Response 'OKAY'
+[6610] : M_AXI_GP0 : *ZYNQ_VIP_INFO : Starting Address(0x40400028) -> AXI Write -> 4 bytes
+[6910] : M_AXI_GP0 : *ZYNQ_VIP_INFO : Done AXI Write for Starting Address(0x40400028) with Response 'OKAY'
+Simulation completed!

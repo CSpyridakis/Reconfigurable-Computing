@@ -1,0 +1,144 @@
+
+
+================================================================
+== Vivado HLS Report for 'my_ip_hls'
+================================================================
+* Date:           Fri Feb 15 17:22:32 2019
+
+* Version:        2017.4 (Build 2086221 on Fri Dec 15 21:13:33 MST 2017)
+* Project:        my_ip_hls
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z045ffg900-2
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|      0.00|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+----------+
+    |  Latency  |  Interval | Pipeline |
+    | min | max | min | max |   Type   |
+    +-----+-----+-----+-----+----------+
+    |    2|    2|    1|    1| function |
+    +-----+-----+-----+-----+----------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 1
+HasVarLatency: 0
+IsPipeline: 1
+IsRtlPipelined: 1
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 1, depth = 3
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 3
+* Pipeline : 1
+  Pipeline-0 : II = 1, D = 3, States = { 1 2 3 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	3  / true
+3 --> 
+
+* FSM state operations: 
+
+ <State 1> : 0.00ns
+ST_1 : Operation 4 [1/1] (0.00ns)   --->   "%tmp = call i1 @_ssdm_op_NbReadReq.axis.i32P.i4P.i1P(i32* %slaveIn_V_data_V, i4* %slaveIn_V_strb_V, i1* %slaveIn_V_last_V, i32 1)" [my_ip_hls/my_ip_hls.cpp:17]   --->   Core 5 'AXI4Stream' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : >
+ST_1 : Operation 5 [1/1] (0.00ns)   --->   "br i1 %tmp, label %1, label %._crit_edge" [my_ip_hls/my_ip_hls.cpp:17]
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%empty = call { i32, i4, i1 } @_ssdm_op_Read.axis.volatile.i32P.i4P.i1P(i32* %slaveIn_V_data_V, i4* %slaveIn_V_strb_V, i1* %slaveIn_V_last_V)" [my_ip_hls/my_ip_hls.cpp:19]   --->   Core 5 'AXI4Stream' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : >
+ST_1 : Operation 7 [1/1] (0.00ns)   --->   "%tmp_data_V = extractvalue { i32, i4, i1 } %empty, 0" [my_ip_hls/my_ip_hls.cpp:19]
+ST_1 : Operation 8 [1/1] (0.00ns)   --->   "%tmp_strb_V = extractvalue { i32, i4, i1 } %empty, 1" [my_ip_hls/my_ip_hls.cpp:19]
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%tmp_last_V = extractvalue { i32, i4, i1 } %empty, 2" [my_ip_hls/my_ip_hls.cpp:19]
+
+ <State 2> : 0.00ns
+ST_2 : Operation 10 [2/2] (0.00ns)   --->   "call void @_ssdm_op_Write.axis.volatile.i32P.i4P.i1P(i32* %MasterOut_V_data_V, i4* %MasterOut_V_strb_V, i1* %MasterOut_V_last_V, i32 %tmp_data_V, i4 %tmp_strb_V, i1 %tmp_last_V)" [my_ip_hls/my_ip_hls.cpp:20]   --->   Core 5 'AXI4Stream' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : >
+
+ <State 3> : 0.00ns
+ST_3 : Operation 11 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32* %slaveIn_V_data_V), !map !41"
+ST_3 : Operation 12 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i4* %slaveIn_V_strb_V), !map !45"
+ST_3 : Operation 13 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i1* %slaveIn_V_last_V), !map !49"
+ST_3 : Operation 14 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32* %MasterOut_V_data_V), !map !53"
+ST_3 : Operation 15 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i4* %MasterOut_V_strb_V), !map !57"
+ST_3 : Operation 16 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i1* %MasterOut_V_last_V), !map !61"
+ST_3 : Operation 17 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecTopModule([10 x i8]* @my_ip_hls_str) nounwind"
+ST_3 : Operation 18 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecPipeline(i32 1, i32 2, i32 1, i32 0, [1 x i8]* @p_str) nounwind" [my_ip_hls/my_ip_hls.cpp:5]
+ST_3 : Operation 19 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32* %slaveIn_V_data_V, i4* %slaveIn_V_strb_V, i1* %slaveIn_V_last_V, [5 x i8]* @p_str1, i32 1, i32 1, [5 x i8]* @p_str2, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str) nounwind" [my_ip_hls/my_ip_hls.cpp:6]
+ST_3 : Operation 20 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32* %MasterOut_V_data_V, i4* %MasterOut_V_strb_V, i1* %MasterOut_V_last_V, [5 x i8]* @p_str1, i32 1, i32 1, [5 x i8]* @p_str2, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str) nounwind" [my_ip_hls/my_ip_hls.cpp:7]
+ST_3 : Operation 21 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32 0, [13 x i8]* @p_str3, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str) nounwind" [my_ip_hls/my_ip_hls.cpp:8]
+ST_3 : Operation 22 [1/2] (0.00ns)   --->   "call void @_ssdm_op_Write.axis.volatile.i32P.i4P.i1P(i32* %MasterOut_V_data_V, i4* %MasterOut_V_strb_V, i1* %MasterOut_V_last_V, i32 %tmp_data_V, i4 %tmp_strb_V, i1 %tmp_last_V)" [my_ip_hls/my_ip_hls.cpp:20]   --->   Core 5 'AXI4Stream' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : >
+ST_3 : Operation 23 [1/1] (0.00ns)   --->   "br label %._crit_edge" [my_ip_hls/my_ip_hls.cpp:21]
+ST_3 : Operation 24 [1/1] (0.00ns)   --->   "ret void" [my_ip_hls/my_ip_hls.cpp:27]
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 0ns
+The critical path consists of the following:
+
+ <State 2>: 0ns
+The critical path consists of the following:
+
+ <State 3>: 0ns
+The critical path consists of the following:
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

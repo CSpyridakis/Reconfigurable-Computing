@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="axi_bram_ctrl_funcs" />
+            <top_module name="axi_dma_pkg" />
+            <top_module name="axi_vip_pkg" />
+            <top_module name="glbl" />
+            <top_module name="lib_pkg" />
+            <top_module name="std" />
+            <top_module name="tb" />
+            <top_module name="vcomponents" />
+            <top_module name="xil_common_vip_pkg" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="1000000000fs"></ZoomStartTime>
+      <ZoomEndTime time="1805953200fs"></ZoomEndTime>
+      <Cursor1Time time="9797000000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="281"></NameColumnWidth>
+      <ValueColumnWidth column_width="70"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="102" />
+   <wvobject fp_name="/tb/tb_ACLK" type="logic">
+      <obj_property name="ElementShortName">tb_ACLK</obj_property>
+      <obj_property name="ObjectShortName">tb_ACLK</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/tb_ARESETn" type="logic">
+      <obj_property name="ElementShortName">tb_ARESETn</obj_property>
+      <obj_property name="ObjectShortName">tb_ARESETn</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/temp_clk" type="logic">
+      <obj_property name="ElementShortName">temp_clk</obj_property>
+      <obj_property name="ObjectShortName">temp_clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/temp_rstn" type="logic">
+      <obj_property name="ElementShortName">temp_rstn</obj_property>
+      <obj_property name="ObjectShortName">temp_rstn</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/read_data" type="array">
+      <obj_property name="ElementShortName">read_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">read_data[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/resp" type="logic">
+      <obj_property name="ElementShortName">resp</obj_property>
+      <obj_property name="ObjectShortName">resp</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider57">
+      <obj_property name="label">BRAM_PORTA</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/blk_mem_ip/inst/clka" type="logic">
+      <obj_property name="ElementShortName">clka</obj_property>
+      <obj_property name="ObjectShortName">clka</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/blk_mem_ip/inst/rsta" type="logic">
+      <obj_property name="ElementShortName">rsta</obj_property>
+      <obj_property name="ObjectShortName">rsta</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/blk_mem_ip/inst/ena" type="logic">
+      <obj_property name="ElementShortName">ena</obj_property>
+      <obj_property name="ObjectShortName">ena</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/blk_mem_ip/inst/wea" type="array">
+      <obj_property name="ElementShortName">wea[3:0]</obj_property>
+      <obj_property name="ObjectShortName">wea[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/blk_mem_ip/inst/addra" type="array">
+      <obj_property name="ElementShortName">addra[31:0]</obj_property>
+      <obj_property name="ObjectShortName">addra[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/blk_mem_ip/inst/dina" type="array">
+      <obj_property name="ElementShortName">dina[31:0]</obj_property>
+      <obj_property name="ObjectShortName">dina[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/blk_mem_ip/inst/douta" type="array">
+      <obj_property name="ElementShortName">douta[31:0]</obj_property>
+      <obj_property name="ObjectShortName">douta[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider65">
+      <obj_property name="label">BRAM_PORTB</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/blk_mem_ip/inst/clkb" type="logic">
+      <obj_property name="ElementShortName">clkb</obj_property>
+      <obj_property name="ObjectShortName">clkb</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/blk_mem_ip/inst/rstb" type="logic">
+      <obj_property name="ElementShortName">rstb</obj_property>
+      <obj_property name="ObjectShortName">rstb</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/blk_mem_ip/inst/enb" type="logic">
+      <obj_property name="ElementShortName">enb</obj_property>
+      <obj_property name="ObjectShortName">enb</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/blk_mem_ip/inst/web" type="array">
+      <obj_property name="ElementShortName">web[3:0]</obj_property>
+      <obj_property name="ObjectShortName">web[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/blk_mem_ip/inst/addrb" type="array">
+      <obj_property name="ElementShortName">addrb[31:0]</obj_property>
+      <obj_property name="ObjectShortName">addrb[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/blk_mem_ip/inst/dinb" type="array">
+      <obj_property name="ElementShortName">dinb[31:0]</obj_property>
+      <obj_property name="ObjectShortName">dinb[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/blk_mem_ip/inst/doutb" type="array">
+      <obj_property name="ElementShortName">doutb[31:0]</obj_property>
+      <obj_property name="ObjectShortName">doutb[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider48">
+      <obj_property name="label">DMA CONFIG REGS</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/I_AXI_DMA_REG_MODULE/mm2s_dmacr" type="array">
+      <obj_property name="ElementShortName">mm2s_dmacr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">mm2s_dmacr[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/I_AXI_DMA_REG_MODULE/mm2s_dmasr" type="array">
+      <obj_property name="ElementShortName">mm2s_dmasr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">mm2s_dmasr[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/I_AXI_DMA_REG_MODULE/mm2s_sa" type="array">
+      <obj_property name="ElementShortName">mm2s_sa[31:0]</obj_property>
+      <obj_property name="ObjectShortName">mm2s_sa[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/I_AXI_DMA_REG_MODULE/mm2s_length" type="array">
+      <obj_property name="ElementShortName">mm2s_length[22:0]</obj_property>
+      <obj_property name="ObjectShortName">mm2s_length[22:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/I_AXI_DMA_REG_MODULE/s2mm_dmacr" type="array">
+      <obj_property name="ElementShortName">s2mm_dmacr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">s2mm_dmacr[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/I_AXI_DMA_REG_MODULE/s2mm_dmasr" type="array">
+      <obj_property name="ElementShortName">s2mm_dmasr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">s2mm_dmasr[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/I_AXI_DMA_REG_MODULE/s2mm_da" type="array">
+      <obj_property name="ElementShortName">s2mm_da[31:0]</obj_property>
+      <obj_property name="ObjectShortName">s2mm_da[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/I_AXI_DMA_REG_MODULE/s2mm_length" type="array">
+      <obj_property name="ElementShortName">s2mm_length[22:0]</obj_property>
+      <obj_property name="ObjectShortName">s2mm_length[22:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/mm2s_introut" type="logic">
+      <obj_property name="ElementShortName">mm2s_introut</obj_property>
+      <obj_property name="ObjectShortName">mm2s_introut</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/s2mm_introut" type="logic">
+      <obj_property name="ElementShortName">s2mm_introut</obj_property>
+      <obj_property name="ObjectShortName">s2mm_introut</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider29">
+      <obj_property name="label">DMA AXI LITE</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/I_AXI_DMA_REG_MODULE/s_axi_lite_aclk" type="logic">
+      <obj_property name="ElementShortName">s_axi_lite_aclk</obj_property>
+      <obj_property name="ObjectShortName">s_axi_lite_aclk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/I_AXI_DMA_REG_MODULE/axi_lite_reset_n" type="logic">
+      <obj_property name="ElementShortName">axi_lite_reset_n</obj_property>
+      <obj_property name="ObjectShortName">axi_lite_reset_n</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/I_AXI_DMA_REG_MODULE/s_axi_lite_awvalid" type="logic">
+      <obj_property name="ElementShortName">s_axi_lite_awvalid</obj_property>
+      <obj_property name="ObjectShortName">s_axi_lite_awvalid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/I_AXI_DMA_REG_MODULE/s_axi_lite_awready" type="logic">
+      <obj_property name="ElementShortName">s_axi_lite_awready</obj_property>
+      <obj_property name="ObjectShortName">s_axi_lite_awready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/I_AXI_DMA_REG_MODULE/s_axi_lite_awaddr" type="array">
+      <obj_property name="ElementShortName">s_axi_lite_awaddr[9:0]</obj_property>
+      <obj_property name="ObjectShortName">s_axi_lite_awaddr[9:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/I_AXI_DMA_REG_MODULE/s_axi_lite_wvalid" type="logic">
+      <obj_property name="ElementShortName">s_axi_lite_wvalid</obj_property>
+      <obj_property name="ObjectShortName">s_axi_lite_wvalid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/I_AXI_DMA_REG_MODULE/s_axi_lite_wready" type="logic">
+      <obj_property name="ElementShortName">s_axi_lite_wready</obj_property>
+      <obj_property name="ObjectShortName">s_axi_lite_wready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/I_AXI_DMA_REG_MODULE/s_axi_lite_wdata" type="array">
+      <obj_property name="ElementShortName">s_axi_lite_wdata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">s_axi_lite_wdata[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/I_AXI_DMA_REG_MODULE/s_axi_lite_bresp" type="array">
+      <obj_property name="ElementShortName">s_axi_lite_bresp[1:0]</obj_property>
+      <obj_property name="ObjectShortName">s_axi_lite_bresp[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/I_AXI_DMA_REG_MODULE/s_axi_lite_bvalid" type="logic">
+      <obj_property name="ElementShortName">s_axi_lite_bvalid</obj_property>
+      <obj_property name="ObjectShortName">s_axi_lite_bvalid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/I_AXI_DMA_REG_MODULE/s_axi_lite_bready" type="logic">
+      <obj_property name="ElementShortName">s_axi_lite_bready</obj_property>
+      <obj_property name="ObjectShortName">s_axi_lite_bready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/I_AXI_DMA_REG_MODULE/s_axi_lite_arvalid" type="logic">
+      <obj_property name="ElementShortName">s_axi_lite_arvalid</obj_property>
+      <obj_property name="ObjectShortName">s_axi_lite_arvalid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/I_AXI_DMA_REG_MODULE/s_axi_lite_arready" type="logic">
+      <obj_property name="ElementShortName">s_axi_lite_arready</obj_property>
+      <obj_property name="ObjectShortName">s_axi_lite_arready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/I_AXI_DMA_REG_MODULE/s_axi_lite_araddr" type="array">
+      <obj_property name="ElementShortName">s_axi_lite_araddr[9:0]</obj_property>
+      <obj_property name="ObjectShortName">s_axi_lite_araddr[9:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/I_AXI_DMA_REG_MODULE/s_axi_lite_rvalid" type="logic">
+      <obj_property name="ElementShortName">s_axi_lite_rvalid</obj_property>
+      <obj_property name="ObjectShortName">s_axi_lite_rvalid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/I_AXI_DMA_REG_MODULE/s_axi_lite_rready" type="logic">
+      <obj_property name="ElementShortName">s_axi_lite_rready</obj_property>
+      <obj_property name="ObjectShortName">s_axi_lite_rready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/I_AXI_DMA_REG_MODULE/s_axi_lite_rdata" type="array">
+      <obj_property name="ElementShortName">s_axi_lite_rdata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">s_axi_lite_rdata[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/I_AXI_DMA_REG_MODULE/s_axi_lite_rresp" type="array">
+      <obj_property name="ElementShortName">s_axi_lite_rresp[1:0]</obj_property>
+      <obj_property name="ObjectShortName">s_axi_lite_rresp[1:0]</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider74">
+      <obj_property name="label">DMA MAXI_MM2S</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/m_axi_mm2s_aclk" type="logic">
+      <obj_property name="ElementShortName">m_axi_mm2s_aclk</obj_property>
+      <obj_property name="ObjectShortName">m_axi_mm2s_aclk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/m_axi_mm2s_araddr" type="array">
+      <obj_property name="ElementShortName">m_axi_mm2s_araddr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">m_axi_mm2s_araddr[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/m_axi_mm2s_arlen" type="array">
+      <obj_property name="ElementShortName">m_axi_mm2s_arlen[7:0]</obj_property>
+      <obj_property name="ObjectShortName">m_axi_mm2s_arlen[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/m_axi_mm2s_arsize" type="array">
+      <obj_property name="ElementShortName">m_axi_mm2s_arsize[2:0]</obj_property>
+      <obj_property name="ObjectShortName">m_axi_mm2s_arsize[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/m_axi_mm2s_arburst" type="array">
+      <obj_property name="ElementShortName">m_axi_mm2s_arburst[1:0]</obj_property>
+      <obj_property name="ObjectShortName">m_axi_mm2s_arburst[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/m_axi_mm2s_arprot" type="array">
+      <obj_property name="ElementShortName">m_axi_mm2s_arprot[2:0]</obj_property>
+      <obj_property name="ObjectShortName">m_axi_mm2s_arprot[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/m_axi_mm2s_arcache" type="array">
+      <obj_property name="ElementShortName">m_axi_mm2s_arcache[3:0]</obj_property>
+      <obj_property name="ObjectShortName">m_axi_mm2s_arcache[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/m_axi_mm2s_aruser" type="array">
+      <obj_property name="ElementShortName">m_axi_mm2s_aruser[3:0]</obj_property>
+      <obj_property name="ObjectShortName">m_axi_mm2s_aruser[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/m_axi_mm2s_arvalid" type="logic">
+      <obj_property name="ElementShortName">m_axi_mm2s_arvalid</obj_property>
+      <obj_property name="ObjectShortName">m_axi_mm2s_arvalid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/m_axi_mm2s_arready" type="logic">
+      <obj_property name="ElementShortName">m_axi_mm2s_arready</obj_property>
+      <obj_property name="ObjectShortName">m_axi_mm2s_arready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/m_axi_mm2s_rdata" type="array">
+      <obj_property name="ElementShortName">m_axi_mm2s_rdata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">m_axi_mm2s_rdata[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/m_axi_mm2s_rresp" type="array">
+      <obj_property name="ElementShortName">m_axi_mm2s_rresp[1:0]</obj_property>
+      <obj_property name="ObjectShortName">m_axi_mm2s_rresp[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/m_axi_mm2s_rlast" type="logic">
+      <obj_property name="ElementShortName">m_axi_mm2s_rlast</obj_property>
+      <obj_property name="ObjectShortName">m_axi_mm2s_rlast</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/m_axi_mm2s_rvalid" type="logic">
+      <obj_property name="ElementShortName">m_axi_mm2s_rvalid</obj_property>
+      <obj_property name="ObjectShortName">m_axi_mm2s_rvalid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/m_axi_mm2s_rready" type="logic">
+      <obj_property name="ElementShortName">m_axi_mm2s_rready</obj_property>
+      <obj_property name="ObjectShortName">m_axi_mm2s_rready</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider89">
+      <obj_property name="label">DMA_MAXI_S2MM</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/m_axi_s2mm_aclk" type="logic">
+      <obj_property name="ElementShortName">m_axi_s2mm_aclk</obj_property>
+      <obj_property name="ObjectShortName">m_axi_s2mm_aclk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/m_axi_s2mm_awaddr" type="array">
+      <obj_property name="ElementShortName">m_axi_s2mm_awaddr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">m_axi_s2mm_awaddr[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/m_axi_s2mm_awlen" type="array">
+      <obj_property name="ElementShortName">m_axi_s2mm_awlen[7:0]</obj_property>
+      <obj_property name="ObjectShortName">m_axi_s2mm_awlen[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/m_axi_s2mm_awsize" type="array">
+      <obj_property name="ElementShortName">m_axi_s2mm_awsize[2:0]</obj_property>
+      <obj_property name="ObjectShortName">m_axi_s2mm_awsize[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/m_axi_s2mm_awburst" type="array">
+      <obj_property name="ElementShortName">m_axi_s2mm_awburst[1:0]</obj_property>
+      <obj_property name="ObjectShortName">m_axi_s2mm_awburst[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/m_axi_s2mm_awprot" type="array">
+      <obj_property name="ElementShortName">m_axi_s2mm_awprot[2:0]</obj_property>
+      <obj_property name="ObjectShortName">m_axi_s2mm_awprot[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/m_axi_s2mm_awcache" type="array">
+      <obj_property name="ElementShortName">m_axi_s2mm_awcache[3:0]</obj_property>
+      <obj_property name="ObjectShortName">m_axi_s2mm_awcache[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/m_axi_s2mm_awuser" type="array">
+      <obj_property name="ElementShortName">m_axi_s2mm_awuser[3:0]</obj_property>
+      <obj_property name="ObjectShortName">m_axi_s2mm_awuser[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/m_axi_s2mm_awvalid" type="logic">
+      <obj_property name="ElementShortName">m_axi_s2mm_awvalid</obj_property>
+      <obj_property name="ObjectShortName">m_axi_s2mm_awvalid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/m_axi_s2mm_awready" type="logic">
+      <obj_property name="ElementShortName">m_axi_s2mm_awready</obj_property>
+      <obj_property name="ObjectShortName">m_axi_s2mm_awready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/m_axi_s2mm_wdata" type="array">
+      <obj_property name="ElementShortName">m_axi_s2mm_wdata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">m_axi_s2mm_wdata[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/m_axi_s2mm_wstrb" type="array">
+      <obj_property name="ElementShortName">m_axi_s2mm_wstrb[3:0]</obj_property>
+      <obj_property name="ObjectShortName">m_axi_s2mm_wstrb[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/m_axi_s2mm_wlast" type="logic">
+      <obj_property name="ElementShortName">m_axi_s2mm_wlast</obj_property>
+      <obj_property name="ObjectShortName">m_axi_s2mm_wlast</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/m_axi_s2mm_wvalid" type="logic">
+      <obj_property name="ElementShortName">m_axi_s2mm_wvalid</obj_property>
+      <obj_property name="ObjectShortName">m_axi_s2mm_wvalid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/m_axi_s2mm_wready" type="logic">
+      <obj_property name="ElementShortName">m_axi_s2mm_wready</obj_property>
+      <obj_property name="ObjectShortName">m_axi_s2mm_wready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/m_axi_s2mm_bresp" type="array">
+      <obj_property name="ElementShortName">m_axi_s2mm_bresp[1:0]</obj_property>
+      <obj_property name="ObjectShortName">m_axi_s2mm_bresp[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/m_axi_s2mm_bvalid" type="logic">
+      <obj_property name="ElementShortName">m_axi_s2mm_bvalid</obj_property>
+      <obj_property name="ObjectShortName">m_axi_s2mm_bvalid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/m_axi_s2mm_bready" type="logic">
+      <obj_property name="ElementShortName">m_axi_s2mm_bready</obj_property>
+      <obj_property name="ObjectShortName">m_axi_s2mm_bready</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider108">
+      <obj_property name="label">MY_IP</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/s00_axis_tdata" type="array">
+      <obj_property name="ElementShortName">s00_axis_tdata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">s00_axis_tdata[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/s00_axis_tstrb" type="array">
+      <obj_property name="ElementShortName">s00_axis_tstrb[3:0]</obj_property>
+      <obj_property name="ObjectShortName">s00_axis_tstrb[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/s00_axis_tlast" type="logic">
+      <obj_property name="ElementShortName">s00_axis_tlast</obj_property>
+      <obj_property name="ObjectShortName">s00_axis_tlast</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/s00_axis_tvalid" type="logic">
+      <obj_property name="ElementShortName">s00_axis_tvalid</obj_property>
+      <obj_property name="ObjectShortName">s00_axis_tvalid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/s00_axis_tready" type="logic">
+      <obj_property name="ElementShortName">s00_axis_tready</obj_property>
+      <obj_property name="ObjectShortName">s00_axis_tready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/s00_axis_aclk" type="logic">
+      <obj_property name="ElementShortName">s00_axis_aclk</obj_property>
+      <obj_property name="ObjectShortName">s00_axis_aclk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/s00_axis_aresetn" type="logic">
+      <obj_property name="ElementShortName">s00_axis_aresetn</obj_property>
+      <obj_property name="ObjectShortName">s00_axis_aresetn</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/m00_axis_tdata" type="array">
+      <obj_property name="ElementShortName">m00_axis_tdata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">m00_axis_tdata[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/m00_axis_tstrb" type="array">
+      <obj_property name="ElementShortName">m00_axis_tstrb[3:0]</obj_property>
+      <obj_property name="ObjectShortName">m00_axis_tstrb[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/m00_axis_tlast" type="logic">
+      <obj_property name="ElementShortName">m00_axis_tlast</obj_property>
+      <obj_property name="ObjectShortName">m00_axis_tlast</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/m00_axis_tvalid" type="logic">
+      <obj_property name="ElementShortName">m00_axis_tvalid</obj_property>
+      <obj_property name="ObjectShortName">m00_axis_tvalid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/m00_axis_tready" type="logic">
+      <obj_property name="ElementShortName">m00_axis_tready</obj_property>
+      <obj_property name="ObjectShortName">m00_axis_tready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/m00_axis_aclk" type="logic">
+      <obj_property name="ElementShortName">m00_axis_aclk</obj_property>
+      <obj_property name="ObjectShortName">m00_axis_aclk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/m00_axis_aresetn" type="logic">
+      <obj_property name="ElementShortName">m00_axis_aresetn</obj_property>
+      <obj_property name="ObjectShortName">m00_axis_aresetn</obj_property>
+   </wvobject>
+</wave_config>

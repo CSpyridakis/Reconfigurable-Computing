@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
+  <source>
+    <originFiles name="my_ip_hls.cpp" path="C:\Work\Courses\HRY591\project\work\project_2_17.4\ip_repo\my_ip_hls\my_ip_hls.cpp"/>
+    <originFiles name="my_ip_hls.hpp" path="C:\Work\Courses\HRY591\project\work\project_2_17.4\ip_repo\my_ip_hls\my_ip_hls.hpp"/>
+  </source>
+  <testbench/>
+</autopilotfilemapping:AutoPilotFileMapping>

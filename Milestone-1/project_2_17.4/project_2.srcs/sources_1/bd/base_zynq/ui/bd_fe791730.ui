@@ -1,0 +1,39 @@
+{
+   ExpandedHierarchyInLayout: "",
+   guistr: "# # String gsaved with Nlview 6.6.11  2017-06-12 bk=1.3860 VDI=40 GEI=35 GUI=JA:1.6
+#  -string -flagsOSRD
+preplace port DDR -pg 1 -y 320 -defaultsOSRD
+preplace port FIXED_IO -pg 1 -y 340 -defaultsOSRD
+preplace inst rst_ps7_0_50M -pg 1 -lvl 1 -y 310 -defaultsOSRD
+preplace inst dma_axi_interconnect_ic_ip -pg 1 -lvl 2 -y 500 -defaultsOSRD
+preplace inst blk_mem_ip -pg 1 -lvl 4 -y 200 -defaultsOSRD
+preplace inst dma_irq_concat_ip -pg 1 -lvl 3 -y 740 -defaultsOSRD
+preplace inst myip_0 -pg 1 -lvl 4 -y 520 -defaultsOSRD
+preplace inst ps7_0_axi_periph_ip -pg 1 -lvl 2 -y 170 -defaultsOSRD
+preplace inst axi_dma_ip -pg 1 -lvl 3 -y 520 -defaultsOSRD
+preplace inst axi_bram_ctrl_port_B_ip -pg 1 -lvl 3 -y 270 -defaultsOSRD
+preplace inst processing_system7_0 -pg 1 -lvl 1 -y 520 -defaultsOSRD
+preplace inst axi_bram_ctrl_port_A_ip -pg 1 -lvl 3 -y 140 -defaultsOSRD
+preplace netloc processing_system7_0_DDR 1 1 4 740J 340 NJ 340 1430J 320 NJ
+preplace netloc myip_0_M00_AXIS 1 2 3 1090 410 NJ 410 1740
+preplace netloc ps7_0_axi_periph_ip_M01_AXI 1 2 1 1050
+preplace netloc axi_dma_ip_mm2s_introut 1 2 2 1050 640 1450
+preplace netloc dma_axi_interconnect_ic_ip_M00_AXI 1 2 1 1080
+preplace netloc processing_system7_0_M_AXI_GP0 1 1 1 730
+preplace netloc axi_bram_ctrl_0_BRAM_PORTA 1 3 1 1430J
+preplace netloc processing_system7_0_FCLK_RESET0_N 1 0 2 0 220 690
+preplace netloc axi_dma_ip_s2mm_introut 1 2 2 1090 680 1440
+preplace netloc rst_ps7_0_50M_interconnect_aresetn 1 1 1 710
+preplace netloc axi_bram_ctrl_port_B_ip_BRAM_PORTA 1 3 1 1430
+preplace netloc xlconcat_0_dout 1 0 4 0J 670 NJ 670 NJ 670 1430
+preplace netloc processing_system7_0_FIXED_IO 1 1 4 750J 350 NJ 350 1440J 340 NJ
+preplace netloc axi_dma_ip_M_AXI_S2MM 1 1 3 760 310 1040J 390 1430
+preplace netloc rst_ps7_0_50M_peripheral_aresetn 1 1 3 720 10 1070 630 1460
+preplace netloc axi_dma_ip_M_AXI_MM2S 1 1 3 770 330 1030J 360 1440
+preplace netloc processing_system7_0_FCLK_CLK0 1 0 4 -10 210 700 30 1060 400 1450
+preplace netloc axi_dma_ip_M_AXIS_MM2S 1 3 1 1440
+preplace netloc ps7_0_axi_periph_M00_AXI 1 2 1 1030
+levelinfo -pg 1 -30 480 900 1260 1600 1760 -top -210 -bot 800
+",
+}
+0
