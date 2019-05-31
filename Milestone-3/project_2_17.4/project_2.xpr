@@ -3,7 +3,7 @@
 <!--                                                         -->
 <!-- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.   -->
 
-<Project Version="7" Minor="35" Path="C:/Users/CS/Desktop/Vivado-Projects/Milestone_3/project_2_17.4/project_2.xpr">
+<Project Version="7" Minor="35" Path="C:/Users/CS/Desktop/Vivado-Projects/Milestone_3_last/project_2_17.4/project_2.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="9e2ce5b03cf34386aea9708b249be066"/>
@@ -34,7 +34,7 @@
     <Option Name="DSAVendor" Val="xilinx"/>
     <Option Name="DSABoardId" Val="zc706"/>
     <Option Name="DSANumComputeUnits" Val="16"/>
-    <Option Name="WTXSimLaunchSim" Val="40"/>
+    <Option Name="WTXSimLaunchSim" Val="47"/>
     <Option Name="WTModelSimLaunchSim" Val="0"/>
     <Option Name="WTQuestaLaunchSim" Val="0"/>
     <Option Name="WTIesLaunchSim" Val="0"/>

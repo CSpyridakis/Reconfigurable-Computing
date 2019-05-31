@@ -18,15 +18,27 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="14571666666fs"></ZoomStartTime>
-      <ZoomEndTime time="18337666667fs"></ZoomEndTime>
-      <Cursor1Time time="14671667000fs"></Cursor1Time>
+      <ZoomStartTime time="1069171400fs"></ZoomStartTime>
+      <ZoomEndTime time="11624171401fs"></ZoomEndTime>
+      <Cursor1Time time="2009171000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="281"></NameColumnWidth>
-      <ValueColumnWidth column_width="66"></ValueColumnWidth>
+      <NameColumnWidth column_width="194"></NameColumnWidth>
+      <ValueColumnWidth column_width="58"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="147" />
+   <wave_markers>
+      <marker time="10210000000" label="" />
+      <marker time="10390000000" label="" />
+      <marker time="10230000000" label="" />
+      <marker time="10410000000" label="" />
+      <marker time="10570000000" label="" />
+      <marker time="10130000000" label="" />
+      <marker time="10290000000" label="" />
+      <marker time="10090100000" label="" />
+      <marker time="10850000000" label="" />
+      <marker time="10950694000" label="" />
+   </wave_markers>
    <wvobject fp_name="/tb/tb_ACLK" type="logic">
       <obj_property name="ElementShortName">tb_ACLK</obj_property>
       <obj_property name="ObjectShortName">tb_ACLK</obj_property>
@@ -110,10 +122,14 @@
    <wvobject fp_name="/tb/zynq_sys/base_zynq_i/blk_mem_ip/inst/dinb" type="array">
       <obj_property name="ElementShortName">dinb[31:0]</obj_property>
       <obj_property name="ObjectShortName">dinb[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#0000A0</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/tb/zynq_sys/base_zynq_i/blk_mem_ip/inst/doutb" type="array">
       <obj_property name="ElementShortName">doutb[31:0]</obj_property>
       <obj_property name="ObjectShortName">doutb[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#0000A0</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject type="divider" fp_name="divider48">
       <obj_property name="label">DMA CONFIG REGS</obj_property>
@@ -282,6 +298,8 @@
    <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/m_axi_mm2s_rdata" type="array">
       <obj_property name="ElementShortName">m_axi_mm2s_rdata[31:0]</obj_property>
       <obj_property name="ObjectShortName">m_axi_mm2s_rdata[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#0000A0</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/m_axi_mm2s_rresp" type="array">
       <obj_property name="ElementShortName">m_axi_mm2s_rresp[1:0]</obj_property>
@@ -290,14 +308,20 @@
    <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/m_axi_mm2s_rlast" type="logic">
       <obj_property name="ElementShortName">m_axi_mm2s_rlast</obj_property>
       <obj_property name="ObjectShortName">m_axi_mm2s_rlast</obj_property>
+      <obj_property name="CustomSignalColor">#808080</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/m_axi_mm2s_rvalid" type="logic">
       <obj_property name="ElementShortName">m_axi_mm2s_rvalid</obj_property>
       <obj_property name="ObjectShortName">m_axi_mm2s_rvalid</obj_property>
+      <obj_property name="CustomSignalColor">#FF0000</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/m_axi_mm2s_rready" type="logic">
       <obj_property name="ElementShortName">m_axi_mm2s_rready</obj_property>
       <obj_property name="ObjectShortName">m_axi_mm2s_rready</obj_property>
+      <obj_property name="CustomSignalColor">#FF0000</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject type="divider" fp_name="divider89">
       <obj_property name="label">DMA_MAXI_S2MM</obj_property>
@@ -338,14 +362,20 @@
    <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/m_axi_s2mm_awvalid" type="logic">
       <obj_property name="ElementShortName">m_axi_s2mm_awvalid</obj_property>
       <obj_property name="ObjectShortName">m_axi_s2mm_awvalid</obj_property>
+      <obj_property name="CustomSignalColor">#00FF00</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/m_axi_s2mm_awready" type="logic">
       <obj_property name="ElementShortName">m_axi_s2mm_awready</obj_property>
       <obj_property name="ObjectShortName">m_axi_s2mm_awready</obj_property>
+      <obj_property name="CustomSignalColor">#00FF00</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/m_axi_s2mm_wdata" type="array">
       <obj_property name="ElementShortName">m_axi_s2mm_wdata[31:0]</obj_property>
       <obj_property name="ObjectShortName">m_axi_s2mm_wdata[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#0000A0</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/m_axi_s2mm_wstrb" type="array">
       <obj_property name="ElementShortName">m_axi_s2mm_wstrb[3:0]</obj_property>
@@ -354,14 +384,20 @@
    <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/m_axi_s2mm_wlast" type="logic">
       <obj_property name="ElementShortName">m_axi_s2mm_wlast</obj_property>
       <obj_property name="ObjectShortName">m_axi_s2mm_wlast</obj_property>
+      <obj_property name="CustomSignalColor">#808080</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/m_axi_s2mm_wvalid" type="logic">
       <obj_property name="ElementShortName">m_axi_s2mm_wvalid</obj_property>
       <obj_property name="ObjectShortName">m_axi_s2mm_wvalid</obj_property>
+      <obj_property name="CustomSignalColor">#00FF00</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/m_axi_s2mm_wready" type="logic">
       <obj_property name="ElementShortName">m_axi_s2mm_wready</obj_property>
       <obj_property name="ObjectShortName">m_axi_s2mm_wready</obj_property>
+      <obj_property name="CustomSignalColor">#00FF00</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/tb/zynq_sys/base_zynq_i/axi_dma_ip/U0/m_axi_s2mm_bresp" type="array">
       <obj_property name="ElementShortName">m_axi_s2mm_bresp[1:0]</obj_property>
@@ -382,6 +418,8 @@
    <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/s00_axis_tdata" type="array">
       <obj_property name="ElementShortName">s00_axis_tdata[31:0]</obj_property>
       <obj_property name="ObjectShortName">s00_axis_tdata[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#0000FF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/s00_axis_tstrb" type="array">
       <obj_property name="ElementShortName">s00_axis_tstrb[3:0]</obj_property>
@@ -390,14 +428,20 @@
    <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/s00_axis_tlast" type="logic">
       <obj_property name="ElementShortName">s00_axis_tlast</obj_property>
       <obj_property name="ObjectShortName">s00_axis_tlast</obj_property>
+      <obj_property name="CustomSignalColor">#A0A0A4</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/s00_axis_tvalid" type="logic">
       <obj_property name="ElementShortName">s00_axis_tvalid</obj_property>
       <obj_property name="ObjectShortName">s00_axis_tvalid</obj_property>
+      <obj_property name="CustomSignalColor">#FF0000</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/s00_axis_tready" type="logic">
       <obj_property name="ElementShortName">s00_axis_tready</obj_property>
       <obj_property name="ObjectShortName">s00_axis_tready</obj_property>
+      <obj_property name="CustomSignalColor">#FF0000</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/s00_axis_aclk" type="logic">
       <obj_property name="ElementShortName">s00_axis_aclk</obj_property>
@@ -410,6 +454,8 @@
    <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/m00_axis_tdata" type="array">
       <obj_property name="ElementShortName">m00_axis_tdata[31:0]</obj_property>
       <obj_property name="ObjectShortName">m00_axis_tdata[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#0000FF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/m00_axis_tstrb" type="array">
       <obj_property name="ElementShortName">m00_axis_tstrb[3:0]</obj_property>
@@ -418,14 +464,20 @@
    <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/m00_axis_tlast" type="logic">
       <obj_property name="ElementShortName">m00_axis_tlast</obj_property>
       <obj_property name="ObjectShortName">m00_axis_tlast</obj_property>
+      <obj_property name="CustomSignalColor">#A0A0A4</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/m00_axis_tvalid" type="logic">
       <obj_property name="ElementShortName">m00_axis_tvalid</obj_property>
       <obj_property name="ObjectShortName">m00_axis_tvalid</obj_property>
+      <obj_property name="CustomSignalColor">#FF0000</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/m00_axis_tready" type="logic">
       <obj_property name="ElementShortName">m00_axis_tready</obj_property>
       <obj_property name="ObjectShortName">m00_axis_tready</obj_property>
+      <obj_property name="CustomSignalColor">#FF0000</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_0/m00_axis_aclk" type="logic">
       <obj_property name="ElementShortName">m00_axis_aclk</obj_property>
@@ -526,6 +578,8 @@
    <wvobject fp_name="/tb/zynq_sys/base_zynq_i/my_ip_hls_0/slaveIn_TDATA" type="array">
       <obj_property name="ElementShortName">slaveIn_TDATA[31:0]</obj_property>
       <obj_property name="ObjectShortName">slaveIn_TDATA[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#0000FF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/tb/zynq_sys/base_zynq_i/my_ip_hls_0/slaveIn_TSTRB" type="array">
       <obj_property name="ElementShortName">slaveIn_TSTRB[3:0]</obj_property>
@@ -546,6 +600,8 @@
    <wvobject fp_name="/tb/zynq_sys/base_zynq_i/my_ip_hls_0/masterOut_TDATA" type="array">
       <obj_property name="ElementShortName">masterOut_TDATA[31:0]</obj_property>
       <obj_property name="ObjectShortName">masterOut_TDATA[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#0000FF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/tb/zynq_sys/base_zynq_i/my_ip_hls_0/masterOut_TSTRB" type="array">
       <obj_property name="ElementShortName">masterOut_TSTRB[3:0]</obj_property>
@@ -562,6 +618,8 @@
    <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_1/s00_axis_tdata" type="array">
       <obj_property name="ElementShortName">s00_axis_tdata[31:0]</obj_property>
       <obj_property name="ObjectShortName">s00_axis_tdata[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#0000A0</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_1/s00_axis_tstrb" type="array">
       <obj_property name="ElementShortName">s00_axis_tstrb[3:0]</obj_property>
@@ -570,14 +628,20 @@
    <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_1/s00_axis_tlast" type="logic">
       <obj_property name="ElementShortName">s00_axis_tlast</obj_property>
       <obj_property name="ObjectShortName">s00_axis_tlast</obj_property>
+      <obj_property name="CustomSignalColor">#808080</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_1/s00_axis_tvalid" type="logic">
       <obj_property name="ElementShortName">s00_axis_tvalid</obj_property>
       <obj_property name="ObjectShortName">s00_axis_tvalid</obj_property>
+      <obj_property name="CustomSignalColor">#FF0000</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_1/s00_axis_tready" type="logic">
       <obj_property name="ElementShortName">s00_axis_tready</obj_property>
       <obj_property name="ObjectShortName">s00_axis_tready</obj_property>
+      <obj_property name="CustomSignalColor">#FF0000</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_1/s00_axis_aclk" type="logic">
       <obj_property name="ElementShortName">s00_axis_aclk</obj_property>
@@ -590,6 +654,8 @@
    <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_1/m00_axis_tdata" type="array">
       <obj_property name="ElementShortName">m00_axis_tdata[31:0]</obj_property>
       <obj_property name="ObjectShortName">m00_axis_tdata[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#0000A0</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_1/m00_axis_tstrb" type="array">
       <obj_property name="ElementShortName">m00_axis_tstrb[3:0]</obj_property>
@@ -598,14 +664,20 @@
    <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_1/m00_axis_tlast" type="logic">
       <obj_property name="ElementShortName">m00_axis_tlast</obj_property>
       <obj_property name="ObjectShortName">m00_axis_tlast</obj_property>
+      <obj_property name="CustomSignalColor">#808080</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_1/m00_axis_tvalid" type="logic">
       <obj_property name="ElementShortName">m00_axis_tvalid</obj_property>
       <obj_property name="ObjectShortName">m00_axis_tvalid</obj_property>
+      <obj_property name="CustomSignalColor">#FF0000</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_1/m00_axis_tready" type="logic">
       <obj_property name="ElementShortName">m00_axis_tready</obj_property>
       <obj_property name="ObjectShortName">m00_axis_tready</obj_property>
+      <obj_property name="CustomSignalColor">#FF0000</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/tb/zynq_sys/base_zynq_i/myip_1/m00_axis_aclk" type="logic">
       <obj_property name="ElementShortName">m00_axis_aclk</obj_property>
