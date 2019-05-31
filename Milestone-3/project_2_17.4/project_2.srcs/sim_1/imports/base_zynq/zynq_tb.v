@@ -63,6 +63,7 @@ module tb;
     parameter DMA_TEST_SIZE_WORDS_READ_BACK = 8;  //32bit words  | only 5 out of 8 packets pass through
     parameter DMA_TEST_SIZE_BYTES_READ_BACK = DMA_TEST_SIZE_WORDS_READ_BACK*4;  //bytes
     // ---------------------------------------
+    
     parameter DMA_TEST_SIZE_WORDS = 8;  //32bit words
     parameter DMA_TEST_SIZE_BYTES = DMA_TEST_SIZE_WORDS*4;  //bytes
     parameter C_USE_S_AXI_ACP = 1;
@@ -140,7 +141,7 @@ module tb;
         tb.zynq_sys.base_zynq_i.processing_system7_0.inst.fpga_soft_reset(32'h0);
         
         repeat(50) @(posedge tb_ACLK);
-               
+         
         //Write into the BRAM through GP0 and read back
         tb.zynq_sys.base_zynq_i.processing_system7_0.inst.write_data((BRAM_BASE_ADDR + 4*0),4, 32'h10, resp);
         tb.zynq_sys.base_zynq_i.processing_system7_0.inst.read_data((BRAM_BASE_ADDR + 4*0),4,read_data,resp);
@@ -197,7 +198,7 @@ module tb;
         tb.zynq_sys.base_zynq_i.processing_system7_0.inst.write_data(DMA_MM2S_DMASA_REG,4, DMA_MM2S_BRAM_SPACE_START, resp);        
         //start the DMA read transfer by writing the number of data to be read
         tb.zynq_sys.base_zynq_i.processing_system7_0.inst.write_data(DMA_MM2S_LENGTH_REG,4, DMA_TEST_SIZE_BYTES_READ_BACK, resp);   // Changed for Milestone 3
-        
+                
         $display ("Simulation completed!");
         $stop;
     end
