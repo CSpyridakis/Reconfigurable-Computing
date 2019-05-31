@@ -60,7 +60,7 @@ module tb;
     // ---------------------------------------
     
     // ------- Milestone 3 parameters  -------
-    parameter DMA_TEST_SIZE_WORDS_READ_BACK = 8;  //32bit words  | only 5 out of 8 packets pass through
+    parameter DMA_TEST_SIZE_WORDS_READ_BACK = 5;  //32bit words  | only 5 out of 8 packets pass through
     parameter DMA_TEST_SIZE_BYTES_READ_BACK = DMA_TEST_SIZE_WORDS_READ_BACK*4;  //bytes
     // ---------------------------------------
     
@@ -190,14 +190,14 @@ module tb;
         //write a valid address to the DMA_S2MM_DMADA_REG where data will be written  
         tb.zynq_sys.base_zynq_i.processing_system7_0.inst.write_data(DMA_S2MM_DMADA_REG,4, DMA_S2MM_BRAM_SPACE_START, resp);  
         //start the DMA write transfer by writing the number of data that are expected to be written
-        tb.zynq_sys.base_zynq_i.processing_system7_0.inst.write_data(DMA_S2MM_LENGTH_REG,4, DMA_TEST_SIZE_BYTES, resp);  
+        tb.zynq_sys.base_zynq_i.processing_system7_0.inst.write_data(DMA_S2MM_LENGTH_REG,4, DMA_TEST_SIZE_BYTES_READ_BACK, resp);   // Changed for Milestone 3
           
         //start the MM2S channel by setting the run/stop bit to 1 RS = 1      
         tb.zynq_sys.base_zynq_i.processing_system7_0.inst.write_data(DMA_MM2S_DMACR_REG,4, 32'b00000000000000000000000000000001, resp);        
         //write a valid address to the DMA_MM2S_DMASA_REG from where data will be read
         tb.zynq_sys.base_zynq_i.processing_system7_0.inst.write_data(DMA_MM2S_DMASA_REG,4, DMA_MM2S_BRAM_SPACE_START, resp);        
         //start the DMA read transfer by writing the number of data to be read
-        tb.zynq_sys.base_zynq_i.processing_system7_0.inst.write_data(DMA_MM2S_LENGTH_REG,4, DMA_TEST_SIZE_BYTES_READ_BACK, resp);   // Changed for Milestone 3
+        tb.zynq_sys.base_zynq_i.processing_system7_0.inst.write_data(DMA_MM2S_LENGTH_REG,4, DMA_TEST_SIZE_BYTES, resp);  
                 
         $display ("Simulation completed!");
         $stop;
