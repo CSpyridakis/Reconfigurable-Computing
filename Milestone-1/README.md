@@ -2,8 +2,7 @@
 
 ## Documentation
 ### Reports
-If you want more information about each module you could read (or just try to read, unfortunately at this point are only in greek language) the following report files:
-* [Milestone 1](./doc/Milestone-1-Report.pdf)
+If you want more information about the implementation, you could read - or at least try, unfortunately, is in greek language - this report file [Milestone 1](./doc/Milestone-1-Report.pdf) or by reading the inline documentation.
 
 ### Diagrams
 
